@@ -1,30 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unsolved Scotland — kilted.scot</title>
+<meta name="description" content="Unsolved Scotland — disappearances, deaths and hoaxes from the Scottish record, taken as far as the evidence goes and no further.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<style>
-  body{margin:0;background:#f2efe8;color:#1d2a35;font-family:system-ui,sans-serif}
-  header{background:#1d2a35;color:#f2efe8;padding:1.4rem 1.7rem;display:flex;align-items:center;gap:1rem}
-  header img{width:38px;height:38px}
-  header span{font-family:Georgia,serif;font-size:22px}
-  main{padding:2rem}
-  a{color:#5c3d86}
-  .episode-card{border:1px solid #1d2a35;border-radius:4px;padding:1rem;margin-bottom:1rem}
-  .episode-card img{max-width:100%;display:block;margin-bottom:.5rem}
-  .coming-soon{font-size:.85rem;color:#5c3d86;font-weight:bold}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Spectral:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-<header>
-  <img src="/assets/brand/mark-dark.svg" alt="">
-  <a href="/" style="color:#f2efe8;text-decoration:none"><span>kilted.scot</span></a>
+
+<header class="banner">
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
+      <a class="back" href="/">All series</a>
+    </nav>
+    <div class="banner-body">
+      <p class="label eyebrow">A kilted.scot series</p>
+      <h1>Unsolved <span class="tail">Scotland</span></h1>
+      <p class="lede">Disappearances, deaths and hoaxes from the Scottish record. Each case taken as far as the evidence goes — and stopped there.</p>
+      <dl class="facts">
+        <div><dt>Cases announced</dt><dd id="ep-count">&mdash;</dd></div>
+        <div><dt>Status</dt><dd id="ep-status">In production</dd></div>
+        <div><dt>Watch</dt><dd>YouTube, soon</dd></div>
+      </dl>
+    </div>
+  </div>
 </header>
-<main>
-  <h1>Unsolved Scotland</h1>
-  <!-- Structural data-wiring only — visual design is a separate frontend-designer pass (see spec §5, §8). -->
+<div class="hatch-band"></div>
+
+<main class="wrap">
+  <div class="ledger-head">
+    <div>
+      <h2>The case list</h2>
+      <p>The full opening run, published in order. Announced cases are researched and scheduled; each one appears here as a full entry on the day it goes live.</p>
+    </div>
+  </div>
+
   <div id="episodes"></div>
   <script>
     fetch('/unsolved-scotland/episodes.json')
@@ -32,14 +48,24 @@
       .then(function (episodes) {
         var container = document.getElementById('episodes');
         episodes.sort(function (a, b) { return a.number - b.number; });
+        var published = episodes.filter(function (e) { return e.status === 'published'; }).length;
+        document.getElementById('ep-count').textContent = episodes.length;
+        document.getElementById('ep-status').textContent = published
+          ? published + ' of ' + episodes.length + ' published'
+          : 'In production';
         episodes.forEach(function (ep) {
           var card = document.createElement('div');
           card.className = 'episode-card episode-' + ep.status;
+          card.dataset.n = ('0' + ep.number).slice(-2);
           if (ep.status === 'published') {
+            var d = new Date(ep.publishedDate);
             card.innerHTML =
               '<img src="' + ep.thumbnail + '" alt="">' +
               '<h2><a href="' + ep.url + '">' + ep.title + '</a></h2>' +
-              '<p>' + ep.summary + '</p>';
+              '<p>' + ep.summary + '</p>' +
+              (isNaN(d) ? '' : '<time datetime="' + ep.publishedDate + '">' +
+                d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) +
+                '</time>');
           } else {
             card.innerHTML =
               '<h2>' + ep.title + '</h2>' +
@@ -51,5 +77,13 @@
       });
   </script>
 </main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
+    <p>Unsolved Scotland is a kilted.scot series.</p>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,486 @@
+/* kilted.scot — shared site styles.
+   Palette and mark are fixed brand assets: navy #1d2a35, cream #f2efe8,
+   thistle #5c3d86 (on cream) / #ab8fda (on navy).
+   Motif: the saltire's 45° diagonal, reused as hatching and as edge accents. */
+
+:root {
+  --navy:      #1d2a35;
+  --navy-lift: #26333f;
+  --cream:     #f2efe8;
+  --paper:     #faf8f3;   /* warm raised surface — never white */
+  --thistle:   #5c3d86;
+  --thistle-l: #ab8fda;
+
+  --ink:       #1d2a35;
+  --ink-soft:  #4d5761;
+  --rule:      rgba(29, 42, 53, .17);
+  --rule-firm: rgba(29, 42, 53, .38);
+
+  --display: Fraunces, "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --text:    Spectral, Georgia, "Times New Roman", serif;
+
+  --wrap: 68rem;
+  --gutter: clamp(1.25rem, 5vw, 3.25rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--text);
+  font-weight: 400;
+  font-size: clamp(1rem, .96rem + .2vw, 1.075rem);
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -.018em;
+  margin: 0;
+}
+
+a { color: var(--thistle); }
+
+img { max-width: 100%; }
+
+:focus-visible {
+  outline: 2px solid var(--thistle);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Small uppercase label — thistle, never a dim grey murmur. */
+.label {
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: .715rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--thistle);
+  margin: 0;
+}
+
+/* The diagonal, in three sizes. Ties every accent back to the mark. */
+.hatch-band {
+  height: 9px;
+  background: repeating-linear-gradient(135deg,
+    var(--thistle-l) 0 2px, transparent 2px 8px);
+  opacity: .8;
+}
+
+/* ── Banner ─────────────────────────────────────────────────────────── */
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 88% -10%, var(--navy-lift) 0%, var(--navy) 62%);
+  color: var(--cream);
+  isolation: isolate;
+}
+
+/* The mark's 45° diagonal, blown up into a field — brand texture without
+   restating the mark itself at billboard size. */
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(44rem, 62%);
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(135deg,
+    rgba(171, 143, 218, .30) 0 2px, transparent 2px 17px);
+  -webkit-mask-image: linear-gradient(115deg, transparent 12%, #000 96%);
+  mask-image: linear-gradient(115deg, transparent 12%, #000 96%);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.15rem;
+  border-bottom: 1px solid rgba(242, 239, 232, .16);
+}
+
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.lockup img { width: 34px; height: 34px; display: block; }
+
+.lockup span {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-weight: 600;
+  font-size: 1.32rem;
+  letter-spacing: -.015em;
+}
+
+.lockup b { color: var(--thistle-l); font-weight: 600; }
+
+.topbar a.back {
+  font-size: .8rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(242, 239, 232, .74);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color .18s ease, border-color .18s ease;
+}
+
+.topbar a.back:hover { color: var(--cream); border-bottom-color: var(--thistle-l); }
+
+.banner-body { padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2.6rem, 7vw, 5rem); }
+
+.banner-body .eyebrow {
+  color: var(--thistle-l);
+  margin-bottom: 1.4rem;
+}
+
+.banner h1 {
+  font-size: clamp(2.5rem, 1.3rem + 5.6vw, 5.2rem);
+  max-width: 17ch;
+  margin: 0;
+}
+
+.banner h1 .tail { color: var(--thistle-l); }
+
+.lede {
+  max-width: 44ch;
+  margin: 1.6rem 0 0;
+  font-size: clamp(1.06rem, 1rem + .45vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(242, 239, 232, .82);
+}
+
+/* Standing figures under the banner headline (series page). */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  margin-top: 2.6rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(242, 239, 232, .18);
+}
+
+.facts div { min-width: 6rem; }
+
+.facts dt {
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(242, 239, 232, .6);
+}
+
+.facts dd {
+  margin: .3rem 0 0;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+/* ── Homepage: statement + series ledger ───────────────────────────── */
+
+.statement {
+  display: grid;
+  grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
+  gap: 1.2rem 2.5rem;
+  align-items: start;
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.statement p.body {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.02rem + .6vw, 1.55rem);
+  line-height: 1.5;
+  font-weight: 300;
+  max-width: 34ch;
+}
+
+.statement p.body em {
+  font-style: normal;
+  color: var(--thistle);
+  box-shadow: inset 0 -.42em 0 rgba(92, 61, 134, .13);
+}
+
+.series-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .9rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.series-head h2 { font-size: clamp(1.6rem, 1.3rem + 1.1vw, 2.2rem); }
+
+.series-head .count { font-size: .82rem; color: var(--ink-soft); }
+
+.series {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr) 2.5rem;
+  gap: 0 clamp(1.1rem, 3vw, 2.2rem);
+  align-items: start;
+  padding: clamp(1.6rem, 3.5vw, 2.4rem) 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+/* Same rail the published episodes use — one hover grammar across the site,
+   and no padding shift, so the paragraph never re-wraps under the cursor. */
+a.series:hover, a.series:focus-visible {
+  background: var(--paper);
+  box-shadow: inset 3px 0 0 var(--thistle);
+}
+
+.series-flag {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: block;
+  background: repeating-linear-gradient(135deg,
+    var(--thistle) 0 3px, transparent 3px 11px);
+  border-left: 2px solid var(--thistle);
+}
+
+.series h3 {
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.7rem);
+  margin-bottom: .55rem;
+}
+
+a.series:hover h3 { color: var(--thistle); }
+
+.series p {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--ink-soft);
+}
+
+.series-meta {
+  display: block;
+  margin-top: 1rem;
+  font-size: .78rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--thistle);
+}
+
+.series-go {
+  font-family: var(--display);
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--thistle);
+  justify-self: end;
+  transition: transform .2s ease;
+}
+
+a.series:hover .series-go { transform: translateX(5px); }
+
+/* Honest empty state — not a link, and it does not pretend to be one. */
+.series.pending { color: var(--ink-soft); }
+.series.pending .series-flag {
+  background: repeating-linear-gradient(135deg,
+    var(--rule-firm) 0 1px, transparent 1px 9px);
+  border-left: 2px solid var(--rule-firm);
+}
+.series.pending h3 { font-size: 1.4rem; font-weight: 400; color: var(--ink-soft); }
+
+/* ── Series page: the episode ledger ───────────────────────────────── */
+
+.ledger-head {
+  padding-block: clamp(2.6rem, 6vw, 4rem) 1rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.ledger-head h2 { font-size: clamp(1.6rem, 1.3rem + 1.1vw, 2.2rem); }
+
+.ledger-head p { margin: .7rem 0 0; max-width: 58ch; color: var(--ink-soft); }
+
+#episodes { margin-bottom: clamp(3rem, 7vw, 5rem); }
+
+/* Three columns: numeral | case | status rail. The rail carries the chip on an
+   announced case and the thumbnail on a published one, so the row never
+   half-empties as the series fills up. */
+.episode-card {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 15rem);
+  gap: .35rem clamp(1.1rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 3.2vw, 2.1rem) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.episode-card h2 {
+  grid-column: 2;
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.85rem);
+  font-weight: 500;
+}
+
+.episode-card p {
+  grid-column: 2;
+  margin: .55rem 0 0;
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+/* Episode numeral — the state indicator, before any words are read. */
+.episode-card::before {
+  content: attr(data-n);
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: .9;
+  letter-spacing: -.04em;
+  align-self: start;
+}
+
+/* Announced: outlined numeral, quiet type, no surface of its own. */
+.episode-announced::before {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--rule-firm);
+  text-stroke: 1.5px var(--rule-firm);
+}
+
+.episode-announced h2 { color: rgba(29, 42, 53, .82); }
+
+.coming-soon {
+  grid-column: 3;
+  grid-row: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin-top: .6rem;
+  justify-self: end;
+  font-family: var(--text);
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--thistle);
+}
+
+.coming-soon::before {
+  content: "";
+  width: 26px;
+  height: 10px;
+  background: repeating-linear-gradient(135deg,
+    var(--thistle) 0 2px, transparent 2px 7px);
+}
+
+/* Published: solid numeral, a warm raised surface, a thumbnail, a link. */
+.episode-published {
+  background: var(--paper);
+  padding-inline: clamp(1rem, 2.5vw, 1.6rem);
+  box-shadow: inset 3px 0 0 var(--thistle);
+  border-bottom-color: transparent;
+  margin-bottom: 1px;
+}
+
+.episode-published::before { color: var(--thistle); }
+
+.episode-published img {
+  grid-column: 3;
+  grid-row: 1 / span 4;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  align-self: start;
+  background: var(--navy);
+}
+
+.episode-published h2 a {
+  color: var(--ink);
+  text-decoration: none;
+  background-image: linear-gradient(var(--thistle), var(--thistle));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .25s ease, color .2s ease;
+}
+
+.episode-published h2 a:hover,
+.episode-published h2 a:focus-visible {
+  color: var(--thistle);
+  background-size: 100% 2px;
+}
+
+.episode-published time {
+  grid-column: 2;
+  margin-top: 1rem;
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────── */
+
+.site-foot {
+  background: var(--navy);
+  color: rgba(242, 239, 232, .7);
+  font-size: .88rem;
+}
+
+.site-foot .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 2.2rem;
+}
+
+.site-foot .lockup img { width: 24px; height: 24px; }
+.site-foot .lockup span { font-size: 1.05rem; }
+
+.site-foot p { margin: 0; }
+
+.site-foot a { color: var(--thistle-l); }
+
+/* ── Narrow ────────────────────────────────────────────────────────── */
+
+@media (max-width: 46rem) {
+  .facts { gap: 1.3rem 2rem; }
+  .statement { grid-template-columns: minmax(0, 1fr); }
+  .series { grid-template-columns: 2.5rem minmax(0, 1fr); }
+  .series-flag { width: 2.5rem; height: 2.5rem; }
+  .series-go { display: none; }
+  .episode-card { grid-template-columns: 2.9rem minmax(0, 1fr); }
+  .episode-card::before { font-size: 1.9rem; }
+  .coming-soon { grid-column: 2; grid-row: auto; justify-self: start; margin-top: 1rem; }
+  .episode-published img { grid-column: 1 / -1; grid-row: auto; margin-top: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

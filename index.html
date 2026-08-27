@@ -1,32 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>kilted.scot</title>
+<meta name="description" content="kilted.scot makes documentary series about Scotland — the cases, places and stories that never quite closed.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<style>
-  body{margin:0;background:#f2efe8;color:#1d2a35;font-family:system-ui,sans-serif}
-  header{background:#1d2a35;color:#f2efe8;padding:1.4rem 1.7rem;display:flex;align-items:center;gap:1rem}
-  header img{width:38px;height:38px}
-  header span{font-family:Georgia,serif;font-size:22px}
-  main{padding:2rem}
-  ul{list-style:none;padding:0}
-  li{margin-bottom:.6rem}
-  a{color:#5c3d86}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Spectral:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-<header>
-  <img src="/assets/brand/mark-dark.svg" alt="">
-  <span>kilted.scot</span>
+
+<header class="banner">
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
+    </nav>
+    <div class="banner-body">
+      <p class="label eyebrow">Documentary series, made in Scotland</p>
+      <h1>Cases that never quite <span class="tail">closed.</span></h1>
+      <p class="lede">kilted.scot researches and produces Scottish documentary series — one channel, one standard of evidence, a separate series for each thread worth pulling.</p>
+    </div>
+  </div>
 </header>
-<!-- Structural placeholder only — real homepage content/layout is BL-001 row 4, not yet designed. -->
+<div class="hatch-band"></div>
+
 <main>
-  <p>Series produced under kilted.scot:</p>
-  <ul>
-    <li><a href="/unsolved-scotland/">Unsolved Scotland</a></li>
-  </ul>
+  <section class="wrap statement">
+    <p class="label">What this is</p>
+    <p class="body">Every episode starts from primary sources and ends where the record ends. Where a story is <em>legend rather than fact</em>, we say so on screen rather than letting the better version win.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="series-head">
+      <h2>Series</h2>
+      <span class="count">One in production</span>
+    </div>
+
+    <a class="series" href="/unsolved-scotland/">
+      <span class="series-flag" aria-hidden="true"></span>
+      <div>
+        <h3>Unsolved Scotland</h3>
+        <p>Disappearances, deaths and hoaxes from the Scottish record — the Flannan Isles keepers, the Arthur's Seat coffins, a cannibal who may never have existed. Each case taken as far as the evidence goes, and no further.</p>
+        <span class="series-meta">Ten cases announced &middot; First episode in production</span>
+      </div>
+      <span class="series-go" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <div class="series pending">
+      <span class="series-flag" aria-hidden="true"></span>
+      <div>
+        <h3>More series to come</h3>
+        <p>Nothing else is in production yet. When a second series exists it will be listed here, on this page, with its own episode index — not announced anywhere else first.</p>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
+    <p>Independent documentary production, Scotland.</p>
+  </div>
+</footer>
+
 </body>
 </html>
