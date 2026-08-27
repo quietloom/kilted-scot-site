@@ -399,7 +399,6 @@ a.series:hover .series-go { transform: translateX(5px); }
 .episode-announced::before {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--rule-firm);
-  text-stroke: 1.5px var(--rule-firm);
 }
 
 .episode-announced h2 { color: rgba(29, 42, 53, .82); }

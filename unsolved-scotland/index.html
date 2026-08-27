@@ -32,10 +32,8 @@
 
 <main class="wrap">
   <div class="ledger-head">
-    <div>
-      <h2>The case list</h2>
-      <p>The full opening run, published in order. Announced cases are researched and scheduled; each one appears here as a full entry on the day it goes live.</p>
-    </div>
+    <h2>The case list</h2>
+    <p>The full opening run, published in order. Announced cases are researched and scheduled; each one appears here as a full entry on the day it goes live.</p>
   </div>
 
   <div id="episodes"></div>
@@ -53,21 +51,38 @@
         episodes.forEach(function (ep) {
           var card = document.createElement('div');
           card.className = 'episode-card episode-' + ep.status;
-          card.dataset.n = ('0' + ep.number).slice(-2);
+          card.dataset.n = String(ep.number).padStart(2, '0');
+          var h = document.createElement('h2');
+          var p = document.createElement('p');
+          p.textContent = ep.summary;
           if (ep.status === 'published') {
+            var img = document.createElement('img');
+            img.src = ep.thumbnail;
+            img.alt = '';
+            var a = document.createElement('a');
+            a.href = ep.url;
+            a.textContent = ep.title;
+            h.appendChild(a);
+            card.appendChild(img);
+            card.appendChild(h);
+            card.appendChild(p);
             var d = new Date(ep.publishedDate);
-            card.innerHTML =
-              '<img src="' + ep.thumbnail + '" alt="">' +
-              '<h2><a href="' + ep.url + '">' + ep.title + '</a></h2>' +
-              '<p>' + ep.summary + '</p>' +
-              (isNaN(d) ? '' : '<time datetime="' + ep.publishedDate + '">' +
-                d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) +
-                '</time>');
+            if (!isNaN(d)) {
+              var time = document.createElement('time');
+              time.setAttribute('datetime', ep.publishedDate);
+              time.textContent = d.toLocaleDateString('en-GB', {
+                day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
+              });
+              card.appendChild(time);
+            }
           } else {
-            card.innerHTML =
-              '<h2>' + ep.title + '</h2>' +
-              '<p>' + ep.summary + '</p>' +
-              '<span class="coming-soon">Coming soon</span>';
+            h.textContent = ep.title;
+            var badge = document.createElement('span');
+            badge.className = 'coming-soon';
+            badge.textContent = 'Coming soon';
+            card.appendChild(h);
+            card.appendChild(p);
+            card.appendChild(badge);
           }
           container.appendChild(card);
         });
