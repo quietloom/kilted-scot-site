@@ -3,6 +3,38 @@
    thistle #5c3d86 (on cream) / #ab8fda (on navy).
    Motif: the saltire's 45° diagonal, reused as hatching and as edge accents. */
 
+/* Self-hosted (no Google Fonts) — latin subset only, matches this site's
+   English-language content. Georgia/system serif fallback covers anything
+   outside that range. */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/fraunces-variable-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/spectral-300-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/spectral-400-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/spectral-600-latin.woff2') format('woff2');
+}
+
 :root {
   --navy:      #1d2a35;
   --navy-lift: #26333f;
