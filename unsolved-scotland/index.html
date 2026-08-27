@@ -12,6 +12,9 @@
   header span{font-family:Georgia,serif;font-size:22px}
   main{padding:2rem}
   a{color:#5c3d86}
+  .episode-card{border:1px solid #1d2a35;border-radius:4px;padding:1rem;margin-bottom:1rem}
+  .episode-card img{max-width:100%;display:block;margin-bottom:.5rem}
+  .coming-soon{font-size:.85rem;color:#5c3d86;font-weight:bold}
 </style>
 </head>
 <body>
@@ -19,10 +22,34 @@
   <img src="/assets/brand/mark-dark.svg" alt="">
   <a href="/" style="color:#f2efe8;text-decoration:none"><span>kilted.scot</span></a>
 </header>
-<!-- Structural placeholder only — real episode index/nav design is BL-001 row 6, not yet designed. -->
 <main>
   <h1>Unsolved Scotland</h1>
-  <p>Episode notes will be listed here as they are published.</p>
+  <!-- Structural data-wiring only — visual design is a separate frontend-designer pass (see spec §5, §8). -->
+  <div id="episodes"></div>
+  <script>
+    fetch('/unsolved-scotland/episodes.json')
+      .then(function (r) { return r.json(); })
+      .then(function (episodes) {
+        var container = document.getElementById('episodes');
+        episodes.sort(function (a, b) { return a.number - b.number; });
+        episodes.forEach(function (ep) {
+          var card = document.createElement('div');
+          card.className = 'episode-card episode-' + ep.status;
+          if (ep.status === 'published') {
+            card.innerHTML =
+              '<img src="' + ep.thumbnail + '" alt="">' +
+              '<h2><a href="' + ep.url + '">' + ep.title + '</a></h2>' +
+              '<p>' + ep.summary + '</p>';
+          } else {
+            card.innerHTML =
+              '<h2>' + ep.title + '</h2>' +
+              '<p>' + ep.summary + '</p>' +
+              '<span class="coming-soon">Coming soon</span>';
+          }
+          container.appendChild(card);
+        });
+      });
+  </script>
 </main>
 </body>
 </html>
