@@ -1,0 +1,197 @@
+/* Unsolved Scotland — show identity.
+   Loads AFTER /assets/site.css, which stays umbrella-only: nothing here edits
+   the shared file, and every other series gets its own sheet the same way.
+
+   The show's mark is a red position-fix crosshair over a bleached period chart.
+   So the page it lives on is that chart: parchment ground, a faint graticule,
+   a hairline neatline, lead-red for every accent. The umbrella's navy and its
+   45° saltire diagonal appear once, in the credit strip at the very top, and
+   stop at the seam under it. */
+
+:root {
+  --us-parchment: #e7e0ca;  /* the chart plate itself */
+  --us-page:      #f0ebda;  /* bleached ground the ledger sits on */
+  --us-surface:   #f7f2e3;  /* raised surface — warm, never white */
+  --us-ink:       #28221a;  /* chart ink */
+  --us-ink-soft:  #5c5443;  /* the sound tone, darkened to clear 4.5:1 */
+  --us-red:       #b03024;  /* lead red — the fix mark */
+  --us-grid:      rgba(157, 148, 124, .30);
+  --us-grid-firm: rgba(157, 148, 124, .85);
+}
+
+body { background: var(--us-page); color: var(--us-ink); }
+
+a { color: var(--us-red); }
+:focus-visible { outline-color: var(--us-red); }
+.label { color: var(--us-red); }
+
+/* ── Umbrella credit strip ─────────────────────────────────────────── */
+
+.navstrip {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.navstrip .topbar { border-bottom: 0; }
+
+/* The saltire diagonal, once, as the seam where the umbrella's zone ends. */
+.umbrella-seam {
+  height: 7px;
+  background: repeating-linear-gradient(135deg,
+    var(--thistle-l) 0 2px, var(--navy) 2px 9px);
+}
+
+/* ── The chart plate ───────────────────────────────────────────────── */
+
+.show-hero {
+  background: var(--us-parchment);
+  padding-block: clamp(2rem, 5vw, 3.4rem) clamp(2rem, 4.5vw, 3rem);
+  border-bottom: 1px solid var(--us-grid-firm);
+}
+
+.hero-plate {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.6rem, 4vw, 3.4rem);
+  padding: clamp(1.7rem, 4vw, 3rem);
+  /* Bleach wash over a graticule — the same grid that crosses the mark. */
+  background:
+    radial-gradient(125% 130% at 12% -10%, rgba(250, 246, 233, .82) 0%, rgba(250, 246, 233, 0) 58%),
+    repeating-linear-gradient(to right,  var(--us-grid) 0 1px, transparent 1px 5.5rem),
+    repeating-linear-gradient(to bottom, var(--us-grid) 0 1px, transparent 1px 5.5rem);
+}
+
+/* Neatline: the ruled border every chart plate carries. */
+.hero-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--us-grid-firm);
+  pointer-events: none;
+}
+
+/* The badge is a circle inscribed in the square with transparent corners, so
+   the plate's graticule runs behind it — the mark reads as cut from this chart.
+   Do not clip it: the ink ring already touches the image edge. */
+.show-mark {
+  width: clamp(6.5rem, 15vw, 11rem);
+  height: auto;
+  display: block;
+}
+
+.hero-copy .eyebrow { margin-bottom: 1.15rem; }
+
+.show-hero h1 {
+  font-size: clamp(2.4rem, 1.3rem + 5.2vw, 4.6rem);
+  max-width: 14ch;
+  color: var(--us-ink);
+}
+
+.show-hero h1 .tail { color: var(--us-red); }
+
+.show-hero .lede {
+  color: var(--us-ink-soft);
+  max-width: 46ch;
+  margin-top: 1.3rem;
+}
+
+/* Marginalia row: ruled cells, the way a chart's title block is ruled. */
+.show-hero .facts {
+  gap: 0;
+  margin-top: clamp(1.6rem, 3.5vw, 2.4rem);
+  padding-top: 0;
+  border-top: 2px solid var(--us-ink);
+}
+
+.show-hero .facts div {
+  flex: 1 1 9rem;
+  padding: 1.05rem clamp(.9rem, 2.2vw, 1.6rem);
+  border-left: 1px solid var(--us-grid-firm);
+}
+
+.show-hero .facts div:first-child { border-left: 0; padding-left: 0; }
+
+.show-hero .facts dt { color: var(--us-ink-soft); }
+.show-hero .facts dd { color: var(--us-ink); font-size: 1.35rem; }
+
+/* Scale bar, not a saltire hatch — the graticule ticking along the edge. */
+.chart-band {
+  height: 13px;
+  background:
+    repeating-linear-gradient(to right, var(--us-grid-firm) 0 1px, transparent 1px 12px)
+    top left / 100% 7px no-repeat;
+  border-top: 1px solid var(--us-grid-firm);
+  opacity: 1;
+}
+
+/* ── The case ledger ───────────────────────────────────────────────── */
+
+.ledger-head { border-bottom: 2px solid var(--us-red); }
+.ledger-head h2 { color: var(--us-ink); }
+.ledger-head p { color: var(--us-ink-soft); }
+
+.episode-card { border-bottom-color: var(--us-grid); }
+.episode-card p { color: var(--us-ink-soft); }
+
+/* Outlined numeral, but in the show's red — it threads the accent down the
+   whole ledger, which is otherwise ink-on-parchment for ten rows. */
+.episode-announced::before { -webkit-text-stroke-color: rgba(176, 48, 36, .48); }
+.episode-announced h2 { color: rgba(40, 34, 26, .82); }
+
+.coming-soon { color: var(--us-red); }
+
+/* Tick marks, matching the scale bar above. */
+.coming-soon::before {
+  background: repeating-linear-gradient(to right,
+    var(--us-red) 0 1px, transparent 1px 5px);
+  height: 9px;
+}
+
+.episode-published {
+  background: var(--us-surface);
+  box-shadow: inset 3px 0 0 var(--us-red);
+  border-bottom-color: transparent;
+}
+
+.episode-published::before { color: var(--us-red); }
+.episode-published img { background: var(--us-ink); }
+
+.episode-published h2 a {
+  color: var(--us-ink);
+  background-image: linear-gradient(var(--us-red), var(--us-red));
+}
+
+.episode-published h2 a:hover,
+.episode-published h2 a:focus-visible { color: var(--us-red); }
+
+.episode-published time { color: var(--us-ink-soft); }
+
+/* ── Footer ────────────────────────────────────────────────────────── */
+
+/* Chart ink, not navy — the page never snaps back to the umbrella ground.
+   The lockup keeps its thistle, because that IS the umbrella's wordmark. */
+.site-foot {
+  background: var(--us-ink);
+  color: rgba(231, 224, 202, .74);
+}
+
+.site-foot a { color: var(--thistle-l); }
+
+/* ── Narrow ────────────────────────────────────────────────────────── */
+
+@media (max-width: 46rem) {
+  .hero-plate {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.4rem;
+    justify-items: start;
+  }
+  .show-hero h1 { max-width: 100%; }
+  .show-hero .facts div {
+    flex: 1 1 8rem;
+    padding: .9rem 1rem;
+  }
+  /* Two per row: the third cell starts a new row, so it loses its rule. */
+  .show-hero .facts div:nth-child(odd) { border-left: 0; padding-left: 0; }
+}
