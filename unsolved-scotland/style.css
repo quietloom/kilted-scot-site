@@ -173,7 +173,7 @@ a { color: var(--us-red); }
 }
 
 .episode-published::before { color: var(--us-red); }
-.episode-published img { background: var(--us-ink); }
+.episode-published img { background: #28221a; } /* fixed dark ground, same in both themes */
 
 .episode-published h2 a {
   color: var(--us-ink);
@@ -190,13 +190,39 @@ a { color: var(--us-red); }
 /* Chart ink, not navy — the page never snaps back to the umbrella ground.
    The lockup keeps its thistle, because that IS the umbrella's wordmark. */
 .site-foot {
-  background: var(--us-ink);
+  background: #28221a; /* fixed dark ground, same in both themes -- not the --us-ink token */
   color: rgba(231, 224, 202, .74);
 }
 
 .site-foot a { color: var(--thistle-l); }
 
 /* ── Narrow ────────────────────────────────────────────────────────── */
+
+/* Dark: the chart plate is a light scan by design (a bleached period chart)
+   -- rebuilt as an ink-toned plate instead, keeping the same graticule/red-fix
+   language rather than just inverting. --us-ink stays untouched (it still
+   backs the always-dark footer and image placeholders above). */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --us-page:      #211c15;
+    --us-parchment: #2a2419;
+    --us-surface:   #332c1f;
+    --us-ink:       #ece5cc;
+    --us-ink-soft:  rgba(236, 229, 204, .72);
+    --us-red:       #d9584a;
+    --us-grid:      rgba(178, 168, 140, .22);
+    --us-grid-firm: rgba(178, 168, 140, .5);
+  }
+
+  .hero-plate {
+    background:
+      radial-gradient(125% 130% at 12% -10%, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 58%),
+      repeating-linear-gradient(to right,  var(--us-grid) 0 1px, transparent 1px 5.5rem),
+      repeating-linear-gradient(to bottom, var(--us-grid) 0 1px, transparent 1px 5.5rem);
+  }
+
+  .episode-announced h2 { color: rgba(236, 229, 204, .82); }
+}
 
 @media (max-width: 46rem) {
   .hero-plate {

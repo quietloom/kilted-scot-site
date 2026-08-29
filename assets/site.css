@@ -517,3 +517,20 @@ a.series:hover .series-go { transform: translateX(5px); }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* Dark: the banner/footer are already navy — extend that ground to the whole
+   page instead of a bright cream page sandwiched between two dark bands.
+   Reuses tokens already built for on-navy use (thistle-l, navy-lift) rather
+   than inventing a second palette. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink:       var(--cream);
+    --ink-soft:  rgba(242, 239, 232, .74);
+    --rule:      rgba(242, 239, 232, .17);
+    --rule-firm: rgba(242, 239, 232, .38);
+    --paper:     var(--navy-lift);
+    --thistle:   var(--thistle-l);
+  }
+  body { background: var(--navy); }
+  .statement p.body em { box-shadow: inset 0 -.42em 0 rgba(171, 143, 218, .18); }
+}
