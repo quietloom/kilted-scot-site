@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Flannan Isles Keepers — Unsolved Scotland</title>
+<meta name="description" content="Three lighthouse keepers vanished from Eilean Mòr in 1900. The real record, and where the famous version of the story departs from it.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* =====================================================================
+   UNSOLVED SCOTLAND — episode-notes page template.
+   Adopted 23/08/2026, revised same day after several more rounds of
+   user-caught defects: masthead sizing at real 4K widths, header/body
+   paper-tone matching, and finally the map's own ink strength on both
+   the header and the article ground. The last of these needed a real
+   fix, not another filter tweak -- see the "reading ground" comment
+   below and brand/_panel-renders/_decompose_ink.py. Full history in
+   brand/episode-notes-combined-d3-e2-s3.html (the original trial page,
+   now superseded) and this project's NOTES.md/DECISIONS.md, not
+   repeated here. This file is the real thing, not a comparison page:
+   to start episode 2, copy this file, swap the content inside the head/
+   body/foot sections below, and update the chart credit in the footer
+   if a different sheet is used (the ink-decomposition asset is specific
+   to the current chart -- re-run _decompose_ink.py against a new one).
+   ===================================================================== */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#e7e0ca}
+
+/* ===== design tokens, final values (collapsed from the M1/M2/M3 trial
+   system — see brand/episode-notes-transparency-test.html if that
+   history is ever needed again) ===== */
+.art{
+  --paper:#e7e0ca; --paper-hi:#fbf7ea;
+  --ink:#241f18; --ink-2:#3d3628; --dim:#2c281f;
+  --mark:#6c1e15; --mark-big:#b03024; --rule:#bfb497; --rule-hair:#d6cdb2;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+  /* the whole page is rendered at one uniform brightness cut -- an evening-lamp
+     read rather than full daylight paper, picked over two lighter steps in the
+     trial page. Applied here to .art itself rather than a wrapping element. */
+  filter:brightness(.72);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+/* --- back-to-series link: the one piece of site chrome this template
+   didn't carry, added when this page first joined the public site rather
+   than living only in the series' own repo. Reuses .epline's own type
+   treatment rather than importing the shared site navstrip, so it doesn't
+   fight the page's own established look. */
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+/* --- masthead cartouche ----------------------------------------------
+   Sized via cqw against .band's own width (container-type below), floor
+   only, no ceiling -- an earlier ceiling (34px, then 65px) stalled the
+   box's growth on real 4K/ultrawide renders while the band kept
+   widening. .band's height is itself responsive (see below) specifically
+   so the cartouche has room to keep scaling without a ceiling. */
+/* fill swapped from --paper-hi (near-white cream, #fbf7ea) to the masthead map's
+   own tone at low alpha (.30, "L3" of three low-transparency trials) -- the
+   near-opaque cream read as stark/too white against the warm map. Text colours
+   re-verified against the busier ground this exposes, not carried over. */
+.art .cart{display:inline-block;border:3px double #2a2418;padding:.9rem 2.4rem;
+  text-align:center;background:rgba(231,224,202,.45)}
+.art .cart b{display:block;font-size:max(17px,2.6cqw);
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:#1c1811}
+.art .cart span{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid #2a2418;
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:#1f1b14}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:#1e1912}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+/* --- body -------------------------------------------------------------- */
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:#1e1912}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:#1a150f}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{display:grid;grid-template-columns:1fr 8.6rem 1fr;gap:0 1.5rem;align-items:start;
+  padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative;padding-right:.2rem}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;margin-top:.15rem}
+.art .verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead{display:grid;grid-template-columns:1fr 8.6rem 1fr;gap:0 1.5rem;padding:.5rem 0 .55rem}
+.art .lhead span{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim)}
+.art .lhead span:nth-child(2){text-align:center}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink)}
+.art .dates td:first-child{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid currentColor;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s ease,border-color .18s ease,letter-spacing .18s ease}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:#7d2018;border-color:#7d2018;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+/* --- header/footer bands ------------------------------------------------
+   .band's height is itself responsive (flat 250px until past a ~2400px
+   container, growing to 400px by a real 3840px width) so the cartouche
+   above has room to scale with it -- see the CSS comment history in
+   brand/episode-notes-combined-d3-e2-s3.html if this needs revisiting.
+   Swap the background-image path per episode if a different chart is used
+   -- update the footer credit text to match. */
+/* header ink lightened via an SVG gamma-curve filter (defs in <body>, .band's own
+   background moved to a :before layer so the filter never touches .cart sitting on
+   top of it) -- a gamma curve lifts dark ink strokes far more than the already-light
+   paper, unlike contrast()/brightness() which move both by roughly the same amount
+   and read as flattening the map's colour rather than just weakening its ink. */
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);overflow:hidden;container-type:inline-size;
+  background:#ddd5bb}
+.art .band:before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url('/assets/unsolved-scotland/nls-scotland-west-coast-1886-band.jpg') center 38%/cover no-repeat;
+  filter:url(#ink-curve)}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .footband{height:130px;margin-top:2rem;position:relative;overflow:hidden;
+  background:#ddd5bb url('/assets/unsolved-scotland/nls-scotland-west-coast-1886-band.jpg') center 74%/cover no-repeat}
+.art .footband:before{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--paper),rgba(231,224,202,.45) 55%,rgba(231,224,202,.72))}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+/* --- reading ground: real ink/paper decomposition, not a live filter ----
+   Two prior mechanisms both failed under scrutiny: a translucent tint over the
+   raw map couldn't be lightened without darkening the whole page (worst-case
+   ink pixels forced --dim/--mark to near-black to hold AA), and a CSS filter
+   on the map layer flattened its true colour along with the ink, making it
+   impossible to tone-match the header no matter how the tint was re-picked.
+   Fixed by actually separating the two: brand/assets/nls-scotland-west-coast-
+   1886-ink.png is a derived RGBA asset (see brand/_panel-renders/_decompose_ink.py)
+   -- ink colour baked in, alpha computed per pixel from local contrast (a pixel
+   only counts as "ink" if it's darker than its OWN neighbourhood average, which
+   excludes broad engraved hillshading and isolates genuine fine strokes). The
+   paper behind it is now a literal flat colour with no image and no filter --
+   it cannot move, by construction. Ink opacity (.08) was reached by iterating
+   against the real per-pixel contrast sweep below, not picked by eye: at every
+   value above this the whole-page filter:brightness(.72) above compounded with
+   the ink layer's own weight to fail real text contrast. */
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/nls-scotland-west-coast-1886-ink.png') center/cover fixed no-repeat;
+  opacity:.08}
+.art .band:after{content:'';position:absolute;left:0;right:0;bottom:0;height:24%;
+  background:linear-gradient(180deg,rgba(231,224,202,0),rgba(231,224,202,.68) 100%)}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .lrow,.art .lhead{grid-template-columns:1fr}
+  .art .lrow{gap:.7rem}
+  .art .verdict{margin:0;justify-self:start;padding:.3rem .9rem}
+  .art .lhead span:nth-child(2){text-align:left}
+  .art .lhead span:nth-child(2),.art .lhead span:nth-child(3){display:none}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style></head><body>
+
+<!-- gamma-curve ink filter for the header band, see the .art .band:before comment
+     above -- lifts dark strokes far more than the already-light paper, unlike a
+     flat contrast()/brightness() shift. 0x0, defs only, never rendered directly. -->
+<svg width="0" height="0" style="position:absolute">
+  <defs><filter id="ink-curve"><feComponentTransfer>
+    <feFuncR type="gamma" exponent="0.35" amplitude="1" offset="0"/>
+    <feFuncG type="gamma" exponent="0.35" amplitude="1" offset="0"/>
+    <feFuncB type="gamma" exponent="0.35" amplitude="1" offset="0"/>
+  </feComponentTransfer></filter></defs>
+</svg>
+
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart"><b>Unsolved Scotland</b><span>a kilted.scot production</span></div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode One · Outer Hebrides · December 1900</p>
+    <h1>The Flannan Isles Keepers</h1>
+    <p class="stand">Every famous fact about this case is a lie. Take the fiction away and what is left
+    isn't a tidier story — <em>it's a stranger fact.</em></p>
+    <div class="meta">
+      <div>Status<b>Coming soon</b></div>
+      <div>Running time<b>8 min</b></div>
+      <div>Watch<b>YouTube, soon</b></div>
+      <div>Sources<b>11 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The real record</h2>
+  <p class="kicker">What is actually documented, and what is not</p>
+  <p class="lead drop">Three lighthouse keepers vanished from Eilean Mòr, twenty miles off Lewis, some time
+  after the morning of Saturday 15 December 1900. The light had been burning less than a year. What almost
+  everybody knows about the case — the half-eaten meal, the overturned chair, the last log entry about a
+  storm that ended — was written by people who were never there, and in one case was never written down at
+  all until decades afterwards.</p>
+  <p>Inside the lighthouse, everything was in order. The lamp was cleaned, refilled and ready to be lit; the
+  shift had been finished before anything went wrong. The relief keeper Joseph Moore found the kitchen
+  utensils <em>“all very clean”</em> — a meal eaten and cleared away, not abandoned. One detail did stand
+  out, and it is still the most human thing in the file: <strong>Donald MacArthur's oilskin coat was still
+  hanging on its peg.</strong> In December, on an island in the Atlantic. James Ducat and Thomas Marshall
+  had gone out properly dressed.</p>
+  <p>Outside is the part almost nobody retells, and it is the part that is measured. Superintendent Robert
+  Muirhead — the man who had personally hired all three keepers — reached the island on 29 December and
+  recorded damage he called difficult to believe unless actually seen:</p>
+
+  <ul class="sound">
+    <li><span class="fig">110 ft</span><span class="what">above sea level, a mooring-rope box broken open and its contents strewn across the rock</span></li>
+    <li><span class="fig">1 ton</span><span class="what">block of stone displaced from where it belonged</span></li>
+    <li><span class="fig">60 m</span><span class="what">up, turf ripped clean away from the clifftop</span></li>
+    <li><span class="fig">—</span><span class="what">a section of railway track wrenched out of its concrete bed; iron railings bent; a life buoy torn from its fixing at the same 110 ft</span></li>
+  </ul>
+
+  <p>Something at the West Landing was violent enough to move a ton of stone. <strong>That part isn't in
+  dispute.</strong> Muirhead's conclusion of 8 January 1901 was accidental death, no foul play: the three men
+  had gone down to secure the rope box and an extra-large sea had taken them. It matches the damage almost
+  exactly. What it does not explain is why all three left the light unattended at once, against a standing
+  rule they knew perfectly well.</p>
+
+  </div>
+
+  <div class="wide">
+  <h2>The story says · the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <div class="ledger">
+    <div class="lhead"><span>As it circulates</span><span>Verdict</span><span>In the record</span></div>
+
+    <div class="lrow">
+      <div class="said"><s>A half-eaten meal left on the table.</s></div>
+      <div class="verdict">Invented 1912</div>
+      <div class="shown">Wilfrid Wilson Gibson's poem <em>Flannan Isle</em>, written twelve years after the
+      event by a man who was never on the island. Moore's own account has the kitchen clean and the meal
+      cleared. <cite>Northern Lighthouse Board; poem text, 1912</cite></div>
+    </div>
+
+    <div class="lrow">
+      <div class="said"><s>A chair lying overturned on the floor.</s></div>
+      <div class="verdict">Invented 1912</div>
+      <div class="shown">The same poem — “a chair lay tumbled on the floor.” It appears in no official
+      document of any kind. <cite>Gibson, <em>Flannan Isle</em>, 1912</cite></div>
+    </div>
+
+    <div class="lrow">
+      <div class="said"><s>Log entries: Marshall on severe winds, Ducat gone very quiet, MacArthur crying,
+      all three praying — and the last line, “Storm ended. Sea calm. God is over all.”</s></div>
+      <div class="verdict">Fabricated</div>
+      <div class="shown">Traced by the Fortean researcher <strong>Mike Dash</strong> to mid-century pulp
+      retellings. No evidence any such entries were ever written down at the time, and the storm they
+      describe matches no other station's or vessel's weather record. The real storm arrived around
+      17&nbsp;December — <span class="redline">after the men were already gone.</span>
+      <cite>Dash, “The Vanishing Lighthousemen of Eilean Mòr”</cite></div>
+    </div>
+
+    <div class="lrow">
+      <div class="said">The lamp was found cleaned, refilled and ready for lighting.</div>
+      <div class="verdict true">True</div>
+      <div class="shown">Documented. The men had completed their shift's work; they never came back from a
+      chore. <cite>Northern Lighthouse Board</cite></div>
+    </div>
+
+    <div class="lrow">
+      <div class="said">One man went out without his coat.</div>
+      <div class="verdict true">True</div>
+      <div class="shown">MacArthur's coat still on its peg while Ducat and Marshall were in boots and
+      waterproofs — read since as two men working and one leaving in a hurry.
+      <cite>Northern Lighthouse Board</cite></div>
+    </div>
+
+    <div class="lrow">
+      <div class="said">A five-shilling fine on Marshall's record gave the men a motive to risk the sea to
+      save equipment.</div>
+      <div class="verdict">Disputed</div>
+      <div class="shown">Circulating since about 2015 and a genuinely compelling human motive — but the fine
+      itself has reportedly never been located in any personnel register. Presented here as disputed rather
+      than dropped. <cite>Attributed to James Love's research; unverified</cite></div>
+    </div>
+  </div>
+
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; nothing is inferred</p>
+  <table class="dates">
+    <tr><td>Dec 1899</td><td>The light on Eilean Mòr, built by David A. Stevenson, is first lit. The disappearance falls in its first year.</td></tr>
+    <tr><td>Sat 15 Dec 1900</td><td>Ducat's slate entry that morning — ordinary weather notes. The last confirmed act of any of the three men.</td></tr>
+    <tr><td>15 Dec 1900</td><td>The steamer <em>Archtor</em>, running Philadelphia to Leith, notes in her log that the light is unlit.</td></tr>
+    <tr><td>18 Dec 1900</td><td><em>Archtor</em> docks at Leith and the sighting reaches the Lighthouse Board — three days after it was made.</td></tr>
+    <tr><td>26 Dec 1900</td><td>The relief vessel <em>Hesperus</em> arrives at noon. No flag, no provision boxes out, no answer to whistle or rocket. Joseph Moore goes ashore alone and finds the station empty, gate and door closed.</td></tr>
+    <tr><td>29 Dec 1900</td><td>Muirhead lands to investigate in person.</td></tr>
+    <tr><td>8 Jan 1901</td><td>Muirhead reports: accidental death, no foul play. He notes the breach of the rule about leaving the light, and assigns no blame.</td></tr>
+  </table>
+
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the episode asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="https://www.nlb.org.uk/history/flannan-isles/">Northern Lighthouse Board — Flannan Isles</a>
+      <span>The primary institutional account: the keepers, Muirhead's findings, Harvie's telegram. Preferred over paraphrases wherever the wording differs.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Flannan_Isles_Lighthouse">Flannan Isles Lighthouse — Wikipedia</a>
+      <span>Used for the dated timeline and as an index to the Dash material; every claim taken from it was checked against a second source.</span></li>
+    <li><a href="https://interviewswithmikedash.wordpress.com/category/flannan-isles-lighthouse-mystery/">Mike Dash — “The Vanishing Lighthousemen of Eilean Mòr”</a>
+      <span>The research that traces the famous log entries to later retellings. The single most important source on this page.</span></li>
+    <li><a href="https://www.historyhit.com/the-flannan-isle-mystery-when-three-lighthouse-keepers-vanished-overnight/">History Hit — the Flannan Isle mystery</a>
+      <span>Corroborates the <em>Archtor</em> sighting and the relief-boat sequence.</span></li>
+    <li><a href="https://darktales.blog/2019/06/11/the-disappearance-of-the-eilean-mor-lighthouse-keepers/">Dark Tales — the disappearance of the Eilean Mòr keepers</a>
+      <span>Second, independent confirmation of the three-day reporting delay into Leith.</span></li>
+    <li><a href="https://english-studies.net/flannan-isle-by-wilfrid-wilson-gibson-a-critical-analysis/">Wilfrid Wilson Gibson, <em>Flannan Isle</em> (1912) — critical analysis</a>
+      <span>The origin of the meal and the chair, in the poet's own text.</span></li>
+    <li><a href="https://blog.nrscotland.gov.uk/2023/12/12/flannan-isles-lighthouse-keepers-the-disappearance/">National Records of Scotland — the disappearance</a>
+      <span>Background. The keepers' photograph on that page is <em>not</em> reproduced here: NRS could not locate the rights holder.</span></li>
+    <li><a href="https://www.transceltic.com/scottish/mystery-of-scotland-s-flannan-isles-lighthouse">Transceltic — the Seven Hunters</a>
+      <span>The genuine pre-1900 folklore: the shepherds who would not stay the night, and the landing rituals.</span></li>
+    <li><a href="https://maps.nls.uk/view/101955209">NLS — Admiralty chart, Cape Wrath to the Flannan Isles, 1910</a>
+      <span>The chart behind this page. Reproduced with the permission of the National Library of Scotland.</span></li>
+    <li><a href="https://plimsoll.southampton.gov.uk/SOTON_Documents/Plimsoll/17924.pdf">Board of Trade wreck inquiry No.&nbsp;6137 (Merchant Shipping Act 1894)</a>
+      <span>Confirms the <em>Archtor</em> as a real, documented vessel on that exact route. Concerns a separate 1901 stranding, not this case.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/Category:Flannan_Isles_Lighthouse">Wikimedia Commons — Flannan Isles Lighthouse</a>
+      <span>Modern photography of the station, mostly Geograph CC&nbsp;BY-SA&nbsp;2.0. Per-file licence verified before use.</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <div class="shelf">
+    <div class="bk"><div class="spine"></div><div>
+      <b>“The Vanishing Lighthousemen of Eilean Mòr”</b>
+      <i>Mike Dash — the paper that dismantles the famous log entries. If you read one thing after this
+      episode, read this.</i>
+      <a class="go" href="#">Find a copy</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Flannan Isle</b>
+      <i>Wilfrid Wilson Gibson, 1912 — the poem that invented half of what people think they know. Short,
+      and worth reading precisely because it is fiction.</i>
+      <a class="go" href="#">Read the text</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Off Scotland: a comprehensive record of maritime and aviation losses in Scottish waters</b>
+      <i>I. G. Whittaker, 1998 — the standard wreck compilation. Useful, and a good demonstration of how a
+      secondary source drifts: its <em>Archtor</em> entry misdates the stranding and records the compiler's
+      own doubts on the page.</i>
+      <a class="go" href="#">Find a copy</a></div></div>
+  </div>
+  <p class="disclose">Book links are affiliate links. If you buy through one, this channel earns a small
+  commission at no extra cost to you, and it goes towards the next episode's research. Nothing is listed here
+  that wasn't already used as a source above.</p>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> — written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <small>Chart ground: “Scotland: West Coast,” Admiralty Chart 2635, Hydrographic Office, surveyed 1846–65,
+  published 1886, and “North Coast of Scotland: Cape Wrath to the Flannan Isles,” 1910. Both reproduced with
+  the permission of the National Library of Scotland. Episode notes are corrected in place when a source
+  changes; corrections are dated at the foot of the entry they affect.</small>
+  </div>
+  <div class="footband"></div>
+</div>
+</body></html>

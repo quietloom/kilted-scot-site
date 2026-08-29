@@ -142,6 +142,23 @@ a { color: var(--us-red); }
 
 .coming-soon { color: var(--us-red); }
 
+/* Case notes exist before an episode is published — announced records can carry
+   the finished notes/sources page independently of the YouTube upload itself. */
+.notes-link {
+  grid-column: 2;
+  margin-top: .6rem;
+  display: inline-block;
+  width: fit-content;
+  font-size: .78rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--us-red);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.notes-link:hover, .notes-link:focus-visible { color: var(--us-ink); }
+
 /* Tick marks, matching the scale bar above. */
 .coming-soon::before {
   background: repeating-linear-gradient(to right,

@@ -95,6 +95,13 @@
             card.appendChild(h);
             card.appendChild(p);
             card.appendChild(badge);
+            if (ep.notesUrl) {
+              var notes = document.createElement('a');
+              notes.className = 'notes-link';
+              notes.href = ep.notesUrl;
+              notes.textContent = 'Read the case notes';
+              card.appendChild(notes);
+            }
           }
           container.appendChild(card);
         });
