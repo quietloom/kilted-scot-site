@@ -169,6 +169,7 @@ img { max-width: 100%; }
 .lockup b { color: var(--thistle-l); font-weight: 600; }
 
 .topbar a.back {
+  display: inline-block;
   font-size: .8rem;
   letter-spacing: .13em;
   text-transform: uppercase;
@@ -176,7 +177,8 @@ img { max-width: 100%; }
   color: rgba(242, 239, 232, .74);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
+  padding: .6rem .1rem 2px;
+  margin: -.6rem -.1rem 0;
   transition: color .18s ease, border-color .18s ease;
 }
 
