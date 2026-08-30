@@ -144,6 +144,10 @@ a { color: var(--us-red); }
 
 /* Case notes exist before an episode is published — announced records can carry
    the finished notes/sources page independently of the YouTube upload itself. */
+/* Same growing-underline wipe as .episode-published h2 a (site.css), kept
+   at a resting 1px rather than starting from nothing -- this is a small-caps
+   label link, not prose, so it keeps its always-visible affordance and just
+   thickens + recolours on interaction instead of a hard colour swap. */
 .notes-link {
   grid-column: 2;
   margin-top: .6rem;
@@ -155,9 +159,15 @@ a { color: var(--us-red); }
   font-weight: 600;
   color: var(--us-red);
   text-decoration: none;
-  border-bottom: 1px solid currentColor;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: .18rem;
+  transition: color .2s cubic-bezier(.22, 1, .36, 1),
+    background-size .2s cubic-bezier(.22, 1, .36, 1);
 }
-.notes-link:hover, .notes-link:focus-visible { color: var(--us-ink); }
+.notes-link:hover, .notes-link:focus-visible { color: var(--us-ink); background-size: 100% 2px; }
 
 /* Tick marks, matching the scale bar above. */
 .coming-soon::before {

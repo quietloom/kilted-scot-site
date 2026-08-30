@@ -61,10 +61,11 @@
         document.getElementById('ep-status').textContent = published
           ? published + ' of ' + episodes.length + ' published'
           : 'In production';
-        episodes.forEach(function (ep) {
+        episodes.forEach(function (ep, i) {
           var card = document.createElement('div');
           card.className = 'episode-card episode-' + ep.status;
           card.dataset.n = String(ep.number).padStart(2, '0');
+          card.style.setProperty('--i', i);
           var h = document.createElement('h2');
           var p = document.createElement('p');
           p.textContent = ep.summary;
