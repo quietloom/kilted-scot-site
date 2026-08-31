@@ -101,10 +101,10 @@ a { color: var(--us-red); }
 /* ── Masthead: the show's own title card, sitting directly on the plate's
    map/graticule -- no band image or fill of its own, same device
    episode-notes.html's own masthead uses. ─────────────────────────── */
-.masthead { padding-block: 1.04rem 1.82rem; margin-top: calc(var(--us-frame) + .5rem); }
+.masthead { padding-block: .5rem .9rem; margin-top: calc(var(--us-frame) - .3rem); }
 .masthead .cart {
   display: block; width: 100%; border: 3px double var(--us-rule-firm);
-  padding: clamp(1.04rem, 2.6vw, 1.95rem) clamp(.975rem, 2.6vw, 1.95rem); text-align: center;
+  padding: clamp(.55rem, 1.3vw, 1rem) clamp(.6rem, 1.6vw, 1.15rem); text-align: center;
 }
 .masthead .cart-title {
   display: flex; align-items: center; justify-content: center; gap: clamp(.455rem, 1.04vw, .78rem);
@@ -115,7 +115,7 @@ a { color: var(--us-red); }
 .masthead .cart-title img { width: 1em; height: 1em; display: block; flex: none; }
 .masthead .cart-title b { color: var(--thistle-l); font-weight: 600; }
 .masthead .cart .credit {
-  display: block; margin-top: .715rem; padding-top: .585rem; border-top: 1px solid var(--us-rule);
+  display: block; margin-top: .4rem; padding-top: .35rem; border-top: 1px solid var(--us-rule);
   font: italic 300 clamp(.78rem, .585rem + .78vw, 1.495rem)/1 var(--text); letter-spacing: .07em;
   color: var(--thistle-l);
 }
@@ -124,7 +124,7 @@ a { color: var(--us-red); }
 .hero {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 19.5rem);
   gap: clamp(2rem, 5vw, 7rem); align-items: end;
-  padding-block: clamp(1.4rem, 3vh, 2.6rem) clamp(1.4rem, 3vh, 2.6rem);
+  padding-block: clamp(.5rem, 1.2vh, 1rem) clamp(1.4rem, 3vh, 2.6rem);
 }
 .hero h1 {
   font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600;
@@ -142,14 +142,11 @@ a { color: var(--us-red); }
 .hero .lede { max-width: 46ch; margin: 1.8rem 0 0; font-size: clamp(1.06rem, 1rem + .45vw, 1.3rem); font-weight: 300; line-height: 1.55; color: var(--us-ink-soft); }
 
 /* Title block: the chart's legend box, doing the work of the old facts row. */
-.titleblock { border: 1px solid var(--us-grid-firm); background: rgba(22, 33, 42, .5); backdrop-filter: blur(2px); }
-.titleblock header {
-  padding: .7rem 1.3rem; border-bottom: 1px solid var(--us-grid-firm);
-  font: 600 .64rem/1.5 var(--us-caps); letter-spacing: .26em; text-transform: uppercase;
-  color: var(--thistle-l); text-align: center;
+.titleblock {
+  margin: 0; display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--us-grid-firm); background: rgba(22, 33, 42, .5); backdrop-filter: blur(2px);
 }
-.titleblock dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; }
-.titleblock div { padding: 1rem 1.3rem; border-top: 1px solid var(--us-rule); }
+.titleblock div { padding: .85rem 1.1rem; border-top: 1px solid var(--us-rule); }
 .titleblock div:nth-child(-n+2) { border-top: 0; }
 .titleblock div:nth-child(odd) { border-right: 1px solid var(--us-rule); }
 .titleblock dt { font: 600 .62rem/1.6 var(--us-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--us-ink-soft); }
@@ -247,10 +244,10 @@ a.case .go {
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 .titleblock div { animation: us-tb-row-in 340ms cubic-bezier(.16, 1, .3, 1) both; }
-.titleblock div:nth-child(2) { animation-delay: 900ms; }
-.titleblock div:nth-child(3) { animation-delay: 960ms; }
-.titleblock div:nth-child(4) { animation-delay: 1020ms; }
-.titleblock div:nth-child(5) { animation-delay: 1080ms; }
+.titleblock div:nth-child(1) { animation-delay: 900ms; }
+.titleblock div:nth-child(2) { animation-delay: 960ms; }
+.titleblock div:nth-child(3) { animation-delay: 1020ms; }
+.titleblock div:nth-child(4) { animation-delay: 1080ms; }
 
 @media (prefers-reduced-motion: reduce) {
   .has-motion .case, .has-motion .stamp { opacity: 1; transform: none; filter: none; }

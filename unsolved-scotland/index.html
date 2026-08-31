@@ -43,9 +43,8 @@
         <p class="lede">Disappearances, deaths and hoaxes from the Scottish record. Each case taken as far as the evidence goes — and stopped there.</p>
       </div>
       <dl class="titleblock">
-        <header>Title block</header>
         <div><dt>Cases announced</dt><dd id="ep-count">&mdash;</dd></div>
-        <div><dt>Status</dt><dd id="ep-status">In production</dd></div>
+        <div><dt>Published</dt><dd id="ep-status">In production</dd></div>
         <div><dt>Narration</dt><dd>Scottish voice</dd></div>
         <div><dt>Watch</dt><dd>YouTube</dd></div>
       </dl>
@@ -79,7 +78,7 @@
       var published = episodes.filter(function (e) { return e.status === 'published'; }).length;
       document.getElementById('ep-count').textContent = episodes.length;
       document.getElementById('ep-status').textContent = published
-        ? published + ' of ' + episodes.length + ' published'
+        ? published + ' of ' + episodes.length
         : 'In production';
 
       episodes.forEach(function (ep, i) {

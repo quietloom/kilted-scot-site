@@ -502,7 +502,7 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
   grid-template-rows: auto auto; column-gap: clamp(1.6rem, 3.4vw, 4rem); row-gap: 1.8rem;
   padding-block: 1.6rem clamp(2.5rem, 6vh, 4rem);
 }
-.title h1 { grid-column: 1; grid-row: 1; align-self: start; justify-self: start; font-size: clamp(2.6rem, 1.5rem + 7vw, 6.15rem); margin-top: .4rem; }
+.title h1 { grid-column: 1; grid-row: 1; align-self: start; justify-self: start; min-width: 0; font-size: clamp(2.6rem, 1.5rem + 7vw, 6.15rem); margin-top: .4rem; }
 .title h1 .line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
 .title h1 .line > span { display: inline-block; white-space: nowrap; animation: line-up 850ms cubic-bezier(.16, 1, .3, 1) both; }
 .title h1 .line:nth-child(1) > span { animation-delay: 250ms; }
@@ -516,7 +516,7 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
   font-size: 1.404rem; font-weight: 300; line-height: 1.42; color: var(--ink-soft);
   animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 650ms both;
 }
-.title .lede .sent { display: block; white-space: nowrap; }
+.title .lede .sent { display: block; }
 .title .lede b { color: var(--cream); font-weight: 600; }
 
 .stats-block {
@@ -601,6 +601,15 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
      span both rows removes that coupling. */
   .stats-block { grid-row: 1 / 3; align-self: center; }
 }
+@media (min-width: 60rem) {
+  /* Below this width .title h1 spans the full single column (mobile stack),
+     so the base rule's vw scaling is tuned for full viewport width. From
+     here up, h1 only occupies the ~1.15/2.75 share of a 3-column row --
+     the base clamp's vw value was still keyed to full viewport width, so
+     the headline kept growing past what its own column could hold and
+     spilled into the stats column between ~60rem and ~90rem. */
+  .title h1 { font-size: clamp(1.9rem, .9rem + 2.9vw, 6.15rem); }
+}
 @media (max-width: 60rem) {
   .rail-case { width: 19rem; }
   .title { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto; }
@@ -611,17 +620,6 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
   .rail-head { flex-wrap: wrap; row-gap: .6rem; }
   .rail-head .series-tag { order: 1; }
   .rail-head a.caps { order: 2; }
-}
-
-/* Each sentence stays on its own unwrapped line above this width -- below
-   it, a sentence physically can't fit a phone/small-tablet screen at this
-   font-size without either wrapping or forcing horizontal scroll. A
-   display:block span doesn't grow to fit nowrap content (it stays at the
-   parent's width), so the overflow here is real even though it doesn't
-   show up in a bounding-box/scrollWidth check -- only a rendered screenshot
-   catches it, which is what actually caught this. */
-@media (max-width: 50rem) {
-  .title .lede .sent { white-space: normal; }
 }
 
 .site-foot .row { display: flex; flex-wrap: wrap; gap: .8rem 2rem; align-items: center; justify-content: space-between; padding-block: 2.2rem; }
