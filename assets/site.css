@@ -208,6 +208,7 @@ img { max-width: 100%; }
   font-size: clamp(2.5rem, 1.3rem + 5.6vw, 5.2rem);
   max-width: 17ch;
   margin: 0;
+  text-wrap: balance;
 }
 
 .banner h1 .tail { color: var(--thistle-l); }
