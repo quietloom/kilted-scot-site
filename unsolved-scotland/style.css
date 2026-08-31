@@ -8,15 +8,18 @@
    45° saltire diagonal appear once, in the credit strip at the very top, and
    stop at the seam under it. */
 
+/* Dark is the only palette (walked back the light default 31/08/2026) --
+   an ink-toned chart plate instead of the bleached-parchment original,
+   keeping the same graticule/red-fix language rather than just inverting. */
 :root {
-  --us-parchment: #e7e0ca;  /* the chart plate itself */
-  --us-page:      #f0ebda;  /* bleached ground the ledger sits on */
-  --us-surface:   #f7f2e3;  /* raised surface — warm, never white */
-  --us-ink:       #28221a;  /* chart ink */
-  --us-ink-soft:  #5c5443;  /* the sound tone, darkened to clear 4.5:1 */
-  --us-red:       #b03024;  /* lead red — the fix mark */
-  --us-grid:      rgba(157, 148, 124, .30);
-  --us-grid-firm: rgba(157, 148, 124, .85);
+  --us-parchment: #2a2419;
+  --us-page:      #211c15;
+  --us-surface:   #332c1f;
+  --us-ink:       #ece5cc;
+  --us-ink-soft:  rgba(236, 229, 204, .72);
+  --us-red:       #d9584a;
+  --us-grid:      rgba(178, 168, 140, .22);
+  --us-grid-firm: rgba(178, 168, 140, .5);
 }
 
 body { background: var(--us-page); color: var(--us-ink); }
@@ -56,9 +59,9 @@ a { color: var(--us-red); }
   align-items: center;
   gap: clamp(1.6rem, 4vw, 3.4rem);
   padding: clamp(1.7rem, 4vw, 3rem);
-  /* Bleach wash over a graticule — the same grid that crosses the mark. */
+  /* Ink wash over a graticule — the same grid that crosses the mark. */
   background:
-    radial-gradient(125% 130% at 12% -10%, rgba(250, 246, 233, .82) 0%, rgba(250, 246, 233, 0) 58%),
+    radial-gradient(125% 130% at 12% -10%, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 58%),
     repeating-linear-gradient(to right,  var(--us-grid) 0 1px, transparent 1px 5.5rem),
     repeating-linear-gradient(to bottom, var(--us-grid) 0 1px, transparent 1px 5.5rem);
 }
@@ -137,8 +140,8 @@ a { color: var(--us-red); }
 
 /* Outlined numeral, but in the show's red — it threads the accent down the
    whole ledger, which is otherwise ink-on-parchment for ten rows. */
-.episode-announced::before { -webkit-text-stroke-color: rgba(176, 48, 36, .48); }
-.episode-announced h2 { color: rgba(40, 34, 26, .82); }
+.episode-announced::before { -webkit-text-stroke-color: rgba(217, 88, 74, .48); }
+.episode-announced h2 { color: rgba(236, 229, 204, .82); }
 
 .coming-soon { color: var(--us-red); }
 
@@ -183,7 +186,7 @@ a { color: var(--us-red); }
 }
 
 .episode-published::before { color: var(--us-red); }
-.episode-published img { background: #28221a; } /* fixed dark ground, same in both themes */
+.episode-published img { background: #28221a; }
 
 .episode-published h2 a {
   color: var(--us-ink);
@@ -200,39 +203,13 @@ a { color: var(--us-red); }
 /* Chart ink, not navy — the page never snaps back to the umbrella ground.
    The lockup keeps its thistle, because that IS the umbrella's wordmark. */
 .site-foot {
-  background: #28221a; /* fixed dark ground, same in both themes -- not the --us-ink token */
+  background: #28221a;
   color: rgba(231, 224, 202, .74);
 }
 
 .site-foot a { color: var(--thistle-l); }
 
 /* ── Narrow ────────────────────────────────────────────────────────── */
-
-/* Dark: the chart plate is a light scan by design (a bleached period chart)
-   -- rebuilt as an ink-toned plate instead, keeping the same graticule/red-fix
-   language rather than just inverting. --us-ink stays untouched (it still
-   backs the always-dark footer and image placeholders above). */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --us-page:      #211c15;
-    --us-parchment: #2a2419;
-    --us-surface:   #332c1f;
-    --us-ink:       #ece5cc;
-    --us-ink-soft:  rgba(236, 229, 204, .72);
-    --us-red:       #d9584a;
-    --us-grid:      rgba(178, 168, 140, .22);
-    --us-grid-firm: rgba(178, 168, 140, .5);
-  }
-
-  .hero-plate {
-    background:
-      radial-gradient(125% 130% at 12% -10%, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 58%),
-      repeating-linear-gradient(to right,  var(--us-grid) 0 1px, transparent 1px 5.5rem),
-      repeating-linear-gradient(to bottom, var(--us-grid) 0 1px, transparent 1px 5.5rem);
-  }
-
-  .episode-announced h2 { color: rgba(236, 229, 204, .82); }
-}
 
 @media (max-width: 46rem) {
   .hero-plate {

@@ -35,18 +35,25 @@
   src: url('fonts/spectral-600-latin.woff2') format('woff2');
 }
 
+/* Dark is the only palette -- walked back the light default 31/08/2026 in
+   favour of a single, consistent dark identity across every page (the
+   homepage going dark-only made a light default elsewhere inconsistent).
+   --paper/--ink/--ink-soft/--rule/--rule-firm keep their light-mode NAMES
+   (they're used throughout the rest of this file) but now carry dark
+   values -- --navy/--cream/--thistle-l stay literal for the still-fixed
+   navy/cream chrome (banner, footer). */
 :root {
   --navy:      #1d2a35;
   --navy-lift: #26333f;
   --cream:     #f2efe8;
-  --paper:     #faf8f3;   /* warm raised surface — never white */
-  --thistle:   #5c3d86;
+  --paper:     var(--navy-lift);
+  --thistle:   var(--thistle-l);
   --thistle-l: #ab8fda;
 
-  --ink:       #1d2a35;
-  --ink-soft:  #4d5761;
-  --rule:      rgba(29, 42, 53, .17);
-  --rule-firm: rgba(29, 42, 53, .38);
+  --ink:       var(--cream);
+  --ink-soft:  rgba(242, 239, 232, .74);
+  --rule:      rgba(242, 239, 232, .17);
+  --rule-firm: rgba(242, 239, 232, .38);
 
   --display: Fraunces, "Iowan Old Style", Georgia, "Times New Roman", serif;
   --text:    Spectral, Georgia, "Times New Roman", serif;
@@ -61,7 +68,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--cream);
+  background: var(--navy);
   color: var(--ink);
   font-family: var(--text);
   font-weight: 400;
@@ -264,7 +271,7 @@ img { max-width: 100%; }
 .statement p.body em {
   font-style: normal;
   color: var(--thistle);
-  box-shadow: inset 0 -.42em 0 rgba(92, 61, 134, .13);
+  box-shadow: inset 0 -.42em 0 rgba(171, 143, 218, .18);
 }
 
 .series-head {
@@ -426,7 +433,7 @@ a.series:hover .series-go { transform: translateX(5px); }
   -webkit-text-stroke: 1.5px var(--rule-firm);
 }
 
-.episode-announced h2 { color: rgba(29, 42, 53, .82); }
+.episode-announced h2 { color: rgba(242, 239, 232, .82); }
 
 .coming-soon {
   grid-column: 3;
@@ -545,21 +552,4 @@ a.series:hover .series-go { transform: translateX(5px); }
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Dark: the banner/footer are already navy — extend that ground to the whole
-   page instead of a bright cream page sandwiched between two dark bands.
-   Reuses tokens already built for on-navy use (thistle-l, navy-lift) rather
-   than inventing a second palette. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink:       var(--cream);
-    --ink-soft:  rgba(242, 239, 232, .74);
-    --rule:      rgba(242, 239, 232, .17);
-    --rule-firm: rgba(242, 239, 232, .38);
-    --paper:     var(--navy-lift);
-    --thistle:   var(--thistle-l);
-  }
-  body { background: var(--navy); }
-  .statement p.body em { box-shadow: inset 0 -.42em 0 rgba(171, 143, 218, .18); }
 }
