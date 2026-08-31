@@ -145,12 +145,12 @@ body{background:#182028}
 .art .lhead th:last-child{padding-right:0}
 
 .art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
-.art .dates td{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
-  font-size:.98rem;line-height:1.5;color:var(--ink)}
-.art .dates td:first-child{width:9.5rem;white-space:nowrap;
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
   font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
   text-transform:uppercase;color:var(--mark)}
-.art .dates tr:last-child td{border-bottom:0}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
 
 .art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
 .art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
@@ -363,13 +363,13 @@ body{background:#182028}
   <h2>Dated</h2>
   <p class="kicker">Every entry below is fixed by a source; nothing is inferred</p>
   <table class="dates">
-    <tr><td>Dec 1899</td><td>The light on Eilean Mòr, built by David A. Stevenson, is first lit. The disappearance falls in its first year.</td></tr>
-    <tr><td>Sat 15 Dec 1900</td><td>Ducat's slate entry that morning — ordinary weather notes. The last confirmed act of any of the three men.</td></tr>
-    <tr><td>15 Dec 1900</td><td>The steamer <em>Archtor</em>, running Philadelphia to Leith, notes in her log that the light is unlit.</td></tr>
-    <tr><td>18 Dec 1900</td><td><em>Archtor</em> docks at Leith and the sighting reaches the Lighthouse Board — three days after it was made.</td></tr>
-    <tr><td>26 Dec 1900</td><td>The relief vessel <em>Hesperus</em> arrives at noon. No flag, no provision boxes out, no answer to whistle or rocket. Joseph Moore goes ashore alone and finds the station empty, gate and door closed.</td></tr>
-    <tr><td>29 Dec 1900</td><td>Muirhead lands to investigate in person.</td></tr>
-    <tr><td>8 Jan 1901</td><td>Muirhead reports: accidental death, no foul play. He notes the breach of the rule about leaving the light, and assigns no blame.</td></tr>
+    <tr><th scope="row">Dec 1899</th><td>The light on Eilean Mòr, built by David A. Stevenson, is first lit. The disappearance falls in its first year.</td></tr>
+    <tr><th scope="row">Sat 15 Dec 1900</th><td>Ducat's slate entry that morning — ordinary weather notes. The last confirmed act of any of the three men.</td></tr>
+    <tr><th scope="row">15 Dec 1900</th><td>The steamer <em>Archtor</em>, running Philadelphia to Leith, notes in her log that the light is unlit.</td></tr>
+    <tr><th scope="row">18 Dec 1900</th><td><em>Archtor</em> docks at Leith and the sighting reaches the Lighthouse Board — three days after it was made.</td></tr>
+    <tr><th scope="row">26 Dec 1900</th><td>The relief vessel <em>Hesperus</em> arrives at noon. No flag, no provision boxes out, no answer to whistle or rocket. Joseph Moore goes ashore alone and finds the station empty, gate and door closed.</td></tr>
+    <tr><th scope="row">29 Dec 1900</th><td>Muirhead lands to investigate in person.</td></tr>
+    <tr><th scope="row">8 Jan 1901</th><td>Muirhead reports: accidental death, no foul play. He notes the breach of the rule about leaving the light, and assigns no blame.</td></tr>
   </table>
 
   </div>
