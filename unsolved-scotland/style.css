@@ -146,7 +146,7 @@ a { color: var(--us-red); }
   margin: 0; display: grid; grid-template-columns: 1fr 1fr;
   border: 1px solid var(--us-grid-firm); background: rgba(22, 33, 42, .5); backdrop-filter: blur(2px);
 }
-.titleblock div { padding: .85rem 1.1rem; border-top: 1px solid var(--us-rule); }
+.titleblock div { padding: .85rem 1.1rem; border-top: 1px solid var(--us-rule); text-align: center; }
 .titleblock div:nth-child(-n+2) { border-top: 0; }
 .titleblock div:nth-child(odd) { border-right: 1px solid var(--us-rule); }
 .titleblock dt { font: 600 .62rem/1.6 var(--us-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--us-ink-soft); }
