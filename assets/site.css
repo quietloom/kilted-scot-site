@@ -409,3 +409,208 @@ a.series:hover .series-go { transform: translateX(5px); }
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Homepage ("Signal") ─────────────────────────────────────────────
+   Adopted 31/08/2026 after a design-panel Critical finding on the old
+   centred-column homepage at real 4K widths (content pinned to --wrap
+   leaves most of the screen an unstyled void). Full-bleed compositions
+   instead of one column -- .gutter (not .wrap) has no max-width, and the
+   root font-size scales with the viewport so every rem-based measure
+   grows with it. Scoped to pages using this structure via :has(), not
+   applied to the shared html rule, so About/series-page sizing is
+   untouched. */
+html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
+.gutter { padding-inline: clamp(2rem, 6vw, 9rem); }
+
+/* Cross-series accent reference: mirrors unsolved-scotland/style.css's own
+   --us-red -- update both if that value ever changes. Needed here because
+   the rail's per-series colophon chip (a warm fleck in the cool homepage)
+   has to work without loading each series' own stylesheet. Revisit if/when
+   a second series needs its own value: this single constant won't scale
+   past two or three series without becoming a real per-series lookup. */
+:root { --us-red: #d9584a; }
+
+@keyframes line-up { from { transform: translateY(110%); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(1.2rem); } }
+@keyframes mark-settle {
+  from { opacity: 0; transform: translateY(-50%) scale(.85) rotate(-6deg); }
+  to { opacity: 1; transform: translateY(-50%) scale(1) rotate(0); }
+}
+@keyframes rail-drift { to { transform: translateX(-50%); } }
+
+/* Text-link underline wipe -- reusable utility, same mechanism already
+   proven on .episode-published h2 a and .notes-link. */
+.wipe { position: relative; text-decoration: none; border-bottom: none !important; }
+.wipe::after {
+  content: ""; position: absolute; left: 0; right: 100%; bottom: -.15em; height: 1px;
+  background: currentColor; transition: right .25s cubic-bezier(.22, 1, .36, 1);
+}
+.wipe:hover::after, .wipe:focus-visible::after { right: 0; }
+
+/* Title screen */
+.screen { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; min-height: 62vh; }
+.screen::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: repeating-linear-gradient(135deg, rgba(171, 143, 218, .30) 0 2px, transparent 2px 14px);
+  -webkit-mask-image: radial-gradient(110rem 80rem at 104% 10%, #000 0%, transparent 60%);
+  mask-image: radial-gradient(110rem 80rem at 104% 10%, #000 0%, transparent 60%);
+  animation: hatch-drift 32s linear infinite;
+}
+.screen::after {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background: radial-gradient(120% 130% at 80% -10%, var(--navy-lift) 0%, var(--navy-deep, var(--navy)) 60%);
+}
+
+/* Feint saltire wash behind the title screen -- a barely-visible brand
+   texture, not a restated mark. */
+.saltire-wash {
+  position: absolute; z-index: -1; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none;
+  -webkit-mask-image: radial-gradient(85% 85% at 40% 45%, #000 0%, transparent 82%);
+  mask-image: radial-gradient(85% 85% at 40% 45%, #000 0%, transparent 82%);
+}
+.saltire-wash::before, .saltire-wash::after {
+  content: ""; position: absolute; top: 50%; left: 45%; width: 220%; height: 7%; background: var(--thistle-l); opacity: .045; transform-origin: center;
+}
+.saltire-wash::before { transform: translate(-50%, -50%) rotate(42deg); }
+.saltire-wash::after { transform: translate(-50%, -50%) rotate(-42deg); }
+
+/* Brand lockup, this page's own arrival moment -- settles in on load.
+   Deliberately scoped to the homepage (.brand-*), not applied to the
+   shared .lockup used on every other page, so inner pages stay as-is. */
+.screen .topbar { display: flex; align-items: center; gap: 1.5rem; padding-block: 1.3rem; border-bottom: 1px solid var(--rule); }
+.brand-row { display: flex; align-items: baseline; gap: 1.3rem; flex-wrap: wrap; font-size: clamp(1.6rem, 3.2vw, 4.2rem); }
+.brand-lockup { position: relative; display: inline-flex; align-items: center; text-decoration: none; color: var(--cream); font-size: 1em; }
+.brand-word {
+  position: relative; z-index: 0; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-weight: 600; letter-spacing: -.02em; line-height: 1; font-size: 1em; color: #fff; padding-left: .98em;
+  animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 120ms both;
+}
+.brand-word b { color: var(--thistle-l); font-weight: 600; }
+.brand-mark {
+  position: absolute; z-index: 1; left: 0; top: 50%; transform: translateY(-50%); height: .78em; width: auto;
+  filter: drop-shadow(0 .06em .3em rgba(0, 0, 0, .45));
+  animation: mark-settle 750ms cubic-bezier(.22, 1, .36, 1) 60ms both;
+}
+.screen .topbar .caps { color: var(--ink-soft); }
+.caps { font-family: var(--text); font-weight: 600; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; }
+
+/* Two explicit rows: row 1 = headline + stats + now-showing; row 2 = lede,
+   under the headline's own column only. */
+.title {
+  flex: 1; display: grid; align-content: start;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .8fr) minmax(0, .8fr);
+  grid-template-rows: auto auto; column-gap: clamp(1.6rem, 3.4vw, 4rem); row-gap: 1.8rem;
+  padding-block: 1.6rem clamp(2.5rem, 6vh, 4rem);
+}
+.title h1 { grid-column: 1; grid-row: 1; align-self: start; justify-self: start; font-size: 6.15rem; margin-top: .4rem; }
+.title h1 .line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
+.title h1 .line > span { display: inline-block; white-space: nowrap; animation: line-up 850ms cubic-bezier(.16, 1, .3, 1) both; }
+.title h1 .line:nth-child(1) > span { animation-delay: 250ms; }
+.title h1 .line.l2 { text-align: center; }
+.title h1 .line.l2 > span { animation-delay: 400ms; }
+.title h1 .line.l3 > span { animation-delay: 550ms; }
+.title h1 .tail { color: var(--thistle-l); }
+
+.title .lede {
+  grid-column: 1; grid-row: 2; max-width: 30ch; margin: 0;
+  font-size: 1.755rem; font-weight: 300; line-height: 1.42; color: var(--ink-soft);
+  animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 650ms both;
+}
+.title .lede .sent { display: block; }
+.title .lede b { color: var(--cream); font-weight: 600; }
+
+.stats-block {
+  grid-column: 2; grid-row: 1; align-self: center; justify-self: center;
+  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 800ms both;
+}
+.stats-block .stat { display: flex; flex-direction: column; align-items: center; gap: .35rem; }
+.stats-block .caps { color: var(--ink-soft); font-size: 1.4rem; letter-spacing: .06em; line-height: 1.15; text-align: center; }
+.stats-block b {
+  font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600;
+  font-size: 2.9rem; line-height: 1; color: var(--thistle-l); text-align: center;
+}
+
+.nowplaying {
+  grid-column: 3; grid-row: 1 / 3; align-self: start; justify-self: end; width: min(100%, 30rem);
+  background: var(--navy); border: 1px solid var(--rule);
+  animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 900ms both;
+  transition: transform .25s cubic-bezier(.22, 1, .36, 1), border-color .25s ease;
+  text-decoration: none; color: inherit; display: block;
+}
+.nowplaying:hover { transform: translateY(-4px); border-color: var(--thistle-l); }
+.nowplaying .np-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.4rem; border-bottom: 1px solid var(--rule); }
+.nowplaying .np-head .caps { color: var(--thistle-l); font-size: .8rem; }
+.nowplaying .np-head .chip {
+  width: .8rem; height: .8rem; flex: none;
+  background: repeating-linear-gradient(135deg, var(--us-red) 0 2px, transparent 2px 5px);
+  border: 1px solid var(--us-red);
+}
+.nowplaying img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--navy-lift); }
+.nowplaying .np-foot { padding: 1.2rem 1.7rem 1.3rem; }
+.nowplaying .np-foot b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.2; }
+.nowplaying .np-foot span { display: block; margin-top: .5rem; font-size: .85rem; color: var(--ink-soft); }
+
+/* Scroll-triggered reveal -- explicit start/end via transition, not a
+   from-only @keyframes (that ambiguity resolves to a competing base rule's
+   end-state, the exact bug already found and fixed on Chart Room). */
+.reveal { opacity: 0; transform: translateY(1.4rem); transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .6s cubic-bezier(.22, 1, .36, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* The rail: the record, moving */
+.rail-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding-block: 1rem; border-top: 2px solid var(--cream); }
+.rail-head h2 { font-size: 1.9rem; }
+.rail-head .series-tag { display: inline-flex; align-items: center; gap: .7rem; }
+.rail-head .chip { width: .85rem; height: .85rem; background: repeating-linear-gradient(135deg, var(--us-red) 0 2px, transparent 2px 5px); border: 1px solid var(--us-red); }
+.rail-head .caps { color: var(--ink-soft); }
+.rail-head a.caps { color: var(--thistle-l); }
+
+.rail {
+  overflow: hidden; position: relative; padding-block: 1.8rem 2.4rem;
+  margin-inline: calc(-1 * clamp(2rem, 6vw, 9rem)); padding-inline: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+}
+.track { display: flex; gap: 1.6rem; width: max-content; animation: rail-drift 80s linear infinite; }
+.rail:hover .track { animation-play-state: paused; }
+
+.rail-case { width: 23rem; flex: none; background: var(--navy); border: 1px solid var(--rule); padding: 1.5rem 1.6rem 1.4rem; position: relative; display: flex; flex-direction: column; align-items: stretch; transition: transform .25s cubic-bezier(.22, 1, .36, 1), border-color .25s ease; }
+.rail-case .status { margin-top: auto; padding-top: 1rem; }
+.rail-case .thumb { margin-top: 1rem; }
+.rail-case:hover { transform: translateY(-5px); border-color: var(--thistle-l); }
+.rail-case .n { font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600; font-size: 2.4rem; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--rule-firm); }
+.rail-case.published .n { color: var(--thistle-l); -webkit-text-stroke: 0; }
+.rail-case h3 { font-size: 1.3rem; font-weight: 500; margin-top: .8rem; min-height: 3.2rem; }
+.rail-case p { margin: .7rem 0 0; font-size: .88rem; color: var(--ink-soft); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.rail-case .tag { display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.1rem; font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); }
+.rail-case .tag::before { content: ""; width: .6rem; height: .6rem; flex: none; background: repeating-linear-gradient(135deg, var(--us-red) 0 2px, transparent 2px 5px); border: 1px solid var(--us-red); }
+.rail-case.published .status { color: var(--thistle-l); }
+.rail-case .status { display: block; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; color: rgba(242, 239, 232, .5); }
+.rail-case .thumb { margin-inline: -1.6rem; margin-bottom: -1.4rem; border-top: 1px solid var(--rule); }
+.rail-case .thumb img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--navy-lift); }
+
+/* Next: the honest slot */
+.next { padding-block: clamp(2.5rem, 6vh, 4rem); }
+.next .frame { border: 1px dashed var(--rule-firm); padding: 1.5rem 2rem; display: flex; flex-wrap: wrap; gap: 1rem 3rem; align-items: baseline; color: var(--ink-soft); }
+.next h3 { font-size: 1.25rem; font-weight: 400; color: var(--ink-soft); }
+.next p { margin: 0; max-width: 58ch; font-size: .95rem; }
+
+@media (max-width: 200rem) {
+  /* Enlarged caps labels wrap to two lines at this width, which would
+     inflate row 1's height and shove the lede down -- letting stats-block
+     span both rows removes that coupling. */
+  .stats-block { grid-row: 1 / 3; align-self: center; }
+}
+@media (max-width: 60rem) {
+  .rail-case { width: 19rem; }
+  .title { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto; }
+  .title h1 { grid-row: 1; }
+  .stats-block { grid-column: 1; grid-row: 2; align-self: start; flex-direction: row; flex-wrap: wrap; gap: 1.6rem 2.6rem; }
+  .title .lede { grid-row: 3; }
+  .nowplaying { grid-column: 1; grid-row: 4; justify-self: start; }
+  .rail-head { flex-wrap: wrap; row-gap: .6rem; }
+  .rail-head .series-tag { order: 1; }
+  .rail-head a.caps { order: 2; }
+}
+
+.site-foot .row { display: flex; flex-wrap: wrap; gap: .8rem 2rem; align-items: center; justify-content: space-between; padding-block: 2.2rem; }

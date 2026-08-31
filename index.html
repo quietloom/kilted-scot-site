@@ -11,58 +11,147 @@
 </head>
 <body>
 
-<header class="banner">
-  <div class="wrap">
-    <nav class="topbar">
-      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
-    </nav>
-    <div class="banner-body">
-      <p class="label eyebrow">Documentary series, made in Scotland</p>
-      <h1>Cases that never quite <span class="tail">closed.</span></h1>
-      <p class="lede">kilted.scot researches and produces Scottish documentary series — one channel, one standard of evidence, a separate series for each thread worth pulling.</p>
+<header class="screen gutter">
+  <div class="saltire-wash" aria-hidden="true"></div>
+  <nav class="topbar">
+    <div class="brand-row">
+      <a class="brand-lockup" href="/">
+        <img class="brand-mark" src="/assets/brand/mark-dark.svg" alt="">
+        <span class="brand-word">kilted<b>.scot</b></span>
+      </a>
     </div>
+  </nav>
+  <div class="title">
+    <h1>
+      <span class="line l1"><span>Many stories</span></span>
+      <span class="line l2"><span>one</span></span>
+      <span class="line l3"><span class="tail">Scottish Voice</span></span>
+    </h1>
+    <p class="lede"><span class="sent">kilted.scot researches and produces its own documentaries.</span><span class="sent"><b>Every one narrated in a real Scottish voice.</b></span><span class="sent">A series for each thread worth pulling, each true to its own subject.</span></p>
+    <div class="stats-block">
+      <div class="stat"><span class="caps">Series in production</span><b>One</b></div>
+      <div class="stat"><span class="caps">Cases on the record</span><b id="stat-cases">&mdash;</b></div>
+      <div class="stat"><span class="caps">Episodes published</span><b id="stat-published">&mdash;</b></div>
+    </div>
+    <a class="nowplaying" id="nowplaying" href="#" hidden>
+      <span class="np-head"><span class="caps">Now showing</span><span class="chip" aria-hidden="true"></span></span>
+      <img id="nowplaying-img" src="" alt="">
+      <span class="np-foot">
+        <b id="nowplaying-title"></b>
+        <span id="nowplaying-sub"></span>
+      </span>
+    </a>
   </div>
 </header>
-<div class="hatch-band"></div>
 
 <main>
-  <section class="wrap statement">
-    <p class="label">What this is</p>
-    <p class="body">Every episode starts from primary sources and ends where the record ends. Where a story is <em>legend rather than fact</em>, we say so on screen rather than letting the better version win. And it's narrated the way these stories were actually told — in a Scottish voice, not the flattened mid-Atlantic default most true-crime and history channels reach for.</p>
+  <section class="gutter reveal" aria-label="The current record">
+    <div class="rail-head">
+      <h2>On the record</h2>
+      <span class="series-tag"><span class="chip" aria-hidden="true"></span><span class="caps">From Unsolved Scotland — a kilted.scot series</span></span>
+      <a class="caps wipe" href="/unsolved-scotland/">View the series &rarr;</a>
+    </div>
+    <div class="rail">
+      <div class="track" id="track"></div>
+    </div>
   </section>
 
-  <section class="wrap">
-    <div class="series-head">
-      <h2>Series</h2>
-      <span class="count">One in production</span>
-    </div>
-
-    <a class="series" href="/unsolved-scotland/" aria-label="Unsolved Scotland — view series">
-      <span class="series-flag" aria-hidden="true"></span>
-      <div>
-        <h3>Unsolved Scotland</h3>
-        <p>Disappearances, deaths and hoaxes from the Scottish record — the Flannan Isles keepers, the Arthur's Seat coffins, a cannibal who may never have existed. Each case taken as far as the evidence goes, and no further.</p>
-        <span class="series-meta">Ten cases announced &middot; First episode in production</span>
-      </div>
-      <span class="series-go" aria-hidden="true">&rarr;</span>
-    </a>
-
-    <div class="series pending">
-      <span class="series-flag" aria-hidden="true"></span>
-      <div>
-        <h3>More series to come</h3>
-        <p>Nothing else is in production yet. When a second series exists it will be listed here, on this page, with its own episode index — not announced anywhere else first.</p>
-      </div>
+  <section class="next gutter reveal">
+    <div class="frame">
+      <h3>More series to come</h3>
+      <p>Nothing else is in production yet. When a second series exists it will join the rail above with its own chip, its own episode index — and it will be announced here first.</p>
     </div>
   </section>
 </main>
 
 <footer class="site-foot">
-  <div class="wrap">
+  <div class="gutter row">
     <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
     <p>Independent documentary production, Scotland. <a href="/about/">About</a></p>
   </div>
 </footer>
 
+<script>
+  fetch('/unsolved-scotland/episodes.json')
+    .then(function (r) { return r.json(); })
+    .then(function (episodes) {
+      episodes.sort(function (a, b) { return a.number - b.number; });
+      var published = episodes.filter(function (e) { return e.status === 'published'; });
+
+      document.getElementById('stat-cases').textContent = episodes.length;
+      document.getElementById('stat-published').textContent = published.length;
+
+      if (published.length) {
+        var latest = published[published.length - 1];
+        var np = document.getElementById('nowplaying');
+        np.href = latest.url;
+        np.hidden = false;
+        document.getElementById('nowplaying-img').src = latest.thumbnail;
+        document.getElementById('nowplaying-img').alt = 'Episode ' + latest.number + ' thumbnail — ' + latest.title;
+        document.getElementById('nowplaying-title').textContent = 'Ep. ' + String(latest.number).padStart(2, '0') + ' — ' + latest.title;
+        var d = new Date(latest.publishedDate);
+        var dateStr = isNaN(d) ? '' : ' &middot; Published ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+        document.getElementById('nowplaying-sub').innerHTML = 'Unsolved Scotland' + dateStr;
+      }
+
+      function buildCase(ep, hidden) {
+        var isPublished = ep.status === 'published';
+        var card = document.createElement('article');
+        card.className = 'rail-case' + (isPublished ? ' published' : '');
+        if (hidden) card.setAttribute('aria-hidden', 'true');
+
+        var n = document.createElement('span');
+        n.className = 'n';
+        n.textContent = String(ep.number).padStart(2, '0');
+        card.appendChild(n);
+
+        var h = document.createElement('h3');
+        h.textContent = ep.title;
+        card.appendChild(h);
+
+        var p = document.createElement('p');
+        p.textContent = ep.summary;
+        card.appendChild(p);
+
+        var status = document.createElement('span');
+        status.className = 'status';
+        status.textContent = isPublished
+          ? 'Published ' + (function () {
+              var d = new Date(ep.publishedDate);
+              return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+            })()
+          : 'Announced';
+        card.appendChild(status);
+
+        if (isPublished && ep.thumbnail) {
+          var thumb = document.createElement('div');
+          thumb.className = 'thumb';
+          var img = document.createElement('img');
+          img.src = ep.thumbnail;
+          img.alt = 'Episode ' + ep.number + ' thumbnail';
+          thumb.appendChild(img);
+          card.appendChild(thumb);
+        }
+
+        return card;
+      }
+
+      var track = document.getElementById('track');
+      episodes.forEach(function (ep) { track.appendChild(buildCase(ep, false)); });
+      episodes.forEach(function (ep) { track.appendChild(buildCase(ep, true)); });
+
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .15 });
+        document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+      }
+    });
+</script>
 </body>
 </html>
