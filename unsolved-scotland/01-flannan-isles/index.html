@@ -233,11 +233,12 @@ body{background:#182028}
 .art .lrow .said{color:var(--dim)}
 
 @media (max-width:820px){
-  .art .lrow,.art .lhead{grid-template-columns:1fr}
-  .art .lrow{gap:.7rem}
-  .art .verdict{margin:0;justify-self:start;padding:.3rem .9rem}
-  .art .lhead span:nth-child(2){text-align:left}
-  .art .lhead span:nth-child(2),.art .lhead span:nth-child(3){display:none}
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
   .art .sound li{grid-template-columns:4.6rem 1fr}
   .art .band{height:190px}
 }
