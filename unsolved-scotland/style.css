@@ -18,9 +18,11 @@
    as episode-notes.html already does. The graticule/grid texture itself
    stays thistle-tinted (ambient chart texture, matches the sitewide hatch
    motif already used in that colour) -- only the foreground accents moved.
-   Headline/eyebrow/lede copy is unchanged from the page's own established
-   text -- the adopted decision was the register/stamp structure, not new
-   copy; Chart Room's own mockup had borrowed a different page's headline. */
+   Headline updated 31/08/2026 per user direction: adopted Chart Room's own
+   original headline ("Cases that never quite closed.") with "closed" in
+   --us-red, sized 25% below Chart Room's own clamp values (not this page's
+   prior live size). Masthead cart and its runhead eyebrow were reduced/
+   removed the same session for real-device legibility -- see git history. */
 
 :root {
   --us-page:      #16212a;
@@ -99,40 +101,35 @@ a { color: var(--us-red); }
 /* ── Masthead: the show's own title card, sitting directly on the plate's
    map/graticule -- no band image or fill of its own, same device
    episode-notes.html's own masthead uses. ─────────────────────────── */
-.runhead {
-  margin: calc(var(--us-frame) + 1.6rem) 0 0; text-align: center;
-  font: 600 .64rem/1 var(--us-caps); letter-spacing: .22em; text-transform: uppercase;
-  color: var(--us-ink-soft);
-}
-.masthead { padding-block: 1.6rem 2.8rem; }
+.masthead { padding-block: 1.04rem 1.82rem; margin-top: calc(var(--us-frame) + .5rem); }
 .masthead .cart {
   display: block; width: 100%; border: 3px double var(--us-rule-firm);
-  padding: clamp(1.6rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem); text-align: center;
+  padding: clamp(1.04rem, 2.6vw, 1.95rem) clamp(.975rem, 2.6vw, 1.95rem); text-align: center;
 }
 .masthead .cart-title {
-  display: flex; align-items: center; justify-content: center; gap: clamp(.7rem, 1.6vw, 1.2rem);
+  display: flex; align-items: center; justify-content: center; gap: clamp(.455rem, 1.04vw, .78rem);
   font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1;
   font-weight: 600; text-transform: uppercase; letter-spacing: .22em;
-  font-size: clamp(2rem, .8rem + 4.2vw, 4.6rem); color: var(--us-ink);
+  font-size: clamp(1.3rem, .52rem + 2.73vw, 2.99rem); color: var(--us-ink);
 }
 .masthead .cart-title img { width: 1em; height: 1em; display: block; flex: none; }
 .masthead .cart-title b { color: var(--thistle-l); font-weight: 600; }
 .masthead .cart .credit {
-  display: block; margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--us-rule);
-  font: italic 300 clamp(1.2rem, .9rem + 1.2vw, 2.3rem)/1 var(--text); letter-spacing: .07em;
+  display: block; margin-top: .715rem; padding-top: .585rem; border-top: 1px solid var(--us-rule);
+  font: italic 300 clamp(.78rem, .585rem + .78vw, 1.495rem)/1 var(--text); letter-spacing: .07em;
   color: var(--thistle-l);
 }
 
 /* ── Hero: headline + title-block, composed across the full width ──── */
 .hero {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 19.5rem);
   gap: clamp(2rem, 5vw, 7rem); align-items: end;
   padding-block: clamp(1.4rem, 3vh, 2.6rem) clamp(1.4rem, 3vh, 2.6rem);
 }
 .hero h1 {
   font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600;
-  font-size: clamp(2.6rem, 1rem + 6.5vw, 6.5rem);
-  line-height: .98; letter-spacing: -.022em; margin: 0; max-width: 16ch;
+  font-size: clamp(2.25rem, .75rem + 5.625vw, 7.125rem);
+  line-height: .98; letter-spacing: -.022em; margin: 0; max-width: 20ch;
 }
 .hero h1 .tail { color: var(--us-red); position: relative; display: inline-block; }
 .fix { position: absolute; top: 50%; left: 50%; width: 1.2em; height: 1.2em; margin: -.6em 0 0 -.6em; pointer-events: none; }
@@ -157,7 +154,7 @@ a { color: var(--us-red); }
 .titleblock div:nth-child(odd) { border-right: 1px solid var(--us-rule); }
 .titleblock dt { font: 600 .62rem/1.6 var(--us-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--us-ink-soft); }
 .titleblock dd { margin: .25rem 0 0; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 500; font-size: 1.35rem; }
-@media (max-width: 64rem) { .hero { grid-template-columns: minmax(0, 1fr); } .titleblock { max-width: 30rem; } }
+@media (max-width: 64rem) { .hero { grid-template-columns: minmax(0, 1fr); } .titleblock { max-width: 22.5rem; } }
 
 /* ── The register: every open case, ruled and stamped ──────────────── */
 .register { padding-block: clamp(1.4rem, 3vh, 2.4rem) clamp(4rem, 9vh, 7rem); }
@@ -282,5 +279,5 @@ a.case .go {
      further and tracking tightens; wrap is a safety net if it still doesn't
      fit at some in-between width, not the primary fix. */
   .masthead .cart { padding-inline: clamp(1rem, 4vw, 3rem); }
-  .cart-title { flex-wrap: wrap; row-gap: .3rem; font-size: clamp(1.3rem, .3rem + 6.5vw, 4.6rem); letter-spacing: .12em; }
+  .cart-title { flex-wrap: wrap; row-gap: .3rem; font-size: clamp(.845rem, .195rem + 4.225vw, 2.99rem); letter-spacing: .12em; }
 }
