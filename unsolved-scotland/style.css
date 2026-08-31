@@ -23,7 +23,7 @@
    copy; Chart Room's own mockup had borrowed a different page's headline. */
 
 :root {
-  --us-page:      #16130f;
+  --us-page:      #16212a;
   --us-ink:       #f2efe8;
   --us-ink-soft:  rgba(242, 239, 232, .76);
   --us-red:       #d9584a;
@@ -262,7 +262,7 @@ a.case .go {
 }
 
 /* ── Footer ────────────────────────────────────────────────────────── */
-.site-foot { background: #16130f; color: rgba(242, 239, 232, .74); border-top: 1px solid var(--us-rule); }
+.site-foot { background: #16212a; color: rgba(242, 239, 232, .74); border-top: 1px solid var(--us-rule); }
 .site-foot a { color: var(--thistle-l); }
 
 /* ── Narrow ────────────────────────────────────────────────────────── */
