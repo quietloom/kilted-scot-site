@@ -582,6 +582,14 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 .track { display: flex; gap: 1.6rem; width: max-content; animation: rail-drift 80s linear infinite; }
 .rail:hover .track { animation-play-state: paused; }
 
+.track.is-paused { animation-play-state: paused; }
+.rail-toggle {
+  background: none; border: 1px solid var(--rule); color: var(--thistle-l);
+  padding: .4rem .9rem; cursor: pointer; border-radius: 0;
+  transition: border-color .18s ease, color .18s ease;
+}
+.rail-toggle:hover, .rail-toggle:focus-visible { border-color: var(--thistle-l); color: var(--cream); }
+
 .rail-case { width: 23rem; flex: none; background: var(--navy); border: 1px solid var(--rule); padding: 1.5rem 1.6rem 1.4rem; position: relative; display: flex; flex-direction: column; align-items: stretch; transition: transform .25s cubic-bezier(.22, 1, .36, 1), border-color .25s ease; }
 .rail-case .status { margin-top: auto; padding-top: 1rem; }
 .rail-case .thumb { margin-top: 1rem; }

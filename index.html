@@ -49,6 +49,7 @@
     <div class="rail-head">
       <h2>On the record</h2>
       <span class="series-tag"><span class="chip" aria-hidden="true"></span><span class="caps">From Unsolved Scotland — a kilted.scot series</span></span>
+      <button type="button" class="caps rail-toggle" id="railToggle" aria-pressed="false">Pause</button>
       <a class="caps wipe" href="/unsolved-scotland/">View the series &rarr;</a>
     </div>
     <div class="rail">
@@ -137,6 +138,12 @@
       }
 
       var track = document.getElementById('track');
+      var railToggle = document.getElementById('railToggle');
+      railToggle.addEventListener('click', function () {
+        var paused = track.classList.toggle('is-paused');
+        railToggle.setAttribute('aria-pressed', String(paused));
+        railToggle.textContent = paused ? 'Play' : 'Pause';
+      });
       episodes.forEach(function (ep) { track.appendChild(buildCase(ep, false)); });
       episodes.forEach(function (ep) { track.appendChild(buildCase(ep, true)); });
 
