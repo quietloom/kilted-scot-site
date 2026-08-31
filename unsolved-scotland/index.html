@@ -23,100 +23,126 @@
   <div class="umbrella-seam"></div>
 </header>
 
-<section class="show-hero">
-  <div class="wrap">
-    <div class="hero-plate">
-      <img class="show-mark" src="/assets/unsolved-scotland/mark.png" alt="" width="512" height="512">
-      <div class="hero-copy">
-        <p class="label eyebrow">A kilted.scot series</p>
-        <h1>Unsolved <span class="tail">Scotland</span></h1>
-        <p class="lede">Disappearances, deaths and hoaxes from the Scottish record. Each case taken as far as the evidence goes — and stopped there.</p>
+<div class="plate">
+  <div class="neatline" aria-hidden="true"></div>
+  <span class="margin-note top" aria-hidden="true">Unsolved Scotland &middot; Documentary series &middot; Surveyed from primary sources</span>
+  <span class="margin-note left" aria-hidden="true">Sheet No. 1 &middot; The open cases of the register</span>
+  <span class="margin-note bottom" aria-hidden="true">Chart ground: Admiralty 2635, 1886 &middot; Reproduced with the permission of the National Library of Scotland</span>
+
+  <header class="wrap">
+    <p class="runhead">Made in Scotland &middot; One standard of evidence</p>
+    <div class="masthead">
+      <div class="cart">
+        <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+        <span class="credit">a kilted.scot series</span>
       </div>
     </div>
-    <dl class="facts">
-      <div><dt>Cases announced</dt><dd id="ep-count">&mdash;</dd></div>
-      <div><dt>Status</dt><dd id="ep-status">In production</dd></div>
-      <div><dt>Narration</dt><dd>Scottish voice</dd></div>
-      <div><dt>Watch</dt><dd>YouTube</dd></div>
-    </dl>
-  </div>
-</section>
-<div class="chart-band"></div>
 
-<main class="wrap">
-  <div class="ledger-head">
-    <h2>The case list</h2>
-    <p>The full opening run, published in order. Announced cases are researched and scheduled; each one appears here as a full entry on the day it goes live.</p>
-  </div>
+    <div class="hero">
+      <div>
+        <h1>Unsolved <span class="tail">Scotland<svg class="fix" viewBox="0 0 100 100" aria-hidden="true"><line class="h" x1="0" y1="50" x2="100" y2="50"/><line class="v" x1="50" y1="0" x2="50" y2="100"/><circle cx="50" cy="50" r="26"/></svg></span></h1>
+        <p class="lede">Disappearances, deaths and hoaxes from the Scottish record. Each case taken as far as the evidence goes — and stopped there.</p>
+      </div>
+      <dl class="titleblock">
+        <header>Title block</header>
+        <div><dt>Cases announced</dt><dd id="ep-count">&mdash;</dd></div>
+        <div><dt>Status</dt><dd id="ep-status">In production</dd></div>
+        <div><dt>Narration</dt><dd>Scottish voice</dd></div>
+        <div><dt>Watch</dt><dd>YouTube</dd></div>
+      </dl>
+    </div>
+  </header>
 
-  <div id="episodes"></div>
-  <script>
-    fetch('/unsolved-scotland/episodes.json')
-      .then(function (r) { return r.json(); })
-      .then(function (episodes) {
-        var container = document.getElementById('episodes');
-        episodes.sort(function (a, b) { return a.number - b.number; });
-        var published = episodes.filter(function (e) { return e.status === 'published'; }).length;
-        document.getElementById('ep-count').textContent = episodes.length;
-        document.getElementById('ep-status').textContent = published
-          ? published + ' of ' + episodes.length + ' published'
-          : 'In production';
-        episodes.forEach(function (ep, i) {
-          var card = document.createElement('div');
-          card.className = 'episode-card episode-' + ep.status;
-          card.dataset.n = String(ep.number).padStart(2, '0');
-          card.style.setProperty('--i', i);
-          var h = document.createElement('h2');
-          var p = document.createElement('p');
-          p.textContent = ep.summary;
-          if (ep.status === 'published') {
+  <main>
+    <section class="wrap register">
+      <div class="register-head">
+        <h2>The register</h2>
+      </div>
+
+      <div class="cases" id="cases"></div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
+      <p>Unsolved Scotland is a kilted.scot series. Chart ground reproduced with the permission of the National Library of Scotland. <a href="/about/">About</a></p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  fetch('/unsolved-scotland/episodes.json')
+    .then(function (r) { return r.json(); })
+    .then(function (episodes) {
+      var container = document.getElementById('cases');
+      episodes.sort(function (a, b) { return a.number - b.number; });
+      var published = episodes.filter(function (e) { return e.status === 'published'; }).length;
+      document.getElementById('ep-count').textContent = episodes.length;
+      document.getElementById('ep-status').textContent = published
+        ? published + ' of ' + episodes.length + ' published'
+        : 'In production';
+
+      episodes.forEach(function (ep, i) {
+        var isPublished = ep.status === 'published';
+        var card = document.createElement(isPublished ? 'a' : 'div');
+        card.className = 'case' + (isPublished ? ' published' : '');
+        card.dataset.n = String(ep.number).padStart(2, '0');
+        card.style.setProperty('--i', i);
+        if (isPublished) card.href = ep.url;
+
+        var h = document.createElement('h3');
+        h.textContent = ep.title;
+        card.appendChild(h);
+
+        var stamp = document.createElement('span');
+        stamp.className = 'stamp';
+        stamp.textContent = isPublished ? 'Published' : 'Unsolved';
+        card.appendChild(stamp);
+
+        var p = document.createElement('p');
+        p.textContent = ep.summary;
+        card.appendChild(p);
+
+        if (isPublished) {
+          var go = document.createElement('span');
+          go.className = 'go';
+          go.textContent = 'Watch · read the case notes';
+          card.appendChild(go);
+
+          if (ep.thumbnail) {
+            var thumb = document.createElement('div');
+            thumb.className = 'thumb';
             var img = document.createElement('img');
             img.src = ep.thumbnail;
             img.alt = '';
-            var a = document.createElement('a');
-            a.href = ep.url;
-            a.textContent = ep.title;
-            h.appendChild(a);
-            card.appendChild(img);
-            card.appendChild(h);
-            card.appendChild(p);
-            var d = new Date(ep.publishedDate);
-            if (!isNaN(d)) {
-              var time = document.createElement('time');
-              time.setAttribute('datetime', ep.publishedDate);
-              time.textContent = d.toLocaleDateString('en-GB', {
-                day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
-              });
-              card.appendChild(time);
-            }
-          } else {
-            h.textContent = ep.title;
-            var badge = document.createElement('span');
-            badge.className = 'coming-soon';
-            badge.textContent = 'Coming soon';
-            card.appendChild(h);
-            card.appendChild(p);
-            card.appendChild(badge);
-            if (ep.notesUrl) {
-              var notes = document.createElement('a');
-              notes.className = 'notes-link';
-              notes.href = ep.notesUrl;
-              notes.textContent = 'Read the case notes';
-              card.appendChild(notes);
-            }
+            thumb.appendChild(img);
+            card.appendChild(thumb);
           }
-          container.appendChild(card);
-        });
+        } else if (ep.notesUrl) {
+          var notes = document.createElement('a');
+          notes.className = 'notes-link';
+          notes.href = ep.notesUrl;
+          notes.textContent = 'Read the case notes';
+          card.appendChild(notes);
+        }
+
+        container.appendChild(card);
       });
-  </script>
-</main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span>kilted<b>.scot</b></span></a>
-    <p>Unsolved Scotland is a kilted.scot series. <a href="/about/">About</a></p>
-  </div>
-</footer>
-
+      if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('has-motion');
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .15 });
+        document.querySelectorAll('.case').forEach(function (el) { revealObserver.observe(el); });
+      }
+    });
+</script>
 </body>
 </html>

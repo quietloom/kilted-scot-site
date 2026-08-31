@@ -1,25 +1,38 @@
-/* Unsolved Scotland — show identity.
+/* Unsolved Scotland — show identity ("Chart Room").
    Loads AFTER /assets/site.css, which stays umbrella-only: nothing here edits
    the shared file, and every other series gets its own sheet the same way.
 
-   The show's mark is a red position-fix crosshair over a bleached period chart.
-   So the page it lives on is that chart: parchment ground, a faint graticule,
-   a hairline neatline, lead-red for every accent. The umbrella's navy and its
-   45° saltire diagonal appear once, in the credit strip at the very top, and
-   stop at the seam under it. */
+   Adopted 31/08/2026 (Session 5 decision, via kilted.scot INBOX): replaces the
+   earlier flat hero+ledger layout with Chart Room's structure -- the page
+   becomes one continuous chart plate (neatline frame, drifting graticule,
+   marginalia) with a two-column register of stamped cases, rather than a
+   hero band over a plain list. Source: Claude options dev's adversarial pass,
+   rescoped to this series only after an earlier kilted.scot-homepage framing
+   was ruled out (see kilted.scot DECISIONS.md).
 
-/* Dark is the only palette (walked back the light default 31/08/2026) --
-   an ink-toned chart plate instead of the bleached-parchment original,
-   keeping the same graticule/red-fix language rather than just inverting. */
+   One deliberate accent swap from the source mockup: Chart Room's own mockup
+   used the umbrella's thistle for the register's stamps/numerals/hero-tail.
+   Kept here instead: --us-red, this show's own established accent (the
+   crosshair mark's own colour, already used throughout episode-notes.html)
+   -- thistle stays reserved for the shared umbrella wordmark/seam, exactly
+   as episode-notes.html already does. The graticule/grid texture itself
+   stays thistle-tinted (ambient chart texture, matches the sitewide hatch
+   motif already used in that colour) -- only the foreground accents moved.
+   Headline/eyebrow/lede copy is unchanged from the page's own established
+   text -- the adopted decision was the register/stamp structure, not new
+   copy; Chart Room's own mockup had borrowed a different page's headline. */
+
 :root {
-  --us-parchment: #2a2419;
-  --us-page:      #211c15;
-  --us-surface:   #332c1f;
-  --us-ink:       #ece5cc;
-  --us-ink-soft:  rgba(236, 229, 204, .72);
+  --us-page:      #16130f;
+  --us-ink:       #f2efe8;
+  --us-ink-soft:  rgba(242, 239, 232, .76);
   --us-red:       #d9584a;
-  --us-grid:      rgba(178, 168, 140, .22);
-  --us-grid-firm: rgba(178, 168, 140, .5);
+  --us-grid:      rgba(171, 143, 218, .06);
+  --us-grid-firm: rgba(171, 143, 218, .34);
+  --us-rule:      rgba(242, 239, 232, .16);
+  --us-rule-firm: rgba(242, 239, 232, .4);
+  --us-caps:      Bahnschrift, "Arial Narrow", "Segoe UI", sans-serif;
+  --us-frame:     clamp(14px, 1.4vw, 30px);
 }
 
 body { background: var(--us-page); color: var(--us-ink); }
@@ -28,200 +41,246 @@ a { color: var(--us-red); }
 :focus-visible { outline-color: var(--us-red); }
 .label { color: var(--us-red); }
 
-/* ── Umbrella credit strip ─────────────────────────────────────────── */
-
-.navstrip {
-  background: var(--navy);
-  color: var(--cream);
+/* ── The chart ground: the whole page is one plate ─────────────────── */
+/* Layer 1: the 1886 Admiralty ink decomposition, inverted so engraved
+   strokes read as pale ink on the dark ground. Layer 2: a live graticule
+   spanning the full viewport, drifting slowly -- ambient, thistle-tinted
+   (the shared umbrella chart/hatch texture), not this show's own accent. */
+.plate { position: relative; isolation: isolate; min-height: 60vh; }
+.plate::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background: url('/assets/unsolved-scotland/nls-scotland-west-coast-1886-ink.png') center/cover no-repeat;
+  filter: invert(.92) sepia(.14) saturate(.6);
+  opacity: .08;
 }
-
-.navstrip .topbar { border-bottom: 0; }
-
-/* The saltire diagonal, once, as the seam where the umbrella's zone ends. */
-.umbrella-seam {
-  height: 7px;
-  background: repeating-linear-gradient(135deg,
-    var(--thistle-l) 0 2px, var(--navy) 2px 9px);
-}
-
-/* ── The chart plate ───────────────────────────────────────────────── */
-
-.show-hero {
-  background: var(--us-parchment);
-  padding-block: clamp(2rem, 5vw, 3.4rem) clamp(2rem, 4.5vw, 3rem);
-  border-bottom: 1px solid var(--us-grid-firm);
-}
-
-.hero-plate {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(1.6rem, 4vw, 3.4rem);
-  padding: clamp(1.7rem, 4vw, 3rem);
-  /* Ink wash over a graticule — the same grid that crosses the mark. */
+.plate::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(125% 130% at 12% -10%, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 58%),
-    repeating-linear-gradient(to right,  var(--us-grid) 0 1px, transparent 1px 5.5rem),
-    repeating-linear-gradient(to bottom, var(--us-grid) 0 1px, transparent 1px 5.5rem);
+    repeating-linear-gradient(to right, var(--us-grid) 0 1px, transparent 1px 6.5rem),
+    repeating-linear-gradient(to bottom, var(--us-grid) 0 1px, transparent 1px 6.5rem);
+  animation: us-graticule-drift 90s linear infinite;
 }
+@keyframes us-graticule-drift { to { background-position: 6.5rem 6.5rem, 6.5rem 6.5rem; } }
 
-/* Neatline: the ruled border every chart plate carries. */
-.hero-plate::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+/* ── The neatline frame: chart marginalia instead of empty margins ── */
+.neatline {
+  position: fixed; inset: var(--us-frame); z-index: 5; pointer-events: none;
   border: 1px solid var(--us-grid-firm);
-  pointer-events: none;
 }
-
-/* The badge is a circle inscribed in the square with transparent corners, so
-   the plate's graticule runs behind it — the mark reads as cut from this chart.
-   Do not clip it: the ink ring already touches the image edge. */
-.show-mark {
-  width: clamp(6.5rem, 15vw, 11rem);
-  height: auto;
-  display: block;
+.neatline::before, .neatline::after {
+  content: ""; position: absolute; width: 14px; height: 14px;
+  border: 0 solid var(--thistle-l);
 }
-
-.hero-copy .eyebrow { margin-bottom: 1.15rem; }
-
-.show-hero h1 {
-  font-size: clamp(2.4rem, 1.3rem + 5.2vw, 4.6rem);
-  max-width: 14ch;
-  color: var(--us-ink);
+.neatline::before { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+.neatline::after { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+.margin-note {
+  position: fixed; z-index: 5; pointer-events: none;
+  font: 600 .62rem/1 var(--us-caps); letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(171, 143, 218, .55); white-space: nowrap;
 }
+.margin-note.top {
+  top: calc(var(--us-frame) - .55rem); left: 50%; transform: translateX(-50%);
+  background: var(--us-page); padding: .15rem 1rem;
+}
+.margin-note.left {
+  left: calc(var(--us-frame) - .55rem); top: 50%;
+  transform: translateX(-50%) rotate(-90deg); transform-origin: center;
+  background: var(--us-page); padding: .15rem 1rem;
+}
+.margin-note.bottom {
+  bottom: calc(var(--us-frame) - .55rem); left: 50%; transform: translateX(-50%);
+  background: var(--us-page); padding: .15rem 1rem;
+}
+@media (max-width: 60rem) { .margin-note.left { display: none; } }
+@media (max-width: 40rem) { .margin-note.top, .margin-note.bottom { display: none; } }
 
-.show-hero h1 .tail { color: var(--us-red); }
+.plate .wrap { max-width: 110rem; }
 
-.show-hero .lede {
+/* ── Masthead: the show's own title card, sitting directly on the plate's
+   map/graticule -- no band image or fill of its own, same device
+   episode-notes.html's own masthead uses. ─────────────────────────── */
+.runhead {
+  margin: calc(var(--us-frame) + 1.6rem) 0 0; text-align: center;
+  font: 600 .64rem/1 var(--us-caps); letter-spacing: .22em; text-transform: uppercase;
   color: var(--us-ink-soft);
-  max-width: 46ch;
-  margin-top: 1.3rem;
+}
+.masthead { padding-block: 1.6rem 2.8rem; }
+.masthead .cart {
+  display: block; width: 100%; border: 3px double var(--us-rule-firm);
+  padding: clamp(1.6rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem); text-align: center;
+}
+.masthead .cart-title {
+  display: flex; align-items: center; justify-content: center; gap: clamp(.7rem, 1.6vw, 1.2rem);
+  font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-weight: 600; text-transform: uppercase; letter-spacing: .22em;
+  font-size: clamp(2rem, .8rem + 4.2vw, 4.6rem); color: var(--us-ink);
+}
+.masthead .cart-title img { width: 1em; height: 1em; display: block; flex: none; }
+.masthead .cart-title b { color: var(--thistle-l); font-weight: 600; }
+.masthead .cart .credit {
+  display: block; margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--us-rule);
+  font: italic 300 clamp(1.2rem, .9rem + 1.2vw, 2.3rem)/1 var(--text); letter-spacing: .07em;
+  color: var(--thistle-l);
 }
 
-/* Marginalia row: ruled cells, the way a chart's title block is ruled. */
-.show-hero .facts {
-  gap: 0;
-  margin-top: clamp(1.6rem, 3.5vw, 2.4rem);
-  padding-top: 0;
-  border-top: 2px solid var(--us-ink);
+/* ── Hero: headline + title-block, composed across the full width ──── */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+  gap: clamp(2rem, 5vw, 7rem); align-items: end;
+  padding-block: clamp(1.4rem, 3vh, 2.6rem) clamp(1.4rem, 3vh, 2.6rem);
+}
+.hero h1 {
+  font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600;
+  font-size: clamp(2.6rem, 1rem + 6.5vw, 6.5rem);
+  line-height: .98; letter-spacing: -.022em; margin: 0; max-width: 16ch;
+}
+.hero h1 .tail { color: var(--us-red); position: relative; display: inline-block; }
+.fix { position: absolute; top: 50%; left: 50%; width: 1.2em; height: 1.2em; margin: -.6em 0 0 -.6em; pointer-events: none; }
+.fix line { stroke: var(--us-red); stroke-width: 1.5; opacity: .9; }
+.fix circle { fill: none; stroke: var(--us-red); stroke-width: 1.5; opacity: .9; }
+.fix .h, .fix .v { stroke-dasharray: 120; stroke-dashoffset: 120; animation: us-fix-draw 700ms cubic-bezier(.65, 0, .35, 1) 400ms forwards; }
+.fix .v { animation-delay: 550ms; }
+.fix circle { stroke-dasharray: 200; stroke-dashoffset: 200; animation: us-fix-draw 800ms cubic-bezier(.65, 0, .35, 1) 750ms forwards; }
+@keyframes us-fix-draw { to { stroke-dashoffset: 0; } }
+.hero .lede { max-width: 46ch; margin: 1.8rem 0 0; font-size: clamp(1.06rem, 1rem + .45vw, 1.3rem); font-weight: 300; line-height: 1.55; color: var(--us-ink-soft); }
+
+/* Title block: the chart's legend box, doing the work of the old facts row. */
+.titleblock { border: 1px solid var(--us-grid-firm); background: rgba(22, 33, 42, .5); backdrop-filter: blur(2px); }
+.titleblock header {
+  padding: .7rem 1.3rem; border-bottom: 1px solid var(--us-grid-firm);
+  font: 600 .64rem/1.5 var(--us-caps); letter-spacing: .26em; text-transform: uppercase;
+  color: var(--thistle-l); text-align: center;
+}
+.titleblock dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.titleblock div { padding: 1rem 1.3rem; border-top: 1px solid var(--us-rule); }
+.titleblock div:nth-child(-n+2) { border-top: 0; }
+.titleblock div:nth-child(odd) { border-right: 1px solid var(--us-rule); }
+.titleblock dt { font: 600 .62rem/1.6 var(--us-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--us-ink-soft); }
+.titleblock dd { margin: .25rem 0 0; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 500; font-size: 1.35rem; }
+@media (max-width: 64rem) { .hero { grid-template-columns: minmax(0, 1fr); } .titleblock { max-width: 30rem; } }
+
+/* ── The register: every open case, ruled and stamped ──────────────── */
+.register { padding-block: clamp(1.4rem, 3vh, 2.4rem) clamp(4rem, 9vh, 7rem); }
+.register-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding-bottom: 1rem; border-bottom: 2px solid var(--us-ink); margin-bottom: 0;
+}
+.register-head h2 { font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600; font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.6rem); margin: 0; letter-spacing: -.018em; }
+
+.cases { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(3rem, 6vw, 7rem); }
+@media (max-width: 72rem) { .cases { grid-template-columns: 1fr; } }
+
+.case {
+  display: grid; grid-template-columns: 4.6rem minmax(0, 1fr) auto;
+  gap: .2rem clamp(1rem, 2.5vw, 1.8rem); align-items: start;
+  padding: clamp(1.4rem, 3vh, 2rem) 0; border-bottom: 1px solid var(--us-rule);
+  text-decoration: none; color: inherit; position: relative;
+  transition: background-color .2s cubic-bezier(.22, 1, .36, 1);
+}
+.case::before {
+  content: attr(data-n); grid-column: 1; grid-row: 1 / span 4;
+  font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-size: 2.9rem; font-weight: 600; line-height: .9; letter-spacing: -.04em;
+  color: transparent; -webkit-text-stroke: 1.5px var(--us-rule-firm);
+}
+.case.published::before { color: var(--us-red); -webkit-text-stroke: 0; }
+.case h3 {
+  grid-column: 2; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-weight: 500; font-size: clamp(1.3rem, 1.1rem + .8vw, 1.75rem); line-height: 1.12;
+  letter-spacing: -.014em; margin: 0;
+}
+.case .yr { color: var(--us-ink-soft); font-weight: 400; }
+.case p { grid-column: 2; margin: .5rem 0 0; max-width: 56ch; color: var(--us-ink-soft); font-size: .96rem; }
+
+/* The stamp: the register's verdict, overprinted slightly off-true. */
+.stamp {
+  grid-column: 3; grid-row: 1; justify-self: end; align-self: start; margin-top: .3rem;
+  font: 600 .62rem/1 var(--us-caps); letter-spacing: .22em; text-transform: uppercase;
+  color: var(--us-red); border: 2px solid currentColor; padding: .42rem .7rem .38rem;
+  transform: rotate(-4deg); opacity: .85;
+}
+.case.published .stamp { color: var(--us-page); border-color: var(--us-red); background: var(--us-red); transform: rotate(-2deg); opacity: 1; }
+a.case:hover, a.case:focus-visible { background: rgba(242, 239, 232, .04); }
+a.case:hover h3 { color: var(--us-red); }
+a.case .go {
+  grid-column: 2; margin-top: .7rem; display: inline-block;
+  font: 600 .68rem/1 var(--us-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--us-red);
 }
 
-.show-hero .facts div {
-  flex: 1 1 9rem;
-  padding: 1.05rem clamp(.9rem, 2.2vw, 1.6rem);
-  border-left: 1px solid var(--us-grid-firm);
+/* Hybrid: a small thumbnail under the stamp on published cases, per the
+   adopted decision (not a straight pick of stamp-only or thumbnail-only). */
+.case .thumb {
+  grid-column: 3; grid-row: 2; justify-self: end; margin-top: .6rem;
+  width: 8.4rem; max-width: 100%;
 }
+.case .thumb img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--us-page); border: 1px solid var(--us-rule); }
 
-.show-hero .facts div:first-child { border-left: 0; padding-left: 0; }
-
-.show-hero .facts dt { color: var(--us-ink-soft); }
-.show-hero .facts dd { color: var(--us-ink); font-size: 1.35rem; }
-
-/* Scale bar, not a saltire hatch — the graticule ticking along the edge. */
-.chart-band {
-  height: 13px;
-  background:
-    repeating-linear-gradient(to right, var(--us-grid-firm) 0 1px, transparent 1px 12px)
-    top left / 100% 7px no-repeat;
-  border-top: 1px solid var(--us-grid-firm);
-  opacity: 1;
-}
-
-/* ── The case ledger ───────────────────────────────────────────────── */
-
-.ledger-head { border-bottom: 2px solid var(--us-red); }
-.ledger-head h2 { color: var(--us-ink); }
-.ledger-head p { color: var(--us-ink-soft); }
-
-.episode-card { border-bottom-color: var(--us-grid); }
-.episode-card p { color: var(--us-ink-soft); }
-
-/* Outlined numeral, but in the show's red — it threads the accent down the
-   whole ledger, which is otherwise ink-on-parchment for ten rows. */
-.episode-announced::before { -webkit-text-stroke-color: rgba(217, 88, 74, .48); }
-.episode-announced h2 { color: rgba(236, 229, 204, .82); }
-
-.coming-soon { color: var(--us-red); }
-
-/* Case notes exist before an episode is published — announced records can carry
-   the finished notes/sources page independently of the YouTube upload itself. */
-/* Same growing-underline wipe as .episode-published h2 a (site.css), kept
-   at a resting 1px rather than starting from nothing -- this is a small-caps
-   label link, not prose, so it keeps its always-visible affordance and just
-   thickens + recolours on interaction instead of a hard colour swap. */
+/* Case notes exist before an episode is published -- announced records can
+   carry the finished notes/sources page independently of the YouTube upload. */
 .notes-link {
-  grid-column: 2;
-  margin-top: .6rem;
-  display: inline-block;
-  width: fit-content;
-  font-size: .78rem;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--us-red);
-  text-decoration: none;
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 100% 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  padding-bottom: .18rem;
-  transition: color .2s cubic-bezier(.22, 1, .36, 1),
-    background-size .2s cubic-bezier(.22, 1, .36, 1);
+  grid-column: 2; margin-top: .6rem; display: inline-block; width: fit-content;
+  font-size: .78rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 600;
+  color: var(--us-red); text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px;
+  background-position: 0 100%; background-repeat: no-repeat; padding-bottom: .18rem;
+  transition: color .2s cubic-bezier(.22, 1, .36, 1), background-size .2s cubic-bezier(.22, 1, .36, 1);
 }
 .notes-link:hover, .notes-link:focus-visible { color: var(--us-ink); background-size: 100% 2px; }
 
-/* Tick marks, matching the scale bar above. */
-.coming-soon::before {
-  background: repeating-linear-gradient(to right,
-    var(--us-red) 0 1px, transparent 1px 5px);
-  height: 9px;
+/* Reveal: scroll-triggered via IntersectionObserver -- the register sits
+   below the fold, so an on-load stagger would finish before a visitor ever
+   scrolls down to see it. .has-motion only appears when JS + the observer
+   both work, so a no-JS visitor just sees the final state, never opacity:0. */
+.has-motion .case { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+.has-motion .case.is-visible {
+  opacity: 1; transform: translateY(0); filter: blur(0);
+  transition: opacity 420ms cubic-bezier(.16, 1, .3, 1), transform 420ms cubic-bezier(.16, 1, .3, 1), filter 420ms cubic-bezier(.16, 1, .3, 1);
+  transition-delay: calc(var(--i, 0) * 60ms);
 }
-
-.episode-published {
-  background: var(--us-surface);
-  box-shadow: inset 3px 0 0 var(--us-red);
-  border-bottom-color: transparent;
+.has-motion .stamp { opacity: 0; transform: rotate(-4deg) scale(1.25); }
+.has-motion .case.is-visible .stamp {
+  opacity: .85; transform: rotate(-4deg) scale(1);
+  transition: opacity 340ms cubic-bezier(.16, 1, .3, 1), transform 340ms cubic-bezier(.16, 1, .3, 1);
+  transition-delay: calc(var(--i, 0) * 60ms + 260ms);
 }
+.has-motion .case.published.is-visible .stamp { opacity: 1; transform: rotate(-2deg) scale(1); }
 
-.episode-published::before { color: var(--us-red); }
-.episode-published img { background: #28221a; }
-
-.episode-published h2 a {
-  color: var(--us-ink);
-  background-image: linear-gradient(var(--us-red), var(--us-red));
+@keyframes us-tb-row-in {
+  from { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
+.titleblock div { animation: us-tb-row-in 340ms cubic-bezier(.16, 1, .3, 1) both; }
+.titleblock div:nth-child(2) { animation-delay: 900ms; }
+.titleblock div:nth-child(3) { animation-delay: 960ms; }
+.titleblock div:nth-child(4) { animation-delay: 1020ms; }
+.titleblock div:nth-child(5) { animation-delay: 1080ms; }
 
-.episode-published h2 a:hover,
-.episode-published h2 a:focus-visible { color: var(--us-red); }
-
-.episode-published time { color: var(--us-ink-soft); }
+@media (prefers-reduced-motion: reduce) {
+  .has-motion .case, .has-motion .stamp { opacity: 1; transform: none; filter: none; }
+  .titleblock div { opacity: 1; transform: none; filter: none; animation: none; }
+  .fix line, .fix circle { stroke-dashoffset: 0; animation: none; }
+}
 
 /* ── Footer ────────────────────────────────────────────────────────── */
-
-/* Chart ink, not navy — the page never snaps back to the umbrella ground.
-   The lockup keeps its thistle, because that IS the umbrella's wordmark. */
-.site-foot {
-  background: #28221a;
-  color: rgba(231, 224, 202, .74);
-}
-
+.site-foot { background: #16130f; color: rgba(242, 239, 232, .74); border-top: 1px solid var(--us-rule); }
 .site-foot a { color: var(--thistle-l); }
 
 /* ── Narrow ────────────────────────────────────────────────────────── */
-
 @media (max-width: 46rem) {
-  .hero-plate {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.4rem;
-    justify-items: start;
-  }
-  .show-hero h1 { max-width: 100%; }
-  .show-hero .facts div {
-    flex: 1 1 8rem;
-    padding: .9rem 1rem;
-  }
-  /* Two per row: the third cell starts a new row, so it loses its rule. */
-  .show-hero .facts div:nth-child(odd) { border-left: 0; padding-left: 0; }
+  /* The three-column case row (numeral | content | stamp+thumb) doesn't
+     survive phone widths -- numeral shrinks, and the stamp/thumb column
+     drops out of its own dedicated column into the flow under the text,
+     rather than squeezing the title into ~100px. */
+  .case { grid-template-columns: 3rem minmax(0, 1fr); }
+  .case::before { font-size: 2rem; grid-row: 1 / span 3; }
+  .case h3, .case p, a.case .go { grid-column: 2; }
+  .stamp { grid-column: 2; grid-row: auto; justify-self: start; align-self: auto; margin: .8rem 0 0; }
+  .case .thumb { grid-column: 2; grid-row: auto; justify-self: start; margin-top: .6rem; width: 100%; max-width: 16rem; }
+
+  /* Masthead title: "UNSOLVED SCOTLAND" at the wide-screen clamp floor plus
+     .22em letter-spacing doesn't fit a phone-width cart box -- floor drops
+     further and tracking tightens; wrap is a safety net if it still doesn't
+     fit at some in-between width, not the primary fix. */
+  .masthead .cart { padding-inline: clamp(1rem, 4vw, 3rem); }
+  .cart-title { flex-wrap: wrap; row-gap: .3rem; font-size: clamp(1.3rem, .3rem + 6.5vw, 4.6rem); letter-spacing: .12em; }
 }
