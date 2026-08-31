@@ -517,6 +517,14 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
   animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 650ms both;
 }
 .title .lede .sent { display: block; }
+/* Nowrap only once the column is comfortably wide enough to hold the longest
+   sentence with real clearance from the stats column -- measured: the gap
+   is a tight 30-65px through the whole laptop band (~60rem-85rem) but opens
+   up past 100rem (172px at 100rem, 470px at 160rem), so laptop widths keep
+   the plain wrap and only wide desktop/4k screens get one line per sentence. */
+@media (min-width: 100rem) {
+  .title .lede .sent { white-space: nowrap; }
+}
 .title .lede b { color: var(--cream); font-weight: 600; }
 
 .stats-block {
