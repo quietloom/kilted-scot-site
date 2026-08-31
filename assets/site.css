@@ -585,7 +585,7 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 
 .track.is-paused { animation-play-state: paused; }
 .rail-toggle {
-  background: none; border: 1px solid var(--rule); color: var(--thistle-l);
+  background: none; border: 1px solid var(--rule);
   padding: .4rem .9rem; cursor: pointer; border-radius: 0;
   transition: border-color .18s ease, color .18s ease;
 }
