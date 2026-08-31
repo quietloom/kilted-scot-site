@@ -116,9 +116,8 @@ body{background:#182028}
   color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
 .art .sound .what{font-size:1rem;color:var(--ink)}
 
-.art .ledger{margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
-.art .lrow{display:grid;grid-template-columns:1fr 8.6rem 1fr;gap:0 1.5rem;align-items:start;
-  padding:1.15rem 0;border-bottom:1px solid var(--rule);
+.art .ledger{width:100%;border-collapse:collapse;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
   transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
 /* Hidden state only applies once JS confirms it can reveal them again --
    .has-motion is set by the IntersectionObserver script near the end of
@@ -129,18 +128,20 @@ body{background:#182028}
   .art *{transition:none!important;animation-duration:.01ms!important}
   .has-motion .art .lrow{opacity:1;transform:none;filter:none}
 }
-.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative;padding-right:.2rem}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
 .art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
 .art .lrow .shown{font-size:1rem;line-height:1.52}
 .art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
-.art .verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
   letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
-  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;margin-top:.15rem}
-.art .verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
-.art .lhead{display:grid;grid-template-columns:1fr 8.6rem 1fr;gap:0 1.5rem;padding:.5rem 0 .55rem}
-.art .lhead span{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--dim)}
-.art .lhead span:nth-child(2){text-align:center}
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
 
 .art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
 .art .dates td{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
@@ -299,59 +300,63 @@ body{background:#182028}
   <div class="wide">
   <h2>The story says · the record shows</h2>
   <p class="kicker">Each claim, and where it actually came from</p>
-  <div class="ledger">
-    <div class="lhead"><span>As it circulates</span><span>Verdict</span><span>In the record</span></div>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th>As it circulates</th><th>Verdict</th><th>In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>A half-eaten meal left on the table.</s></td>
+        <td class="verdict">Invented 1912</td>
+        <td class="shown">Wilfrid Wilson Gibson's poem <em>Flannan Isle</em>, written twelve years after the
+        event by a man who was never on the island. Moore's own account has the kitchen clean and the meal
+        cleared. <cite>Northern Lighthouse Board; poem text, 1912</cite></td>
+      </tr>
 
-    <div class="lrow">
-      <div class="said"><s>A half-eaten meal left on the table.</s></div>
-      <div class="verdict">Invented 1912</div>
-      <div class="shown">Wilfrid Wilson Gibson's poem <em>Flannan Isle</em>, written twelve years after the
-      event by a man who was never on the island. Moore's own account has the kitchen clean and the meal
-      cleared. <cite>Northern Lighthouse Board; poem text, 1912</cite></div>
-    </div>
+      <tr class="lrow">
+        <td class="said"><s>A chair lying overturned on the floor.</s></td>
+        <td class="verdict">Invented 1912</td>
+        <td class="shown">The same poem — “a chair lay tumbled on the floor.” It appears in no official
+        document of any kind. <cite>Gibson, <em>Flannan Isle</em>, 1912</cite></td>
+      </tr>
 
-    <div class="lrow">
-      <div class="said"><s>A chair lying overturned on the floor.</s></div>
-      <div class="verdict">Invented 1912</div>
-      <div class="shown">The same poem — “a chair lay tumbled on the floor.” It appears in no official
-      document of any kind. <cite>Gibson, <em>Flannan Isle</em>, 1912</cite></div>
-    </div>
+      <tr class="lrow">
+        <td class="said"><s>Log entries: Marshall on severe winds, Ducat gone very quiet, MacArthur crying,
+        all three praying — and the last line, “Storm ended. Sea calm. God is over all.”</s></td>
+        <td class="verdict">Fabricated</td>
+        <td class="shown">Traced by the Fortean researcher <strong>Mike Dash</strong> to mid-century pulp
+        retellings. No evidence any such entries were ever written down at the time, and the storm they
+        describe matches no other station's or vessel's weather record. The real storm arrived around
+        17&nbsp;December — <span class="redline">after the men were already gone.</span>
+        <cite>Dash, “The Vanishing Lighthousemen of Eilean Mòr”</cite></td>
+      </tr>
 
-    <div class="lrow">
-      <div class="said"><s>Log entries: Marshall on severe winds, Ducat gone very quiet, MacArthur crying,
-      all three praying — and the last line, “Storm ended. Sea calm. God is over all.”</s></div>
-      <div class="verdict">Fabricated</div>
-      <div class="shown">Traced by the Fortean researcher <strong>Mike Dash</strong> to mid-century pulp
-      retellings. No evidence any such entries were ever written down at the time, and the storm they
-      describe matches no other station's or vessel's weather record. The real storm arrived around
-      17&nbsp;December — <span class="redline">after the men were already gone.</span>
-      <cite>Dash, “The Vanishing Lighthousemen of Eilean Mòr”</cite></div>
-    </div>
+      <tr class="lrow">
+        <td class="said">The lamp was found cleaned, refilled and ready for lighting.</td>
+        <td class="verdict true">True</td>
+        <td class="shown">Documented. The men had completed their shift's work; they never came back from a
+        chore. <cite>Northern Lighthouse Board</cite></td>
+      </tr>
 
-    <div class="lrow">
-      <div class="said">The lamp was found cleaned, refilled and ready for lighting.</div>
-      <div class="verdict true">True</div>
-      <div class="shown">Documented. The men had completed their shift's work; they never came back from a
-      chore. <cite>Northern Lighthouse Board</cite></div>
-    </div>
+      <tr class="lrow">
+        <td class="said">One man went out without his coat.</td>
+        <td class="verdict true">True</td>
+        <td class="shown">MacArthur's coat still on its peg while Ducat and Marshall were in boots and
+        waterproofs — read since as two men working and one leaving in a hurry.
+        <cite>Northern Lighthouse Board</cite></td>
+      </tr>
 
-    <div class="lrow">
-      <div class="said">One man went out without his coat.</div>
-      <div class="verdict true">True</div>
-      <div class="shown">MacArthur's coat still on its peg while Ducat and Marshall were in boots and
-      waterproofs — read since as two men working and one leaving in a hurry.
-      <cite>Northern Lighthouse Board</cite></div>
-    </div>
-
-    <div class="lrow">
-      <div class="said">A five-shilling fine on Marshall's record gave the men a motive to risk the sea to
-      save equipment.</div>
-      <div class="verdict">Disputed</div>
-      <div class="shown">Circulating since about 2015 and a genuinely compelling human motive — but the fine
-      itself has reportedly never been located in any personnel register. Presented here as disputed rather
-      than dropped. <cite>Attributed to James Love's research; unverified</cite></div>
-    </div>
-  </div>
+      <tr class="lrow">
+        <td class="said">A five-shilling fine on Marshall's record gave the men a motive to risk the sea to
+        save equipment.</td>
+        <td class="verdict">Disputed</td>
+        <td class="shown">Circulating since about 2015 and a genuinely compelling human motive — but the fine
+        itself has reportedly never been located in any personnel register. Presented here as disputed rather
+        than dropped. <cite>Attributed to James Love's research; unverified</cite></td>
+      </tr>
+    </tbody>
+  </table>
 
   <h2>Dated</h2>
   <p class="kicker">Every entry below is fixed by a source; nothing is inferred</p>
