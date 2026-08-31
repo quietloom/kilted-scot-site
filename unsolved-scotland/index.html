@@ -85,11 +85,10 @@
 
       episodes.forEach(function (ep, i) {
         var isPublished = ep.status === 'published';
-        var card = document.createElement(isPublished ? 'a' : 'div');
+        var card = document.createElement('div');
         card.className = 'case' + (isPublished ? ' published' : '');
         card.dataset.n = String(ep.number).padStart(2, '0');
         card.style.setProperty('--i', i);
-        if (isPublished) card.href = ep.url;
 
         var h = document.createElement('h3');
         h.textContent = ep.title;
@@ -105,27 +104,44 @@
         card.appendChild(p);
 
         if (isPublished) {
-          var go = document.createElement('span');
-          go.className = 'go';
-          go.textContent = 'Watch · read the case notes';
-          card.appendChild(go);
+          var actions = document.createElement('div');
+          actions.className = 'case-actions';
+
+          var watch = document.createElement('a');
+          watch.className = 'notes-link';
+          watch.href = ep.url;
+          watch.textContent = 'Watch';
+          actions.appendChild(watch);
+
+          if (ep.notesUrl) {
+            var notes = document.createElement('a');
+            notes.className = 'notes-link';
+            notes.href = ep.notesUrl;
+            notes.textContent = 'Read the case notes';
+            actions.appendChild(notes);
+          }
+
+          card.appendChild(actions);
 
           if (ep.thumbnail) {
             var thumb = document.createElement('div');
             thumb.className = 'thumb';
+            var thumbLink = document.createElement('a');
+            thumbLink.href = ep.url;
             var img = document.createElement('img');
             img.src = ep.thumbnail;
             img.alt = 'Episode ' + String(ep.number).padStart(2, '0') + ' thumbnail — ' + ep.title;
             img.loading = 'lazy';
-            thumb.appendChild(img);
+            thumbLink.appendChild(img);
+            thumb.appendChild(thumbLink);
             card.appendChild(thumb);
           }
         } else if (ep.notesUrl) {
-          var notes = document.createElement('a');
-          notes.className = 'notes-link';
-          notes.href = ep.notesUrl;
-          notes.textContent = 'Read the case notes';
-          card.appendChild(notes);
+          var notesOnly = document.createElement('a');
+          notesOnly.className = 'notes-link';
+          notesOnly.href = ep.notesUrl;
+          notesOnly.textContent = 'Read the case notes';
+          card.appendChild(notesOnly);
         }
 
         container.appendChild(card);

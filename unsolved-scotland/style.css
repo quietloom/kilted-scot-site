@@ -194,12 +194,12 @@ a { color: var(--us-red); }
   transform: rotate(-4deg); opacity: .85;
 }
 .case.published .stamp { color: var(--us-page); border-color: var(--us-red); background: var(--us-red); transform: rotate(-2deg); opacity: 1; }
-a.case:hover, a.case:focus-visible { background: rgba(242, 239, 232, .04); }
-a.case:hover h3 { color: var(--us-red); }
-a.case .go {
-  grid-column: 2; margin-top: .7rem; display: inline-block;
-  font: 600 .68rem/1 var(--us-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--us-red);
-}
+
+/* Published cases offer two distinct destinations (watch vs. read the case
+   notes) -- kept as separate links rather than one whole-card anchor, since
+   a card promising two actions shouldn't visually commit to only one. */
+.case-actions { grid-column: 2; margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
+.case-actions .notes-link { margin-top: 0; }
 
 /* Hybrid: a small thumbnail under the stamp on published cases, per the
    adopted decision (not a straight pick of stamp-only or thumbnail-only). */
@@ -207,7 +207,9 @@ a.case .go {
   grid-column: 3; grid-row: 2; justify-self: end; margin-top: .6rem;
   width: 8.4rem; max-width: 100%;
 }
-.case .thumb img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--us-page); border: 1px solid var(--us-rule); }
+.case .thumb a { display: block; }
+.case .thumb img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--us-page); border: 1px solid var(--us-rule); transition: border-color .2s cubic-bezier(.22, 1, .36, 1); }
+.case .thumb a:hover img, .case .thumb a:focus-visible img { border-color: var(--us-red); }
 
 /* Case notes exist before an episode is published -- announced records can
    carry the finished notes/sources page independently of the YouTube upload. */
