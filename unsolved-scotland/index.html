@@ -114,6 +114,7 @@
             var img = document.createElement('img');
             img.src = ep.thumbnail;
             img.alt = 'Episode ' + String(ep.number).padStart(2, '0') + ' thumbnail — ' + ep.title;
+            img.loading = 'lazy';
             thumb.appendChild(img);
             card.appendChild(thumb);
           }

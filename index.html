@@ -130,6 +130,7 @@
           var img = document.createElement('img');
           img.src = ep.thumbnail;
           img.alt = 'Episode ' + ep.number + ' thumbnail';
+          img.loading = 'lazy';
           thumb.appendChild(img);
           card.appendChild(thumb);
         }
