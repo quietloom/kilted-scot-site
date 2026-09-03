@@ -126,6 +126,23 @@ img { max-width: 100%; }
     hatch-drift 26s linear infinite;
 }
 
+/* ── Umbrella credit strip (series pages) ──────────────────────────────
+   A slim navy bar repeating the kilted.scot lockup + "back to all series"
+   link above a series' own themed page (unsolved-scotland/index.html,
+   just-along-here/index.html). Found undefined here (03/09/2026) while
+   reusing the pattern for a second series -- .navstrip/.umbrella-seam
+   were already used in markup with zero CSS anywhere, harmless only by
+   coincidence (the page body background already happens to be navy), so
+   the seam divider itself never actually rendered. Fixed once, shared,
+   rather than patched per page. */
+.navstrip { background: var(--navy); position: relative; z-index: 10; }
+.navstrip .topbar { border-bottom: 0; }
+.umbrella-seam {
+  height: 2px;
+  background: repeating-linear-gradient(135deg, var(--thistle-l) 0 2px, transparent 2px 8px);
+  opacity: .55;
+}
+
 /* ── Banner ─────────────────────────────────────────────────────────── */
 
 .banner {

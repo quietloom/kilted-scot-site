@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1c1a17">
+<title>Just Along Here — kilted.scot</title>
+<meta name="description" content="Just Along Here — real places worth the detour, all across Scotland. Harbours, ruins, walled gardens and the odd unmissable curiosity most people drive straight past.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-variable-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/just-along-here/style.css">
+</head>
+<body>
+
+<header class="navstrip">
+  <div class="wrap">
+    <nav class="topbar">
+      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span translate="no">kilted<b>.scot</b></span></a>
+      <a class="back" href="/">All series</a>
+    </nav>
+  </div>
+  <div class="umbrella-seam"></div>
+</header>
+
+<div class="plate">
+  <div class="wrap">
+    <div class="masthead">
+      <img class="mark" src="/assets/just-along-here/mark-128.png" alt="">
+      <p class="wordmark">Just Along Here</p>
+      <span class="credit">a kilted.scot series</span>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <img src="/assets/just-along-here/skye-hero-1280.jpg" alt="">
+    <div class="wrap hero-body">
+      <h1>The Scotland you keep <span class="tail">driving past.</span></h1>
+      <p class="lede">Real places, a short detour from wherever you already are — harbours, ruins, walled gardens, and the odd unmissable curiosity most people never stop for. No presenter, no filler, just the places worth the two minutes.</p>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <dl class="jah-facts">
+      <div><dt>Places announced</dt><dd id="ep-count">&mdash;</dd></div>
+      <div><dt>Published</dt><dd id="ep-status">In production</dd></div>
+      <div><dt>Format</dt><dd>Short-form</dd></div>
+      <div><dt>Watch</dt><dd>YouTube</dd></div>
+    </dl>
+
+    <section class="jah-list">
+      <div class="jah-list-head">
+        <h2>Where to go</h2>
+      </div>
+
+      <div class="stops" id="stops"></div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span translate="no">kilted<b>.scot</b></span></a>
+      <p>Just Along Here is a kilted.scot series. <a href="/about/">About</a></p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  fetch('/just-along-here/episodes.json')
+    .then(function (r) { return r.json(); })
+    .then(function (episodes) {
+      var container = document.getElementById('stops');
+      episodes.sort(function (a, b) { return a.number - b.number; });
+      var published = episodes.filter(function (e) { return e.status === 'published'; }).length;
+      document.getElementById('ep-count').textContent = episodes.length;
+      document.getElementById('ep-status').textContent = published
+        ? published + ' of ' + episodes.length
+        : 'In production';
+
+      episodes.forEach(function (ep) {
+        var isPublished = ep.status === 'published';
+        var card = document.createElement('div');
+        card.className = 'stop' + (isPublished ? ' published' : '');
+
+        var n = document.createElement('span');
+        n.className = 'n';
+        n.textContent = String(ep.number).padStart(2, '0');
+        card.appendChild(n);
+
+        var h = document.createElement('h3');
+        h.textContent = ep.title;
+        card.appendChild(h);
+
+        var p = document.createElement('p');
+        p.textContent = ep.summary;
+        card.appendChild(p);
+
+        var tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = isPublished ? 'Published' : 'In production';
+        card.appendChild(tag);
+
+        if (isPublished) {
+          var actions = document.createElement('div');
+          actions.className = 'actions';
+
+          var watch = document.createElement('a');
+          watch.href = ep.url;
+          watch.textContent = 'Watch';
+          actions.appendChild(watch);
+
+          if (ep.notesUrl) {
+            var notes = document.createElement('a');
+            notes.href = ep.notesUrl;
+            notes.textContent = 'Read more';
+            actions.appendChild(notes);
+          }
+
+          card.appendChild(actions);
+
+          if (ep.thumbnail) {
+            var thumb = document.createElement('div');
+            thumb.className = 'thumb';
+            var thumbLink = document.createElement('a');
+            thumbLink.href = ep.url;
+            var img = document.createElement('img');
+            img.src = ep.thumbnail;
+            img.alt = 'Thumbnail — ' + ep.title;
+            img.loading = 'lazy';
+            thumbLink.appendChild(img);
+            thumb.appendChild(thumbLink);
+            card.appendChild(thumb);
+          }
+        } else if (ep.notesUrl) {
+          var notesOnly = document.createElement('div');
+          notesOnly.className = 'actions';
+          var notesLink = document.createElement('a');
+          notesLink.href = ep.notesUrl;
+          notesLink.textContent = 'Read more';
+          notesOnly.appendChild(notesLink);
+          card.appendChild(notesOnly);
+        }
+
+        container.appendChild(card);
+      });
+    });
+</script>
+</body>
+</html>
