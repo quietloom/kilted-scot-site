@@ -6,29 +6,55 @@
    Built 03/09/2026 per an INBOX request from the Just Along Here project,
    once its own avatar/banner brand were already locked there. Deliberately
    does NOT reuse Unsolved Scotland's "Chart Room" admiralty-chart motif --
-   that's a documentary-mystery show identity, not a travel/hidden-gems
-   one. Instead: the same warm photo + hand-written Kalam wordmark already
-   locked on the avatar/banner, carried straight onto the page, since that
-   IS this series' own visual identity, not a new one invented for the web.
-   Kalam loads from Google Fonts directly (not self-hosted, unlike
-   Fraunces/Spectral in site.css) -- matches the already-approved brand
-   asset pattern (brand/just-along-here-avatar.html, -banner.html both do
-   the same), not a new exception invented here. */
+   that's a documentary-mystery show identity, not a travel/hidden-gems one.
 
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+   REVISED same day after a design-panel review (user flagged the first
+   pass directly: unsure of background/font colours, "follow the font path
+   chosen for the banner/avatar"). Panel's Median Statement named the exact
+   trap: dark-neutral ground + one invented gold accent + a serif display
+   headline + photo-hero-with-scrim is close to the MODEL median for
+   "warm travel brand, dark mode" -- and Fraunces/Spectral (this page's
+   first-pass headline/body faces, inherited unexamined from the shared
+   site.css) are literally two of the four directions already tried and
+   rejected during the wordmark's own font journey (Segoe Print ->
+   Fraunces -> Spectral -> Roboto Slab -> Kalam). Reusing them here, even
+   just for body/headings, was the median wearing a costume.
+   Three concrete fixes from that review:
+   1. Typography now actually follows the wordmark's own resolved path:
+      Kalam (hand-written) gets a SECOND real appearance -- the "Where to
+      go" section head, not just the tiny masthead wordmark -- and every
+      other heading/body face on this page switches to Nunito, a genuine
+      humanist sans (the brief's own "warm-humanist type" direction was
+      never a serif direction to begin with). Fraunces/Spectral no longer
+      appear anywhere on this page.
+   2. --jah-gold is no longer an invented hex -- it's sampled from the
+      actual Skye photo's own dominant highlight tones (top-12 dominant
+      colours, resized 60x40, via PIL), not "warm brand = pick a gold."
+   3. --jah-page-lift (defined, never used, in the first pass -- the whole
+      body was one flat value with zero depth) now does real compositional
+      work on the facts strip, giving the page an actual middle value
+      instead of two values and an accent.
+   Kalam/Nunito both load from Google Fonts directly (not self-hosted,
+   unlike Fraunces/Spectral in site.css) -- matches the already-approved
+   brand asset pattern (brand/just-along-here-avatar.html, -banner.html
+   both do the same), not a new exception invented here. */
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap');
 
 :root {
   --jah-page:      #1c1a17;
   --jah-page-lift: #26221d;
   --jah-ink:       #f5efe0;
   --jah-ink-soft:  rgba(245, 239, 224, .74);
-  --jah-gold:      #c9973f;
+  --jah-gold:      #e4b484;
   --jah-rule:      rgba(245, 239, 224, .16);
   --jah-rule-firm: rgba(245, 239, 224, .38);
   --jah-hand:      'Kalam', cursive;
+  --jah-sans:      'Nunito', "Segoe UI", system-ui, sans-serif;
 }
 
-body { background: var(--jah-page); color: var(--jah-ink); }
+body { background: var(--jah-page); color: var(--jah-ink); font-family: var(--jah-sans); }
+.plate h1, .plate h2, .plate h3, .plate dd { font-family: var(--jah-sans); font-variation-settings: normal; }
 a { color: var(--jah-gold); }
 :focus-visible { outline-color: var(--jah-gold); }
 
@@ -49,7 +75,7 @@ a { color: var(--jah-gold); }
   margin: 0;
 }
 .masthead .credit {
-  display: block; margin-top: .6rem; font: italic 300 1rem/1 var(--text);
+  display: block; margin-top: .6rem; font: italic 400 1rem/1 var(--jah-sans);
   letter-spacing: .04em; color: var(--jah-ink-soft);
 }
 
@@ -67,8 +93,8 @@ a { color: var(--jah-gold); }
 }
 .hero-photo .hero-body { padding: clamp(1.6rem, 4vw, 3rem) 0 clamp(1.6rem, 4vw, 2.6rem); width: 100%; }
 .hero-photo h1 {
-  font-size: clamp(1.9rem, 1rem + 3.6vw, 3.4rem); max-width: 22ch; margin: 0;
-  text-wrap: balance; color: #fff;
+  font-weight: 800; font-size: clamp(1.9rem, 1rem + 3.6vw, 3.4rem); max-width: 22ch; margin: 0;
+  text-wrap: balance; color: #fff; letter-spacing: -.01em;
 }
 .hero-photo h1 .tail { color: var(--jah-gold); }
 .hero-photo .lede {
@@ -81,12 +107,12 @@ a { color: var(--jah-gold); }
 .jah-facts {
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0; margin: clamp(1.6rem, 4vw, 2.6rem) 0 0;
-  border: 1px solid var(--jah-rule-firm); background: rgba(28, 26, 23, .5);
+  border: 1px solid var(--jah-rule-firm); background: var(--jah-page-lift);
 }
 .jah-facts div { padding: .85rem .9rem; text-align: center; border-left: 1px solid var(--jah-rule); }
 .jah-facts div:first-child { border-left: 0; }
 .jah-facts dt { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--jah-ink-soft); }
-.jah-facts dd { margin: .3rem 0 0; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 500; font-size: 1.25rem; color: var(--jah-ink); }
+.jah-facts dd { margin: .3rem 0 0; font-weight: 700; font-size: 1.25rem; color: var(--jah-ink); }
 @media (max-width: 40rem) { .jah-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .jah-facts div:nth-child(3) { border-left: 0; } }
 
 /* ── The list: every place announced so far ─────────────────────────── */
@@ -95,7 +121,9 @@ a { color: var(--jah-gold); }
   display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
   padding-bottom: 1rem; border-bottom: 2px solid var(--jah-ink); margin-bottom: 0;
 }
-.jah-list-head h2 { font-size: clamp(1.6rem, 1.3rem + 1.1vw, 2.3rem); }
+.jah-list-head h2 {
+  font-family: var(--jah-hand); font-weight: 700; font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.7rem);
+}
 .jah-list-head .count { font-size: .82rem; color: var(--jah-ink-soft); }
 
 .stops { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(2.5rem, 6vw, 6rem); }
@@ -107,12 +135,11 @@ a { color: var(--jah-gold); }
   padding: clamp(1.3rem, 3vh, 1.8rem) 0; border-bottom: 1px solid var(--jah-rule);
 }
 .stop .n {
-  grid-column: 1; grid-row: 1 / span 3; font-family: var(--display);
-  font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600;
-  font-size: 2.2rem; line-height: .9; letter-spacing: -.04em;
+  grid-column: 1; grid-row: 1 / span 3; font-weight: 800;
+  font-size: 2.2rem; line-height: .9; letter-spacing: -.02em;
   color: transparent; -webkit-text-stroke: 1.5px var(--jah-rule-firm);
 }
-.stop h3 { grid-column: 2; font-size: clamp(1.15rem, 1rem + .6vw, 1.45rem); font-weight: 500; margin: 0; line-height: 1.15; }
+.stop h3 { grid-column: 2; font-size: clamp(1.15rem, 1rem + .6vw, 1.45rem); font-weight: 700; margin: 0; line-height: 1.2; }
 .stop p { grid-column: 2; margin: .5rem 0 0; max-width: 54ch; color: var(--jah-ink-soft); font-size: .95rem; }
 .stop .tag {
   grid-column: 2; margin-top: .6rem; display: inline-flex; align-items: center; gap: .5rem;
@@ -120,7 +147,7 @@ a { color: var(--jah-gold); }
 }
 .stop .tag::before { content: ""; width: .55rem; height: .55rem; flex: none; border-radius: 50%; background: var(--jah-gold); }
 .stop.published .tag { color: var(--jah-gold); }
-.stop.published .tag::before { background: var(--jah-gold); box-shadow: 0 0 0 3px rgba(201, 151, 63, .25); }
+.stop.published .tag::before { background: var(--jah-gold); box-shadow: 0 0 0 3px rgba(228, 180, 132, .3); }
 
 .stop .actions { grid-column: 2; margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
 .stop .actions a {
