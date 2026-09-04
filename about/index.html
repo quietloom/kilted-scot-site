@@ -10,6 +10,24 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-variable-latin.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
+<style>
+  /* Owner request 04/09/2026: centre this page's own banner to match the
+     homepage's new centred hero (mockup-hero-G) -- the homepage itself
+     isn't built to that yet, this is this page's own standalone fix. */
+  .banner-body { text-align: center; }
+  .banner h1 { margin-inline: auto; }
+  .banner .lede { margin-inline: auto; }
+  /* The two statement blocks side by side, like the homepage's own
+     two-up series shelf -- each keeps its internal label/body layout,
+     they just sit as columns instead of stacked rows. */
+  .statement-pair { display: grid; gap: 0 3rem; }
+  @media (min-width: 60rem) {
+    .statement-pair { grid-template-columns: 1fr 1fr; }
+    .statement-pair .statement { padding-block: clamp(2rem, 5vw, 3.5rem); }
+  }
+  .series-note { max-width: 60ch; margin: 0 0 3rem; font-size: 1.15rem; font-weight: 300; color: var(--ink-soft); }
+  .series-note a { color: var(--thistle); }
+</style>
 </head>
 <body>
 
@@ -29,44 +47,34 @@
 <div class="hatch-band"></div>
 
 <main class="wrap">
-  <section class="statement">
-    <h2 class="label">What "a kilted.scot production" means</h2>
-    <p class="body">Every script, every source, and every editorial call — what makes the cut, what's labelled legend rather than fact — is <em>written and decided by a human</em>. The narration you hear is a synthetic voice, and any illustration standing in for a photograph that doesn't exist is AI-generated. Both are disclosed on every video, per YouTube's altered-content policy — not buried in a description nobody reads.</p>
-  </section>
+  <div class="statement-pair">
+    <section class="statement">
+      <h2 class="label">What "a kilted.scot production" means</h2>
+      <p class="body">Every script, every source, and every editorial call — what makes the cut, what's labelled legend rather than fact — is <em>written and decided by a human</em>. The narration you hear is a synthetic voice, and any illustration standing in for a photograph that doesn't exist is AI-generated. Both are disclosed on every video, per YouTube's altered-content policy — not buried in a description nobody reads.</p>
+    </section>
 
-  <section class="statement">
-    <h2 class="label">Why kilted.scot and not a channel name</h2>
-    <p class="body">kilted.scot is the studio, not a series. Unsolved Scotland is the first thing it's made; when a second series exists, it gets its own name and its own identity too — kilted.scot is what ties them together, not what they're branded as.</p>
-  </section>
+    <section class="statement">
+      <h2 class="label">Why kilted.scot and not a channel name</h2>
+      <p class="body">kilted.scot is the studio, not a series. Unsolved Scotland was the first thing it made; Just Along Here is the second — each has its own name and its own identity, kilted.scot is what ties them together, not what they're branded as.</p>
+    </section>
+  </div>
 
+  <!-- Series list dropped 04/09/2026 (owner's own call): this was hand-typed,
+       static data duplicating what the homepage already fetches live from
+       each series' episodes.json -- it went stale once already (stuck on
+       "1 in production" after Just Along Here launched) and would again the
+       next time a count changes. One link to the real, live list instead of
+       a second copy to maintain. -->
   <div class="series-head">
     <h2>Series</h2>
-    <span class="count">1 in production</span>
   </div>
-
-  <a class="series" href="/unsolved-scotland/">
-    <span class="series-flag" aria-hidden="true"></span>
-    <div>
-      <h3>Unsolved Scotland</h3>
-      <p>Disappearances, deaths and hoaxes from the Scottish record — the Flannan Isles keepers, the Arthur's Seat coffins, a cannibal who may never have existed. Each case taken as far as the evidence goes, and no further.</p>
-      <span class="series-meta">10 cases announced &middot; First episode in production</span>
-    </div>
-    <span class="series-go" aria-hidden="true">&rarr;</span>
-  </a>
-
-  <div class="series pending">
-    <span class="series-flag" aria-hidden="true"></span>
-    <div>
-      <h3>More series to come</h3>
-      <p>Nothing else is in production yet. When a second series exists it will be listed here, on the homepage, with its own episode index — not announced anywhere else first.</p>
-    </div>
-  </div>
+  <p class="series-note">Every series in production, with its real current episode count, lives on <a href="/">the homepage</a> — kept current there, not duplicated here.</p>
 </main>
 
 <footer class="site-foot">
   <div class="wrap">
     <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span translate="no">kilted<b>.scot</b></span></a>
-    <p>Independent documentary production, Scotland.</p>
+    <p>Independent documentary and travel production, Scotland.</p>
   </div>
 </footer>
 
