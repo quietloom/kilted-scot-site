@@ -29,139 +29,185 @@
       <span class="line l2"><span>one</span></span>
       <span class="line l3"><span class="tail">Scottish Voice</span></span>
     </h1>
-    <p class="lede"><span class="sent">kilted.scot researches and produces its own documentaries.</span><span class="sent"><b>Every one narrated in a real Scottish voice.</b></span><span class="sent">A series for each thread worth pulling, each true to its own subject.</span></p>
-    <div class="stats-block">
-      <div class="stat"><span class="caps">Series in production</span><b>1</b></div>
-      <div class="stat"><span class="caps">Cases on the record</span><b id="stat-cases">&mdash;</b></div>
-      <div class="stat"><span class="caps">Episodes published</span><b id="stat-published">&mdash;</b></div>
+    <div class="under">
+      <p class="lede"><span class="sent">kilted.scot researches and produces documentary and travel series about Scotland.</span><span class="sent"><b>Many narrated in a real Scottish voice.</b></span><span class="sent">A series for each thread worth pulling, each true to its own subject.</span></p>
+      <p class="tally" id="tally"></p>
     </div>
-    <a class="nowplaying" id="nowplaying" href="#" hidden>
-      <span class="np-head"><span class="caps">Now showing</span><span class="chip" aria-hidden="true"></span></span>
-      <img id="nowplaying-img" src="" alt="">
-      <span class="np-foot">
-        <b id="nowplaying-title"></b>
-        <span id="nowplaying-sub"></span>
-      </span>
-    </a>
   </div>
 </header>
 
 <main>
-  <section class="gutter reveal" aria-label="The current record">
-    <div class="rail-head">
-      <h2>On the record</h2>
-      <span class="series-tag"><span class="chip" aria-hidden="true"></span><span class="caps">From Unsolved Scotland — a kilted.scot series</span></span>
-      <button type="button" class="caps rail-toggle" id="railToggle" aria-pressed="false">Pause</button>
-      <a class="caps wipe" href="/unsolved-scotland/">View the series &rarr;</a>
-    </div>
-    <div class="rail">
-      <div class="track" id="track"></div>
-    </div>
-  </section>
-
-  <section class="next gutter reveal">
-    <div class="frame">
-      <h3>Also in production</h3>
-      <p><b>Just Along Here</b> — real places worth the detour, all across Scotland. <a class="wipe" href="/just-along-here/">View the series &rarr;</a></p>
-    </div>
+  <section class="shelf-wrap gutter" aria-label="Series">
+    <div class="shelf-head"><h2>The series</h2><span class="caps" id="shelf-note"></span></div>
+    <div class="shelf" id="shelf"></div>
+    <!-- The shelf is built from each series' own episodes.json, so without
+         scripting there is nothing to render. Two plain links rather than a
+         blank section -- the series pages are static and work on their own. -->
+    <noscript>
+      <p><a href="/unsolved-scotland/">Unsolved Scotland</a> — cases that never quite closed.</p>
+      <p><a href="/just-along-here/">Just Along Here</a> — the Scotland you keep driving past.</p>
+    </noscript>
   </section>
 </main>
 
 <footer class="site-foot">
   <div class="gutter row">
     <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span translate="no">kilted<b>.scot</b></span></a>
-    <p>Independent documentary production, Scotland. <a href="/about/">About</a></p>
+    <p>Independent documentary and travel production, Scotland. <a href="/about/">About</a></p>
   </div>
 </footer>
 
 <script>
-  fetch('/unsolved-scotland/episodes.json')
-    .then(function (r) { return r.json(); })
-    .then(function (episodes) {
-      episodes.sort(function (a, b) { return a.number - b.number; });
-      var published = episodes.filter(function (e) { return e.status === 'published'; });
+  /* The series manifest. Two entries, hand-maintained here rather than in a
+     /series.json -- a third file to fetch buys nothing while the list is this
+     short and only changes when a whole new series launches. `accent` is the
+     one per-series value the shared CSS needs; each series' own stylesheet
+     keeps its own copy of the same colour. */
+  var SERIES = [
+    { slug: 'unsolved-scotland', name: 'Unsolved Scotland', tagline: 'Cases that never quite closed.', accent: '#d9584a', noun: 'cases',  url: '/unsolved-scotland/', art: '/assets/unsolved-scotland/nls-scotland-west-coast-1886-band.jpg' },
+    { slug: 'just-along-here',   name: 'Just Along Here',   tagline: 'The Scotland you keep driving past.', accent: '#c9e94d', noun: 'places', url: '/just-along-here/', art: '/assets/just-along-here/skye-hero-1280.jpg' }
+  ];
+  var NEW_DAYS = 30;
 
-      document.getElementById('stat-cases').textContent = episodes.length;
-      document.getElementById('stat-published').textContent = published.length;
+  function fmtDate(iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }); }
+  function isNew(ep) { return ep.status === 'published' && (Date.now() - new Date(ep.publishedDate)) / 864e5 <= NEW_DAYS; }
+  function label(ep) { return ep.place || ep.title; }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function chip() { var c = el('span', 'chip'); c.setAttribute('aria-hidden', 'true'); return c; }
+  function chev() { var c = el('span', 'chev'); c.setAttribute('aria-hidden', 'true'); return c; }
 
-      if (published.length) {
-        var latest = published[published.length - 1];
-        var np = document.getElementById('nowplaying');
-        np.href = latest.url;
-        np.hidden = false;
-        document.getElementById('nowplaying-img').src = latest.thumbnail;
-        document.getElementById('nowplaying-img').alt = 'Episode ' + latest.number + ' thumbnail — ' + latest.title;
-        document.getElementById('nowplaying-title').textContent = 'Ep. ' + String(latest.number).padStart(2, '0') + ' — ' + latest.title;
-        var d = new Date(latest.publishedDate);
-        var dateStr = isNaN(d) ? '' : ' &middot; Published ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-        document.getElementById('nowplaying-sub').innerHTML = 'Unsolved Scotland' + dateStr;
+  /* ── The unified list. One builder, every series, every width. The two
+     schemas differ in exactly one place and it is handled here rather than
+     by forking the component: Just Along Here's records carry `place` (the
+     name that leads) plus `title` (the written hook, demoted to its own
+     italic line); Unsolved Scotland's carry only `title`, which leads.
+     Everything else -- number, summary, status, thumbnail, spine, column
+     flow -- is identical between series. ──────────────────────────────── */
+  function unifiedList(r, panel) {
+    panel.appendChild(panelHead(r));
+    var list = el('div', 'ledger');
+    /* Two columns need at least four entries to look deliberate; below that
+       one column is the honest layout, not a half-empty grid. */
+    list.style.setProperty('--cols', r.eps.length < 4 ? 1 : 2);
+    r.eps.forEach(function (ep) {
+      var isPublished = ep.status === 'published';
+      var stop = el('article', 'stop' + (isPublished ? ' published' : ''));
+      stop.appendChild(el('span', 'n', String(ep.number).padStart(2, '0')));
+      stop.appendChild(el('h3', null, label(ep)));
+      if (ep.place && ep.title) stop.appendChild(el('p', 'hook', ep.title));
+      stop.appendChild(el('p', 'sum', ep.summary));
+      var st = el('span', 'status');
+      if (isNew(ep)) st.appendChild(el('span', 'new', 'New'));
+      st.appendChild(document.createTextNode(isPublished ? 'Published ' + fmtDate(ep.publishedDate) : 'In production'));
+      stop.appendChild(st);
+      if (isPublished && ep.thumbnail) {
+        var t = el('div', 'thumb'), a = el('a'); a.href = ep.url;
+        var im = el('img'); im.src = ep.thumbnail; im.alt = 'Thumbnail — ' + label(ep); im.loading = 'lazy';
+        a.appendChild(im); t.appendChild(a); stop.appendChild(t);
       }
-
-      function buildCase(ep, hidden) {
-        var isPublished = ep.status === 'published';
-        var card = document.createElement('article');
-        card.className = 'rail-case' + (isPublished ? ' published' : '');
-        if (hidden) card.setAttribute('aria-hidden', 'true');
-
-        var n = document.createElement('span');
-        n.className = 'n';
-        n.textContent = String(ep.number).padStart(2, '0');
-        card.appendChild(n);
-
-        var h = document.createElement('h3');
-        h.textContent = ep.title;
-        card.appendChild(h);
-
-        var p = document.createElement('p');
-        p.textContent = ep.summary;
-        card.appendChild(p);
-
-        var status = document.createElement('span');
-        status.className = 'status';
-        status.textContent = isPublished
-          ? 'Published ' + (function () {
-              var d = new Date(ep.publishedDate);
-              return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-            })()
-          : 'Announced';
-        card.appendChild(status);
-
-        if (isPublished && ep.thumbnail) {
-          var thumb = document.createElement('div');
-          thumb.className = 'thumb';
-          var img = document.createElement('img');
-          img.src = ep.thumbnail;
-          img.alt = 'Episode ' + ep.number + ' thumbnail';
-          img.loading = 'lazy';
-          thumb.appendChild(img);
-          card.appendChild(thumb);
-        }
-
-        return card;
-      }
-
-      var track = document.getElementById('track');
-      var railToggle = document.getElementById('railToggle');
-      railToggle.addEventListener('click', function () {
-        var paused = track.classList.toggle('is-paused');
-        railToggle.setAttribute('aria-pressed', String(paused));
-        railToggle.textContent = paused ? 'Play' : 'Pause';
-      });
-      episodes.forEach(function (ep) { track.appendChild(buildCase(ep, false)); });
-      episodes.forEach(function (ep) { track.appendChild(buildCase(ep, true)); });
-
-      if ('IntersectionObserver' in window) {
-        var revealObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: .15 });
-        document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
-      }
+      list.appendChild(stop);
     });
+    panel.appendChild(list);
+  }
+
+  function panelHead(r) {
+    var h = el('div', 'panel-head');
+    var who = el('span', 'who'); who.appendChild(chip()); who.appendChild(document.createTextNode(r.s.name)); h.appendChild(who);
+    h.appendChild(el('span', 'caps what', 'All ' + r.eps.length + ' ' + r.s.noun));
+    return h;
+  }
+
+  Promise.all(SERIES.map(function (s) {
+    return fetch('/' + s.slug + '/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
+      eps.sort(function (a, b) { return a.number - b.number; });
+      var pub = eps.filter(function (e) { return e.status === 'published'; }).sort(function (a, b) { return new Date(a.publishedDate) - new Date(b.publishedDate); });
+      return { s: s, eps: eps, pub: pub, latest: pub[pub.length - 1] || null, first: eps.filter(function (e) { return e.status !== 'published'; })[0] || null };
+    });
+  })).then(function (all) {
+    var shelf = document.getElementById('shelf'), totalEps = 0, totalPub = 0, open = null;
+    shelf.style.setProperty('--n', all.length);
+
+    all.forEach(function (r) {
+      totalEps += r.eps.length; totalPub += r.pub.length;
+      var pid = 'panel-' + r.s.slug;
+
+      var card = el('article', 'card'); card.style.setProperty('--series-accent', r.s.accent);
+      var inner = el('div', 'inner'), media = el('div', 'media');
+      var src = r.latest && r.latest.thumbnail ? r.latest.thumbnail : r.s.art;
+      if (src) { var img = el('img'); img.src = src; img.alt = r.latest ? 'Episode ' + r.latest.number + ' thumbnail — ' + r.latest.title : r.s.name; media.appendChild(img); }
+      else media.appendChild(el('div', 'slate'));
+      if (r.latest && isNew(r.latest)) media.appendChild(el('span', 'new', 'New episode'));
+      inner.appendChild(media);
+
+      var body = el('div', 'body');
+      var name = el('h3', 'name'); name.appendChild(chip()); name.appendChild(document.createTextNode(r.s.name)); body.appendChild(name);
+      body.appendChild(el('p', 'pitch', r.s.tagline));
+      var latest = el('p', 'latest');
+      if (r.latest) { latest.appendChild(el('span', 'caps', 'Now showing')); latest.appendChild(el('b', null, 'Ep. ' + String(r.latest.number).padStart(2, '0') + ' — ' + label(r.latest))); latest.appendChild(el('span', null, 'Published ' + fmtDate(r.latest.publishedDate))); }
+      else if (r.first) { latest.appendChild(el('span', 'caps', 'First up')); latest.appendChild(el('b', null, label(r.first))); latest.appendChild(el('span', null, 'In production')); }
+      body.appendChild(latest);
+      var count = el('p', 'count'); count.appendChild(el('b', null, String(r.eps.length))); count.appendChild(document.createTextNode(' ' + r.s.noun + ' · '));
+      if (r.pub.length) { count.appendChild(el('b', null, String(r.pub.length))); count.appendChild(document.createTextNode(' published')); } else count.appendChild(document.createTextNode('in production'));
+      body.appendChild(count);
+
+      /* One link and one button per card. `.go` is the card's only anchor and
+         its ::after stretches over the whole card, so the card is clickable
+         with a single link in the accessibility tree; the expand button is a
+         real <button>, a SIBLING of that anchor (never nested inside it),
+         lifted above the stretched ::after with z-index. */
+      var actions = el('div', 'actions');
+      var go = el('a', 'caps go', 'View the series →'); go.href = r.s.url; actions.appendChild(go);
+      var btn = el('button', 'expand'); btn.type = 'button';
+      btn.appendChild(document.createTextNode('All ' + r.s.noun)); btn.appendChild(chev());
+      btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', pid);
+      actions.appendChild(btn);
+      body.appendChild(actions);
+      inner.appendChild(body); card.appendChild(inner); shelf.appendChild(card);
+
+      /* The drawer: a full-row grid item, the card's next DOM sibling.
+         Collapsed it is display:none and holds no grid slot; open,
+         grid-auto-flow:dense back-fills the card's own row and drops the
+         band directly beneath it. No layout JS. */
+      var panel = el('section', 'panel'); panel.id = pid; panel.hidden = true;
+      panel.style.setProperty('--series-accent', r.s.accent);
+      panel.setAttribute('aria-label', r.s.name + ' — all ' + r.s.noun);
+      shelf.appendChild(panel);
+
+      var entry = { r: r, card: card, btn: btn, panel: panel };
+
+      /* Lazy build -- a closed series' list costs nothing. */
+      function build() {
+        if (panel.dataset.built) return;
+        panel.dataset.built = '1';
+        unifiedList(r, panel);
+        var foot = el('div', 'panel-foot');
+        var close = el('button', 'close', 'Close'); close.type = 'button'; close.appendChild(chev());
+        close.addEventListener('click', function () { collapse(entry); btn.focus(); });
+        foot.appendChild(close); panel.appendChild(foot);
+      }
+      btn.addEventListener('click', function () { open === entry ? collapse(entry) : expand(entry, build); });
+    });
+
+    function collapse(e) {
+      e.panel.hidden = true; e.btn.setAttribute('aria-expanded', 'false'); e.card.classList.remove('is-open');
+      if (open === e) open = null;
+    }
+    /* Accordion: at most one panel open. Closing a panel ABOVE the card just
+       clicked would yank that card up the screen, so its viewport position is
+       measured and restored -- the page reflows around a fixed point. */
+    function expand(e, build) {
+      var before = e.card.getBoundingClientRect().top;
+      if (open) collapse(open);
+      build();
+      e.panel.hidden = false; e.btn.setAttribute('aria-expanded', 'true'); e.card.classList.add('is-open');
+      open = e;
+      var drift = e.card.getBoundingClientRect().top - before;
+      if (drift) window.scrollBy(0, drift);
+    }
+
+    document.getElementById('tally').innerHTML = '<b>' + all.length + '</b> series · <b>' + totalEps + '</b> stories · <b>' + totalPub + '</b> published';
+    document.getElementById('shelf-note').textContent = all.length === 1 ? 'More in production' : 'Each with its own page';
+  });
 </script>
 </body>
 </html>

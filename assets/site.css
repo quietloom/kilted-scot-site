@@ -1,7 +1,13 @@
 /* kilted.scot — shared site styles.
    Palette and mark are fixed brand assets: navy #1d2a35, cream #f2efe8,
    thistle #5c3d86 (on cream) / #ab8fda (on navy).
-   Motif: the saltire's 45° diagonal, reused as hatching and as edge accents. */
+   Motif: the saltire's diagonal, reused as hatching and as edge accents.
+   That diagonal is 30.96° from horizontal — atan(3/5), the angle a real
+   Saltire's bars make on the flag's own 5:3 proportions. Corrected here and
+   in the mark itself 04/09/2026 (BL-004); it had been a plain 45° X.
+   In CSS gradient terms that is 149.04deg for the "/" bars used throughout
+   (a gradient's stripes run perpendicular to its stated angle), and would be
+   30.96deg for a "\" bar. Do not "tidy" these back to 135deg/45deg. */
 
 /* Self-hosted (no Google Fonts) — latin subset only, matches this site's
    English-language content. Georgia/system serif fallback covers anything
@@ -118,7 +124,7 @@ img { max-width: 100%; }
 
 .hatch-band {
   height: 9px;
-  background: repeating-linear-gradient(135deg,
+  background: repeating-linear-gradient(149.04deg,
     var(--thistle-l) 0 2px, transparent 2px 8px);
   opacity: .8;
   animation:
@@ -139,7 +145,7 @@ img { max-width: 100%; }
 .navstrip .topbar { border-bottom: 0; }
 .umbrella-seam {
   height: 2px;
-  background: repeating-linear-gradient(135deg, var(--thistle-l) 0 2px, transparent 2px 8px);
+  background: repeating-linear-gradient(149.04deg, var(--thistle-l) 0 2px, transparent 2px 8px);
   opacity: .55;
 }
 
@@ -154,7 +160,7 @@ img { max-width: 100%; }
   isolation: isolate;
 }
 
-/* The mark's 45° diagonal, blown up into a field — brand texture without
+/* The mark's diagonal, blown up into a field — brand texture without
    restating the mark itself at billboard size. */
 .banner::after {
   content: "";
@@ -163,7 +169,7 @@ img { max-width: 100%; }
   width: min(44rem, 62%);
   z-index: -1;
   pointer-events: none;
-  background: repeating-linear-gradient(135deg,
+  background: repeating-linear-gradient(149.04deg,
     rgba(171, 143, 218, .30) 0 2px, transparent 2px 17px);
   -webkit-mask-image: linear-gradient(115deg, transparent 12%, #000 96%);
   mask-image: linear-gradient(115deg, transparent 12%, #000 96%);
@@ -336,7 +342,7 @@ a.series:hover, a.series:focus-visible {
   width: 3.5rem;
   height: 3.5rem;
   display: block;
-  background: repeating-linear-gradient(135deg,
+  background: repeating-linear-gradient(149.04deg,
     var(--thistle) 0 3px, transparent 3px 11px);
   border-left: 2px solid var(--thistle);
   animation: hatch-drift 26s linear infinite;
@@ -379,7 +385,7 @@ a.series:hover .series-go { transform: translateX(5px); }
 /* Honest empty state — not a link, and it does not pretend to be one. */
 .series.pending { color: var(--ink-soft); }
 .series.pending .series-flag {
-  background: repeating-linear-gradient(135deg,
+  background: repeating-linear-gradient(149.04deg,
     var(--rule-firm) 0 1px, transparent 1px 9px);
   border-left: 2px solid var(--rule-firm);
 }
@@ -440,13 +446,12 @@ a.series:hover .series-go { transform: translateX(5px); }
 html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 .gutter { padding-inline: clamp(2rem, 6vw, 9rem); }
 
-/* Cross-series accent reference: mirrors unsolved-scotland/style.css's own
-   --us-red -- update both if that value ever changes. Needed here because
-   the rail's per-series colophon chip (a warm fleck in the cool homepage)
-   has to work without loading each series' own stylesheet. Revisit if/when
-   a second series needs its own value: this single constant won't scale
-   past two or three series without becoming a real per-series lookup. */
-:root { --us-red: #d9584a; }
+/* The single homepage-wide --us-red constant is gone (04/09/2026): every
+   consumer of it (the rail's colophon chip, the now-showing card's chip)
+   went with the old hero. Per-series accent now arrives as --series-accent,
+   set per card and per drawer from index.html's own series manifest, which
+   is what actually scales past two series. Each series' own stylesheet
+   still keeps its own copy of its colour. */
 
 @keyframes line-up { from { transform: translateY(110%); } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(1.2rem); } }
@@ -454,22 +459,14 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
   from { opacity: 0; transform: translateY(-50%) scale(.85) rotate(-6deg); }
   to { opacity: 1; transform: translateY(-50%) scale(1) rotate(0); }
 }
-@keyframes rail-drift { to { transform: translateX(-50%); } }
 
-/* Text-link underline wipe -- reusable utility, same mechanism already
-   proven on .episode-published h2 a and .notes-link. */
-.wipe { position: relative; text-decoration: none; border-bottom: none !important; }
-.wipe::after {
-  content: ""; position: absolute; left: 0; right: 100%; bottom: -.15em; height: 1px;
-  background: currentColor; transition: right .25s cubic-bezier(.22, 1, .36, 1);
-}
-.wipe:hover::after, .wipe:focus-visible::after { right: 0; }
-
-/* Title screen */
-.screen { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; min-height: 62vh; }
+/* Title screen. No min-height: the hero is sized by its own content so the
+   series shelf sits directly under it rather than being pushed down by a
+   viewport-height floor. */
+.screen { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; }
 .screen::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: repeating-linear-gradient(135deg, rgba(171, 143, 218, .30) 0 2px, transparent 2px 14px);
+  background: repeating-linear-gradient(149.04deg, rgba(171, 143, 218, .30) 0 2px, transparent 2px 14px);
   -webkit-mask-image: radial-gradient(110rem 80rem at 104% 10%, #000 0%, transparent 60%);
   mask-image: radial-gradient(110rem 80rem at 104% 10%, #000 0%, transparent 60%);
   animation: hatch-drift 32s linear infinite;
@@ -480,23 +477,27 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 }
 
 /* Feint saltire wash behind the title screen -- a barely-visible brand
-   texture, not a restated mark. */
+   texture, not a restated mark. Mask centre and bar position both sit at
+   50%/50% (they were tuned to 40%/45% for the old left-aligned hero) so the
+   faint X sits behind the centred headline rather than off to one side. */
 .saltire-wash {
   position: absolute; z-index: -1; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none;
-  -webkit-mask-image: radial-gradient(85% 85% at 40% 45%, #000 0%, transparent 82%);
-  mask-image: radial-gradient(85% 85% at 40% 45%, #000 0%, transparent 82%);
+  -webkit-mask-image: radial-gradient(85% 85% at 50% 50%, #000 0%, transparent 82%);
+  mask-image: radial-gradient(85% 85% at 50% 50%, #000 0%, transparent 82%);
 }
 .saltire-wash::before, .saltire-wash::after {
-  content: ""; position: absolute; top: 50%; left: 45%; width: 220%; height: 7%; background: var(--thistle-l); opacity: .045; transform-origin: center;
+  content: ""; position: absolute; top: 50%; left: 50%; width: 220%; height: 7%; background: var(--thistle-l); opacity: .045; transform-origin: center;
 }
-.saltire-wash::before { transform: translate(-50%, -50%) rotate(42deg); }
-.saltire-wash::after { transform: translate(-50%, -50%) rotate(-42deg); }
+.saltire-wash::before { transform: translate(-50%, -50%) rotate(30.96deg); }
+.saltire-wash::after { transform: translate(-50%, -50%) rotate(-30.96deg); }
 
 /* Brand lockup, this page's own arrival moment -- settles in on load.
    Deliberately scoped to the homepage (.brand-*), not applied to the
    shared .lockup used on every other page, so inner pages stay as-is. */
-.screen .topbar { display: flex; align-items: center; gap: 1.5rem; padding-block: 1.3rem; border-bottom: 1px solid var(--rule); }
-.brand-row { display: flex; align-items: baseline; gap: 1.3rem; flex-wrap: wrap; font-size: clamp(1.6rem, 3.2vw, 4.2rem); }
+.screen .topbar { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding-block: 1.3rem; border-bottom: 1px solid var(--rule); }
+/* Lockup reduced 20% from its original clamp(1.6rem, 3.2vw, 4.2rem) -- owner
+   sizing pass 04/09/2026, alongside the -25% headline and -15% lede. */
+.brand-row { display: flex; align-items: baseline; gap: 1.3rem; flex-wrap: wrap; font-size: clamp(1.28rem, 2.56vw, 3.36rem); }
 .brand-lockup { position: relative; display: inline-flex; align-items: center; text-decoration: none; color: var(--cream); font-size: 1em; }
 .brand-word {
   position: relative; z-index: 0; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1;
@@ -512,148 +513,240 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 .screen .topbar .caps { color: var(--ink-soft); }
 .caps { font-family: var(--text); font-weight: 600; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; }
 
-/* Two explicit rows: row 1 = headline + stats + now-showing; row 2 = lede,
-   under the headline's own column only. */
-.title {
-  flex: 1; display: grid; align-content: start;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, .8fr) minmax(0, .8fr);
-  grid-template-rows: auto auto; column-gap: clamp(1.6rem, 3.4vw, 4rem); row-gap: 1.8rem;
-  padding-block: 1.6rem clamp(2.5rem, 6vh, 4rem);
+/* The masthead: one centred headline, then a rule with the lede and the
+   running tally beneath it. The old three-column grid (headline / stats /
+   now-showing card) is gone -- every count and the current episode now live
+   on the series shelf below, where they come from real data rather than
+   three hand-placed figures. */
+.title { flex: 1; display: block; padding-block: 1.2rem 2rem; }
+/* One flowing line, not three stacked ones, at 75% of the stacked version's
+   size (owner sizing pass, 04/09/2026). The three <span class="line">s are
+   kept as separate flex items purely so each keeps its own staggered
+   line-up entrance. */
+.title h1 {
+  display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 0 .4em;
+  font-size: clamp(1.95rem, .3rem + 4.2vw, 5.55rem); margin-top: .2rem;
 }
-.title h1 { grid-column: 1; grid-row: 1; align-self: start; justify-self: start; min-width: 0; font-size: clamp(2.6rem, 1.5rem + 7vw, 6.15rem); margin-top: .4rem; }
 .title h1 .line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
 .title h1 .line > span { display: inline-block; white-space: nowrap; animation: line-up 850ms cubic-bezier(.16, 1, .3, 1) both; }
 .title h1 .line:nth-child(1) > span { animation-delay: 250ms; }
-.title h1 .line.l2 { text-align: center; }
 .title h1 .line.l2 > span { animation-delay: 400ms; }
 .title h1 .line.l3 > span { animation-delay: 550ms; }
 .title h1 .tail { color: var(--thistle-l); }
 
+.title .under {
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm);
+}
+/* Lede reduced 15%; the tally deliberately kept at its original size. Both
+   centred under the headline. The tally is a <p> and keeps its default
+   block margin -- that spacing is part of what was signed off, so it is not
+   reset here. */
 .title .lede {
-  grid-column: 1; grid-row: 2; margin: 0;
-  font-size: 1.404rem; font-weight: 300; line-height: 1.42; color: var(--ink-soft);
+  margin: 0; max-width: 62ch; text-align: center;
+  font-size: clamp(.9rem, .85rem + .38vw, 1.1rem); font-weight: 300; line-height: 1.42; color: var(--ink-soft);
   animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 650ms both;
 }
-.title .lede .sent { display: block; }
-/* Nowrap only once the column is comfortably wide enough to hold the longest
-   sentence with real clearance from the stats column -- measured: the gap
-   is a tight 30-65px through the whole laptop band (~60rem-85rem) but opens
-   up past 100rem (172px at 100rem, 470px at 160rem), so laptop widths keep
-   the plain wrap and only wide desktop/4k screens get one line per sentence. */
-@media (min-width: 100rem) {
-  .title .lede .sent { white-space: nowrap; }
-}
+/* The three sentences run together as one paragraph now that the lede sits
+   centred and full-width, rather than one sentence per line in a column. */
+.title .lede .sent { display: inline; }
+.title .lede .sent + .sent::before { content: " "; }
 .title .lede b { color: var(--cream); font-weight: 600; }
 
-.stats-block {
-  grid-column: 2; grid-row: 1; align-self: center; justify-self: center;
-  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
-  animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 800ms both;
-}
-.stats-block .stat { display: flex; flex-direction: column; align-items: center; gap: .35rem; }
-.stats-block .caps { color: var(--ink-soft); font-size: 1.4rem; letter-spacing: .06em; line-height: 1.15; text-align: center; }
-.stats-block b {
-  font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600;
-  font-size: 2.9rem; line-height: 1; color: var(--thistle-l); text-align: center;
+.title .tally { font-size: 1rem; color: var(--ink-soft); white-space: nowrap; animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 800ms both; }
+.title .tally b { font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600; font-size: 1.5rem; color: var(--thistle-l); }
+
+/* ── The series shelf ──────────────────────────────────────────────────
+   One card per series, each with a drawer that expands in place.
+
+   Everything below is prefixed `.shelf` on purpose, not for tidiness: this
+   is a SHARED stylesheet and the names in here are generic enough to
+   collide. just-along-here/index.html already has its own .stop and .hook
+   elements (its route list) and loads this file -- unprefixed rules leaked
+   into them, and only survived because that page's own stylesheet loads
+   afterwards and happened to override most of it. Keep the prefix on any
+   new rule added here. */
+.shelf-wrap { padding-block: 1.6rem clamp(2.5rem, 6vh, 4rem); }
+.shelf-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .8rem; border-top: 2px solid var(--cream); padding-top: .9rem; }
+.shelf-head h2 { font-size: 1.5rem; }
+.shelf-head .caps { color: var(--ink-soft); }
+/* Track minimum sized from the series count (--n, set from JS) so an open
+   full-row panel cannot collapse the cards above it. */
+.shelf {
+  --gap: 1.6rem; --n: 1;
+  display: grid; grid-auto-flow: row dense; gap: var(--gap); margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(22rem, (100% - (var(--n) - 1) * var(--gap)) / var(--n) - 1px)), 1fr));
 }
 
-.nowplaying {
-  grid-column: 3; grid-row: 1 / 3; align-self: start; justify-self: end; width: min(100%, 30rem);
+.shelf .card {
+  container-type: inline-size;
+  display: block; color: inherit; position: relative;
   background: var(--navy); border: 1px solid var(--rule);
-  animation: fade-up 700ms cubic-bezier(.22, 1, .36, 1) 900ms both;
   transition: transform .25s cubic-bezier(.22, 1, .36, 1), border-color .25s ease;
-  text-decoration: none; color: inherit; display: block;
 }
-.nowplaying:hover { transform: translateY(-4px); border-color: var(--thistle-l); }
-.nowplaying .np-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.4rem; border-bottom: 1px solid var(--rule); }
-.nowplaying .np-head .caps { color: var(--thistle-l); font-size: .8rem; }
-.nowplaying .np-head .chip {
-  width: .8rem; height: .8rem; flex: none;
-  background: repeating-linear-gradient(135deg, var(--us-red) 0 2px, transparent 2px 5px);
-  border: 1px solid var(--us-red);
+.shelf .card:hover, .shelf .card:has(:focus-visible) { transform: translateY(-4px); border-color: var(--thistle-l); }
+.shelf .card.is-open { border-color: var(--series-accent); }
+.shelf .card .inner { display: grid; grid-template-columns: minmax(0, 1fr); height: 100%; }
+.shelf .card .media { position: relative; }
+.shelf .card .media img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--navy-lift); }
+.shelf .card .media .slate { aspect-ratio: 16 / 9; background: linear-gradient(rgba(29,42,53,.55), rgba(29,42,53,.55)), repeating-linear-gradient(149.04deg, var(--series-accent) 0 2px, transparent 2px 14px); }
+.shelf .card .media .new { position: absolute; top: 1rem; left: 1rem; }
+.shelf .card .body { padding: 1.7rem 1.9rem 1.9rem; display: flex; flex-direction: column; gap: .55rem; min-width: 0; }
+.shelf .card .name { display: flex; align-items: center; gap: .8rem; font-size: 1.55rem; line-height: 1.1; }
+.shelf .card .name .chip { width: .85rem; height: .85rem; flex: none; background: repeating-linear-gradient(149.04deg, var(--series-accent) 0 2px, transparent 2px 5px); border: 1px solid var(--series-accent); }
+.shelf .card .pitch { margin: 0; font-size: 1rem; font-weight: 300; line-height: 1.4; color: var(--ink-soft); }
+.shelf .card .latest { margin: .5rem 0 0; font-size: .92rem; line-height: 1.4; }
+.shelf .card .latest .caps { display: block; font-size: .64rem; color: var(--thistle-l); margin-bottom: .25rem; }
+.shelf .card .latest b { font-family: var(--display); font-weight: 600; font-size: 1.08rem; color: var(--cream); }
+.shelf .card .latest span { display: block; margin-top: .15rem; color: var(--ink-soft); }
+.shelf .card .count { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); }
+.shelf .card .count b { font-family: var(--display); font-weight: 600; font-size: .98rem; letter-spacing: 0; color: var(--cream); }
+/* A card wide enough on its own (not the viewport) goes billboard: image
+   left, text right. Container query, so it holds at any series count. */
+@container (min-width: 56rem) {
+  .shelf .card .inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .shelf .card .media img, .shelf .card .media .slate { aspect-ratio: 16 / 9; height: 100%; object-position: left center; }
+  .shelf .card .body { padding: 1.9rem 2rem 2rem; }
 }
-.nowplaying img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--navy-lift); }
-.nowplaying .np-foot { padding: 1.2rem 1.7rem 1.3rem; }
-.nowplaying .np-foot b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.2; }
-.nowplaying .np-foot span { display: block; margin-top: .5rem; font-size: .85rem; color: var(--ink-soft); }
 
-/* Scroll-triggered reveal -- explicit start/end via transition, not a
-   from-only @keyframes (that ambiguity resolves to a competing base rule's
-   end-state, the exact bug already found and fixed on Chart Room). */
-.reveal { opacity: 0; transform: translateY(1.4rem); transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .6s cubic-bezier(.22, 1, .36, 1); }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-/* The rail: the record, moving */
-.rail-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding-block: 1rem; border-top: 2px solid var(--cream); }
-.rail-head h2 { font-size: 1.9rem; }
-.rail-head .series-tag { display: inline-flex; align-items: center; gap: .7rem; }
-.rail-head .chip { width: .85rem; height: .85rem; background: repeating-linear-gradient(135deg, var(--us-red) 0 2px, transparent 2px 5px); border: 1px solid var(--us-red); }
-.rail-head .caps { color: var(--ink-soft); }
-.rail-head a.caps { color: var(--thistle-l); }
-
-.rail {
-  overflow: hidden; position: relative; padding-block: 1.8rem 2.4rem;
-  margin-inline: calc(-1 * clamp(2rem, 6vw, 9rem)); padding-inline: 0;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+.shelf .card .actions {
+  margin-top: auto; padding-top: 1.15rem;
+  display: flex; align-items: center; justify-content: space-between; gap: .8rem 1.2rem; flex-wrap: wrap;
 }
-.track { display: flex; gap: 1.6rem; width: max-content; animation: rail-drift 80s linear infinite; }
-.rail:hover .track { animation-play-state: paused; }
-
-.track.is-paused { animation-play-state: paused; }
-.rail-toggle {
-  background: none; border: 1px solid var(--rule);
-  padding: .4rem .9rem; cursor: pointer; border-radius: 0;
-  transition: border-color .18s ease, color .18s ease;
+/* Stretched link: .go is the card's only anchor and its ::after covers the
+   whole card, so the entire card stays clickable with one link in the
+   accessibility tree. Deliberately NOT position:relative. */
+.shelf .card .go {
+  position: static; color: var(--thistle-l); text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat; background-position: 0 100%; background-size: 0 1px;
+  transition: background-size .25s cubic-bezier(.22, 1, .36, 1);
 }
-.rail-toggle:hover, .rail-toggle:focus-visible { border-color: var(--thistle-l); color: var(--cream); }
+.shelf .card:hover .go, .shelf .card .go:focus-visible { background-size: 100% 1px; }
+.shelf .card .go::after { content: ""; position: absolute; inset: 0; z-index: 0; }
 
-.rail-case { width: 23rem; flex: none; background: var(--navy); border: 1px solid var(--rule); padding: 1.5rem 1.6rem 1.4rem; position: relative; display: flex; flex-direction: column; align-items: stretch; transition: transform .25s cubic-bezier(.22, 1, .36, 1), border-color .25s ease; }
-.rail-case .status { margin-top: auto; padding-top: 1rem; }
-.rail-case .thumb { margin-top: 1rem; }
-.rail-case:hover { transform: translateY(-5px); border-color: var(--thistle-l); }
-.rail-case .n { font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600; font-size: 2.4rem; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--rule-firm); }
-.rail-case.published .n { color: var(--thistle-l); -webkit-text-stroke: 0; }
-.rail-case h3 { font-size: 1.3rem; font-weight: 500; margin-top: .8rem; min-height: 3.2rem; }
-.rail-case p { margin: .7rem 0 0; font-size: .88rem; color: var(--ink-soft); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-.rail-case .tag { display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.1rem; font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); }
-.rail-case .tag::before { content: ""; width: .6rem; height: .6rem; flex: none; background: repeating-linear-gradient(135deg, var(--us-red) 0 2px, transparent 2px 5px); border: 1px solid var(--us-red); }
-.rail-case.published .status { color: var(--thistle-l); }
-.rail-case .status { display: block; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; color: rgba(242, 239, 232, .5); }
-.rail-case .thumb { margin-inline: -1.6rem; margin-bottom: -1.4rem; border-top: 1px solid var(--rule); }
-.rail-case .thumb img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--navy-lift); }
-
-/* Next: the honest slot */
-.next { padding-block: clamp(2.5rem, 6vh, 4rem); }
-.next .frame { border: 1px dashed var(--rule-firm); padding: 1.5rem 2rem; display: flex; flex-wrap: wrap; gap: 1rem 3rem; align-items: baseline; color: var(--ink-soft); }
-.next h3 { font-size: 1.25rem; font-weight: 400; color: var(--ink-soft); }
-.next p { margin: 0; max-width: 58ch; font-size: .95rem; }
-
-@media (max-width: 200rem) {
-  /* Enlarged caps labels wrap to two lines at this width, which would
-     inflate row 1's height and shove the lede down -- letting stats-block
-     span both rows removes that coupling. */
-  .stats-block { grid-row: 1 / 3; align-self: center; }
+.shelf .card .expand {
+  position: relative; z-index: 1; flex: none;
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--text); font-weight: 600; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-soft); background: none; border: 1px solid var(--rule); border-radius: 0;
+  padding: .45rem .8rem; cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
 }
-@media (min-width: 60rem) {
-  /* Below this width .title h1 spans the full single column (mobile stack),
-     so the base rule's vw scaling is tuned for full viewport width. From
-     here up, h1 only occupies the ~1.15/2.75 share of a 3-column row --
-     the base clamp's vw value was still keyed to full viewport width, so
-     the headline kept growing past what its own column could hold and
-     spilled into the stats column between ~60rem and ~90rem. */
-  .title h1 { font-size: clamp(1.9rem, .9rem + 2.9vw, 6.15rem); }
+.shelf .card .expand:hover, .shelf .card .expand:focus-visible { border-color: var(--series-accent); color: var(--cream); }
+/* Accent border + 18% tint, not a solid fill: navy on #d9584a measures
+   3.79:1, short of the 4.5:1 an 11px bold caps label needs. */
+.shelf .card .expand[aria-expanded="true"] {
+  border-color: var(--series-accent); color: var(--cream);
+  background: color-mix(in srgb, var(--series-accent) 18%, transparent);
 }
+.shelf .card .expand .chev, .shelf .panel .close .chev { width: .5rem; height: .5rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; }
+.shelf .card .expand .chev { transform: translateY(-.12em) rotate(45deg); transition: transform .25s cubic-bezier(.22, 1, .36, 1); }
+.shelf .card .expand[aria-expanded="true"] .chev { transform: translateY(.1em) rotate(225deg); }
+.shelf .panel .close .chev { transform: translateY(.1em) rotate(225deg); }
+
+/* The drawer: a full-row grid item, the card's next DOM sibling. Collapsed
+   it is display:none and holds no grid slot, so the closed shelf is the
+   plain card grid; open, grid-auto-flow: dense back-fills the card's own
+   row and drops the band directly beneath it. No layout JS. */
+.shelf .panel { grid-column: 1 / -1; padding-block: .1rem 1.4rem; animation: fade-up 420ms cubic-bezier(.22, 1, .36, 1) both; }
+.shelf .panel[hidden] { display: none; }
+.shelf .panel-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: .8rem 1.5rem; flex-wrap: wrap;
+  padding-block: .9rem; border-top: 2px solid var(--series-accent);
+}
+.shelf .panel-head .who { display: inline-flex; align-items: center; gap: .8rem; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600; font-size: 1.25rem; color: var(--cream); }
+.shelf .panel-head .chip { width: .8rem; height: .8rem; flex: none; background: repeating-linear-gradient(149.04deg, var(--series-accent) 0 2px, transparent 2px 5px); border: 1px solid var(--series-accent); }
+.shelf .panel-head .what { color: var(--ink-soft); margin-right: auto; }
+.shelf .panel-foot { display: flex; justify-content: flex-end; padding-top: 1.1rem; border-top: 1px solid var(--rule); }
+.shelf .panel .close {
+  display: inline-flex; align-items: center; gap: .55rem; cursor: pointer; border-radius: 0;
+  background: none; border: 1px solid var(--rule); color: var(--ink-soft);
+  font-family: var(--text); font-weight: 600; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  padding: .45rem .8rem; transition: border-color .2s ease, color .2s ease;
+}
+.shelf .panel .close:hover, .shelf .panel .close:focus-visible { border-color: var(--thistle-l); color: var(--cream); }
+
+/* ── The drawer list. One component, every series, every width. ─────────
+   Two columns come from CSS multi-column, not grid, and that choice is
+   load-bearing: multicol flows DOWN then ACROSS (01-05 left, 06-10 right),
+   which is how a numbered index reads. A two-track grid would run 01-02
+   across, 03-04 across, and the numbering would zigzag.
+
+   Multicol is also what makes "no nested scroll" free: a column box is not
+   a scroll container, it is a fragmentation context, so the list simply
+   gets shorter and the PAGE gets taller. Nothing in this block sets
+   overflow: auto or scroll at any width. */
+.shelf .new {
+  display: inline-block; font-family: var(--text); font-weight: 600; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--navy); background: var(--series-accent); padding: .22rem .45rem .18rem; line-height: 1; vertical-align: middle;
+}
+
+.shelf .ledger {
+  background: var(--navy); border: 1px solid var(--rule);
+  padding: .1rem clamp(1.2rem, 2.5vw, 2rem) 1.1rem;
+  columns: var(--cols, 2);
+  column-gap: clamp(2rem, 4vw, 4.5rem);
+  column-rule: 1px solid var(--rule);
+}
+/* Below 60rem the two columns would each be ~150px of text. One column,
+   still no inner scroll -- the page just gets taller. */
+@media (max-width: 60rem) { .shelf .ledger { columns: 1; column-rule: none; } }
+
+/* One entry. Identical markup and identical CSS for every series; the only
+   per-series variable is --series-accent, and the only per-RECORD variable
+   is whether the data carries a separate `place` (Just Along Here) to
+   demote the written hook onto its own line. */
+.shelf .stop {
+  position: relative;
+  display: grid; grid-template-columns: 2.1rem minmax(0, 1fr);
+  column-gap: clamp(1rem, 1.8vw, 1.6rem);
+  align-items: start;
+  padding: 1.25rem 0 1.35rem;
+  border-top: 1px solid var(--rule);
+  break-inside: avoid; /* never split an entry across the column break */
+}
+/* The route spine lives on the ENTRY, not on the list box: stacked entries
+   make one continuous line, and it therefore redraws itself correctly in
+   the second column for free. A single ::before on .ledger would have drawn
+   one line down column 1 only. */
+.shelf .stop::before {
+  content: ""; position: absolute; left: calc(1.05rem - 1px); top: 0; bottom: 0; width: 2px;
+  background: var(--rule);
+}
+.shelf .stop:first-child::before { top: 50%; }
+.shelf .stop:last-child::before { bottom: 50%; }
+.shelf .stop .n {
+  grid-column: 1; position: relative; z-index: 1;
+  width: 2.1rem; height: 2.1rem; display: grid; place-items: center;
+  background: var(--navy); box-shadow: inset 0 0 0 2px var(--rule-firm);
+  font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 600; font-size: .9rem; color: var(--ink-soft);
+}
+.shelf .stop.published .n { background: var(--series-accent); color: var(--navy); box-shadow: none; }
+.shelf .stop > :not(.n) { grid-column: 2; }
+.shelf .stop h3 { font-size: 1.3rem; font-weight: 500; line-height: 1.16; max-width: 30ch; }
+.shelf .stop .hook { margin: .3rem 0 0; font-size: .92rem; font-style: italic; font-weight: 300; color: var(--ink-soft); }
+.shelf .stop p.sum {
+  margin: .55rem 0 0; max-width: 62ch; font-size: .9rem; line-height: 1.5; color: var(--ink-soft);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.shelf .stop .status {
+  margin-top: .75rem; display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; color: rgba(242, 239, 232, .5);
+}
+.shelf .stop.published .status { color: var(--thistle-l); }
+.shelf .stop .thumb { margin-top: .8rem; width: 12rem; max-width: 100%; }
+.shelf .stop .thumb img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--rule); background: var(--navy-lift); }
+
 @media (max-width: 60rem) {
-  .rail-case { width: 19rem; }
-  .title { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto; }
-  .title h1 { grid-row: 1; }
-  .stats-block { grid-column: 1; grid-row: 2; align-self: start; flex-direction: row; flex-wrap: wrap; gap: 1.6rem 2.6rem; }
-  .title .lede { grid-row: 3; }
-  .nowplaying { grid-column: 1; grid-row: 4; justify-self: start; }
-  .rail-head { flex-wrap: wrap; row-gap: .6rem; }
-  .rail-head .series-tag { order: 1; }
-  .rail-head a.caps { order: 2; }
+  /* The one-line headline cannot BE one line at phone widths -- it wraps to
+     two or three, so the word gap tightens and it reads as flowing text. */
+  .title h1 { gap: 0 .28em; }
+  .shelf .stop { grid-template-columns: 1.8rem minmax(0, 1fr); column-gap: 1rem; }
+  .shelf .stop .n { width: 1.8rem; height: 1.8rem; font-size: .75rem; }
+  .shelf .stop::before { left: calc(.9rem - 1px); }
+  .shelf .panel-head { row-gap: .5rem; }
+  .shelf .panel-head .what { width: 100%; }
 }
 
 .site-foot .row { display: flex; flex-wrap: wrap; gap: .8rem 2rem; align-items: center; justify-content: space-between; padding-block: 2.2rem; }
