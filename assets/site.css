@@ -494,7 +494,7 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 /* Brand lockup, this page's own arrival moment -- settles in on load.
    Deliberately scoped to the homepage (.brand-*), not applied to the
    shared .lockup used on every other page, so inner pages stay as-is. */
-.screen .topbar { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding-block: 1.3rem; border-bottom: 1px solid var(--rule); }
+.screen .topbar { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding-block: .9rem; border-bottom: 1px solid var(--rule); }
 /* Lockup reduced 20% from its original clamp(1.6rem, 3.2vw, 4.2rem) -- owner
    sizing pass 04/09/2026, alongside the -25% headline and -15% lede. */
 .brand-row { display: flex; align-items: baseline; gap: 1.3rem; flex-wrap: wrap; font-size: clamp(1.28rem, 2.56vw, 3.36rem); }
@@ -518,7 +518,7 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
    now-showing card) is gone -- every count and the current episode now live
    on the series shelf below, where they come from real data rather than
    three hand-placed figures. */
-.title { flex: 1; display: block; padding-block: 1.2rem 2rem; }
+.title { flex: 1; display: block; padding-block: .5rem .6rem; }
 /* One flowing line, not three stacked ones, at 75% of the stacked version's
    size (owner sizing pass, 04/09/2026). The three <span class="line">s are
    kept as separate flex items purely so each keeps its own staggered
@@ -535,8 +535,8 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 .title h1 .tail { color: var(--thistle-l); }
 
 .title .under {
-  display: flex; flex-direction: column; align-items: center; gap: 1rem;
-  margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--rule-firm);
+  display: flex; flex-direction: column; align-items: center; gap: .375rem;
+  margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--rule-firm);
 }
 /* Lede reduced 15%; the tally deliberately kept at its original size. Both
    centred under the headline. The tally is a <p> and keeps its default
@@ -566,7 +566,7 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
    into them, and only survived because that page's own stylesheet loads
    afterwards and happened to override most of it. Keep the prefix on any
    new rule added here. */
-.shelf-wrap { padding-block: 1.6rem clamp(2.5rem, 6vh, 4rem); }
+.shelf-wrap { padding-block: .5rem clamp(2.5rem, 6vh, 4rem); }
 .shelf-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .8rem; border-top: 2px solid var(--cream); padding-top: .9rem; }
 .shelf-head h2 { font-size: 1.5rem; }
 .shelf-head .caps { color: var(--ink-soft); }
