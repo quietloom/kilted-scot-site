@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#1c1a17">
+<meta name="theme-color" content="#11161a">
 <title>Just Along Here — kilted.scot</title>
 <meta name="description" content="Just Along Here — real places worth the detour, all across Scotland. Harbours, ruins, walled gardens and the odd unmissable curiosity most people drive straight past.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-variable-latin.woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/just-along-here/style.css">
 </head>
@@ -17,7 +19,7 @@
 <header class="navstrip">
   <div class="wrap">
     <nav class="topbar">
-      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span translate="no">kilted<b>.scot</b></span></a>
+      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt="" width="34" height="34"><span translate="no">kilted<b>.scot</b></span></a>
       <a class="back" href="/">All series</a>
     </nav>
   </div>
@@ -25,19 +27,23 @@
 </header>
 
 <div class="plate">
-  <div class="wrap">
-    <div class="masthead">
-      <img class="mark" src="/assets/just-along-here/mark-128.png" alt="">
-      <p class="wordmark">Just Along Here</p>
-      <span class="credit">a kilted.scot series</span>
+  <div class="jah-hero" data-backing="glass">
+    <img src="/assets/just-along-here/skye-hero-1280.jpg" alt="" width="1280" height="853" fetchpriority="high">
+    <div class="wrap hero-top">
+      <div class="jah-lockup">
+        <img src="/assets/just-along-here/mark-128.png" alt="" width="128" height="128">
+        <div>
+          <p class="wordmark">Just Along Here</p>
+          <span class="credit">a kilted.scot series</span>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="hero-photo">
-    <img src="/assets/just-along-here/skye-hero-1280.jpg" alt="">
     <div class="wrap hero-body">
-      <h1>The Scotland you keep <span class="tail">driving past.</span></h1>
-      <p class="lede">Real places, a short detour from wherever you already are — harbours, ruins, walled gardens, and the odd unmissable curiosity most people never stop for. No presenter, no filler, just the places worth the two minutes.</p>
+      <!-- .glass is display:contents unless data-backing="glass" makes it a real panel. -->
+      <div class="glass">
+        <h1>The Scotland you keep <span class="tail">driving past.</span></h1>
+        <p class="lede">Real places, a short detour from wherever you already are — harbours, ruins, walled gardens, and the odd unmissable curiosity most people never stop for.</p>
+      </div>
     </div>
   </div>
 
@@ -46,7 +52,19 @@
       <div><dt>Places announced</dt><dd id="ep-count">&mdash;</dd></div>
       <div><dt>Published</dt><dd id="ep-status">In production</dd></div>
       <div><dt>Format</dt><dd>Short-form</dd></div>
-      <div><dt>Watch</dt><dd>YouTube</dd></div>
+      <!-- Wording corrected 03/09/2026, user's own call: matches the plain-language
+           pattern already live on kilted.scot's homepage and Unsolved Scotland's own
+           facts row (both say "Scottish voice" with no inline synthetic caveat) --
+           see KS-STANDARDS.md's "On-page narration copy vs platform-level synthetic-
+           content disclosure" entry for the now-written policy this follows. This
+           series' format is mixed (unnarrated baseline, narrated multi-stop loops the
+           exception), so it keeps a small secondary qualifier the sibling doesn't need. -->
+      <div><dt>Narration</dt><dd>Scottish voice<span class="fact-sub">Selected episodes</span></dd></div>
+      <!-- Text labels, not the platforms' own logos: a "simplified" YouTube or
+           TikTok glyph is still their mark, and each has its own brand
+           guidelines governing reproduction. Plain names carry the same
+           information with no trademark exposure and no icon-recognition guess. -->
+      <div class="watch"><dt>Watch</dt><dd class="platforms"><span>YouTube</span><span>Instagram</span><span>Facebook</span><span>TikTok</span></dd></div>
     </dl>
 
     <section class="jah-list">
@@ -54,16 +72,10 @@
         <h2>Where to go</h2>
       </div>
 
-      <div class="stops" id="stops"></div>
+      <div class="stops" id="stops" data-stops="ledger"></div>
     </section>
   </main>
 
-  <footer class="site-foot">
-    <div class="wrap">
-      <a class="lockup" href="/"><img src="/assets/brand/mark-dark.svg" alt=""><span translate="no">kilted<b>.scot</b></span></a>
-      <p>Just Along Here is a kilted.scot series. <a href="/about/">About</a></p>
-    </div>
-  </footer>
 </div>
 
 <script>
@@ -88,9 +100,20 @@
         n.textContent = String(ep.number).padStart(2, '0');
         card.appendChild(n);
 
+        // Real place name leads; the written hook is demoted to a secondary
+        // line. `place` is a new optional field -- falling back to `title`
+        // keeps this script working against any record (and any sibling
+        // series' episodes.json) that doesn't carry one.
         var h = document.createElement('h3');
-        h.textContent = ep.title;
+        h.textContent = ep.place || ep.title;
         card.appendChild(h);
+
+        if (ep.place && ep.title) {
+          var hook = document.createElement('p');
+          hook.className = 'hook';
+          hook.textContent = ep.title;
+          card.appendChild(hook);
+        }
 
         var p = document.createElement('p');
         p.textContent = ep.summary;

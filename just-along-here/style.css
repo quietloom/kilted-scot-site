@@ -1,168 +1,448 @@
-/* Just Along Here — show identity ("Along the Way").
+/* Just Along Here — show identity ("The Route").
    Loads AFTER /assets/site.css, which stays umbrella-only: nothing here
    edits the shared file, and every other series gets its own sheet the
    same way (see unsolved-scotland/style.css for the sibling pattern).
 
-   Built 03/09/2026 per an INBOX request from the Just Along Here project,
-   once its own avatar/banner brand were already locked there. Deliberately
-   does NOT reuse Unsolved Scotland's "Chart Room" admiralty-chart motif --
-   that's a documentary-mystery show identity, not a travel/hidden-gems one.
+   THIRD PASS, 03/09/2026. Passes 1 and 2 both failed the same way and the
+   user named it exactly: "break away from the 1997 colours/design chic."
+   Diagnosis, then the fix.
 
-   REVISED same day after a design-panel review (user flagged the first
-   pass directly: unsure of background/font colours, "follow the font path
-   chosen for the banner/avatar"). Panel's Median Statement named the exact
-   trap: dark-neutral ground + one invented gold accent + a serif display
-   headline + photo-hero-with-scrim is close to the MODEL median for
-   "warm travel brand, dark mode" -- and Fraunces/Spectral (this page's
-   first-pass headline/body faces, inherited unexamined from the shared
-   site.css) are literally two of the four directions already tried and
-   rejected during the wordmark's own font journey (Segoe Print ->
-   Fraunces -> Spectral -> Roboto Slab -> Kalam). Reusing them here, even
-   just for body/headings, was the median wearing a costume.
-   Three concrete fixes from that review:
-   1. Typography now actually follows the wordmark's own resolved path:
-      Kalam (hand-written) gets a SECOND real appearance -- the "Where to
-      go" section head, not just the tiny masthead wordmark -- and every
-      other heading/body face on this page switches to Nunito, a genuine
-      humanist sans (the brief's own "warm-humanist type" direction was
-      never a serif direction to begin with). Fraunces/Spectral no longer
-      appear anywhere on this page.
-   2. --jah-gold is no longer an invented hex -- it's sampled from the
-      actual Skye photo's own dominant highlight tones (top-12 dominant
-      colours, resized 60x40, via PIL), not "warm brand = pick a gold."
-   3. --jah-page-lift (defined, never used, in the first pass -- the whole
-      body was one flat value with zero depth) now does real compositional
-      work on the facts strip, giving the page an actual middle value
-      instead of two values and an accent.
-   Kalam/Nunito both load from Google Fonts directly (not self-hosted,
-   unlike Fraunces/Spectral in site.css) -- matches the already-approved
-   brand asset pattern (brand/just-along-here-avatar.html, -banner.html
-   both do the same), not a new exception invented here. */
+   WHY IT READ AS 1997 — four things, in order of how much they mattered:
 
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap');
+   1. EVERY value on the page sat on one hue axis. --jah-page #1c1a17,
+      --jah-page-lift #26221d, --jah-ink #f5efe0, --jah-gold #e4b484: all
+      of them hue 20-40deg, warm orange-brown. A palette with zero
+      temperature contrast doesn't read as "warm", it reads as AGED --
+      because that's what actual ageing does to ink and emulsion. That
+      monochrome warm run IS the sepia signature.
+
+   2. The accent was the photo's colour with the ageing already applied.
+      Sampling the hero for its DOMINANT tones returned an average, and an
+      average of a high-contrast landscape is mud. The photo's real
+      characteristic amber is #c08f1f -- hard, saturated, hue 30. #e4b484
+      is that same hue desaturated and lightened. Desaturate + lighten is
+      the sepia transform. Pass 2 sampled the photo and then faded it.
+
+   3. Two values and an accent, no middle. #1c1a17 -> #26221d is a ~4%
+      luminance step; the eye reads one flat ground. With no mid-tones the
+      accent has to carry all the visual interest, so a muted tan became
+      "the colour of the page" -- and a muted tan as page colour is a
+      travel brochure.
+
+   4. Nunito (humanist, rounded) on earth tones is the 2015-19 "friendly
+      artisanal startup" pairing. Real, but secondary to (1)-(3).
+
+   THE FIX -- cool interface, warm content:
+   The photo and the hand-written wordmark carry ALL the warmth. The
+   interface around them goes cold and low-chroma, so the warm things read
+   as warm by contrast instead of by everything agreeing with them. Ground
+   is a cool blue-grey (#11161a), stepping up in real ~5% increments to
+   #212b33 -- four distinct value planes, not two. Accent is the one colour
+   in the photo that NEITHER previous pass used: the sunlit grass, sampled
+   at hue 50-60 (#83881a in shadow) and taken to full signal strength
+   (#c9e94d). Acid chartreuse is a colour aged paper physically cannot
+   produce, which is the point. The photo's storm blue (#3579b4 -> #5b9dd6)
+   is the single secondary, doing exactly one job: the published state.
+
+   Type: Kalam stays (locked brand asset -- wordmark and one section head).
+   Everything else is Schibsted Grotesk, a 2023 newspaper-commissioned
+   grotesk. Not a humanist rounded sans, not Fraunces/Spectral (rejected
+   during the wordmark's own font journey), not Inter/Roboto. Reportorial
+   register, which is what a list of real places wants.
+
+   Composition: the list is a ROUTE. Five numbered stops on a vertical
+   line, single column, generous rows -- a device that comes from the
+   content ("just along here", stops on a drive) rather than a card grid.
+   The facts row is deliberately UNBOXED, sitting on the page ground with
+   one hairline, so the page isn't a stack of identical containers. */
 
 :root {
-  --jah-page:      #1c1a17;
-  --jah-page-lift: #26221d;
-  --jah-ink:       #f5efe0;
-  --jah-ink-soft:  rgba(245, 239, 224, .74);
-  --jah-gold:      #e4b484;
-  --jah-rule:      rgba(245, 239, 224, .16);
-  --jah-rule-firm: rgba(245, 239, 224, .38);
-  --jah-hand:      'Kalam', cursive;
-  --jah-sans:      'Nunito', "Segoe UI", system-ui, sans-serif;
+  --jah-ground:  #11161a;
+  --jah-surface: #182028;
+  --jah-raise:   #212b33;
+  --jah-ink:     #eef1f0;
+  --jah-ink-soft: rgba(238, 241, 240, .62);
+  --jah-signal:  #c9e94d;
+  --jah-signal-deep: #8fa832;
+  --jah-sky:     #6aa9de;
+  --jah-rule:      rgba(238, 241, 240, .13);
+  --jah-rule-firm: rgba(238, 241, 240, .32);
+  /* RGB channels (not hex) so shadow/scrim rules below can vary alpha via
+     rgba(var(--jah-shadow), N) -- Impeccable audit flagged these as
+     hardcoded rgba() literals repeated 11x across the hero backings; named
+     once here instead. Two distinct near-blacks (not --jah-ground itself,
+     which is #11161a / 17,22,26) -- shadows read correctly a shade darker
+     than the ground they sit on, a deliberate choice kept as-is, just named. */
+  --jah-shadow:      9, 13, 16;
+  --jah-shadow-deep: 6, 9, 12;
+  --jah-hand:  'Kalam', cursive;
+  --jah-sans:  'Schibsted Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
 }
 
-body { background: var(--jah-page); color: var(--jah-ink); font-family: var(--jah-sans); }
-.plate h1, .plate h2, .plate h3, .plate dd { font-family: var(--jah-sans); font-variation-settings: normal; }
-a { color: var(--jah-gold); }
-:focus-visible { outline-color: var(--jah-gold); }
+body { background: var(--jah-ground); color: var(--jah-ink); font-family: var(--jah-sans); }
+.plate { background: var(--jah-ground); }
 
-.plate { background: var(--jah-page); }
+/* The data-ground flat/grain/glow experiment is deleted: it treated the page
+   BACKGROUND, which was never the complaint. "Opaque... I mean the solid
+   colour behind the text" points at the episode copy, handled by
+   data-stops below. */
+.plate h1, .plate h2, .plate h3, .plate dd {
+  font-family: var(--jah-sans); font-variation-settings: normal;
+  letter-spacing: -.022em; line-height: 1.08;
+}
+a { color: var(--jah-signal); }
+:focus-visible { outline: 2px solid var(--jah-signal); outline-offset: 3px; }
 
-/* ── Masthead: the locked avatar mark + hand-written wordmark, same
-   pairing as brand/just-along-here-avatar.html -- a small circular crop
-   of the export (which isn't itself transparent-cornered) re-clipped by
-   CSS, not a new asset. ─────────────────────────────────────────────── */
-.masthead { padding-block: clamp(2rem, 5vw, 3.5rem) 0; text-align: center; }
-.masthead .mark {
-  width: 4.6rem; height: 4.6rem; border-radius: 50%; display: block;
-  margin: 0 auto 1rem; object-fit: cover; border: 2px solid var(--jah-rule-firm);
+/* ── Hero ────────────────────────────────────────────────────────────
+   One full-bleed photo carrying the lockup and the headline, instead of
+   the old centred-mark island stacked above a separate photo band. The
+   crop (object-position) deliberately differs from the avatar's centred
+   square so the same image doesn't appear twice at the same framing. */
+.jah-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: clamp(30rem, 58vw, 41rem);
+  display: flex; flex-direction: column; justify-content: space-between;
 }
-.masthead .wordmark {
-  font-family: var(--jah-hand); font-weight: 700; line-height: 1;
-  font-size: clamp(2.1rem, 1.2rem + 3.4vw, 4.4rem); color: var(--jah-ink);
-  margin: 0;
+.jah-hero > img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 58%; z-index: -2;
 }
-.masthead .credit {
-  display: block; margin-top: .6rem; font: italic 400 1rem/1 var(--jah-sans);
-  letter-spacing: .04em; color: var(--jah-ink-soft);
-}
+/* .wrap carries margin-inline:auto, and an auto cross-axis margin cancels
+   a flex item's stretch -- so inside this column flex the wrap shrank to
+   fit its content and then centred itself, floating the lockup into the
+   middle of the frame. Explicit width restores the full-bleed row. */
+.jah-hero .wrap { width: 100%; }
+/* ── Hero text-backing: THREE switchable treatments ──────────────────
+   Set with data-backing on .jah-hero. All three keep the bottom fade into
+   --jah-ground (the hero has to meet the page). They differ in how the
+   headline earns its contrast. Delete the two that lose. */
 
-/* ── Hero: the Skye photo, same warm scrim gradient as the banner ──── */
-.hero-photo {
-  position: relative; isolation: isolate; margin-top: clamp(1.6rem, 4vw, 2.8rem); overflow: hidden;
-  min-height: clamp(16rem, 42vw, 26rem); display: flex; align-items: flex-end;
-}
-.hero-photo img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
-}
-.hero-photo::before {
+/* Shared: the hero always fades into the page at its foot. */
+.jah-hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, rgba(20,16,10,.15) 0%, rgba(20,16,10,.2) 40%, rgba(20,16,10,.86) 100%);
-}
-.hero-photo .hero-body { padding: clamp(1.6rem, 4vw, 3rem) 0 clamp(1.6rem, 4vw, 2.6rem); width: 100%; }
-.hero-photo h1 {
-  font-weight: 800; font-size: clamp(1.9rem, 1rem + 3.6vw, 3.4rem); max-width: 22ch; margin: 0;
-  text-wrap: balance; color: #fff; letter-spacing: -.01em;
-}
-.hero-photo h1 .tail { color: var(--jah-gold); }
-.hero-photo .lede {
-  max-width: 46ch; margin: 1.2rem 0 0; font-size: clamp(1.02rem, .96rem + .4vw, 1.2rem);
-  font-weight: 300; line-height: 1.55; color: rgba(245, 239, 224, .9);
+  background: linear-gradient(180deg, rgba(var(--jah-shadow), .5) 0%, rgba(var(--jah-shadow), 0) 24%,
+              rgba(var(--jah-shadow), 0) 62%, var(--jah-ground) 100%);
 }
 
-/* Facts row: same device as every series page (US's titleblock, kilted.scot's
-   .facts), sized for what this series actually has to report at this stage. */
+/* (C) WASH -- the previous build. One heavy dual gradient darkening a large
+   swath of the photo. Measured honest (chartreuse 3.64:1) but it costs the
+   whole left half of the image to get there. */
+.jah-hero[data-backing="wash"]::before {
+  background:
+    linear-gradient(180deg, rgba(var(--jah-shadow), .52) 0%, rgba(var(--jah-shadow), 0) 26%, rgba(var(--jah-shadow), .46) 56%, rgba(var(--jah-shadow), .76) 80%, var(--jah-ground) 100%),
+    linear-gradient(90deg, rgba(var(--jah-shadow), .6) 0%, rgba(var(--jah-shadow), .2) 48%, transparent 76%);
+}
+
+/* (A) GLASS -- a translucent blurred panel scoped to the text block only.
+   The photo keeps its real brightness everywhere outside the panel; the
+   blur is what buys legibility, not darkness. */
+.hero-body > .glass { display: contents; }
+.jah-hero[data-backing="glass"] .hero-body > .glass {
+  /* Weakened at the user's direct request (03/09/2026) -- the first version
+     (bg .46, blur 18px) was "too strong, wasting the background": it hid too
+     much of the sun-flare/loch/pinnacles behind the panel. Backdrop opacity
+     and blur both cut hard; a text-shadow picks up the legibility slack
+     instead of the panel doing all the work (see h1/.lede rules below, only
+     active for this backing). */
+  display: block; max-width: min(100%, 48rem); padding: clamp(1.4rem, 3vw, 2.1rem) clamp(1.4rem, 3vw, 2.2rem) clamp(1.5rem, 3vw, 2rem);
+  background: rgba(var(--jah-shadow), .14);
+  -webkit-backdrop-filter: blur(5px) saturate(115%);
+  backdrop-filter: blur(5px) saturate(115%);
+  border: 1px solid rgba(238, 241, 240, .07);
+  border-radius: 5px;
+  box-shadow: 0 22px 60px -30px rgba(0, 0, 0, .4);
+}
+.jah-hero[data-backing="glass"] h1 {
+  text-shadow: 0 1px 3px rgba(var(--jah-shadow-deep), .85), 0 4px 22px rgba(var(--jah-shadow-deep), .55);
+}
+.jah-hero[data-backing="glass"] .lede {
+  text-shadow: 0 1px 3px rgba(var(--jah-shadow-deep), .85), 0 3px 16px rgba(var(--jah-shadow-deep), .6);
+}
+
+/* (B) VEIL -- photo left near full brightness. Legibility comes from the
+   type itself: a tight layered shadow that hugs each glyph instead of a
+   wash that flattens the whole frame. */
+.jah-hero[data-backing="veil"]::before {
+  background:
+    linear-gradient(180deg, rgba(var(--jah-shadow), .5) 0%, rgba(var(--jah-shadow), 0) 24%, rgba(var(--jah-shadow), .28) 70%, var(--jah-ground) 100%),
+    linear-gradient(90deg, rgba(var(--jah-shadow), .42) 0%, rgba(var(--jah-shadow), .1) 42%, transparent 68%);
+}
+.jah-hero[data-backing="veil"] h1 {
+  text-shadow: 0 1px 2px rgba(var(--jah-shadow-deep), .95), 0 2px 10px rgba(var(--jah-shadow-deep), .8), 0 6px 34px rgba(var(--jah-shadow-deep), .7);
+}
+.jah-hero[data-backing="veil"] .lede {
+  text-shadow: 0 1px 2px rgba(var(--jah-shadow-deep), .95), 0 2px 12px rgba(var(--jah-shadow-deep), .85);
+}
+
+/* The brand block. Sized UP deliberately: at 3.1rem/1.5rem this read as a
+   small corner credit, and the user's note was exact -- "this page could be
+   for any site". Every social surface this series has is called Just Along
+   Here, so the wordmark, not the headline, is the thing the page has to say
+   first. It now occupies the hero's upper band (which was empty sky anyway)
+   at roughly headline scale.
+   The avatar is held at 6rem on purpose rather than matched to the wordmark:
+   the locked mark CONTAINS the same three words, and past ~7rem they become
+   legible enough to read "Just Along Here" twice side by side. At 6rem the
+   mark reads as a photographic badge next to the name -- the same
+   avatar-plus-channel-name convention YouTube itself uses. */
+.hero-top { padding-block: clamp(1.6rem, 3.5vw, 2.6rem); }
+.jah-lockup { display: inline-flex; align-items: center; gap: clamp(.9rem, 2vw, 1.4rem); }
+.jah-lockup img {
+  width: clamp(4rem, 2.4rem + 4.4vw, 6rem); height: clamp(4rem, 2.4rem + 4.4vw, 6rem);
+  border-radius: 50%; display: block; flex: none; object-fit: cover;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.5), 0 10px 30px -10px rgba(0,0,0,.8);
+}
+.jah-lockup .wordmark {
+  font-family: var(--jah-hand); font-weight: 700;
+  font-size: clamp(1.9rem, 1.15rem + 2.5vw, 3.4rem);
+  line-height: 1; margin: 0; color: #fff;
+  text-shadow: 0 2px 6px rgba(var(--jah-shadow), .8), 0 6px 28px rgba(var(--jah-shadow), .7);
+}
+.jah-lockup .credit {
+  display: block; margin-top: .5rem; font-size: clamp(.66rem, .6rem + .2vw, .78rem);
+  font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(238,241,240,.82); text-shadow: 0 1px 8px rgba(var(--jah-shadow), .85);
+}
+
+.hero-body { padding-block: 0 clamp(2.4rem, 6vw, 4rem); width: 100%; }
+.jah-hero h1 {
+  font-weight: 800; font-size: clamp(2.3rem, 1rem + 5vw, 4.6rem);
+  max-width: 17ch; margin: 0; text-wrap: balance; color: #fff;
+  letter-spacing: -.035em; line-height: .98;
+  /* Measured on the real render: the worst background patch under this
+     headline is a sunlit ochre (140,105,53) -- chartreuse 3.64:1, white
+     5.02:1. Both clear AA-large at this size, but 3.64 is tight for the
+     accent word, so a wide low-opacity shadow buys margin without reading
+     as a shadow or darkening the photo any further. */
+  text-shadow: 0 2px 20px rgba(var(--jah-shadow), .55);
+}
+.jah-hero h1 .tail { color: var(--jah-signal); }
+.jah-hero .lede {
+  max-width: 44ch; margin: 1.35rem 0 0; font-weight: 400;
+  font-size: clamp(1rem, .94rem + .42vw, 1.2rem); line-height: 1.5;
+  color: rgba(238, 241, 240, .88);
+}
+
+/* ── Facts: UNBOXED on purpose ──────────────────────────────────────
+   Pass 2 had this as a bordered, filled 4-cell grid -- one more identical
+   container in a stack of identical containers. Now it's a baseline row
+   sitting directly on the page ground under a single hairline. */
+/* A real GRID, not flex-wrap. Flex packed items by their own width, so
+   Narration and Published only lined up by luck -- and once Narration grew a
+   second line they stopped lining up at all. Four equal columns put the four
+   stats on one row with Published and Narration in fixed columns at every
+   width; at mobile it drops to two columns, which keeps Published directly
+   above Narration (the alignment the user actually asked for). Watch spans
+   the full row underneath, centred, because a 4-platform list needs the
+   width. Inset and centred per the same note -- still unboxed (no fill), so
+   the page doesn't gain another container. */
 .jah-facts {
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0; margin: clamp(1.6rem, 4vw, 2.6rem) 0 0;
-  border: 1px solid var(--jah-rule-firm); background: var(--jah-page-lift);
+  gap: clamp(1.4rem, 3vw, 2rem) clamp(1rem, 2.4vw, 2rem);
+  margin: 0 auto; max-width: 52rem;
+  padding: clamp(1.7rem, 3.5vw, 2.5rem) clamp(1.2rem, 4vw, 3rem);
+  border-top: 1px solid var(--jah-rule-firm);
+  border-bottom: 1px solid var(--jah-rule);
+  text-align: center;
 }
-.jah-facts div { padding: .85rem .9rem; text-align: center; border-left: 1px solid var(--jah-rule); }
-.jah-facts div:first-child { border-left: 0; }
-.jah-facts dt { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--jah-ink-soft); }
-.jah-facts dd { margin: .3rem 0 0; font-weight: 700; font-size: 1.25rem; color: var(--jah-ink); }
-@media (max-width: 40rem) { .jah-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .jah-facts div:nth-child(3) { border-left: 0; } }
+.jah-facts dt {
+  font-size: .66rem; letter-spacing: .18em; text-transform: uppercase;
+  font-weight: 700; color: var(--jah-ink-soft);
+}
+.jah-facts dd {
+  margin: .45rem 0 0; font-weight: 700;
+  font-size: clamp(1.05rem, .95rem + .42vw, 1.32rem);
+  color: var(--jah-ink); letter-spacing: -.03em; line-height: 1.2;
+}
 
-/* ── The list: every place announced so far ─────────────────────────── */
-.jah-list { padding-block: clamp(2rem, 5vh, 3.4rem) clamp(4rem, 9vh, 7rem); }
-.jah-list-head {
-  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
-  padding-bottom: 1rem; border-bottom: 2px solid var(--jah-ink); margin-bottom: 0;
+/* Watch: full-width row of its own, separated by a hairline so it reads as a
+   different kind of fact (where to find it) from the four stats above. */
+.jah-facts .watch { grid-column: 1 / -1; padding-top: clamp(1.2rem, 2.5vw, 1.6rem); border-top: 1px solid var(--jah-rule); }
+.jah-facts .platforms {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  /* Measured at 390px: the four labels + 3 gaps came to 310.2px inside a
+     311px container and lost to sub-pixel rounding, orphaning TikTok onto
+     its own line. The tighter minimum gives ~10px of real slack. */
+  gap: .35rem clamp(.7rem, 2.2vw, 1.6rem); font-size: clamp(1rem, .95rem + .3vw, 1.18rem);
 }
+.jah-facts .platforms span { position: relative; }
+.jah-facts .platforms span + span::before {
+  content: "·"; position: absolute; left: calc(-1 * clamp(.9rem, 2.2vw, 1.6rem) / 2);
+  transform: translateX(-50%); color: var(--jah-rule-firm); font-weight: 400;
+}
+.jah-facts dd#ep-count { color: var(--jah-signal); }
+.jah-facts dd .fact-sub {
+  display: block; margin-top: .2rem; font-weight: 600; letter-spacing: 0;
+  font-size: .68rem; color: var(--jah-ink-soft);
+}
+
+/* ── The route ───────────────────────────────────────────────────── */
+.jah-list { padding-block: clamp(3rem, 7vh, 5rem) clamp(4rem, 9vh, 7rem); }
+.jah-list-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: clamp(1.4rem, 3vw, 2.2rem); }
 .jah-list-head h2 {
-  font-family: var(--jah-hand); font-weight: 700; font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.7rem);
+  font-family: var(--jah-hand); font-weight: 700;
+  font-size: clamp(1.9rem, 1.4rem + 1.8vw, 3rem); letter-spacing: 0;
 }
-.jah-list-head .count { font-size: .82rem; color: var(--jah-ink-soft); }
+.jah-list-head::after {
+  content: ""; flex: 1; height: 1px; background: var(--jah-rule-firm);
+  transform: translateY(-.35em);
+}
 
-.stops { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(2.5rem, 6vw, 6rem); }
-@media (max-width: 65rem) { .stops { grid-template-columns: 1fr; } }
+/* The line the stops sit on. Single column: five stops read as an ordered
+   route, which a 2-up grid (3 + 2 + a hole) never did. */
+.stops { position: relative; display: grid; gap: 0; }
+.stops::before {
+  content: ""; position: absolute; left: 1.05rem; top: 1.9rem; bottom: 2.2rem;
+  /* Dies out before the container ends, so the line reads as the route
+     running on rather than stopping in the middle of the last paragraph
+     (a visible tail below knot 05 in the first render). */
+  width: 2px;
+  background: linear-gradient(180deg, var(--jah-signal-deep) 0%, var(--jah-rule) 58%, transparent 88%);
+}
 
+/* Three columns: knot / content / status. The status sits right-aligned on
+   the title's own row rather than stacked under the paragraph -- otherwise
+   the measure caps at ~62ch and the right third of every row is dead space
+   (visible in the first render: a 300px empty gutter down the whole list). */
 .stop {
-  display: grid; grid-template-columns: 3.6rem minmax(0, 1fr);
-  gap: .2rem 1.2rem; align-items: start;
-  padding: clamp(1.3rem, 3vh, 1.8rem) 0; border-bottom: 1px solid var(--jah-rule);
+  display: grid; grid-template-columns: 2.1rem minmax(0, 1fr) auto;
+  column-gap: clamp(1.3rem, 3vw, 2.4rem); align-items: start;
+  padding: clamp(1.5rem, 3.4vh, 2.1rem) clamp(.8rem, 2vw, 1.4rem) clamp(1.5rem, 3.4vh, 2.1rem) 0;
+  margin-left: -.8rem; padding-left: .8rem;
+  border-radius: 3px;
+  transition: background-color .25s var(--ease);
 }
-.stop .n {
-  grid-column: 1; grid-row: 1 / span 3; font-weight: 800;
-  font-size: 2.2rem; line-height: .9; letter-spacing: -.02em;
-  color: transparent; -webkit-text-stroke: 1.5px var(--jah-rule-firm);
-}
-.stop h3 { grid-column: 2; font-size: clamp(1.15rem, 1rem + .6vw, 1.45rem); font-weight: 700; margin: 0; line-height: 1.2; }
-.stop p { grid-column: 2; margin: .5rem 0 0; max-width: 54ch; color: var(--jah-ink-soft); font-size: .95rem; }
-.stop .tag {
-  grid-column: 2; margin-top: .6rem; display: inline-flex; align-items: center; gap: .5rem;
-  font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; color: var(--jah-gold);
-}
-.stop .tag::before { content: ""; width: .55rem; height: .55rem; flex: none; border-radius: 50%; background: var(--jah-gold); }
-.stop.published .tag { color: var(--jah-gold); }
-.stop.published .tag::before { background: var(--jah-gold); box-shadow: 0 0 0 3px rgba(228, 180, 132, .3); }
+.stop + .stop { border-top: 1px solid var(--jah-rule); }
 
-.stop .actions { grid-column: 2; margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
+/* ── Episode-copy backing: TWO switchable treatments ─────────────────
+   Set with data-stops on .stops. The copy previously sat straight on the
+   bare page ground with no backing at all -- --jah-surface/--jah-raise were
+   defined but only ever used on :hover. Both options make a real surface the
+   always-on state. Delete whichever loses.
+
+   The connector line is lifted above the panels in both (z-index on
+   .stops::before), otherwise a filled .stop paints over the route; and the
+   knot's own fill switches from --jah-ground to the panel colour, or it
+   reads as a punched hole. */
+.stops[data-stops] { z-index: 0; }
+.stops[data-stops]::before { z-index: 1; }
+.stops[data-stops] .stop .n { z-index: 2; }
+
+/* (1) LEDGER -- ONE panel, hairline-divided rows. Five stops stay a single
+   object, so the list doesn't become five repeating rounded tiles.
+
+   "Lift" option (design-panel colour pass, 03/09/2026): ground->surface
+   measured 1.11:1 -- below what a squint test separates, so the panel read
+   as carried entirely by its hairline dividers, not its own fill. Swapped
+   the static fill to --jah-raise (1.26:1 vs ground) -- reuses an already-
+   defined token, no new colour. Hover has nowhere higher to go on the
+   existing 3-step ramp now that raise is the base state, so it lightens
+   raise itself rather than jumping to a token that doesn't exist. */
+.stops[data-stops="ledger"] {
+  background: var(--jah-raise);
+  border: 1px solid var(--jah-rule);
+  border-radius: 6px;
+  padding: clamp(.4rem, 1.5vw, 1rem) clamp(1rem, 2.5vw, 1.8rem);
+}
+.stops[data-stops="ledger"]::before { left: calc(1.05rem + clamp(1rem, 2.5vw, 1.8rem)); }
+.stops[data-stops="ledger"] .stop { margin-left: 0; padding-left: 0; }
+.stops[data-stops="ledger"] .stop .n { background: var(--jah-raise); }
+.stops[data-stops="ledger"] .stop:hover { background: color-mix(in srgb, var(--jah-raise), white 8%); }
+.stops[data-stops="ledger"] .stop:hover .n { background: color-mix(in srgb, var(--jah-raise), white 8%); }
+
+/* (2) CARDS -- five separate panels on the rail, gap between them, no
+   dividing rules. More separation per stop; more repetition as a set. */
+.stops[data-stops="cards"] { gap: clamp(.6rem, 1.5vw, 1rem); }
+.stops[data-stops="cards"] .stop {
+  background: var(--jah-surface);
+  border: 1px solid var(--jah-rule);
+  border-radius: 6px;
+  padding: clamp(1.3rem, 3vh, 1.8rem) clamp(1.1rem, 2.5vw, 1.6rem);
+  margin-left: 0;
+}
+.stops[data-stops="cards"] .stop + .stop { border-top: 1px solid var(--jah-rule); }
+.stops[data-stops="cards"] .stop .n { background: var(--jah-surface); }
+.stops[data-stops="cards"] .stop:hover { background: var(--jah-raise); border-color: var(--jah-rule-firm); }
+.stops[data-stops="cards"] .stop:hover .n { background: var(--jah-raise); }
+.stops[data-stops="cards"]::before { left: calc(1.05rem + clamp(1.1rem, 2.5vw, 1.6rem)); }
+
+/* The knot on the line: a filled disc carrying the stop number. */
+.stop .n {
+  grid-column: 1; grid-row: 1 / span 5; position: relative; z-index: 1;
+  width: 2.1rem; height: 2.1rem; display: grid; place-items: center;
+  border-radius: 50%; background: var(--jah-ground);
+  box-shadow: inset 0 0 0 2px var(--jah-rule-firm);
+  font-size: .82rem; font-weight: 700; letter-spacing: 0;
+  color: var(--jah-ink-soft); font-variant-numeric: tabular-nums;
+  transition: box-shadow .25s var(--ease), color .25s var(--ease), background-color .25s var(--ease);
+}
+.stop:hover .n { box-shadow: inset 0 0 0 2px var(--jah-signal); color: var(--jah-signal); }
+.stop.published .n { background: var(--jah-signal); color: var(--jah-ground); box-shadow: none; }
+
+.stop h3 {
+  grid-column: 2; margin: 0; font-weight: 700;
+  font-size: clamp(1.25rem, 1.05rem + .85vw, 1.75rem); line-height: 1.12;
+  max-width: 26ch;
+}
+/* The written hook, demoted. It was competing with the place name at full
+   h3 weight; the real name now leads and this sits under it, clearly
+   secondary -- smaller, lighter, and not another heading. */
+.stop .hook {
+  grid-column: 2; margin: .3rem 0 0; max-width: 44ch;
+  font-size: clamp(.85rem, .82rem + .18vw, .95rem); font-weight: 500;
+  font-style: italic; letter-spacing: 0; line-height: 1.35;
+  color: rgba(238, 241, 240, .72);
+}
+.stop p {
+  grid-column: 2; margin: .6rem 0 0; max-width: 62ch;
+  color: var(--jah-ink-soft); font-size: .965rem; line-height: 1.62;
+}
+.stop .tag {
+  grid-column: 3; grid-row: 1; justify-self: end; margin-top: .42rem; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .655rem; letter-spacing: .19em; text-transform: uppercase;
+  font-weight: 700; color: var(--jah-ink-soft);
+}
+.stop .tag::before {
+  content: ""; width: .45rem; height: .45rem; flex: none; border-radius: 50%;
+  background: var(--jah-signal-deep);
+}
+.stop.published .tag { color: var(--jah-sky); }
+.stop.published .tag::before { background: var(--jah-sky); box-shadow: 0 0 0 3px rgba(106, 169, 222, .22); }
+
+.stop .actions { grid-column: 2; margin-top: .9rem; display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; }
 .stop .actions a {
-  font-size: .78rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 600;
-  text-decoration: none; color: var(--jah-gold);
+  font-size: .755rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700;
+  text-decoration: none; color: var(--jah-signal);
   background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px;
-  background-position: 0 100%; background-repeat: no-repeat; padding-bottom: .18rem;
-  transition: color .2s cubic-bezier(.22, 1, .36, 1), background-size .2s cubic-bezier(.22, 1, .36, 1);
+  background-position: 0 100%; background-repeat: no-repeat; padding-bottom: .2rem;
+  transition: color .2s var(--ease), background-size .2s var(--ease);
 }
 .stop .actions a:hover, .stop .actions a:focus-visible { color: var(--jah-ink); background-size: 100% 2px; }
 
-.stop .thumb { grid-column: 2; margin-top: .7rem; width: 100%; max-width: 20rem; }
-.stop .thumb img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--jah-rule); }
+.stop .thumb { grid-column: 2; margin-top: 1rem; width: 100%; max-width: 21rem; }
+.stop .thumb img {
+  display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: 3px; background: var(--jah-raise);
+}
 
-@media (max-width: 40rem) {
-  .stop { grid-template-columns: 2.6rem minmax(0, 1fr); }
-  .stop .n { font-size: 1.7rem; }
+/* Footer removed 03/09/2026 at the user's request -- the top navstrip already
+   carries the kilted.scot lockup and the "All series" link, so the foot was
+   repeating both. No .site-foot rules needed here any more. */
+
+@media (max-width: 46rem) {
+  .jah-hero { min-height: clamp(28rem, 104vw, 36rem); }
+  .jah-hero > img { object-position: 62% 58%; }
+  /* Two columns, so Published sits directly above Narration. */
+  .jah-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stops::before { left: .9rem; }
+  .stops[data-stops="ledger"] { padding-inline: .9rem; }
+  .stops[data-stops="ledger"]::before { left: calc(.9rem + .9rem); }
+  .stops[data-stops="cards"] .stop { padding-inline: 1rem; }
+  .stops[data-stops="cards"]::before { left: calc(.9rem + 1rem); }
+  .stop { grid-template-columns: 1.8rem minmax(0, 1fr); column-gap: 1rem; }
+  .stop .n { width: 1.8rem; height: 1.8rem; font-size: .72rem; }
+  /* No room for a status column at this width -- fold it back under the copy. */
+  .stop .tag { grid-column: 2; grid-row: auto; justify-self: start; margin-top: .8rem; }
 }
