@@ -156,9 +156,22 @@
       // Along Here, 06/09/2026; verified here on both i.ytimg.com and
       // img.youtube.com, and confirmed Shorts-specific rather than a coincidental
       // fallback - it 404s on our own 16:9 long-form videos.
+      // oar2 is DISABLED pending an attribution fix - see below. Restored to
+      // series art for shortsFirst series, which is the known-clean state.
+      //
+      // The crop removes the burned-in credit. Culross's oar2 frame carries
+      // "Photo: Calumsmith0308, CC BY-SA 4.0, Wikimedia Commons" baked in at
+      // rows ~1295-1420 of 1920; object-fit:cover into 16:9 shows only rows
+      // 656-1263, so the attribution falls outside the visible band and the
+      // card displayed a CC BY-SA work with no attribution anywhere on the
+      // page. Measured, not assumed.
+      //
+      // Do not re-enable oar2 for a series whose frames carry burned-in
+      // attribution unless either the crop is guaranteed to include it or the
+      // card renders its own credit line. cardImage remains the clean path:
+      // a supplied 16:9 still can place its own credit, or need none.
       var src = (r.latest && r.latest.cardImage)
-             || (r.s.shortsFirst && oarUrl(r.latest))
-             || (r.latest && r.latest.thumbnail)
+             || (r.s.shortsFirst ? r.s.art : (r.latest && r.latest.thumbnail))
              || r.s.art;
       if (src) {
         var img = el('img');
