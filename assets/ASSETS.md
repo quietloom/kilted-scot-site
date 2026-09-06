@@ -90,3 +90,9 @@ attribution is required, and where that attribution is rendered if so.
 Publishing an asset that already exists elsewhere onto a new surface counts as a new publication and
 needs the same check — that is `VISUAL-SOURCING-STANDARD.md` §11, written after this project shipped
 the Skye photo to the homepage without checking its provenance first.
+
+**Homepage `cardImage` needing attribution: prefer `episodes.json`'s `cardImageCredit` field over a
+burned-in credit, decided 06/09/2026** (`VISUAL-SOURCING-STANDARD.md` §14). A burned-in credit
+remains acceptable only when this file records an explicit do-not-crop guarantee for it, as the
+Culross entry above does — that entry is grandfathered, not wrong, but any *new* `cardImage` needing
+attribution should carry `cardImageCredit` instead, so a future re-treatment can't silently delete it.

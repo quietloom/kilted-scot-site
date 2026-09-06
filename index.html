@@ -189,6 +189,11 @@
         }
         img.src = src;
         media.appendChild(img);
+        // Attribution as data, not a burned-in pixel: a crop or a future
+        // treatment change can delete a credit baked into the image file
+        // (see VISUAL-SOURCING-STANDARD.md §13/§14) but can't delete a DOM
+        // node it never touches. Renders only when the episode supplies one.
+        if (r.latest && r.latest.cardImageCredit) media.appendChild(el('span', 'attrib', r.latest.cardImageCredit));
       }
       else media.appendChild(el('div', 'slate'));
       if (r.latest && isNew(r.latest)) media.appendChild(el('span', 'new', 'New episode'));
