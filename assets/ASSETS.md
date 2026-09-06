@@ -29,6 +29,27 @@ Each entry records the **upstream alias** so a search on either name lands here.
   placement problem. "No attribution needed" was the reason it was chosen — worth knowing before
   anyone swaps it for something that reintroduces the requirement.
 
+## just-along-here/card-culross-1280x720.jpg
+
+- **Upstream alias:** none — **deliberately deployed under its own name**,
+  `Just Along Here\episodes-culross\card-culross-1280x720.jpg`. Byte-identical, md5
+  `357aa1865f174a7358d9944ad39476a4`, verified on copy. Not renamed, applying the lesson from the
+  Skye photo above: a rename across trees silently deletes the provenance signal.
+- **Source:** a 16:9 crop of the episode's own hook/establishing photo, from the 4000×3000 original
+  — a genuine downscale, no upscaling. Same photo as the video's opening beat, already logged in
+  Just Along Here's own `assets.md`. No new source and no new licence question.
+- **Licence:** CC BY-SA 4.0 — **attribution required, and it is burned into the image**
+  ("Photo: Palickap, CC BY-SA 4.0, Wikimedia Commons", credit box bottom-left).
+- **Supplied:** 06/09/2026 by Just Along Here, as the `cardImage` override for Culross.
+- **⚠ DO NOT CROP THIS IMAGE, and do not strip the credit box.** The attribution travels *inside*
+  the image; the card markup renders no credit line of its own. It is 16:9 exactly, so the card's
+  `object-fit: cover` shows all of it — any future treatment that crops must either guarantee the
+  credit survives or render its own.
+  Legibility under the card's `.42` navy scrim verified rather than assumed: credit fill 25,
+  text 118, delta 93.
+- **Why it exists:** the `oar2.jpg` auto-frame for this episode cropped out its own burned-in credit
+  and lost the monument's finial. See the note in `index.html` beside the disabled `oar2` path.
+
 ## unsolved-scotland/nls-glenforsa-mull-1956-ink.png
 
 - **Derived here** 06/09/2026 from Unsolved Scotland's
