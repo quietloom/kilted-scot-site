@@ -32,7 +32,7 @@ Each entry records the **upstream alias** so a search on either name lands here.
 ## just-along-here/card-culross-1280x720.jpg
 
 - **Upstream alias:** none — **deliberately deployed under its own name**,
-  `Just Along Here\episodes-culross\card-culross-1280x720.jpg`. Byte-identical, md5
+  `Just Along Here\episodes\01-culross\card-culross-1280x720.jpg`. Byte-identical, md5
   `357aa1865f174a7358d9944ad39476a4`, verified on copy. Not renamed, applying the lesson from the
   Skye photo above: a rename across trees silently deletes the provenance signal.
 - **Source:** a 16:9 crop of the episode's own hook/establishing photo, from the 4000×3000 original
