@@ -72,6 +72,14 @@
   function fmtDate(iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }); }
   function isNew(ep) { return ep.status === 'published' && (Date.now() - new Date(ep.publishedDate)) / 864e5 <= NEW_DAYS; }
   function label(ep) { return ep.place || ep.title; }
+  // YouTube's true-aspect thumbnail for a Short. Derives the video id from the
+  // episode's own url (youtu.be/<id>) or its thumbnail path (/vi/<id>/...), so
+  // no new manifest field is needed.
+  function oarUrl(ep) {
+    if (!ep) return null;
+    var m = /youtu\.be\/([\w-]{6,})/.exec(ep.url || '') || /\/vi\/([\w-]{6,})\//.exec(ep.thumbnail || '');
+    return m ? 'https://img.youtube.com/vi/' + m[1] + '/oar2.jpg' : null;
+  }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function chip() { var c = el('span', 'chip'); c.setAttribute('aria-hidden', 'true'); return c; }
   function chev() { var c = el('span', 'chev'); c.setAttribute('aria-hidden', 'true'); return c; }
@@ -134,19 +142,41 @@
       var card = el('article', 'card'); card.style.setProperty('--series-accent', r.s.accent);
       var inner = el('div', 'inner'), media = el('div', 'media');
       // Card image, in preference order:
-      //   1. an episode's own cardImage - a real 16:9 still the series supplies
-      //   2. the series art, for shortsFirst series
-      //   3. the latest episode's YouTube thumbnail
+      //   1. an episode's own cardImage - a 16:9 still the series supplies, the override
+      //   2. oar2.jpg, for a shortsFirst series - YouTube's TRUE 9:16 Short frame
+      //   3. the latest episode's own thumbnail (maxresdefault)
       //   4. the series art
-      // shortsFirst exists because YouTube renders a 9:16 Short's maxresdefault
-      // by PILLARBOXING it into 16:9 - vertical frame centred, blurred stretch of
-      // itself as side-fill. Measured on Culross: left edge luminance 50 against
-      // 157 at centre. There is nothing outside the frame to crop to, so
-      // object-fit cannot rescue it; the fix is not to use that image at all.
+      //
+      // Why 2 exists. A Short's maxresdefault is YouTube PILLARBOXING the 9:16
+      // frame into 16:9 - vertical frame centred, blurred stretch of itself as
+      // side-fill. Measured on Culross: left edge luminance 50 against 157 at
+      // centre. object-fit cannot rescue that; there is nothing outside the frame.
+      // oar2.jpg ("original aspect ratio") serves the same Short at a true
+      // 1080x1920 instead, which crops to a real landscape band. Found by Just
+      // Along Here, 06/09/2026; verified here on both i.ytimg.com and
+      // img.youtube.com, and confirmed Shorts-specific rather than a coincidental
+      // fallback - it 404s on our own 16:9 long-form videos.
       var src = (r.latest && r.latest.cardImage)
-             || (r.s.shortsFirst ? r.s.art : (r.latest && r.latest.thumbnail))
+             || (r.s.shortsFirst && oarUrl(r.latest))
+             || (r.latest && r.latest.thumbnail)
              || r.s.art;
-      if (src) { var img = el('img'); img.src = src; img.alt = r.latest ? 'Episode ' + r.latest.number + ' thumbnail — ' + r.latest.title : r.s.name; media.appendChild(img); }
+      if (src) {
+        var img = el('img');
+        img.alt = r.latest ? 'Episode ' + r.latest.number + ' thumbnail — ' + r.latest.title : r.s.name;
+        // A 404 from i.ytimg.com still returns a 120x90 placeholder JPEG, so the
+        // status code alone is not a usable signal - the caveat came with the
+        // finding above. Check the decoded pixels and fall back if it is the
+        // placeholder, or if the request failed outright.
+        var fallback = r.s.art;
+        if (fallback && src !== fallback) {
+          img.addEventListener('error', function () { if (img.src !== fallback) img.src = fallback; });
+          img.addEventListener('load', function () {
+            if (img.naturalWidth <= 120 && img.src !== fallback) img.src = fallback;
+          });
+        }
+        img.src = src;
+        media.appendChild(img);
+      }
       else media.appendChild(el('div', 'slate'));
       if (r.latest && isNew(r.latest)) media.appendChild(el('span', 'new', 'New episode'));
       inner.appendChild(media);
