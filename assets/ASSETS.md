@@ -1,0 +1,71 @@
+# Deployed asset provenance
+
+Licence record for every third-party-derived asset served from `kilted.scot`, **keyed by the
+filename as deployed here**, not by whatever it was called upstream.
+
+Created 06/09/2026 after a real gap: a grep for `skye-hero-1280.jpg` found no licence record in
+either this project's tree or the originating series', because the file is **renamed on
+deployment** and the rename destroyed the provenance signal. Just Along Here holds it as
+`brand\skye-pixabay-nocredit-1280.jpg` — a name carrying both the source and the
+attribution-not-required fact — and it arrives here as `skye-hero-1280.jpg`, with both signals gone.
+The record existed and was complete; it simply was not findable under the name this side uses.
+
+That is the point of this file. **A rename across trees is a silent deletion of compliance
+evidence, and nothing flags it.** See `VISUAL-SOURCING-STANDARD.md` §11.
+
+Each entry records the **upstream alias** so a search on either name lands here.
+
+---
+
+## just-along-here/skye-hero-1280.jpg
+
+- **Upstream alias:** `Just Along Here\brand\skye-pixabay-nocredit-1280.jpg` (byte-identical,
+  md5 `33fdbd3c32fae6666ebfd91bb273cd32`, verified 06/09/2026)
+- **Source:** https://pixabay.com/photos/landscape-scotland-isle-of-skye-540115/
+- **Licence:** Pixabay Content License — commercial use permitted, **attribution not required**
+- **Acquired:** 02/09/2026 by Just Along Here
+- **Used on:** that series' page hero, and the homepage series card
+- **Note:** it replaced a Glencoe CC BY-SA 4.0 photograph *specifically* to avoid the credit-line
+  placement problem. "No attribution needed" was the reason it was chosen — worth knowing before
+  anyone swaps it for something that reintroduces the requirement.
+
+## unsolved-scotland/nls-glenforsa-mull-1956-ink.png
+
+- **Derived here** 06/09/2026 from Unsolved Scotland's
+  `brand\assets\nls-glenforsa-mull-crop-1956-hires.jpg`, via their own
+  `brand\_panel-renders\_decompose_ink.py` (downscaled to 1600px first, then decomposed).
+- **Source:** Ordnance Survey one-inch, Glen Forsa and the Sound of Mull, 1956
+- **Licence:** National Library of Scotland, maps.nls.uk, **CC BY** — attribution required, and
+  given in the Episode 2 notes page footer
+- **Used on:** the Episode 2 notes page ground
+
+## unsolved-scotland/nls-scotland-west-coast-1886-band.jpg · -ink.png
+
+- **Source:** "Scotland: West Coast," Admiralty Chart 2635, Hydrographic Office, surveyed 1846–65,
+  published 1886
+- **Licence:** reproduced with the permission of the **National Library of Scotland**. Credit is
+  rendered on the series index page and the Episode 1 notes page footer.
+- **⚠ Needs confirming:** the exact licence label (CC BY vs a permission grant) is not recorded
+  anywhere I can find — the pages say "reproduced with the permission of", which is a credit line
+  rather than a licence name. Attribution is being given either way, so nothing is at risk; the
+  record is incomplete rather than the usage. Unsolved Scotland owns the original sourcing.
+
+## fonts/ — fraunces-variable, spectral-300/400/600
+
+- **⚠ No licence record found** in either tree as of 06/09/2026. Both are widely distributed under
+  the SIL Open Font License, which permits web embedding, but that has **not been verified against
+  the actual files shipped here** and no record of where they were obtained exists. Self-hosted
+  webfonts are exactly the case where a licence matters, so this should be confirmed and recorded
+  rather than assumed.
+
+---
+
+## Rule for adding to this file
+
+Any third-party-derived asset added to `site/assets/` gets an entry **before** it is referenced by a
+page, recording: deployed filename, upstream alias if renamed, source URL, licence, whether
+attribution is required, and where that attribution is rendered if so.
+
+Publishing an asset that already exists elsewhere onto a new surface counts as a new publication and
+needs the same check — that is `VISUAL-SOURCING-STANDARD.md` §11, written after this project shipped
+the Skye photo to the homepage without checking its provenance first.
