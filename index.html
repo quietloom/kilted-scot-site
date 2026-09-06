@@ -65,7 +65,7 @@
      keeps its own copy of the same colour. */
   var SERIES = [
     { slug: 'unsolved-scotland', name: 'Unsolved Scotland', tagline: 'Cases that never quite closed.', accent: '#d9584a', noun: 'cases',  url: '/unsolved-scotland/', art: '/assets/unsolved-scotland/nls-scotland-west-coast-1886-band.jpg' },
-    { slug: 'just-along-here',   name: 'Just Along Here',   tagline: 'The Scotland you keep driving past.', accent: '#c9e94d', noun: 'places', url: '/just-along-here/', art: '/assets/just-along-here/skye-hero-1280.jpg' }
+    { slug: 'just-along-here',   name: 'Just Along Here',   tagline: 'The Scotland you keep driving past.', accent: '#c9e94d', noun: 'places', url: '/just-along-here/', art: '/assets/just-along-here/skye-hero-1280.jpg', shortsFirst: true }
   ];
   var NEW_DAYS = 30;
 
@@ -133,7 +133,19 @@
 
       var card = el('article', 'card'); card.style.setProperty('--series-accent', r.s.accent);
       var inner = el('div', 'inner'), media = el('div', 'media');
-      var src = r.latest && r.latest.thumbnail ? r.latest.thumbnail : r.s.art;
+      // Card image, in preference order:
+      //   1. an episode's own cardImage - a real 16:9 still the series supplies
+      //   2. the series art, for shortsFirst series
+      //   3. the latest episode's YouTube thumbnail
+      //   4. the series art
+      // shortsFirst exists because YouTube renders a 9:16 Short's maxresdefault
+      // by PILLARBOXING it into 16:9 - vertical frame centred, blurred stretch of
+      // itself as side-fill. Measured on Culross: left edge luminance 50 against
+      // 157 at centre. There is nothing outside the frame to crop to, so
+      // object-fit cannot rescue it; the fix is not to use that image at all.
+      var src = (r.latest && r.latest.cardImage)
+             || (r.s.shortsFirst ? r.s.art : (r.latest && r.latest.thumbnail))
+             || r.s.art;
       if (src) { var img = el('img'); img.src = src; img.alt = r.latest ? 'Episode ' + r.latest.number + ' thumbnail — ' + r.latest.title : r.s.name; media.appendChild(img); }
       else media.appendChild(el('div', 'slate'));
       if (r.latest && isNew(r.latest)) media.appendChild(el('span', 'new', 'New episode'));
