@@ -498,7 +498,13 @@ html:has(.screen) { font-size: clamp(15px, .45vw + 8px, 26px); }
 /* Lockup reduced 20% from its original clamp(1.6rem, 3.2vw, 4.2rem) -- owner
    sizing pass 04/09/2026, alongside the -25% headline and -15% lede. */
 .brand-row { display: flex; align-items: baseline; gap: 1.3rem; flex-wrap: wrap; font-size: clamp(1.28rem, 2.56vw, 3.36rem); }
-.brand-lockup { position: relative; display: inline-flex; align-items: center; text-decoration: none; color: var(--cream); font-size: 1em; }
+.brand-lockup {
+  position: relative; display: inline-flex; align-items: center; text-decoration: none; color: var(--cream); font-size: 1em;
+  /* Tap-target fix, mobile SEO/reach audit 12/09/2026: the link's own content box was ~19px
+     tall — under WCAG 2.2's 24px minimum — inside a 47px topbar with room to spare either
+     side. Padding grows the hit area without changing the visible mark/wordmark size. */
+  padding-block: .5rem; margin-block: -.5rem;
+}
 .brand-word {
   position: relative; z-index: 0; font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1;
   font-weight: 600; letter-spacing: -.02em; line-height: 1; font-size: 1em; color: #fff; padding-left: .98em;
