@@ -12,6 +12,16 @@
   },
   {
     "number": 2,
+    "place": "Dunbar Harbour",
+    "title": "The Boy Who Invented the Propeller",
+    "summary": "A real, still-working fishing harbour beneath the ruins of Dunbar Castle, where creel boats land prawns, lobster and crab most days of the week. Robert Wilson, born in a cottage here in 1803, built a working screw propeller as a child and tested it on the Forth — the Royal Navy turned him down, and history mostly forgot him too. Today there's a monument on the quay, a seasonal seafood shack called Nauti, and a stretch of harbour wall covered in decades of hand-painted boat name plaques.",
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/V-CbneQxz-Q/maxresdefault.jpg",
+    "url": "https://youtu.be/V-CbneQxz-Q",
+    "publishedDate": "2026-09-13"
+  },
+  {
+    "number": 3,
     "place": "Pittencrieff Park",
     "title": "The Park a Billionaire Gave Away",
     "summary": "As a boy, Andrew Carnegie was banned from the private grounds of Pittencrieff Estate. Decades later, having become one of the richest men in the world, he bought the entire estate — and gave it to the town of Dunfermline. Today it's 76 acres of parkland, ruins, and free-roaming peacocks, still free to everyone.",
@@ -21,7 +31,7 @@
     "publishedDate": null
   },
   {
-    "number": 3,
+    "number": 4,
     "place": "North Queensferry Harbour Light Tower",
     "title": "The World's Smallest Lighthouse",
     "summary": "Tucked under the shadow of the Forth Bridge sits a working lighthouse just 23 feet tall — built in 1817, dark for over a century, and lit again since 2010. It's a genuine curiosity most people driving straight past never notice.",
@@ -31,7 +41,7 @@
     "publishedDate": null
   },
   {
-    "number": 4,
+    "number": 5,
     "place": "Lochore Meadows",
     "title": "Fife's Buried Mining Town",
     "summary": "Beneath the grass and woodland of this country park lies a coal mine that closed in 1967. A million trees, a loch, and a genuine mining-heritage display beside the old pit wheel tell the story of what this place actually was.",
@@ -41,7 +51,7 @@
     "publishedDate": null
   },
   {
-    "number": 5,
+    "number": 6,
     "place": "Pittenweem",
     "title": "The Harbour Village Painted in Colour",
     "summary": "A working East Neuk fishing harbour, boats still coming in daily, wrapped around a decades-old arts festival and murals of puffins and seals. Real fishing village, real art trail, one of Fife's most photographed corners.",
