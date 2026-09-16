@@ -22,10 +22,11 @@
     "number": 3,
     "title": "The Arthur's Seat Coffins (1836)",
     "summary": "Seventeen miniature coffins, each holding a carefully dressed doll, found hidden in an Edinburgh cave in 1836. Eight survive in a museum today — and no one has ever agreed on who made them, or why.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/QhSR60jmfqk/maxresdefault.jpg",
+    "url": "https://youtu.be/QhSR60jmfqk",
+    "notesUrl": "/unsolved-scotland/03-arthurs-seat-coffins/",
+    "publishedDate": "2026-09-16"
   },
   {
     "number": 4,
