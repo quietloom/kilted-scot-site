@@ -145,7 +145,7 @@ a { color: var(--jah-signal); }
      and blur both cut hard; a text-shadow picks up the legibility slack
      instead of the panel doing all the work (see h1/.lede rules below, only
      active for this backing). */
-  display: block; max-width: min(100%, 48rem); padding: clamp(1.4rem, 3vw, 2.1rem) clamp(1.4rem, 3vw, 2.2rem) clamp(1.5rem, 3vw, 2rem);
+  display: block; max-width: min(100%, 48rem); padding: clamp(1.6rem, 4vw, 2.8rem) clamp(1.4rem, 3vw, 2.2rem) clamp(1.5rem, 3vw, 2rem);
   background: rgba(var(--jah-shadow), .14);
   -webkit-backdrop-filter: blur(5px) saturate(115%);
   backdrop-filter: blur(5px) saturate(115%);
@@ -209,7 +209,7 @@ a { color: var(--jah-signal); }
 .jah-hero h1 {
   font-weight: 800; font-size: clamp(2.3rem, 1rem + 5vw, 4.6rem);
   max-width: 17ch; margin: 0; text-wrap: balance; color: #fff;
-  letter-spacing: -.035em; line-height: .98;
+  letter-spacing: -.035em; line-height: 1.05;
   /* Measured on the real render: the worst background patch under this
      headline is a sunlit ochre (140,105,53) -- chartreuse 3.64:1, white
      5.02:1. Both clear AA-large at this size, but 3.64 is tight for the
@@ -247,7 +247,7 @@ a { color: var(--jah-signal); }
   text-align: center;
 }
 .jah-facts dt {
-  font-size: .66rem; letter-spacing: .18em; text-transform: uppercase;
+  font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
   font-weight: 700; color: var(--jah-ink-soft);
 }
 .jah-facts dd {
@@ -274,7 +274,7 @@ a { color: var(--jah-signal); }
 .jah-facts dd#ep-count { color: var(--jah-signal); }
 .jah-facts dd .fact-sub {
   display: block; margin-top: .2rem; font-weight: 600; letter-spacing: 0;
-  font-size: .68rem; color: var(--jah-ink-soft);
+  font-size: .75rem; color: var(--jah-ink-soft);
 }
 
 /* ── The route ───────────────────────────────────────────────────── */
