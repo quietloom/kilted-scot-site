@@ -2,6 +2,7 @@
   {
     "number": 1,
     "place": "Culross",
+    "slug": "01-culross",
     "title": "A Real Village Frozen in the 1600s",
     "summary": "A walk through Culross, Fife: a real 17th-century village where seven real stops — Culross Palace, the Townhouse, the Mercat Cross, the Biscuit Cafe, Tanhouse Brae, and the old Boat House — sit almost untouched by the last 400 years. Also, unmissably, Outlander's Cranesmuir.",
     "status": "published",
@@ -13,6 +14,7 @@
   {
     "number": 2,
     "place": "Dunbar Harbour",
+    "slug": "08-dunbar-harbour",
     "title": "The Boy Who Invented the Propeller",
     "summary": "A real, still-working fishing harbour beneath the ruins of Dunbar Castle, where creel boats land prawns, lobster and crab most days of the week. Robert Wilson, born in a cottage here in 1803, built a working screw propeller as a child and tested it on the Forth — the Royal Navy turned him down, and history mostly forgot him too. Today there's a monument on the quay, a seasonal seafood shack called Nauti, and a stretch of harbour wall covered in decades of hand-painted boat name plaques.",
     "status": "published",
@@ -22,17 +24,8 @@
   },
   {
     "number": 3,
-    "place": "Pittencrieff Park",
-    "title": "The Park a Billionaire Gave Away",
-    "summary": "As a boy, Andrew Carnegie was banned from the private grounds of Pittencrieff Estate. Decades later, having become one of the richest men in the world, he bought the entire estate — and gave it to the town of Dunfermline. Today it's 76 acres of parkland, ruins, and free-roaming peacocks, still free to everyone.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
-  },
-  {
-    "number": 4,
     "place": "North Queensferry Harbour Light Tower",
+    "slug": "03-north-queensferry",
     "title": "The World's Smallest Lighthouse",
     "summary": "Tucked under the shadow of the Forth Bridge sits a working lighthouse just 23 feet tall — built in 1817, dark for over a century, and lit again since 2010. It's a genuine curiosity most people driving straight past never notice.",
     "status": "announced",
@@ -41,8 +34,42 @@
     "publishedDate": null
   },
   {
+    "number": 4,
+    "place": "Dunbar Battery",
+    "slug": "05-dunbar-battery",
+    "title": "The Fort That Never Fired a Shot",
+    "summary": "A red-sandstone gun battery on Lamer Island, East Lothian, with sixteen gun embrasures, built in 1781 after John Paul Jones — the Scottish-born father of the US Navy — nearly attacked the Firth of Forth in 1779. It never fired a single shot in anger.",
+    "status": "announced",
+    "thumbnail": null,
+    "url": null,
+    "publishedDate": null
+  },
+  {
     "number": 5,
+    "place": "Pittencrieff Park",
+    "slug": "02-pittencrieff-park",
+    "title": "The Park a Billionaire Gave Away",
+    "summary": "As a boy, Andrew Carnegie was banned from the private grounds of Pittencrieff Estate. Decades later, having become one of the richest men in the world, he bought the entire estate — and gave it to the town of Dunfermline. Today it's 76 acres of parkland, ruins, and free-roaming peacocks, still free to everyone.",
+    "status": "announced",
+    "thumbnail": null,
+    "url": null,
+    "publishedDate": null
+  },
+  {
+    "number": 6,
+    "place": "Barns Ness Lighthouse",
+    "slug": "09-barns-ness-lighthouse",
+    "title": "Privately Owned Now",
+    "summary": "A walk to Barns Ness Lighthouse, East Lothian: a 37m Stevenson tower built in 1899–1901, decommissioned in 2005, then sold in 2007 to the cement company next door — privately owned, not government property. One of the best fossil coastlines in east-central Scotland sits right at its feet.",
+    "status": "announced",
+    "thumbnail": null,
+    "url": null,
+    "publishedDate": null
+  },
+  {
+    "number": 7,
     "place": "Lochore Meadows",
+    "slug": "04-lochore-meadows",
     "title": "Fife's Buried Mining Town",
     "summary": "Beneath the grass and woodland of this country park lies a coal mine that closed in 1967. A million trees, a loch, and a genuine mining-heritage display beside the old pit wheel tell the story of what this place actually was.",
     "status": "announced",
@@ -51,7 +78,7 @@
     "publishedDate": null
   },
   {
-    "number": 6,
+    "number": 8,
     "place": "Pittenweem",
     "title": "The Harbour Village Painted in Colour",
     "summary": "A working East Neuk fishing harbour, boats still coming in daily, wrapped around a decades-old arts festival and murals of puffins and seals. Real fishing village, real art trail, one of Fife's most photographed corners.",
