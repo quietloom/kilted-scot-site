@@ -60,6 +60,18 @@ Each entry records the **upstream alias** so a search on either name lands here.
   given in the Episode 2 notes page footer
 - **Used on:** the Episode 2 notes page ground
 
+## unsolved-scotland/ukho-iona-sound-2617-1860-ink.png
+
+- **Upstream alias:** `Unsolved Scotland\brand\assets\ukho-iona-sound-2617-1860-ink.png`
+  (byte-identical, md5 `41f8906be86857028eb868009fac317a`, copied 20/09/2026 — same filename both
+  sides)
+- **Source:** Admiralty Chart No. 2617, Sound of Iona, published 1860 (E. J. Bedford, Hydrographic
+  Office) —
+  https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_2617_Sound_of_Iona,_Published_1860.jpg
+- **Licence:** public domain (UK government work, Crown copyright expired), per the individual
+  Commons file page, re-verified by Unsolved Scotland (`episodes\04-netta-fornario\assets.md`)
+- **Used on:** the Episode 4 notes page ground (also the episode thumbnail's ground)
+
 ## unsolved-scotland/nls-scotland-west-coast-1886-band.jpg · -ink.png
 
 - **Source:** "Scotland: West Coast," Admiralty Chart 2635, Hydrographic Office, surveyed 1846–65,
