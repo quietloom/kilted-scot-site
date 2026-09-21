@@ -125,13 +125,20 @@
     return h;
   }
 
-  Promise.all(SERIES.map(function (s) {
-    return fetch('/' + s.slug + '/episodes.json').then(function (r) { return r.json(); }).then(function (eps) {
+  /* allSettled, not all: one series' manifest failing (network blip, a bad deploy) used to blank BOTH series.
+     Each series now loads or fails on its own, and a failed one is named inline with a Retry. */
+  Promise.allSettled(SERIES.map(function (s) {
+    return fetch('/' + s.slug + '/episodes.json').then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (eps) {
       eps.sort(function (a, b) { return a.number - b.number; });
       var pub = eps.filter(function (e) { return e.status === 'published'; }).sort(function (a, b) { return new Date(a.publishedDate) - new Date(b.publishedDate); });
       return { s: s, eps: eps, pub: pub, latest: pub[pub.length - 1] || null, first: eps.filter(function (e) { return e.status !== 'published'; })[0] || null };
     });
-  })).then(function (all) {
+  })).then(function (results) {
+    var all = results.filter(function (x) { return x.status === 'fulfilled'; }).map(function (x) { return x.value; });
+    var failed = SERIES.filter(function (s, i) { return results[i].status === 'rejected'; });
     var shelf = document.getElementById('shelf'), totalEps = 0, totalPub = 0, open = null;
     shelf.style.setProperty('--n', all.length);
 
@@ -267,6 +274,16 @@
 
     document.getElementById('tally').innerHTML = '<b>' + all.length + '</b> series · <b>' + totalEps + '</b> stories · <b>' + totalPub + '</b> published';
     document.getElementById('shelf-note').textContent = all.length === 1 ? 'More in production' : 'Each with its own page';
+
+    if (failed.length) {
+      var note = el('p', 'load-error');
+      note.setAttribute('role', 'alert');
+      note.appendChild(document.createTextNode('Couldn\u2019t load ' + failed.map(function (s) { return s.name; }).join(' and ') + ' just now. '));
+      var retry = el('button', null, 'Retry'); retry.type = 'button';
+      retry.addEventListener('click', function () { location.reload(); });
+      note.appendChild(retry);
+      shelf.parentNode.insertBefore(note, shelf);
+    }
   });
 </script>
 </body>

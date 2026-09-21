@@ -73,7 +73,10 @@
 
 <script>
   fetch('/unsolved-scotland/episodes.json')
-    .then(function (r) { return r.json(); })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(function (episodes) {
       var container = document.getElementById('cases');
       episodes.sort(function (a, b) { return a.number - b.number; });
@@ -159,6 +162,18 @@
         }, { threshold: .15 });
         document.querySelectorAll('.case').forEach(function (el) { revealObserver.observe(el); });
       }
+    })
+    .catch(function (err) {
+      var box = document.getElementById('cases');
+      var note = document.createElement('p');
+      note.setAttribute('role', 'alert');
+      note.textContent = 'Couldn\u2019t load the episode list just now. ';
+      var retry = document.createElement('button');
+      retry.type = 'button';
+      retry.textContent = 'Retry';
+      retry.addEventListener('click', function () { location.reload(); });
+      note.appendChild(retry);
+      box.appendChild(note);
     });
 </script>
 </body>
