@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#182028">
+<title>Netta Fornario, Iona (1929) — Unsolved Scotland</title>
+<meta name="description" content="In November 1929 an occultist named Netta Fornario was found dead on the fairy hill on Iona. The official cause was exposure. There was no post-mortem, and no formal inquiry has been found. Much of the familiar story has grown with every retelling.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Cloned from 02-great-mull-air-mystery/index.html (live, kilted.scot site repo) per that
+   file's own instruction comment: copy, swap head/body/foot content, update the footer chart
+   credit for the new sheet. Architecture/selectors unchanged -- only content, the ground-ink
+   asset path, and the footer credit differ. Full CSS history: that file's own comments,
+   NOTES.md/DECISIONS.md (Unsolved Scotland project). */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#182028}
+
+.art{
+  --paper:#182028; --paper-hi:#232c36;
+  --ink:#f2efe8; --ink-2:rgba(242,239,232,.82); --dim:rgba(242,239,232,.62);
+  --mark:#e2705f; --mark-big:#e5806f; --rule:rgba(242,239,232,.18); --rule-hair:rgba(242,239,232,.1);
+  --thistle-l:#ab8fda;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+.art .cart{display:inline-block;border:3px double var(--rule);padding:.9rem 2.4rem;text-align:center}
+.art .cart .cart-title{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.art .cart .cart-title img{width:max(17px,2.4cqw);height:auto;flex:none}
+.art .cart .cart-title b{color:var(--thistle-l);font-weight:400}
+.art .cart span.credit{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid var(--rule);
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:var(--thistle-l)}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--ink)}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:var(--ink)}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
+.has-motion .art .lrow{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.has-motion .art .lrow.is-visible{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion: reduce){
+  .art *{transition:none!important;animation-duration:.01ms!important}
+  .has-motion .art .lrow{opacity:1;transform:none;filter:none}
+}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;
+  background-position:0 100%;background-repeat:no-repeat;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s cubic-bezier(.22,1,.36,1),background-size .18s cubic-bezier(.22,1,.36,1),letter-spacing .18s cubic-bezier(.22,1,.36,1)}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:var(--mark-big);background-size:100% 2px;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);container-type:inline-size}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/ukho-iona-sound-2617-1860-ink.png') center/cover fixed no-repeat;
+  filter:invert(.92) sepia(.14) saturate(.6);opacity:.1}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Netta Fornario, Iona | Found on the Fairy Hill, No Post-Mortem (1929)",
+  "description": "In November 1929 an occultist named Netta Fornario was found dead on the fairy hill on Iona. The official cause was exposure. There was no post-mortem, and no formal inquiry has been found. Much of the familiar story has grown with every retelling.",
+  "thumbnailUrl": "https://img.youtube.com/vi/kCvwydHs0R4/maxresdefault.jpg",
+  "uploadDate": "2026-09-22",
+  "duration": "PT9M8S",
+  "embedUrl": "https://www.youtube.com/embed/kCvwydHs0R4",
+  "contentUrl": "https://youtu.be/kCvwydHs0R4",
+  "publisher": {"@type": "Organization", "name": "kilted.scot", "url": "https://kilted.scot/"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Unsolved Scotland", "url": "https://kilted.scot/unsolved-scotland/"}
+}
+</script>
+</head><body>
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart">
+    <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+    <span class="credit">a kilted.scot production</span>
+  </div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode Four &middot; Iona &middot; November 1929</p>
+    <h1>Netta Fornario, Iona</h1>
+    <p class="stand">She was found dead on the island's fairy hill. The official cause was exposure.
+    There was no post-mortem &mdash; <em>and most of the familiar story has grown with every retelling.</em></p>
+    <div class="meta">
+      <div>Status<b>Awaiting publish</b></div>
+      <div>Running time<b>9 min</b></div>
+      <div>Watch<b><a href="https://youtu.be/kCvwydHs0R4">YouTube</a></b></div>
+      <div>Sources<b>13 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The real record</h2>
+  <p class="kicker">What is actually documented, and what is not</p>
+  <p class="lead drop">In the late summer or autumn of 1929, Netta Fornario travelled to Iona with a large amount of luggage
+  and rented a room. She was an occultist &mdash; a member of the Alpha et Omega, a secretive magical group
+  descended from the Hermetic Order of the Golden Dawn &mdash; and had come, by later accounts, to make
+  contact with what she called the island's fairy elementals. On or around 19 November she was found on the
+  island's fairy hill, naked beneath a black cloak, a tarnished silver chain at her neck and a knife close to
+  one hand.</p>
+  <p>The official certificate gives cause of death as exposure to the elements. It gives only a window for
+  when she died: sometime between ten at night on the 17th and half past one in the afternoon on the 19th.
+  <strong>Everything inside that interval remains unknown.</strong> No post-mortem or toxicology examination
+  was carried out. Scotland had no coroner's inquest system; the death was referred to the Procurator
+  Fiscal, and the available sources show no formal inquiry after that.</p>
+  <p>Most of the familiar story of her last day entered print in 1955, twenty-six years after her death, in
+  Alasdair Alpin MacGregor's <em>The Ghost Book</em>, which drew on the memories of two women connected with
+  Iona. It may preserve genuine events, but it is a late recollection, not a contemporary record. In that
+  telling she became agitated on Sunday 17 November, said she was being attacked through telepathy or
+  psychic means, and hurriedly packed to leave &mdash; but there was no Sunday ferry. She was reported
+  missing on the 18th.</p>
+  <p>One contemporary report adds a last fact. The <em>Oban Times</em> said police removed a packet of
+  letters from her possessions and sent them to the fiscal, describing them as &ldquo;of a strange
+  character.&rdquo; No known source reveals what they said, what officials made of them, or where they
+  are now.</p>
+
+  <ul class="sound">
+    <li><span class="fig">0</span><span class="what">post-mortem or toxicology examinations carried out; the certificate records exposure</span></li>
+    <li><span class="fig">1</span><span class="what">packet of letters taken by police &mdash; contents, and where they are now, unknown</span></li>
+    <li><span class="fig">26 yrs</span><span class="what">before the familiar account of her last day first appeared in print (1955)</span></li>
+    <li><span class="fig">2</span><span class="what">days in which she could have died: 22:00 on 17 November to 13:30 on 19 November</span></li>
+  </ul>
+
+  <p>What survives once the additions are removed is smaller: a woman disappeared after trying to leave
+  Iona and was found exposed on a hill associated with fairy folklore. The recorded cause of death is
+  exposure, and the weather on Iona in November makes that entirely credible. Hypothermia can produce
+  confusion and, in some cases, paradoxical undressing, which could account for the condition in which she
+  was found. It still leaves the preceding events obscure: her apparent panic, her walk into open country,
+  and the absence of any medical examination that might have identified a contributing illness.</p>
+  <p>The theories offered since &mdash; a psychic attack, a medical crisis, fairy retribution, foul play
+  &mdash; each fail in the same way: none can be tested against evidence that no longer exists.
+  <strong>That missing evidence is what keeps the case alive.</strong> The legends grew around it. The
+  record itself never grew at all.</p>
+  </div>
+
+  <div class="wide">
+  <h2>The story says &middot; the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th scope="col">As it circulates</th><th scope="col">Verdict</th><th scope="col">In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>She died of heart failure.</s></td>
+        <td class="verdict">Wrong</td>
+        <td class="shown">The certificate states exposure to the elements. It does not say heart failure,
+        despite that claim appearing repeatedly online.
+        <cite>Death certificate, as reported by the sources below</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>There was a coroner's inquest.</s></td>
+        <td class="verdict">Wrong</td>
+        <td class="shown">Scotland had no coroner's inquest system. The death was referred to the Procurator
+        Fiscal, and the available sources show no formal inquiry after that. The surviving record cannot tell
+        us how much local work was done &mdash; only that no fuller public examination has been found.
+        <cite>Episode research pack</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Scratched feet, a rigid grip on the knife, terror fixed on her face.</s></td>
+        <td class="verdict">Later addition</td>
+        <td class="shown">These details are absent from the earliest surviving accounts and appear later.
+        The consistent, reasonably solid details are the cloak, the darkened chain and the knife within
+        reach. <cite>Episode research pack</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>A cloaked man and blue lights were seen, by several witnesses.</s></td>
+        <td class="verdict">Unsupported</td>
+        <td class="shown">The sighting traces to a single unattributed press line, not to corroborating
+        witnesses. <cite>strangehistory.net, citing one unnamed newspaper report</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>A large cross was cut into the turf beside her.</s></td>
+        <td class="verdict">Doubtful</td>
+        <td class="shown">The detail appears in occult coverage and later commentary; the death certificate
+        says nothing about it, and at least one modern researcher doubts it was there.
+        <cite>Episode research pack</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Aleister Crowley did it.</s></td>
+        <td class="verdict">Wrong on the facts</td>
+        <td class="shown">Crowley had no role in the Alpha et Omega and there is no documented connection to
+        Fornario's death; his place in the story rests on a mix-up between famous occult names. No surviving
+        source records a threat, struggle or injury pointing to murder.
+        <cite>Episode research pack</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>This photograph shows Netta Fornario.</s></td>
+        <td class="verdict">Misidentified</td>
+        <td class="shown">The photograph commonly labelled as Fornario shows Moina Mathers, another occultist
+        linked to the same circle. No verified photograph of Fornario is known to exist, so the episode shows
+        none. <cite>Episode research pack</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Dion Fortune's account of a psychic attack is a neutral report.</s></td>
+        <td class="verdict">Mischaracterised</td>
+        <td class="shown">It is Fortune's own account, in <em>Psychic Self-Defence</em> (1930), of a friend's
+        death in occult terms. The figure it apparently implicates, Moina Mathers, seems to have died more
+        than a year before Fornario, so the claim's chronology works against it.
+        <cite>Dion Fortune, 1930; episode research pack</cite></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="disclose">Some matters are left open here rather than settled, because the sources do not settle
+  them: the exact date of the discovery (most accounts say the 19th, one source the 18th); which two local
+  men found her, and on which day; and the order of her full name, which records give in different
+  combinations of Marie, Norah, Emily and Editha. She was born in Cairo around 1897.</p>
+
+  <p class="disclose"><b>On the illustrations.</b> Three shots in this episode are AI-generated &mdash;
+  labelled on screen, for their full duration, as illustrations. They depict the later, unsupported additions
+  to the story (a knife, a cloaked figure, a blue glow), never Fornario herself or any real person. Every
+  other image is a real photograph, map or document, credited below.</p>
+  </div>
+
+  <div class="col">
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; anything approximate says so</p>
+  <table class="dates">
+    <tr><th scope="row">c. 1897</th><td>Born in Cairo to an Italian father and an English mother, who died while she was very young. Raised in London by her maternal grandfather, a Streatham tea merchant.</td></tr>
+    <tr><th scope="row">1917</th><td>Publishes a sequence of sea poems.</td></tr>
+    <tr><th scope="row">1921</th><td>Holds an officer's role in a Co-Masonic lodge in Hammersmith.</td></tr>
+    <tr><th scope="row">1928</th><td>Publishes an essay on imagination in the <em>Occult Review</em>.</td></tr>
+    <tr><th scope="row">Autumn 1929</th><td>Travels to Iona with a large amount of luggage and rents a room.</td></tr>
+    <tr><th scope="row">17 Nov 1929</th><td>Sunday. In the 1955 account, she is agitated, tries to leave, and finds no ferry running.</td></tr>
+    <tr><th scope="row">18 Nov 1929</th><td>Reported missing. One source gives this as the day she was found.</td></tr>
+    <tr><th scope="row">19 Nov 1929</th><td>Most accounts place the discovery on the fairy hill on this date. The certificate's window for her death closes at 13:30.</td></tr>
+    <tr><th scope="row">30 Nov 1929</th><td>The <em>Oban Times</em> reports the seized letters &ldquo;of a strange character.&rdquo;</td></tr>
+    <tr><th scope="row">1930</th><td>Dion Fortune publishes <em>Psychic Self-Defence</em>, describing her friend as going into &ldquo;very deep waters.&rdquo;</td></tr>
+    <tr><th scope="row">1955</th><td>Alasdair Alpin MacGregor's <em>The Ghost Book</em> puts most of the familiar story of her last day into print.</td></tr>
+  </table>
+
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the episode asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="https://ciphermysteries.com/2018/09/14/netta-fornarios-missing-papers">Nick Pelling, “Netta Fornario&#x27;s missing papers…”, Cipher Mysteries (14 September 2018)</a>
+      <span>Her background and dated timeline, the seized letters reported by the Oban Times, and the National Archives naturalisation reference. Cause of death is given there as exposure, with heart failure also mentioned.</span></li>
+    <li><a href="https://www.mentalfloss.com/article/555841/strange-1920s-death-iona-scotland-nora-emily-fornario">Addison Nugent, “Exposed to the Elements: A Strange 1920s Death on the Scottish Island of Iona”, Mental Floss (7 September 2018)</a>
+      <span>Overview of the case, her place in the Alpha et Omega and her friendship with Dion Fortune.</span></li>
+    <li><a href="https://www.mysteriousbritain.co.uk/occult/netta-fornario-ionas-occult-mystery/">Mysterious Britain &amp; Ireland, “Netta Fornario: Iona&#x27;s Occult Mystery”</a>
+      <span>Overview and the 17 November sequence. The page cites no sources of its own, so nothing was taken from it that a second source did not support.</span></li>
+    <li><a href="http://www.strangehistory.net/2013/01/31/mysterious-death-on-iona-1928/">Beachcombing, “Mysterious Death on Iona”, Strange History (31 January 2013; the page&#x27;s address says 1928, the case is 1929)</a>
+      <span>The disputed discovery date, the two local men named as finders, and the single unnamed newspaper report of blue lights and a cloaked man.</span></li>
+    <li><a href="https://jasonrobertsonline.com/the-immortal-hour-of-netta-fornario-part-one/">Jason Roberts, “The Immortal Hour of Netta Fornario”, Parts One to Three (2021)</a>
+      <span>A three-part retelling used as a cross-check. Part Three draws on MacGregor&#x27;s The Ghost Book and mentions the seized letters.</span></li>
+    <li><a href="https://viewfromthebighills.blogspot.com/2013/02/a-terrible-case-of-healing-death-of.html">Celtic Fire, “A terrible case of healing – the death of Netta Fornario”, View From The Big Hills (10 February 2013)</a>
+      <span>The 1929 newspaper headlines, the letters passed to the Procurator Fiscal, and Ron Halliday&#x27;s later reinvestigation.</span></li>
+    <li><a href="https://mulldirectory.co.uk/the-iona-enigma-unraveling-the-mysterious-death-of-netta-fornario/">Mull Directory, “The Iona Enigma: Unraveling the Mysterious Death of Netta Fornario” (7 August 2025)</a>
+      <span>Where she lodged, and the point on which accounts differ: a Mrs MacRae, or the Cameron family.</span></li>
+    <li><a href="https://coast.scot/stories/the-mysterious-death-of-netta-fornario/">Chris Merchant, “The mysterious death of Netta Fornario”, Coast that Shaped the World (Iona Abbey)</a>
+      <span>An account from the island itself. It gives 17 November as the day she was found, one of the disagreements the episode leaves open.</span></li>
+    <li><a href="https://www.findagrave.com/memorial/191667869/marie_emily-fornario">Find a Grave, memorial for Marie Emily “Netta” Fornario (1897–1929)</a>
+      <span>The inscription on her grave at Reilig Odhrain: “M.E.F. 19th Nov 1929 Aged 33”.</span></li>
+    <li><a href="https://discovery.nationalarchives.gov.uk/details/r/C4175377">The National Archives, naturalisation record HO 144/1765/431695 (1922)</a>
+      <span>Confirms her naturalisation in 1922 and the spelling of her names in the official record.</span></li>
+    <li>Dion Fortune, Psychic Self-Defence (Rider &amp; Co., 1930)
+      <span>Her own account of her friend going into “very deep waters”, and the psychic-attack explanation. Quoted, not reproduced.</span></li>
+    <li>Alasdair Alpin MacGregor, The Ghost Book (1955)
+      <span>The source of most of the familiar story of her last day, from the recollections of two women connected with Iona.</span></li>
+    <li>Oban Times, 30 November 1929; Glasgow Herald and The Scotsman, 27 November 1929
+      <span>The contemporary reports. The originals sit behind the British Newspaper Archive paywall, so they are cited through the secondary sources above and never reproduced.</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <div class="shelf">
+    <div class="bk"><div class="spine"></div><div>
+      <b>Exposed to the Elements: A Strange 1920s Death on the Scottish Island of Iona</b>
+      <i>Mental Floss (2018), a readable overview of the case and the occult circle around her.</i>
+      <a class="go" href="https://www.mentalfloss.com/article/555841/strange-1920s-death-iona-scotland-nora-emily-fornario">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Netta Fornario&#x27;s missing papers…</b>
+      <i>Cipher Mysteries (2018), on the documents that survive and the letters that do not.</i>
+      <a class="go" href="https://ciphermysteries.com/2018/09/14/netta-fornarios-missing-papers">Read it</a></div></div>
+  </div>
+
+  <h2>Image credits</h2>
+  <p class="kicker">Every real image in the episode, its creator, and its licence</p>
+  <ol class="src">
+    <li><a href="https://commons.wikimedia.org/wiki/File:T._Willis,_Cerebri_anatome_;_cui_accessit_n_Wellcome_L0032335.jpg">Thomas Willis, Cerebri anatome (1664): generic illustration of the brain</a> &mdash; Thomas Willis; Wellcome Collection, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+      <span>Used in: Theories, none resolved. Trimmed at the scan&#x27;s edges. Attribution required: Wellcome Collection, CC BY 4.0.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Loch_Staonaig_-_geograph.org.uk_-_576300.jpg">Loch Staonaig, Iona (opening; the spot)</a> &mdash; Simon Leatherdale (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: Cold open, The discovery.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Corr_Eilean_and_machair,_north_west_coast_of_Iona_-_geograph.org.uk_-_3378587.jpg">Corr Eilean and machair, north-west Iona</a> &mdash; Karl and Ali (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: The discovery.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:A%27_Mhachair,_Iona_-_geograph.org.uk_-_6193282.jpg">A&#x27; Mhachair, Iona</a> &mdash; Richard Webb (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: The last confirmed days, The discovery.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Edge_of_the_machair_-_geograph.org.uk_-_2002559.jpg">Machair on Iona, near the fairy hill</a> &mdash; Jonathan Wilkins (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: Cold open.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Reilig_Odhrain_(St_Oran%27s_Burial_Ground)_-_geograph.org.uk_-_1919786.jpg">Reilig Odhrain (St Oran&#x27;s burial ground), Iona</a> &mdash; Euan Nelson (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: Close.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Celtic_Fairy_Tales_MET_DP330561.jpg">Connla and the Fairy Maiden, from Celtic Fairy Tales (1895): an Irish tale, shown only as an illustration of fairy folklore</a> &mdash; J. D. Batten; The Metropolitan Museum of Art, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>
+      <span>Used in: Theories, none resolved. Trimmed at the scan&#x27;s edges.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Egyptian_views;_Cairo_(Masr)._Muski_Street,_Cairo_LOC_matpc.01474.jpg">Muski Street, Cairo, c.1900 (left frame of a stereo pair)</a> &mdash; Matson Collection, Library of Congress, Public domain
+      <span>Used in: Who she was. As above.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Egyptian_views;_Cairo_(Masr)._Street_in_Cairo_LOC_matpc.01475.jpg">A street in Cairo, c.1900 (left frame of a stereo pair)</a> &mdash; Matson Collection, Library of Congress, Public domain
+      <span>Used in: Who she was. US public-domain status is stated on the file page; UK status inferred from the c.1900 date.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Aleister_Crowley_-_1929.jpg">Aleister Crowley, 1929 (shown only to correct a rumour)</a> &mdash; Unknown photographer, Public domain
+      <span>Used in: Theories, none resolved.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Iona_abbey.JPG">Iona Abbey (modern photograph)</a> &mdash; Nicolesabrina, English Wikivoyage, Public domain
+      <span>Used in: Who she was.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Iona_beach.JPG">Iona beach (modern photograph)</a> &mdash; Nicolesabrina, English Wikivoyage, Public domain
+      <span>Used in: The discovery, Theories, none resolved.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:TyIona20030825r17f31.jpg">Iona from the Fionnphort ferry, 2003</a> &mdash; Torsten Henning, Public domain
+      <span>Used in: Cold open.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Samuel_Liddell_MacGregor_Mathers_in_Egyptian_getup.jpg">S. L. MacGregor Mathers in ritual dress (shown as the occult circle, never as Fornario)</a> &mdash; Unknown photographer, before 1918, Public domain
+      <span>Used in: Who she was, Theories, none resolved.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Moina_Mathers.jpg">Moina Mathers, c.1887: the photograph commonly mislabelled as Fornario</a> &mdash; hermeticgoldendawn.org, via Wikimedia Commons; photographer unknown, Public domain
+      <span>Used in: How the story changed.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Occult_review.jpg">The Occult Review, March 1922 cover (a generic issue, not the 1928 issue carrying her essay)</a> &mdash; Published 1922, Public domain
+      <span>Used in: Who she was.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_2617_Sound_of_Iona,_Published_1860.jpg">Admiralty Chart 2617, Sound of Iona, surveyed 1857-60 (also the thumbnail&#x27;s ground)</a> &mdash; E. J. Bedford, National Hydrographic Office, 1860, Public domain
+      <span>Used in: The last confirmed days.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:STREATHAM_HIGH_ROAD,_LONDON_-_CARD_HOUSE_5_-_NICE_CLEAR_1929_POSTMARK_POSTCARD_(50272895317).jpg">Streatham High Road, a 1920s postcard (postmarked 1929)</a> &mdash; Mark Crombie (uploader) via Wikimedia Commons, Public domain
+      <span>Used in: Who she was. The public-domain claim is the uploader&#x27;s; the original publisher and photographer are not identified.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:UK_Iona.PNG">Locator map of Iona</a> &mdash; Wikimedia Commons contributor, Public domain
+      <span>Used in: The last confirmed days.</span></li>
+  </ol>
+  <p class="disclose">The Willis anatomical plate is used under CC BY 4.0 (credit: Wellcome Collection).
+  Geograph photographs are used under CC BY-SA 2.0 and credited on screen for the whole time they appear.
+  The map behind this page and the episode's thumbnail is Admiralty Chart 2617, <em>Sound of Iona</em>, 1860
+  (public domain).</p>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> &mdash; written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <small>Map ground: Admiralty Chart 2617, Sound of Iona, surveyed 1857&ndash;60 (public domain, via
+  Wikimedia Commons). Episode notes are corrected in place when a source changes; corrections are dated at
+  the foot of the entry they affect.</small>
+  </div>
+</div>
+<script>
+if ('IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  var lrowObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        lrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.art .lrow').forEach(function (row) { lrowObserver.observe(row); });
+}
+</script>
+</body></html>
