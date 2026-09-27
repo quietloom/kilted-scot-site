@@ -72,6 +72,29 @@ Each entry records the **upstream alias** so a search on either name lands here.
   Commons file page, re-verified by Unsolved Scotland (`episodes\04-netta-fornario\assets.md`)
 - **Used on:** the Episode 4 notes page ground (also the episode thumbnail's ground)
 
+## unsolved-scotland/os-overtoun-bridge-dumbarton-ink.png
+
+- **Upstream alias:** `Unsolved Scotland\brand\assets\os-overtoun-bridge-dumbarton-ink.png`
+  (byte-identical, md5 `4945a1bdd2856c57d775812949293a17`, copied 27/09/2026 — same filename both
+  sides)
+- **Source:** Ordnance Survey 25 inch 2nd edition, Dumbartonshire Sheet XXII.3, surveyed/published
+  1898, National Library of Scotland (maps.nls.uk) — covers the Overtoun estate, showing the
+  waterfall and footbridge (F.B.) the episode is about
+- **Licence:** public domain (Crown Copyright expired — NLS's own copyright page states OS map
+  Crown Copyright runs 50 years from publication; verified 27/09/2026 via maps.nls.uk/copyright.html).
+  Attribution not legally required, but NLS's site convention is credited anyway (matches this
+  project's existing house style for its other NLS/OS ground-ink assets) — no footer credit exists
+  yet on either side as of this entry; add "Reproduced with the permission of the National Library
+  of Scotland" to the Episode 5 notes page footer before it goes live, matching Episode 1/2's pattern.
+- **Used on:** the Episode 5 (Overtoun Bridge) notes page ground — **not yet live**: staged by
+  Unsolved Scotland (`INBOX-episode-05-ready-for-staging-unsolved-scotland.md`, 27/09/2026), asset
+  verified and placed here ahead of the actual page copy-over, which is still pending a separate
+  staging-ownership decision.
+- **Visual check:** composited against a light background and inspected directly (not just a pixel
+  range check, which misleadingly reads as flat since the real ink pattern lives entirely in the
+  alpha channel, not RGB) — a real, legible 1898 map clearly labelled "Overtoun," matching the
+  episode's subject.
+
 ## unsolved-scotland/nls-scotland-west-coast-1886-band.jpg · -ink.png
 
 - **Source:** "Scotland: West Coast," Admiralty Chart 2635, Hydrographic Office, surveyed 1846–65,
