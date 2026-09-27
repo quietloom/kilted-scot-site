@@ -100,6 +100,51 @@ Each entry records the **upstream alias** so a search on either name lands here.
   `just-along-here/08-dunbar-harbour/`, for the hero and four stop thumbnails. Linked from
   `episodes.json` 27/09/2026.
 
+## just-along-here/pittencrieff-hero.jpg, pittencrieff-gates.jpg, pittencrieff-statue.jpg, pittencrieff-house.jpg, pittencrieff-tower.jpg, pittencrieff-tower-bridge.jpg, pittencrieff-wallace-well.jpg
+
+- **Upstream alias:** none — downloaded directly from Wikimedia Commons (via the Commons API, full file
+  or a Commons-rendered thumbnail) and renamed on arrival; no prior copy existed in any project tree.
+  Downscaled to at most 1200px wide (hero 1280px) and re-saved as JPEG q85 with Pillow. Self-hosted
+  **by necessity**, same as the Culross set: Commons and geograph.org.uk block cross-origin `<img>`
+  embedding.
+- **Source / licence, per image (all CC BY-SA, attribution required, given as text in the notes
+  page's own pic-credit lines and Image credits section — no credit is burned into any file):**
+  - `pittencrieff-hero.jpg` — Wikimedia Commons, "Gardens in Pittencrieff Park.jpg"
+    (https://commons.wikimedia.org/wiki/File:Gardens_in_Pittencrieff_Park.jpg), Dkardokas, CC BY-SA
+    3.0. 2000×1333 original → 1280×853. md5 `6580c50706b7bdf15cab337908928044`.
+  - `pittencrieff-gates.jpg` — geograph.org.uk photo 7659558 via Wikimedia Commons, "Entrance to
+    Pittencrieff Park, Dunfermline"
+    (https://commons.wikimedia.org/wiki/File:Entrance_to_Pittencrieff_Park,_Dunfermline_-_geograph.org.uk_-_7659558.jpg),
+    Jim Barton, CC BY-SA 2.0. 1600×1060 → 1200×795. md5 `f0781b53f9aca5ebb4717a122b475f71`.
+  - `pittencrieff-statue.jpg` — geograph.org.uk photo 7659565 via Wikimedia Commons, "Andrew
+    Carnegie's statue, Dunfermline"
+    (https://commons.wikimedia.org/wiki/File:Andrew_Carnegie%27s_statue,_Dunfermline_-_geograph.org.uk_-_7659565.jpg),
+    Jim Barton, CC BY-SA 2.0. 1600×1200 → 1200×900. md5 `03a888dc39e0e53e65ba89699a70abad`.
+  - `pittencrieff-house.jpg` — Wikimedia Commons, "Pittencrieff House, Dunfermline Fife.jpg"
+    (https://commons.wikimedia.org/wiki/File:Pittencrieff_House,_Dunfermline_Fife.jpg), Kim Traynor,
+    CC BY-SA 3.0. 2557×1801 → 1200×846. md5 `9323aff3068dfd91155b458965aa46e6`.
+  - `pittencrieff-tower.jpg` — Wikimedia Commons, "The Malcolm Canmore's Tower ruins, Pittencrieff
+    Park, Dunfermline.jpg"
+    (https://commons.wikimedia.org/wiki/File:The_Malcolm_Canmore%27s_Tower_ruins,_Pittencrieff_Park,_Dunfermline.jpg),
+    Rosser1954, CC BY-SA 4.0. 1920×1080 → 1200×675. md5 `da63b2f4b7391421919ebb74f2672540`.
+  - `pittencrieff-tower-bridge.jpg` — geograph.org.uk photo 2673045 via Wikimedia Commons, "Double
+    bridge in Pittencrieff Glen"
+    (https://commons.wikimedia.org/wiki/File:Double_bridge_in_Pittencrieff_Glen_-_geograph.org.uk_-_2673045.jpg),
+    kim traynor, CC BY-SA 2.0. 480×640, not resized (re-encoded only). md5
+    `8ad9bd04c80740f2b3a60f38379fac2f`.
+  - `pittencrieff-wallace-well.jpg` — Wikimedia Commons, "Wallace Spa Well entrance, Pittencrieff Glen,
+    Dunfermline.jpg"
+    (https://commons.wikimedia.org/wiki/File:Wallace_Spa_Well_entrance,_Pittencrieff_Glen,_Dunfermline.jpg),
+    Rosser1954, CC BY-SA 4.0. 1920×1080 → 1200×675. md5 `bbe23c88e09bc38c131bf81e01f4745d`.
+- **Acquired:** 27/09/2026, kilted.scot. Licence and author read from each file's Commons
+  `extmetadata` (LicenseShortName / Artist) at download time. These are NOT the photos used in the
+  video itself (the video used the owner's own 16/09/2026 footage); first and only use is this notes
+  page.
+- **Not used:** no free-licensed photo positively identified as the Italian Garden was found, so
+  Stop 7 has no thumb rather than a guessed one.
+- **Used on:** Just Along Here Episode 4 (Pittencrieff Park) notes page, hero and stop images. Linked from
+  `episodes.json` 27/09/2026.
+
 ## just-along-here/card-culross-1280x720.jpg
 
 - **Upstream alias:** none — **deliberately deployed under its own name**,
