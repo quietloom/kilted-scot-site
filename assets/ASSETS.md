@@ -56,8 +56,49 @@ Each entry records the **upstream alias** so a search on either name lands here.
 - **Acquired:** 27/09/2026, kilted.scot — same photos/photographers/licences already vetted in Just
   Along Here's own `episodes\01-culross\assets.md` for the video itself; this is their first use on
   the notes page, a separate publication per this file's own rule below.
-- **Used on:** the pilot Just Along Here Episode 1 (Culross) notes page ground/stop images — not yet
-  linked from `episodes.json` or the JAH index, pilot under review.
+- **Used on:** the Just Along Here Episode 1 (Culross) notes page stop images — linked from
+  `episodes.json` 27/09/2026 after Just Along Here approved the pilot.
+
+## just-along-here/dunbar-harbour-hero.jpg, dunbar-harbour-old-harbour-boats.jpg, dunbar-harbour-castle.jpg, dunbar-harbour-propeller.jpg, dunbar-harbour-creels.jpg
+
+- **Upstream alias:** none. Each file was downloaded directly from Wikimedia Commons (the Commons
+  API's 1280px rendition), downscaled to 1200px wide, re-saved as JPEG q85 and renamed on arrival.
+  No earlier copy exists in any project tree. They are self-hosted **because they have to be**, not
+  out of habit: Wikimedia Commons and geograph.org.uk both block cross-origin `<img>` embedding.
+  That was confirmed live on the Culross pilot, 27/09/2026.
+- **Source / licence for each image.** All five are geograph.org.uk photos mirrored on Wikimedia
+  Commons under CC BY-SA 2.0. Attribution is required. It is given under each image (`pic-credit`)
+  and again in the notes page's own Image credits section:
+  - `dunbar-harbour-hero.jpg`: "Hundreds of Creels at Dunbar Harbour", geograph.org.uk photo
+    5747138, Jennifer Petrie, CC BY-SA 2.0. Source:
+    https://commons.wikimedia.org/wiki/File:Hundreds_of_Creels_at_Dunbar_Harbour_-_geograph.org.uk_-_5747138.jpg
+    Deployed at 1200×900. md5 `6ab0dbb42843d6d6b9ed39561c68dab1`.
+    **No credit is burned in.** The page hero renders no credit line of its own. Attribution lives in
+    the Image credits section (`VISUAL-SOURCING-STANDARD.md` §14). If this is ever promoted to a
+    homepage `cardImage`, it needs a `cardImageCredit` field.
+  - `dunbar-harbour-old-harbour-boats.jpg`: "Fishing Boats sheltering in the Old Harbour Dunbar",
+    geograph.org.uk photo 6322808, Jennifer Petrie, CC BY-SA 2.0. Source:
+    https://commons.wikimedia.org/wiki/File:Fishing_Boats_sheltering_in_the_Old_Harbour_Dunbar_-_geograph.org.uk_-_6322808.jpg
+    md5 `f5f36432f1894f071f3f640f8bab60cd`.
+  - `dunbar-harbour-castle.jpg`: "Dunbar Harbour and Castle remains", geograph.org.uk photo 2530438,
+    M J Richardson, CC BY-SA 2.0. Source:
+    https://commons.wikimedia.org/wiki/File:Dunbar_Harbour_and_Castle_remains_-_geograph.org.uk_-_2530438.jpg
+    md5 `f6a4e258970e4f3037b0beb287933401`.
+  - `dunbar-harbour-propeller.jpg`: "Wilson's Propeller at Dunbar Harbour", geograph.org.uk photo
+    6534254, Jennifer Petrie, CC BY-SA 2.0. Source:
+    https://commons.wikimedia.org/wiki/File:Wilson%27s_Propeller_at_Dunbar_Harbour_-_geograph.org.uk_-_6534254.jpg
+    md5 `54c09c810dd9c4b7f64bace0bfb953f6`.
+  - `dunbar-harbour-creels.jpg`: "A pile of Creels at Old Harbour Dunbar", geograph.org.uk photo
+    6248351, Jennifer Petrie, CC BY-SA 2.0. Source:
+    https://commons.wikimedia.org/wiki/File:A_pile_of_Creels_at_Old_Harbour_Dunbar_-_geograph.org.uk_-_6248351.jpg
+    md5 `a77b36e78754a30097cb0c3a05b81b7b`.
+- **Licence and author metadata** were read from each file's Commons `extmetadata` (the Artist and
+  LicenseShortName fields) on 27/09/2026. None of these five photos are Just Along Here's own
+  footage, so this is a first publication for each of them, per the rule at the foot of ASSETS.md.
+- **Acquired:** 27/09/2026 by kilted.scot.
+- **Used on:** the Just Along Here Episode 2 (Dunbar Harbour) notes page,
+  `just-along-here/08-dunbar-harbour/`, for the hero and four stop thumbnails. Linked from
+  `episodes.json` 27/09/2026.
 
 ## just-along-here/card-culross-1280x720.jpg
 
