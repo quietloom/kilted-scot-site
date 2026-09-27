@@ -426,10 +426,114 @@ a { color: var(--jah-signal); }
   display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
   border-radius: 3px; background: var(--jah-raise);
 }
+/* Attribution-as-data (VISUAL-SOURCING-STANDARD.md §14): none of these source
+   photos carry a burned-in credit, so the credit has to render as real text
+   next to the image, not rely on the file. */
+.stop .thumb .pic-credit { margin: .5rem 0 0; font-size: .72rem; line-height: 1.5; color: var(--jah-ink-soft); }
 
 /* Footer removed 03/09/2026 at the user's request -- the top navstrip already
    carries the kilted.scot lockup and the "All series" link, so the foot was
    repeating both. No .site-foot rules needed here any more. */
+
+/* ── Episode notes pages ─────────────────────────────────────────────
+   Added 27/09/2026 for the Culross pilot (site/just-along-here/01-culross/).
+   Unsolved Scotland's own episode-notes template has the right SHAPE for
+   this (prose -> dated table -> sources -> further reading -> credits) but
+   its skin is a different series' identity (serif/parchment/thistle) --
+   wrong voice here. Everything below reuses JAH's own tokens and the
+   existing .stops/.stop/.jah-facts/.jah-list-head components instead of
+   importing that skin. The "route" stops list itself needed no new CSS --
+   it's reused as-is for the seven historical stops, not just episode
+   listings. Scoped with a jah- prefix so these names don't collide with a
+   future unrelated use of "shelf"/"src"/"dates". */
+.jah-hero .backlink {
+  display: inline-block; margin: 0 0 .6rem; font-size: .68rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--jah-signal);
+  text-decoration: none; border-bottom: 1px solid transparent;
+}
+.jah-hero .backlink:hover, .jah-hero .backlink:focus-visible { border-bottom-color: currentColor; }
+.jah-hero .epline {
+  margin: 0 0 .5rem; font-size: .72rem; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(238, 241, 240, .72);
+}
+
+.jah-prose { max-width: 68ch; margin: 0 auto clamp(3rem, 7vh, 5rem); }
+.jah-prose > .jah-list-head { margin-bottom: 1rem; }
+.jah-prose p { margin: 0 0 1.1rem; color: var(--jah-ink-soft); font-size: 1rem; line-height: 1.68; }
+.jah-prose p:first-of-type { color: var(--jah-ink); font-size: 1.06rem; }
+.jah-prose strong { color: var(--jah-ink); font-weight: 700; }
+
+/* Honesty aside -- JAH's own version of Unsolved Scotland's "story says /
+   record shows" convention: a village-history piece still owes the same
+   "don't overstate the record" discipline, it's just a lighter register. */
+.jah-aside {
+  /* grid-column set explicitly: inside .stop (a CSS grid), an unplaced block
+     auto-flows into column 1 -- the .n knot's own column -- and stretches
+     the whole row to fit it. Same column as .stop p / .stop .thumb. */
+  grid-column: 2; margin: 1.3rem 0; padding: 1rem 1.2rem; background: var(--jah-raise);
+  border-left: 3px solid var(--jah-sky); border-radius: 0 4px 4px 0;
+  font-size: .92rem; line-height: 1.6; color: var(--jah-ink-soft);
+}
+.jah-aside b {
+  display: block; margin-bottom: .3rem; color: var(--jah-sky); font-size: .68rem;
+  letter-spacing: .16em; text-transform: uppercase; font-weight: 700;
+}
+
+.jah-dates { width: 100%; border-collapse: collapse; margin: 1.4rem 0 0; }
+.jah-dates th, .jah-dates td {
+  padding: .65rem 1rem .65rem 0; border-bottom: 1px solid var(--jah-rule);
+  text-align: left; font-size: .95rem; line-height: 1.55; color: var(--jah-ink);
+  font-weight: 400; vertical-align: top;
+}
+.jah-dates th {
+  width: 8.5rem; white-space: nowrap; font-size: .68rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--jah-signal);
+  font-variant-numeric: tabular-nums;
+}
+.jah-dates tr:last-child th, .jah-dates tr:last-child td { border-bottom: 0; }
+
+.jah-src { list-style: none; counter-reset: s; margin: 1.2rem 0 0; padding: 0; border-top: 1px solid var(--jah-rule); }
+.jah-src li {
+  counter-increment: s; position: relative; padding: .7rem 0 .7rem 2.6rem;
+  border-bottom: 1px solid var(--jah-rule); font-size: .92rem; line-height: 1.55;
+}
+.jah-src li::before {
+  content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: .74rem;
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em; color: var(--jah-signal-deep);
+  font-variant-numeric: tabular-nums;
+}
+.jah-src a { color: var(--jah-sky); word-break: break-word; }
+.jah-src span { display: block; margin-top: .2rem; color: var(--jah-ink-soft); font-size: .85rem; }
+
+.jah-shelf { margin: 1.3rem 0 0; border-top: 1px solid var(--jah-rule); }
+.jah-book { display: grid; grid-template-columns: .25rem 1fr; gap: 0 1.2rem; padding: 1rem 0; border-bottom: 1px solid var(--jah-rule); }
+.jah-book .spine { background: var(--jah-signal); border-radius: 2px; min-height: 2.4rem; }
+.jah-book b { display: block; font-weight: 700; font-size: 1rem; color: var(--jah-ink); }
+.jah-book i { display: block; font-style: normal; margin-top: .25rem; font-size: .88rem; line-height: 1.55; color: var(--jah-ink-soft); }
+.jah-book .go {
+  display: inline-block; margin-top: .55rem; font-size: .68rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--jah-signal); text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px;
+  background-position: 0 100%; background-repeat: no-repeat; padding-bottom: .2rem;
+  transition: color .2s var(--ease), background-size .2s var(--ease);
+}
+.jah-book .go:hover, .jah-book .go:focus-visible { color: var(--jah-ink); background-size: 100% 2px; }
+
+.jah-disclose {
+  margin: .7rem 0 0; padding-left: 1rem; border-left: 1px solid var(--jah-rule);
+  font-size: .84rem; line-height: 1.6; color: var(--jah-ink-soft);
+}
+
+/* Episode-notes foot -- distinct from the site-wide footer removed above:
+   this one carries production/correction credit, which the navstrip doesn't. */
+.jah-foot { padding: clamp(2rem, 5vh, 3rem) 0 clamp(3rem, 6vh, 4rem); border-top: 1px solid var(--jah-rule); }
+.jah-foot p { max-width: 62ch; margin: 0 0 .8rem; font-size: .92rem; line-height: 1.6; color: var(--jah-ink-soft); }
+.jah-foot small { display: block; max-width: 64ch; font-size: .78rem; line-height: 1.6; color: rgba(238, 241, 240, .48); }
+
+@media (max-width: 46rem) {
+  .jah-dates th { width: 6.5rem; }
+  .jah-book { grid-template-columns: .2rem 1fr; gap: 0 .9rem; }
+}
 
 @media (max-width: 46rem) {
   .jah-hero { min-height: clamp(28rem, 104vw, 36rem); }

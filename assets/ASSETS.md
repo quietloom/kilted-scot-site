@@ -29,6 +29,36 @@ Each entry records the **upstream alias** so a search on either name lands here.
   placement problem. "No attribution needed" was the reason it was chosen — worth knowing before
   anyone swaps it for something that reintroduces the requirement.
 
+## just-along-here/culross-palace.jpg, culross-townhouse.jpg, culross-mercat-cross.jpg, culross-biscuit-cafe.jpg, culross-tanhouse-brae.jpg, culross-boat-house.jpg, culross-low-causeway.jpg
+
+- **Upstream alias:** none — downloaded directly from source and renamed on arrival (no prior copy
+  existed in any project tree). Self-hosted **not by convention but by necessity**: both source hosts
+  (Wikimedia Commons' `Special:FilePath`, geograph.org.uk) block cross-origin `<img>` embedding by
+  referrer/hotlink policy — confirmed live 27/09/2026 (each URL loads fine on direct navigation,
+  fails silently as an embedded image on this site's own origin). Hotlinking these was never a viable
+  option, not just a best-practice violation.
+- **Source / licence, per image (all CC BY-SA, attribution required, given in the notes page's own
+  Image credits section):**
+  - `culross-palace.jpg` — Wikimedia Commons, "Culross Palace from the west", Michael Garlick, CC BY-SA
+    4.0. md5 `682ae9caad801c154e2e3e95158c164a`.
+  - `culross-townhouse.jpg` — geograph.org.uk photo 2947206, kim traynor, CC BY-SA 2.0. md5
+    `c8539a8aec3936bd77ef4b09eca30cb0`.
+  - `culross-mercat-cross.jpg` — Wikimedia Commons, "Mercat Cross and The Study, Culross", Calumsmith0308,
+    CC BY-SA 4.0. md5 `360bbca66023f1412d4264a8b792eb64`.
+  - `culross-biscuit-cafe.jpg` — geograph.org.uk photo 6856615, Richard Sutcliffe, CC BY-SA 2.0. md5
+    `4ece40decb06a1632929627d6391d317`.
+  - `culross-tanhouse-brae.jpg` — geograph.org.uk photo 8153066, Anne Burgess, CC BY-SA 2.0. md5
+    `bf6e8495f4d9172a5d1959996eda69f5`.
+  - `culross-boat-house.jpg` — geograph.org.uk photo 6301598, David Rogers, CC BY-SA 2.0. md5
+    `510aec53474bd789619ff2fd4a8d6619`.
+  - `culross-low-causeway.jpg` — geograph.org.uk photo 7987371, Richard Sutcliffe, CC BY-SA 2.0. md5
+    `1987c6a1b3f22e70bd1dec6673fed18d`.
+- **Acquired:** 27/09/2026, kilted.scot — same photos/photographers/licences already vetted in Just
+  Along Here's own `episodes\01-culross\assets.md` for the video itself; this is their first use on
+  the notes page, a separate publication per this file's own rule below.
+- **Used on:** the pilot Just Along Here Episode 1 (Culross) notes page ground/stop images — not yet
+  linked from `episodes.json` or the JAH index, pilot under review.
+
 ## just-along-here/card-culross-1280x720.jpg
 
 - **Upstream alias:** none — **deliberately deployed under its own name**,
