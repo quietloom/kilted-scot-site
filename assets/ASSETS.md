@@ -145,6 +145,48 @@ Each entry records the **upstream alias** so a search on either name lands here.
 - **Used on:** Just Along Here Episode 4 (Pittencrieff Park) notes page, hero and stop images. Linked from
   `episodes.json` 27/09/2026.
 
+## just-along-here/north-queensferry-hero.jpg, north-queensferry-coastal-path.jpg, north-queensferry-town-pier.jpg, north-queensferry-light-tower.jpg, north-queensferry-briggers-memorial.jpg
+
+- **Upstream alias:** none. Each stop image was downloaded from Wikimedia Commons' own 1280px
+  thumbnail; the hero came from the full-size original. All were downscaled to 1200px wide (JPEG
+  q85) and renamed on arrival. No prior copy exists in any
+  project tree. As with Culross, these are self-hosted **by necessity**: Wikimedia Commons and
+  geograph.org.uk both block hotlinked `<img>` embedding.
+- **Source / licence, per image. Attribution is given as text in the notes page's own Image credits
+  section and under each stop image. Nothing is burned into any file:**
+  - `north-queensferry-hero.jpg` — geograph.org.uk photo 2587073 via Wikimedia Commons, "Harbour
+    Light Tower, North Queensferry"
+    (https://commons.wikimedia.org/wiki/File:Harbour_Light_Tower,_North_Queensferry_-_geograph.org.uk_-_2587073.jpg),
+    Euan Nelson (02/09/2011), CC BY-SA 2.0. A 16:9 crop of the left ~60% of the 4320×3240 original,
+    downscaled to 1200×675. It was cropped so the tower sits at ~80% across, clear of the hero's
+    glass text panel on desktop. At 390px the hero's centred cover-crop leaves the tower out of
+    frame (the image is decorative, `alt=""`). md5 `a23cc1cbfc4874557fab5e9a612e20f5`.
+  - `north-queensferry-coastal-path.jpg` — geograph.org.uk photo 2584191 via Wikimedia Commons,
+    "Fife Coastal Path at North Queensferry"
+    (https://commons.wikimedia.org/wiki/File:Fife_Coastal_Path_at_North_Queensferry_-_geograph.org.uk_-_2584191.jpg),
+    Sandy Gemmill, CC BY-SA 2.0. 1200×900. md5 `2a9566efa6b3fe0cf2f9f6988813b4fb`.
+  - `north-queensferry-town-pier.jpg` — geograph.org.uk photo 4331617 via Wikimedia Commons, "Anchor
+    on the Town Pier, North Queensferry"
+    (https://commons.wikimedia.org/wiki/File:Anchor_on_the_Town_Pier,_North_Queensferry_-_geograph.org.uk_-_4331617.jpg),
+    M J Richardson, CC BY-SA 2.0. 1200×900. md5 `be2a44b69643b30fe89804dde92b5211`.
+  - `north-queensferry-light-tower.jpg` — geograph.org.uk photo 4331597 via Wikimedia Commons,
+    "Harbour light, North Queensferry"
+    (https://commons.wikimedia.org/wiki/File:Harbour_light,_North_Queensferry_-_geograph.org.uk_-_4331597.jpg),
+    M J Richardson, CC BY-SA 2.0. 1200×1600. md5 `aacbf78bdfb63cf212cb61ff59785063`.
+  - `north-queensferry-briggers-memorial.jpg` — Wikimedia Commons, "Memorial to workers killed during
+    the construction of the Forth Bridge, North Queensferry, Fife.jpg"
+    (https://commons.wikimedia.org/wiki/File:Memorial_to_workers_killed_during_the_construction_of_the_Forth_Bridge,_North_Queensferry,_Fife.jpg),
+    Rosser1954 (own work), CC BY 4.0. 1200×1175. md5 `15d02b9b3ff4fb5256d527af7684b25a`.
+- **Acquired:** 27/09/2026 by kilted.scot. Licence and author were read from each file's Commons
+  `extmetadata` (LicenseShortName / Artist) at download time. These are new sources: none of them
+  appears in Just Along Here's own `episodes\03-north-queensferry\assets.md`, because the video used
+  the family's own shoot footage.
+- **Hero:** there is no `cardImage` for this episode. The hero is a plain CC BY-SA photo with no
+  burned-in credit, attributed in the page's Image credits list per `VISUAL-SOURCING-STANDARD.md` §14.
+  It is **not** a card image, so no do-not-crop guarantee is needed.
+- **Used on:** the Just Along Here Episode 3 (North Queensferry) notes page, as the hero and stop
+  images. Linked from `episodes.json` 27/09/2026.
+
 ## just-along-here/card-culross-1280x720.jpg
 
 - **Upstream alias:** none — **deliberately deployed under its own name**,
