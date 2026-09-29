@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#182028">
+<title>The Overtoun Bridge Dogs — Unsolved Scotland</title>
+<meta name="description" content="For decades, dogs have gone over the same short stretch of parapet on a bridge near Dumbarton. A real scent trial points to wild mink -- it doesn&#x27;t explain why this bridge, and not any other, is the one where it keeps happening.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Cloned from 02-great-mull-air-mystery/index.html (live, kilted.scot site repo) per that
+   file's own instruction comment: copy, swap head/body/foot content, update the footer chart
+   credit for the new sheet. Architecture/selectors unchanged -- only content, the ground-ink
+   asset path, and the footer credit differ. Full CSS history: that file's own comments,
+   NOTES.md/DECISIONS.md (Unsolved Scotland project). */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#182028}
+
+.art{
+  --paper:#182028; --paper-hi:#232c36;
+  --ink:#f2efe8; --ink-2:rgba(242,239,232,.82); --dim:rgba(242,239,232,.62);
+  --mark:#e2705f; --mark-big:#e5806f; --rule:rgba(242,239,232,.18); --rule-hair:rgba(242,239,232,.1);
+  --thistle-l:#ab8fda;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+.art .cart{display:inline-block;border:3px double var(--rule);padding:.9rem 2.4rem;text-align:center}
+.art .cart .cart-title{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.art .cart .cart-title img{width:max(17px,2.4cqw);height:auto;flex:none}
+.art .cart .cart-title b{color:var(--thistle-l);font-weight:400}
+.art .cart span.credit{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid var(--rule);
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:var(--thistle-l)}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--ink)}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:var(--ink)}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
+.has-motion .art .lrow{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.has-motion .art .lrow.is-visible{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion: reduce){
+  .art *{transition:none!important;animation-duration:.01ms!important}
+  .has-motion .art .lrow{opacity:1;transform:none;filter:none}
+}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;
+  background-position:0 100%;background-repeat:no-repeat;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s cubic-bezier(.22,1,.36,1),background-size .18s cubic-bezier(.22,1,.36,1),letter-spacing .18s cubic-bezier(.22,1,.36,1)}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:var(--mark-big);background-size:100% 2px;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);container-type:inline-size}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/os-overtoun-bridge-dumbarton-ink.png') center/cover fixed no-repeat;
+  filter:invert(.92) sepia(.14) saturate(.6);opacity:.1}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "The Overtoun Bridge Dogs | A Scottish Bridge, a Real Experiment, No Full Answer",
+  "description": "For decades, dogs have gone over the same short stretch of parapet on a bridge near Dumbarton. A real scent trial points to wild mink -- it doesn't explain why this bridge, and not any other, is the one where it keeps happening.",
+  "thumbnailUrl": "https://img.youtube.com/vi/UkFPt7yjdmw/maxresdefault.jpg",
+  "uploadDate": "2026-10-01",
+  "duration": "PT7M41S",
+  "embedUrl": "https://www.youtube.com/embed/UkFPt7yjdmw",
+  "contentUrl": "https://youtu.be/UkFPt7yjdmw",
+  "publisher": {"@type": "Organization", "name": "kilted.scot", "url": "https://kilted.scot/"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Unsolved Scotland", "url": "https://kilted.scot/unsolved-scotland/"}
+}
+</script>
+<script data-goatcounter="https://kiltedscot.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head><body>
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart">
+    <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+    <span class="credit">a kilted.scot production</span>
+  </div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode Five &middot; Dumbarton &middot; 1895&ndash;present</p>
+    <h1>The Overtoun Bridge Dogs</h1>
+    <p class="stand">For decades, dogs have gone over the same short stretch of parapet, on foot, mid-walk, on
+    ordinary afternoons. <em>A real scent trial points to wild mink &mdash; it still can't say why this bridge,
+    and not any other, is the one where it keeps happening.</em></p>
+    <div class="meta">
+      <div>Status<b>Awaiting publish</b></div>
+      <div>Running time<b>8 min</b></div>
+      <div>Watch<b><a href="https://youtu.be/UkFPt7yjdmw">YouTube</a></b></div>
+      <div>Sources<b>16 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The real record</h2>
+  <p class="kicker">What is actually documented, and what is not</p>
+  <p class="lead drop">Overtoun Bridge sits on the grounds of Overtoun House, a Victorian mansion near
+  Dumbarton built for the industrialist John Campbell White, later Lord Overtoun. He had the bridge built in
+  the 1890s &mdash; Historic Environment Scotland's own listed-building record gives a completion date of 7
+  June 1895, despite the bridge's own stone being inscribed 5.6.1895, a two-day discrepancy on the record
+  itself. It is a short crossing: three stone arches over a burn, with a fifty-foot drop to the water below,
+  and nothing unusual about it to look at.</p>
+  <p>Lord Overtoun made his fortune in chemicals and used part of it to fund missions and Sunday schools
+  across Glasgow. A campaigning journalist, Keir Hardie, gave a different account of the same business in his
+  1899 &ldquo;White Slaves&rdquo; pamphlets: workers at Overtoun's chromium factory were dying of chrome
+  ulcers and lung disease, and were dismissed once they could no longer work. Both pictures of him are
+  accurate. Neither has anything to do with what happens on the bridge.</p>
+  <p>Since at least the 1950s (most sources; All That's Interesting gives the 1960s instead, a disputed
+  decade), dogs have been going over that same stretch of parapet: the right-hand side, walking away from the
+  house, and almost always on a clear, bright day. Named cases turn up in later coverage &mdash; a golden
+  retriever belonging to Kenneth Meikle bolted and jumped in 2004; at least five more dogs went over within
+  six months the following year; a Labrador called Sophie jumped and survived in 2011; a springer spaniel
+  called Cassie survived a fall of around fifty feet in 2014, the best-sourced of the named cases. <strong>None
+  of it comes from a logged dataset.</strong> It comes from what witnesses have said, case by case.</p>
+
+  <ul class="sound">
+    <li><span class="fig">7/10</span><span class="what">test dogs went straight for mink scent over mouse or squirrel, in David Sands' canister trial</span></li>
+    <li><span class="fig">2 days</span><span class="what">discrepancy between Overtoun Bridge's completion date and the date inscribed on its own stone</span></li>
+    <li><span class="fig">0</span><span class="what">jumps reported by dog-walkers Jennifer and John Scullion in six years of crossing the bridge daily with 8&ndash;10 dogs</span></li>
+    <li><span class="fig">30 yrs</span><span class="what">apart the dog-jump pattern and the 1994 human tragedy are &mdash; sharing a location, and nothing else the record supports</span></li>
+  </ul>
+
+  <p>By the early 2000s the story had reached the press, and a canine behaviourist named David Sands was
+  brought in to test it directly. He ruled out sound and any visible fault with the water; what he found
+  instead was wild mink, established in Scottish waterways from the mid-twentieth century onward, living in
+  the undergrowth beneath that stretch of the bridge. Sands ran a scent trial: canisters of mink musk against
+  mouse and squirrel. Seven of the ten dogs tested went straight for the mink scent and ignored the others.
+  For a breed group built to track by nose, an unfamiliar predator scent rising from just below a low parapet
+  is a plausible, testable reason to lunge toward the edge. It is the closest thing the story has to a tested
+  explanation. <strong>It does not explain why it's this bridge, and not any of the others.</strong> Mink live
+  under plenty of Scottish bridges that have never had a reported jump; one source even records a local hunter,
+  John Joyce, disputing that mink are present in the area at all.</p>
+  <p>The mink theory isn't the only one offered. One argument is architectural: the parapet's height and
+  taper, combined with a dog's low eye-line, could make the drop read as level ground rather than a fifty-foot
+  fall &mdash; a plausible guess, not a tested one. Local folklore goes back further, to a ghost, Lady
+  Overtoun, said to walk the grounds grieving her husband and calling the dogs to her; it is a genuinely old
+  piece of local storytelling, but it has no fixed origin, no named witness, and does not appear in the
+  bridge's own main historical record. And there is testimony that runs against the whole premise:
+  professional dog-walkers Jennifer and John Scullion have crossed the bridge daily with eight to ten dogs at
+  a time for six years and say they have never had one jump.</p>
+  </div>
+
+  <div class="wide">
+  <h2>The story says &middot; the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th scope="col">As it circulates</th><th scope="col">Verdict</th><th scope="col">In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>Hundreds of dogs have died at Overtoun Bridge.</s></td>
+        <td class="verdict">Unverified</td>
+        <td class="shown">Casualty figures disagree across every source and are never tied to a single count:
+        roughly 300 jumped and 50 died in one telling, 600 survived and 50 died in another, a headline claim of
+        500 dead in a third. None trace back to a logged register. The most direct on-record counter-voice,
+        dog-walkers Jennifer and John Scullion, report zero jumps across six years of daily crossings with
+        8&ndash;10 dogs at a time. <cite>Wikipedia, HowStuffWorks, The Glasgow Bell</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The dog deaths and the 1994 tragedy on this bridge are connected.</s></td>
+        <td class="verdict">Wrong</td>
+        <td class="shown">They share a location, thirty years apart, and nothing else the record supports.
+        Treating them as one story because they happened on the same stretch of stone makes an already strange
+        case sound stranger than it needs to be. <cite>Episode research pack</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The dogs are all long-nosed scent breeds, full stop.</s></td>
+        <td class="verdict">Mostly, not entirely</td>
+        <td class="shown">Wikipedia's own sourcing describes a pattern of long-nosed/dolichocephalic breeds
+        (collies, retrievers, spaniels); one other source's breed list also includes German Shepherds and
+        Scottish Terriers &mdash; Scottish Terriers are not long-muzzled, which undercuts the breed explanation
+        as stated there. <cite>Wikipedia, HowStuffWorks</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Dogs first started jumping in the 1960s.</s></td>
+        <td class="verdict">Disputed</td>
+        <td class="shown">Most sources place the start in the 1950s; All That's Interesting gives the 1960s
+        instead. The episode uses &ldquo;since at least the 1950s&rdquo; and flags the decade as unsettled.
+        <cite>Wikipedia, All That's Interesting</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Mink are definitely living under the bridge.</s></td>
+        <td class="verdict">Contested locally</td>
+        <td class="shown">This is the leading tested theory, but at least one source records a local hunter,
+        John Joyce, disputing that mink are present in the area at all &mdash; an on-the-ground claim against
+        the theory's own premise, with no survey data settling it either way. <cite>Wikipedia</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The White Lady ghost explains the jumps.</s></td>
+        <td class="verdict">Folklore only</td>
+        <td class="shown">A genuinely old local haunting tradition, not invented for a camera crew &mdash; but
+        it has no fixed origin date, no named witness, and does not appear in the bridge's own main
+        Wikipedia article at all. <cite>Headcount Coffee; episode research pack</cite></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="disclose">One matter is left open here rather than settled, because the sources do not settle it:
+  the exact decade dogs first started jumping (1950s in most sources, 1960s in one). David Sands' own
+  investigation is also dated inconsistently across sources (&ldquo;around 2010&rdquo;, &ldquo;2014&rdquo;);
+  the earliest confirmed reference found &mdash; a Spanish-language blog from 26 November 2009 &mdash; sets a
+  firm upper bound before that date, ahead of what most retellings imply.</p>
+
+  <p class="disclose"><b>On the illustrations.</b> Four shots in this episode are AI-generated &mdash; labelled
+  on screen for their full duration. Two show real, living people (David Sands and Jennifer Scullion) from
+  behind, faces fully hidden, since no licensable photograph of either exists despite real photographs of both
+  being findable online. The other two illustrate Overtoun's chromium works (a real 1955 photograph exists but
+  carries no usable licence) and Sophie the Labrador (no photograph of the real dog survives). Every other
+  image is a real photograph, credited below.</p>
+  </div>
+
+  <div class="col">
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; anything approximate says so</p>
+  <table class="dates">
+    <tr><th scope="row">1859</th><td>James White buys the Overtoun estate, Dumbarton.</td></tr>
+    <tr><th scope="row">1860&ndash;63</th><td>Overtoun House built for James White (architect James Smith; grounds by Edward Kemp).</td></tr>
+    <tr><th scope="row">1867</th><td>John Campbell White marries Grace Eliza McClure; no children.</td></tr>
+    <tr><th scope="row">1884</th><td>James White dies; John inherits.</td></tr>
+    <tr><th scope="row">1893</th><td>John White elevated to the peerage as 1st Baron Overtoun.</td></tr>
+    <tr><th scope="row">7 Jun 1895</th><td>Overtoun Bridge completed (Historic Environment Scotland, listing LB24908), despite the bridge's own stone being inscribed 5.6.1895.</td></tr>
+    <tr><th scope="row">1899</th><td>Keir Hardie's &ldquo;White Slaves&rdquo; pamphlets expose conditions at Overtoun's chromium works.</td></tr>
+    <tr><th scope="row">1908</th><td>Lord Overtoun dies at Overtoun House, childless; nephew Dr Douglas White succeeds. The White Lady ghost legend is locally dated from around this point &mdash; folklore, not a documented record.</td></tr>
+    <tr><th scope="row">1931</th><td>Lady Overtoun (Grace) dies at Crosslet.</td></tr>
+    <tr><th scope="row">1938/39</th><td>House and grounds gifted to Dumbarton Burgh.</td></tr>
+    <tr><th scope="row">1947&ndash;70</th><td>Wartime convalescent home, then a maternity hospital from 1947; a partial fire in 1948 caused no deaths; the hospital closes 1 September 1970.</td></tr>
+    <tr><th scope="row">From the 1950s</th><td>Dogs first reported leaping from the same short stretch of parapet (one source gives the 1960s instead).</td></tr>
+    <tr><th scope="row">2004</th><td>Kenneth Meikle's golden retriever bolts and jumps during a family walk; survives.</td></tr>
+    <tr><th scope="row">2005</th><td>At least five more dogs go over within six months.</td></tr>
+    <tr><th scope="row">Before Nov 2009</th><td>Canine behaviourist David Sands investigates; scent-canister trial finds 7 of 10 dogs go for mink scent over mouse or squirrel. Dating across sources is inconsistent; this is the earliest confirmed reference found.</td></tr>
+    <tr><th scope="row">Oct 1994</th><td>Kevin Moy, 32, of Dumbarton, drops his two-week-old son Eoghan from the bridge during the baby's first outing, then tries to throw himself over; his wife Eileen pulls him back. Eoghan dies in hospital the next day.</td></tr>
+    <tr><th scope="row">Feb 1995</th><td>At trial, four psychiatrists agree Moy was insane; the jury returns a unanimous not-guilty-by-reason-of-insanity verdict. Lord Mayfield orders detention at the State Hospital, Carstairs.</td></tr>
+    <tr><th scope="row">2011</th><td>Labrador &ldquo;Sophie&rdquo; (owners David and Louise McPhail) jumps and survives.</td></tr>
+    <tr><th scope="row">2014</th><td>Springer spaniel &ldquo;Cassie&rdquo; (owner Alice Trevorrow) jumps roughly fifty feet, survives with no broken bones &mdash; the best-sourced of the named cases.</td></tr>
+    <tr><th scope="row">2019</th><td>Fresh international coverage (a New York Times profile of the Hills, plus the Independent and All That's Interesting); casualty figures continue to be repeated inconsistently.</td></tr>
+  </table>
+
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the episode asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="https://en.wikipedia.org/wiki/Overtoun_Bridge">Overtoun Bridge — Wikipedia</a>
+      <span>Dating (1950s dog-jump onset), named cases (Meikle 2004, Cassie 2014), breed/clear-day pattern, casualty-figure range, NYT citation</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Overtoun_House">Overtoun House — Wikipedia</a>
+      <span>Estate history: built 1860-63, inherited 1884, gifted to Dumbarton Burgh 1938/39, wartime/hospital/retreat uses</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/John_White,_1st_Baron_Overtoun">John White, 1st Baron Overtoun — Wikipedia</a>
+      <span>Peerage elevation, 1893</span></li>
+    <li><a href="https://portal.historicenvironment.scot/designation/LB24908">Historic Environment Scotland — Overtoun Bridge listing (LB24908)</a>
+      <span>Primary listed-building record: architect H. E. Milner, completion date 7 June 1895, physical description</span></li>
+    <li><a href="https://www.glasgowwestaddress.co.uk/">Glasgow West Conservation Trust — glasgowwestaddress.co.uk</a>
+      <span>James/John White family history; Keir Hardie&#x27;s chromium-works exposé</span></li>
+    <li><a href="https://www.vice.com/">Vice</a>
+      <span>Mink-scent theory reporting</span></li>
+    <li><a href="https://scienceblog.com/">ScienceBlog</a>
+      <span>Mink-establishment dating, mink theory</span></li>
+    <li><a href="https://www.howstuffworks.com/">HowStuffWorks</a>
+      <span>Mink theory, breed-list variant, folklore framing</span></li>
+    <li><a href="https://allthatsinteresting.com/">All That&#x27;s Interesting</a>
+      <span>1960s start-decade variant, Sophie the Labrador (2011), optical/structural-illusion theory, 2019 coverage</span></li>
+    <li><a href="https://www.theglasgowbell.co.uk/">The Glasgow Bell</a>
+      <span>Cassie the springer spaniel (2014), Jennifer and John Scullion&#x27;s on-record testimony, casualty-figure claim</span></li>
+    <li><a href="https://www.skeptic.org.uk/">skeptic.org.uk</a>
+      <span>Skeptical/no-real-phenomenon framing</span></li>
+    <li><a href="https://headcountcoffee.com/">Headcount Coffee</a>
+      <span>The White Lady ghost folklore (no primary source found for it)</span></li>
+    <li><a href="https://www.kurioso.es/">Kurioso (kurioso.es)</a>
+      <span>Earliest-found reference (26 Nov 2009) naming David Sands and describing the scent trial, setting the dating upper bound</span></li>
+    <li><a href="https://www.independent.co.uk/">The Independent, 3 March 2005</a>
+      <span>SSPCA spokesperson Doreen Graham and behaviourist Joyce Stewart&#x27;s on-record quotes</span></li>
+    <li><a href="https://www.heraldscotland.com/">Herald and Times archive — 1994/95 court report</a>
+      <span>Primary source for Kevin Moy&#x27;s trial: verdict, sentencing to the State Hospital, Carstairs</span></li>
+    <li>Otago Daily Times / X (Morbid Knowledge) / Wikipedia citing Pilger &amp; Moynihan
+      <span>Corroboration of the 1994 trial&#x27;s facts alongside the Herald&#x27;s own report</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <div class="shelf">
+    <div class="bk"><div class="spine"></div><div>
+      <b>Pilger, S. &amp; Moynihan, T., Unsolved Enigmas (2019)</b>
+      <i>Cited by Wikipedia as the source for the 2004/2005 named dog-jump dates. In print.</i></div></div>
+  </div>
+
+  <h2>Image credits</h2>
+  <p class="kicker">Every real image in the episode, its creator, and its licence</p>
+  <ol class="src">
+    <li><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_Hund_Dog.JPG">A golden retriever, like Kenneth Meikle&#x27;s dog (2004)</a> &mdash; Kintaiyo, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+      <span>Used in: The pattern.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Carstairs_State_Hospital_-_geograph.org.uk_-_162159.jpg">The State Hospital, Carstairs</a> &mdash; Alan Stewart (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: What actually happened in 1994.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Male_English_Springer_Spaniel.JPG">A springer spaniel, like Cassie (2014)</a> &mdash; Xandercary, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
+      <span>Used in: The pattern.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Gairnshiel_bridge_(geograph_3074677).jpg">Gairnshiel Bridge, Aberdeenshire (a different real Scottish bridge, for the closing callback)</a> &mdash; Alan Findlay (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: Close.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Glasgow_Sheriff_Court_-_geograph.org.uk_-_1083396.jpg">A Scottish court exterior (generic, not the actual 1994/95 case)</a> &mdash; Stephen Sweeney (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: What actually happened in 1994.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Mink_med_fangst.jpg">Wild mink, the scent trial&#x27;s real explanation</a> &mdash; Marton Berntsen, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
+      <span>Used in: The investigation, and the mink.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Overtoun_Bridge_and_House.jpg">Overtoun Bridge and House together</a> &mdash; dave souza, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+      <span>Used in: The bridge itself, Close.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Overtoun_Bridge_-_geograph.org.uk_-_1024544.jpg">Overtoun Bridge parapet, near Dumbarton</a> &mdash; Lairich Rig (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: Cold open.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Overtoun_Bridge_-_geograph.org.uk_-_2401555.jpg">Overtoun Bridge parapet, second angle</a> &mdash; Lairich Rig (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: The pattern.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Overtoun_Bridge_-_geograph.org.uk_-_4625800.jpg">Overtoun Bridge parapet, architecture/height detail</a> &mdash; Lairich Rig (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: The other theories, Getting the story straight.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:The_White_Memorial_-_geograph.org.uk_-_2263840.jpg">The White Memorial, Overtoun estate (substitute for Lady Overtoun, no photo of her survives)</a> &mdash; Lairich Rig (Geograph), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+      <span>Used in: The other theories.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Collie_de_Pelo_Largo.jpg">A collie, illustrating the general long-nosed-breed pattern</a> &mdash; Titanae, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>
+      <span>Used in: The pattern.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Reproductie_van_een_foto_van_een_portret_van_John_Campbell_White,_eerste_Baron_Overtoun_Lord_Overtoun_(titel_op_object),_RP-F-F26821.jpg">Lord Overtoun (John Campbell White)</a> &mdash; Rijksmuseum, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>
+      <span>Used in: The bridge itself.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Keir_Hardie_by_George_Grantham_Bain.jpg">Keir Hardie, journalist and campaigner (1909)</a> &mdash; George Grantham Bain / Adam Cuerden (restoration), Public domain
+      <span>Used in: The bridge itself.</span></li>
+  </ol>
+  <p class="disclose">Geograph photographs are used under CC BY-SA 2.0 and credited on screen for the whole
+  time they appear. The Overtoun Bridge and House photograph is used under CC BY-SA 4.0. The map behind this
+  page is a placeholder pending a dedicated Overtoun-area ink illustration.</p>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> &mdash; written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <small>Map ground: Ordnance Survey 25 inch 2nd edition, Dumbartonshire Sheet XXII.3, 1898,
+  reproduced with the permission of the National Library of Scotland. Episode notes are corrected in
+  place when a source changes; corrections are dated at the foot of the entry they affect.</small>
+  </div>
+</div>
+<script>
+if ('IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  var lrowObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        lrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.art .lrow').forEach(function (row) { lrowObserver.observe(row); });
+}
+</script>
+</body></html>
