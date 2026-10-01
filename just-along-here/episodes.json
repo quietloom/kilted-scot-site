@@ -53,14 +53,15 @@
     "place": "Dunbar Battery",
     "slug": "05-dunbar-battery",
     "title": "The Fort That Never Fired a Shot",
-    "summary": "A red-sandstone gun battery on Lamer Island, East Lothian, with sixteen gun embrasures, built in 1781 after John Paul Jones — the Scottish-born father of the US Navy — nearly attacked the Firth of Forth in 1779. It never fired a single shot in anger.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "summary": "A listed red-sandstone gun battery on Lamer Island, Dunbar Harbour, with sixteen gun embrasures. Listed as built in 1781, though the site's own board gives the Napoleonic period, and said never to have fired in anger.",
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/Ccd6wl2aqq0/maxresdefault.jpg",
+    "url": "https://youtu.be/Ccd6wl2aqq0",
+    "notesUrl": "/just-along-here/05-dunbar-battery/",
+    "publishedDate": "2026-09-28"
   },
   {
-    "number": 6,
+    "number": 7,
     "place": "Barns Ness Lighthouse",
     "slug": "09-barns-ness-lighthouse",
     "title": "Privately Owned Now",
@@ -71,11 +72,22 @@
     "publishedDate": null
   },
   {
-    "number": 7,
+    "number": 8,
     "place": "Pittenweem",
     "slug": "10-pittenweem",
     "title": "The Harbour Village Painted in Colour",
     "summary": "A working East Neuk fishing harbour, boats still coming in daily, wrapped around a decades-old arts festival and murals of puffins and seals. Real fishing village, real art trail, one of Fife's most photographed corners.",
+    "status": "announced",
+    "thumbnail": null,
+    "url": null,
+    "publishedDate": null
+  },
+  {
+    "number": 6,
+    "place": "Limekilns",
+    "slug": "12-limekilns",
+    "title": "Limekilns, Fife | A Path Made of Memories",
+    "summary": "A port given to Dunfermline Abbey by David II in 1362, now a harbour of moored boats, and Beacon Way, a path of engraved memorial stones on the pier that ends on a question.",
     "status": "announced",
     "thumbnail": null,
     "url": null,
