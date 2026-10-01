@@ -42,10 +42,11 @@
     "number": 5,
     "title": "The Overtoun Bridge Dogs",
     "summary": "For decades, dogs have leapt to their deaths from the same parapet of a bridge near Dumbarton. Folklore calls it a thin place; science offers a scent trail. Neither quite closes the case.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/jGPUWQ8es7I/maxresdefault.jpg",
+    "url": "https://youtu.be/jGPUWQ8es7I",
+    "notesUrl": "/unsolved-scotland/05-overtoun-bridge/",
+    "publishedDate": "2026-10-01"
   },
   {
     "number": 6,
