@@ -208,6 +208,18 @@ Each entry records the **upstream alias** so a search on either name lands here.
 - **Why it exists:** the `oar2.jpg` auto-frame for this episode cropped out its own burned-in credit
   and lost the monument's finial. See the note in `index.html` beside the disabled `oar2` path.
 
+## just-along-here/newhaven-fishwives-hill-adamson.jpg
+
+- **Upstream alias:** `Just Along Here\episodes\14-newhaven-harbour\build\img\fishwives_hill_adamson_raw.jpg`
+  (3840 px original, resized to 800 px wide for this page; no burned-in text)
+- **Work:** David Octavius Hill and Robert Adamson, "Newhaven Fishwives, Jeanie Wilson and Annie Linton",
+  calotype print, c. 1845. Cleveland Museum of Art, accession 1987.18 (https://clevelandart.org/art/1987.18)
+- **Source:** Wikimedia Commons file page (`File:David_Octavius_Hill_-_Newhaven_Fishwives,_Jeanie_Wilson_and_Annie_Linton_-_1987.18_-_Cleveland_Museum_of_Art.tif`)
+- **Licence:** CC0 (museum open access); `LicenseShortName: CC0` re-read via the Commons API 02/10/2026.
+  Attribution not required; a courtesy credit is rendered as text on the notes page.
+- **Used on:** `/just-along-here/14-newhaven-harbour/` (stop 04 and the Image credits list). Page built but unlinked until the episode is published.
+- **Limit:** licence read from Commons metadata, not from the museum page itself.
+
 ## unsolved-scotland/nls-glenforsa-mull-1956-ink.png
 
 - **Derived here** 06/09/2026 from Unsolved Scotland's
