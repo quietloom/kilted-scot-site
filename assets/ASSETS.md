@@ -276,6 +276,28 @@ Each entry records the **upstream alias** so a search on either name lands here.
   rather than a licence name. Attribution is being given either way, so nothing is at risk; the
   record is incomplete rather than the usage. Unsolved Scotland owns the original sourcing.
 
+## unsolved-scotland/os-appin-duror-ink.png
+
+- **Made here, 08/10/2026** (no upstream copy): Unsolved Scotland's own `_decompose_ink.py` (ink colour
+  `2a2418`, the same as every other ground-ink asset) run over their
+  `derived-nls-os-argyllshire-duror-lettermore-1875-crop.jpg` (2560x2058, a crop of NLS's scan of the sheet
+  below), then cropped by kilted.scot to x 330-2560, y 150-1404 (2230x1254, 16:9): this drops the sheet's
+  neatline and left margin strip and keeps the "Glen Duror" label, the River Duror and Acharan. md5
+  `0a4a08501778013a3e11dc8a5e1f8b5f`. **Unsolved Scotland has not yet been sent a copy**: if they want it
+  in `brand\assets\` it comes back by INBOX.
+- **Source:** Ordnance Survey six-inch Argyllshire Sheet XLIV, 1st edition (surveyed 1871, published 1875),
+  National Library of Scotland, https://maps.nls.uk/view/74427326 (per Unsolved Scotland's
+  `episodes\06-appin-murder\assets.md`, row R2-10)
+- **Licence:** recorded upstream as "CC-BY (NLS)". The Crown Copyright on a map published in 1875 has long
+  expired (NLS's own copyright page, maps.nls.uk/copyright.html, the basis recorded for the Overtoun
+  asset above), so attribution is not legally required; the house convention of the other NLS/OS ground
+  assets is followed anyway and the page credits the National Library of Scotland in its Image credits list.
+  **Not independently re-checked on 08/10/2026**: I relied on Unsolved Scotland's recorded provenance.
+- **Used on:** the Episode 6 (Appin Murder) notes page ground, `/unsolved-scotland/06-appin-murder/`.
+- **Visual check:** composited against a warm paper colour and looked at directly: the map is legible, the
+  margin strip is gone, and the ink density (alpha mean 0.07) matches the Overtoun (0.04) and Aucharan (0.07)
+  grounds.
+
 ## fonts/ — fraunces-variable, spectral-300/400/600
 
 - **⚠ No licence record found** in either tree as of 06/09/2026. Both are widely distributed under

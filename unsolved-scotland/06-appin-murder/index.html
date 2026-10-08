@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#182028">
+<title>The Appin Murder — Unsolved Scotland</title>
+<meta name="description" content="A Crown official is shot in a Highland wood in 1752 and a man is hanged for it, though the Crown never claimed he fired the gun. The man it named as the shooter was never tried, and who really fired has never been established.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Cloned from 02-great-mull-air-mystery/index.html (live, kilted.scot site repo) per that
+   file's own instruction comment: copy, swap head/body/foot content, update the footer chart
+   credit for the new sheet. Architecture/selectors unchanged -- only content, the ground-ink
+   asset path, and the footer credit differ. Full CSS history: that file's own comments,
+   NOTES.md/DECISIONS.md (Unsolved Scotland project). */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#182028}
+
+.art{
+  --paper:#182028; --paper-hi:#232c36;
+  --ink:#f2efe8; --ink-2:rgba(242,239,232,.82); --dim:rgba(242,239,232,.62);
+  --mark:#e2705f; --mark-big:#e5806f; --rule:rgba(242,239,232,.18); --rule-hair:rgba(242,239,232,.1);
+  --thistle-l:#ab8fda;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+.art .cart{display:inline-block;border:3px double var(--rule);padding:.9rem 2.4rem;text-align:center}
+.art .cart .cart-title{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.art .cart .cart-title img{width:max(17px,2.4cqw);height:auto;flex:none}
+.art .cart .cart-title b{color:var(--thistle-l);font-weight:400}
+.art .cart span.credit{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid var(--rule);
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:var(--thistle-l)}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--ink)}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:var(--ink)}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
+.has-motion .art .lrow{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.has-motion .art .lrow.is-visible{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion: reduce){
+  .art *{transition:none!important;animation-duration:.01ms!important}
+  .has-motion .art .lrow{opacity:1;transform:none;filter:none}
+}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;
+  background-position:0 100%;background-repeat:no-repeat;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s cubic-bezier(.22,1,.36,1),background-size .18s cubic-bezier(.22,1,.36,1),letter-spacing .18s cubic-bezier(.22,1,.36,1)}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:var(--mark-big);background-size:100% 2px;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);container-type:inline-size}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/os-appin-duror-ink.png') center/cover fixed no-repeat;
+  filter:invert(.92) sepia(.14) saturate(.6);opacity:.1}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "The Appin Murder (1752) | A Hanged Man the Crown Never Said Fired the Shot",
+  "description": "A Crown official is shot in a Highland wood in 1752 and a man is hanged for it, though the Crown never claimed he fired the gun. The man it named as the shooter was never tried, and who really fired has never been established.",
+  "thumbnailUrl": "https://img.youtube.com/vi/697m0KrKdlk/maxresdefault.jpg",
+  "uploadDate": "2026-10-08",
+  "duration": "PT7M15S",
+  "embedUrl": "https://www.youtube.com/embed/697m0KrKdlk",
+  "contentUrl": "https://youtu.be/697m0KrKdlk",
+  "publisher": {"@type": "Organization", "name": "kilted.scot", "url": "https://kilted.scot/"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Unsolved Scotland", "url": "https://kilted.scot/unsolved-scotland/"}
+}
+</script>
+</head><body>
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart">
+    <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+    <span class="credit">a kilted.scot production</span>
+  </div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode Six &middot; Appin &middot; 1752</p>
+    <h1>The Appin Murder</h1>
+    <p class="stand">A Crown official is shot in the back in a Highland wood, and six months later a man is
+    hanged for it. <em>The Crown never claimed he fired the gun. It named another man as the shooter, and he
+    escaped. Who really fired has never been established.</em></p>
+    <div class="meta">
+      <div>Status<b>Awaiting publish</b></div>
+      <div>Running time<b>7 min</b></div>
+      <div>Watch<b><a href="https://youtu.be/697m0KrKdlk">YouTube</a></b></div>
+      <div>Sources<b>21 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The real record</h2>
+  <p class="kicker">What is actually documented, and what is not</p>
+  <p class="lead drop">On the evening of Thursday 14 May 1752, Colin Campbell of Glenure was walking through
+  the Wood of Lettermore, in Duror in Appin, when he was shot from behind. He was a factor, an official who
+  collected the rents on estates the Crown had taken from Jacobite landowners after the rising of 1745, and he
+  was walking back from Fort William with his nephew Mungo Campbell, an Edinburgh lawyer, a servant, John
+  Mackenzie, and a sheriff-officer, Donald Kennedy, who was to carry out evictions the next day. In the printed
+  trial, nobody in the party was armed. Mungo Campbell said he saw a man in a short dark coat carrying a gun,
+  too far off to recognise. All three men described one shot. The surgeon found two bullets in the body, one on
+  each side of the spine, and the printed record does not reconcile the two.</p>
+  <p>The Crown wanted Allan Breck Stewart, a deserter from the government's army and the ward of James Stewart
+  of the Glen, who was seen in the district that day and was never caught. James Stewart, half-brother to the
+  exiled owner of the estate, had gone to Edinburgh that spring to try to stop the evictions, and had lost. He
+  was arrested on 16 May with his son. A Privy Council proclamation of 28 May offered a pardon to any accomplice
+  who informed, &ldquo;except the person who actually shot&rdquo; Campbell, and a reward of one hundred pounds
+  per conviction. No informer appears in the surviving papers.</p>
+  <p>James Stewart was tried at Inveraray in September 1752 as an accessory, &ldquo;art and part&rdquo;, with
+  Allan Breck named as the man who fired. The presiding judge was Archibald Campbell, 3rd Duke of Argyll and
+  chief of the Campbell clan. <strong>Eleven of the fifteen jurors were Campbells</strong>, counted against the
+  printed list, and the clerk to the jury was a former bailie of Inveraray. The printed trial notes that no
+  objection was taken. D. N. Mackay's 1907 edition gives about fifty hours of evidence across two nights, which
+  rests on his figure alone. The jury found James Stewart guilty. He was hanged on 8 November 1752 beside the
+  Ballachulish ferry and his body hung in chains, and in his last words he said he had no previous knowledge of
+  the murder.</p>
+
+  <ul class="sound">
+    <li><span class="fig">15</span><span class="what">jurors, chosen by the judges, with no ballot; eleven of them Campbells</span></li>
+    <li><span class="fig">&pound;108 17s 10d</span><span class="what">the Crown's bill for the gibbet and its two hangmen, one from Glasgow and one from Inverness</span></li>
+    <li><span class="fig">16</span><span class="what">soldiers, with their officers, guarding the body in December 1752</span></li>
+    <li><span class="fig">18 months to 9 years</span><span class="what">how long published accounts say the body hung there; they disagree</span></li>
+  </ul>
+
+  <p>The gibbet was plated with iron because the Crown's lawyers feared it might be cut down, according to the
+  Exchequer petition of 1753; the same papers say two hangmen were brought in because Argyllshire had none of
+  its own, and in case the execution failed through bad weather or another accident. The record does not
+  mention friends or a rescue attempt.</p>
+  <p>Some of the evidence cuts against the Crown's account of the shooter. Mungo Campbell said the man was too
+  far away for him to know him, and two servants put Allan Breck's large Spanish gun at James Stewart's house
+  that day. Mackay's edition notes that Allan, as a deserter, already had a reason to run. Robert Louis Stevenson
+  built <i>Kidnapped</i> (1886) on the case. In its dedication he wrote that the descendants of &ldquo;the other
+  man&rdquo; who fired the shot were still in the country, and that his name &ldquo;you shall not hear&rdquo;;
+  the same dedication admits how little he was &ldquo;touched by the desire of accuracy.&rdquo;</p>
+  <p>Three theories are in print, and none is verified. An old tradition in Appin, reported in print since 1886,
+  holds that the killer's name is known. In 2001 Anda Penman named a young laird called Donald Stewart, on the
+  strength of one oral source that no one has corroborated; a Donald Stewart does appear in the 1752 record,
+  swearing that he met Allan Breck on the hill that night, but the record does not connect him to the shot. In
+  2016 the historians Allan MacInnes and Mhairi Livingstone suggested that the shot came from Campbell's own
+  nephew, Mungo Campbell, who became factor within a year; it is a theory about motive and opportunity, and no
+  physical evidence has been put forward for it.</p>
+  </div>
+
+  <div class="wide">
+  <h2>The story says &middot; the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th scope="col">As it circulates</th><th scope="col">Verdict</th><th scope="col">In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>James Stewart fired the shot.</s></td>
+        <td class="verdict">Not the Crown's case</td>
+        <td class="shown">The indictment charged him as an accessory, &ldquo;art and part&rdquo;, and named Allan
+        Breck as the man who fired. The Crown never claimed Stewart pulled the trigger. <cite>Mackay (ed.), Trial of James Stewart, 1907</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The man who killed Campbell is known, and the Stewarts kept his name secret.</s></td>
+        <td class="verdict">Tradition only</td>
+        <td class="shown">An old Appin tradition says so, and Stevenson's dedication repeats the idea. No such
+        claim has ever been verified, and Mackay's own enquiry found only conflicting accounts. <cite>Kidnapped (1886); Old Appin; Mackay, Appendix</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>A young laird, Donald Stewart, fired the shot.</s></td>
+        <td class="verdict">One oral source</td>
+        <td class="shown">The 2001 claim rests on a single oral source and has not been corroborated. A Donald
+        Stewart is in the 1752 record, swearing he met Allan Breck on the hill; it does not connect him to the
+        shot, and whether he is the same man is unproven. The original 2001 report was not seen. <cite>The Scotsman, 2005; Scottish Legal News, 2018</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Mungo Campbell fired the shot.</s></td>
+        <td class="verdict">Theory, no evidence</td>
+        <td class="shown">Put forward in 2016 by Allan MacInnes and Mhairi Livingstone as a theory of motive and
+        opportunity. No physical evidence has been offered. <cite>BBC News, 10 June 2016</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Campbell was nicknamed the Red Fox.</s></td>
+        <td class="verdict">Not established</td>
+        <td class="shown">A witness swore Allan Breck asked him to fetch &ldquo;the red fox's skin&rdquo; and
+        understood it to mean Campbell only after the murder. The sworn record gives the name &ldquo;Colin
+        Roy&rdquo;, Red Colin; whether &ldquo;Red Fox&rdquo; was a nickname at the time, or became one later, is
+        not established. <cite>Mackay (ed.), deposition of Malcolm MacColl</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The body hung on the gibbet for years.</s></td>
+        <td class="verdict">Disputed</td>
+        <td class="shown">Published accounts give anything from eighteen months to nine years. The Exchequer
+        papers confirm soldiers guarding the body in December 1752; the episode states the dispute and gives no
+        single figure. <cite>Millar (ed.), Forfeited Estates Papers, 1909</cite></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="disclose">Three points are left open here rather than settled, because the sources read for this
+  episode do not settle them. First, a request to the Criminal Cases Review Commission to review the case was
+  refused: the application is dated to 2008 only second-hand, and the date of the refusal is not
+  established from anything read. Second, the Scottish Government declined a posthumous pardon in 2015, as
+  reported by Scottish Legal News from the government's own letter. Third, the fifty hours of evidence is
+  Mackay's figure alone.</p>
+
+  <p class="disclose"><b>On the images.</b> Every image in this episode is a real photograph, map, print or
+  document, credited below and on screen. Two illustrations and a sketch map from <i>Kidnapped</i> (1886) are
+  fiction and are labelled as such where they appear. A modern bothy and several modern photographs of the
+  district are shown as the place today, not as 1752.</p>
+  </div>
+
+  <div class="col">
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; anything approximate says so</p>
+  <table class="dates">
+    <tr><th scope="row">1746</th><td>After Culloden, the Highlands are disarmed under the Act of Proscription. Charles Stewart of Ardsheal, out in the rising, is attainted and flees abroad.</td></tr>
+    <tr><th scope="row">23 Feb 1749</th><td>The Exchequer appoints Colin Campbell of Glenure factor on the forfeited estates of Ardsheal, Callart and Mamore (the commission is dated 1748/9 in the indictment).</td></tr>
+    <tr><th scope="row">1749&ndash;50</th><td>Glenure asks for troops to collect rents; Ardsheal's tenants petition the Exchequer that rents were forced from them and their houses burnt.</td></tr>
+    <tr><th scope="row">Whitsunday 1751</th><td>James Stewart of the Glen is moved from Glenduror to Aucharn.</td></tr>
+    <tr><th scope="row">Apr&ndash;May 1752</th><td>Removal notices are served on Ardsheal's tenants for Whitsunday (15 May). James Stewart goes to Edinburgh; a Bill of Suspension is refused on 5 May.</td></tr>
+    <tr><th scope="row">14 May 1752</th><td>Glenure is shot in the back in the Wood of Lettermore, Duror, about five to six in the evening, and dies shortly afterwards.</td></tr>
+    <tr><th scope="row">16 May 1752</th><td>James Stewart and his son are arrested at Aucharn. Allan Breck is never caught.</td></tr>
+    <tr><th scope="row">28 May 1752</th><td>Privy Council proclamation: a pardon for any accomplice who informs, &ldquo;except the person who actually shot&rdquo;, and &pound;100 per conviction.</td></tr>
+    <tr><th scope="row">21&ndash;25 Sep 1752</th><td>Trial at the Inveraray circuit court, with the 3rd Duke of Argyll presiding. Verdict of guilty on 24 September.</td></tr>
+    <tr><th scope="row">8 Nov 1752</th><td>James Stewart is hanged near the Ballachulish ferry; his body is hung in chains.</td></tr>
+    <tr><th scope="row">Dec 1752</th><td>Sixteen soldiers, with their officers, are guarding the body.</td></tr>
+    <tr><th scope="row">21 Feb 1753</th><td>The Deputy Sheriff's petition to the Barons of Exchequer sets out the gibbet costs, &pound;108 17s 10d.</td></tr>
+    <tr><th scope="row">1886</th><td>Stevenson publishes <i>Kidnapped</i>, with its dedication on the case.</td></tr>
+    <tr><th scope="row">2001</th><td>Anda Penman names a young laird, Donald Stewart, on the strength of one oral source.</td></tr>
+    <tr><th scope="row">2008</th><td>An application to the Criminal Cases Review Commission is made; the date of its refusal is not established from sources read.</td></tr>
+    <tr><th scope="row">2015</th><td>The Scottish Government declines a posthumous pardon.</td></tr>
+    <tr><th scope="row">2016</th><td>Historians Allan MacInnes and Mhairi Livingstone suggest Mungo Campbell fired the shot.</td></tr>
+  </table>
+
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the episode asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="https://archive.org/stream/cihm_81217/cihm_81217_djvu.txt">Trial of James Stewart (the Appin Murder), ed. D. N. Mackay, Notable Scottish Trials, 1907 (reprints the 1753 trial record)</a>
+      <span>Depositions (two bullets, one shot heard, red fox&#x27;s skin), jury list and verdict, sentence, timeline, tradition notes (Appendix XVII), proclamation (Appendix IV)</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_the-trial-of-james-stewa_stewart-james_1753">The Trial of James Stewart in Aucharn in Duror of Appin (Edinburgh, 1753) - Internet Archive scan</a>
+      <span>Primary printed trial: title page, indictment naming Allan Breck; also a visual asset</span></li>
+    <li><a href="https://archive.org/stream/selectionofscott00millrich/selectionofscott00millrich_djvu.txt">Scottish Forfeited Estates Papers, ed. Millar, SHS 1909</a>
+      <span>Glenure&#x27;s 1749-50 letters, tenants&#x27; petition, gibbet bill (GBP 108 17s 10d), soldiers guarding the body</span></li>
+    <li><a href="https://www.gutenberg.org/cache/epub/421/pg421.txt">Kidnapped (1886) - Stevenson, Project Gutenberg</a>
+      <span>Dedication (&#x27;desire of accuracy&#x27;, &#x27;you shall not hear&#x27;), how the novel reshapes the case</span></li>
+    <li><a href="https://archive.org/details/sim_edinburgh-magazine-and-literary-miscellany_the-scots-magazine_1752-09_14">The Scots Magazine, Sept 1752 p.457 and Nov 1752 p.553 - Internet Archive</a>
+      <span>Contemporary press: the libel, Lettermore, the hanging (Edinburgh Courant extract)</span></li>
+    <li><a href="https://www.bbc.com/news/uk-scotland-glasgow-west-36498517">BBC Scotland, 10/06/2016 - The Appin murder: Victim&#x27;s nephew suspected as murderer (title as cited by Wikipedia; the BBC page itself was not readable in S31)</a>
+      <span>MacInnes and Livingstone&#x27;s Mungo Campbell theory</span></li>
+    <li><a href="https://www.scottishlegal.com/articles/our-legal-heritage-the-appin-murder">Scottish Legal News, 13/06/2016 and 04/05/2018</a>
+      <span>Exoneration call, government response, Donald Stewart tradition, Hunter&#x27;s reported position</span></li>
+    <li><a href="https://www.heraldscotland.com/news/13609414.appin-murder-campaigners-told-no-pardon-historic-miscarriage-justice-case/">Herald Scotland, 18/08/2015 - no posthumous pardon</a>
+      <span>Government refusal of a pardon (headline and standfirst only; paywalled)</span></li>
+    <li><a href="https://www.scotsman.com/heritage-and-retro/heritage/fresh-light-cast-on-man-hanged-for-appin-murder-as-archaeologists-and-qc-meet-3328366">The Scotsman, 03/10/2005 and 29/07/2021</a>
+      <span>Penman&#x27;s 2001 claim and its uncorroborated status; 2021 Glen Duror survey</span></li>
+    <li><a href="https://oldappin.com/the-appin-murder/">Old Appin (Rev Ian Carmichael) - the Appin Murder</a>
+      <span>Local tradition: &#x27;though several knew, none has divulged the secret&#x27;</span></li>
+    <li><a href="https://www.gutenberg.org/ebooks/18679">Historical Mysteries, Andrew Lang (1904) - The Case of Allan Breck</a>
+      <span>Further reading (free)</span></li>
+    <li><a href="https://birlinn.co.uk/product/the-appin-murder-2/">The Appin Murder, James Hunter (Birlinn, 2021)</a>
+      <span>Further reading; affiliate candidate (in print)</span></li>
+    <li><a href="https://www.the-independent.com/travel/uk/scotland-murder-in-appin-178948.html">The Independent, 02/06/2002 - Murder in Appin</a>
+      <span>Penman&#x27;s claim reported (an elderly woman breaking the Stewarts&#x27; silence); gun-in-a-yew variant</span></li>
+    <li><a href="https://www.scotsman.com/whats-on/arts-and-entertainment/appin-murder-who-killed-red-fox-2512517">The Scotsman, 03/10/2005 - Appin Murder: who killed Red Fox?</a>
+      <span>Penman&#x27;s claim uncorroborated; Nimmo declines to name; eviction-motive claim never proved</span></li>
+    <li><a href="https://www.undiscoveredscotland.co.uk/usreviews/books/birlinnappin.html">Undiscovered Scotland - The Last Clansman trail and Appin Murder book review</a>
+      <span>Carney&#x27;s book does not solve the case; gibbet-duration variant; jury-count repetition</span></li>
+    <li><a href="https://secretscotland.org.uk/index.php/Secrets/AppinMurder">Secret Scotland - The Appin Murder</a>
+      <span>SCCRC 2008 refusal; Nimmo quote (second-hand); 1911 memorial (single secondary source, unverified)</span></li>
+    <li><a href="https://www.stewartsociety.org/history-of-the-stewarts.cfm?section=castles-and-buildings&amp;subcatid=6&amp;histid=53">Stewart Society - history of the Stewarts (Appin, Ardsheal)</a>
+      <span>Gibbet 18-month variant; Ardsheal/Appin background</span></li>
+    <li><a href="https://her.highland.gov.uk/monument/MHG22819">Highland Historic Environment Record - James Stewart memorial (MHG22819)</a>
+      <span>Memorial inscription &#x27;For a crime of which he was not guilty&#x27;</span></li>
+    <li><a href="https://birlinn.co.uk/product/the-appin-murder-2/">Birlinn - The Appin Murder (Hunter, 2021) product page, 01/07/2021</a>
+      <span>Hunter&#x27;s 2021 blurb: James a &#x27;sacrificial victim&#x27;</span></li>
+    <li><a href="https://archive.org/stream/cihm_81217/cihm_81217_djvu.txt">Wolfe letter of 28/05/1752 as quoted in Wright, Life of General Wolfe (1864) via Mackay 1907 p.14</a>
+      <span>&#x27;Two Highlanders&#x27; remark; secondhand, original not checked</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/James_Stewart_of_the_Glen">Wikipedia - James Stewart of the Glen; Appin Murder; Act of Proscription 1746</a>
+      <span>Index only; the source of several wild claims (psalm on the scaffold, 18-month gibbet) that the primary record does not support</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <div class="shelf">
+    <div class="bk"><div class="spine"></div><div>
+      <b>The Appin Murder, James Hunter (Birlinn, 2021)</b>
+      <i>The most recent full-length account of the case. In print.</i> <a class="go" href="https://birlinn.co.uk/product/the-appin-murder-2/">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Historical Mysteries, Andrew Lang (1904): The Case of Allan Breck</b>
+      <i>An early investigation of the case, free to read.</i> <a class="go" href="https://www.gutenberg.org/ebooks/18679">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Trial of James Stewart, ed. D. N. Mackay (1907)</b>
+      <i>The printed trial record itself, with the editor&#x27;s notes. Free to read.</i> <a class="go" href="https://archive.org/stream/cihm_81217/cihm_81217_djvu.txt">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Kidnapped, Robert Louis Stevenson (1886)</b>
+      <i>The novel built on the case. Read the dedication first. Free to read.</i> <a class="go" href="https://www.gutenberg.org/cache/epub/421/pg421.txt">Read it</a></div></div>
+  </div>
+
+  <h2>Image credits</h2>
+  <p class="kicker">Every image in the episode, its creator, and its licence</p>
+  <ol class="src">
+    <li><a href="https://commons.wikimedia.org/wiki/File:Glenfinnan_Monument_2017-05-20.jpg">Row 28: Glenfinnan Monument</a> &mdash; August Schwerdfeger, CC BY 4.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)
+      <span>Used in: Appin, and the man in charge.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Appin_Murder_Cairn_-_geograph.org.uk_-_1651457.jpg">Row 1: Appin Murder Cairn (stone cairn + plaque)</a> &mdash; Euan Nelson, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Close.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Coastline_near_Ardsheal_House_-_geograph.org.uk_-_7644158.jpg">Row 11: Loch Linnhe shore near Ardsheal</a> &mdash; Steven Brown, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Appin, and the man in charge.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:The_Ballachulish_Ferry_-_geograph.org.uk_-_5568489.jpg">Row 12: Ballachulish Ferry, 1974 (bridge under construction)</a> &mdash; Peter Jeffery, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: The road, The gibbet.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Forestry_road_in_Glen_Duror_-_geograph.org.uk_-_7523313.jpg">Row 10: Forestry road up Glen Duror (modern plantation)</a> &mdash; Steven Brown, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Cold open.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:The_Appin_Murder_-_James_of_the_Glen_(Seumas_a%27_Ghlinne">Row 7: Monument + interpretive panel (portrait, 2026)</a> &mdash; Raibeart MacAoidh, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: The hunt, Close.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:James_Stewart%27s_monument_(Appin_Murder">Row 5: James Stewart&#x27;s monument (gibbet-site marker)</a> &mdash; Brian Deegan, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Cold open, The trial.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Lettermore_Wood_and_the_Appin_Murder_Cairn_-_geograph.org.uk_-_1651452.jpg">Row 2: Lettermore Wood path by the cairn</a> &mdash; Euan Nelson, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: The road.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Loch_Linnhe_looking_over_Port_Appin_-_geograph.org.uk_-_7231441.jpg">Row 14: Loch Linnhe from Port Appin</a> &mdash; Chris Morgan, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Who fired the shot.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Seumas_a%27_Ghlinne_memorial_cairn-geograph.org.uk-1651543.jpg">Row 3: James of the Glens monument, misty wood</a> &mdash; Euan Nelson, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Close.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Taigh_Seumas_a%27_Ghlinne_-_geograph.org.uk_-_8224679.jpg">Row 8: Taigh Seumas a&#x27; Ghlinne bothy in snow (modern bothy, not the 1752 house)</a> &mdash; Steven Brown, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Close.</span></li>
+    <li><a href="https://maps.nls.uk/view/00000459">Row 35: Pont/Blaeu &#x27;Lorna cum insulis vicinis...&#x27; (Lorn), 1654, coloured (book-binding edge visible at left)</a> &mdash; Reproduced with the permission of the National Library of Scotland (CC-BY (NLS))
+      <span>Used in: Appin, and the man in charge.</span></li>
+    <li><a href="https://maps.nls.uk/view/74427326">R2-10: OS six-inch Argyllshire Sheet XLIV, 1st ed. (surveyed 1871, published 1875, later printed state): the sheet SOUTH of XXX - Kentallen, Lagnaha, Stewart&#x27;s Cave, Achindarroch, **Acharan (= Aucharn, James Stewart&#x27;s farm)**, Glen Duror / River Duror, confirmed by eye on 1:2 and 1:8 stitches. **Lettermore is not named** on this sheet and Duror village is not labelled either; the Loch Linnhe coast strip sits at the sheet margin</a> &mdash; Reproduced with the permission of the National Library of Scotland (CC-BY (NLS))
+      <span>Used in: Who fired the shot.</span></li>
+    <li><a href="https://maps.nls.uk/view/74427326">R2-10: OS six-inch Argyllshire Sheet XLIV, 1st ed. (surveyed 1871, published 1875, later printed state): the sheet SOUTH of XXX - Kentallen, Lagnaha, Stewart&#x27;s Cave, Achindarroch, **Acharan (= Aucharn, James Stewart&#x27;s farm)**, Glen Duror / River Duror, confirmed by eye on 1:2 and 1:8 stitches. **Lettermore is not named** on this sheet and Duror village is not labelled either; the Loch Linnhe coast strip sits at the sheet margin</a> &mdash; Reproduced with the permission of the National Library of Scotland (CC-BY (NLS))
+      <span>Used in: The road.</span></li>
+    <li><a href="https://maps.nls.uk/view/00002722">Row 38: Plan of Fort William 1745 (Dugal Campbell / Tarrant)</a> &mdash; Reproduced with the permission of the National Library of Scotland (CC-BY (NLS))
+      <span>Used in: The road.</span></li>
+    <li><a href="https://maps.nls.uk/view/00000289">Row 36: Herman Moll &#x27;Argyle: Lorn, Knapdale, and Cowal&#x27;, 1745 (portrait)</a> &mdash; Reproduced with the permission of the National Library of Scotland (CC-BY (NLS))
+      <span>Used in: Appin, and the man in charge.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Inveraray_1844_Cadell_Print_Waverley_Novels_Book_Illustration_Print_Plate.jpg">Row 21: &#x27;Inveraray&#x27; steel engraving, Waverley Novels 1844</a> &mdash; Waverley Novels vol iv (Abbotsford Edition). Walter Scott. Edinburgh and London: Robert Cadell, Houlston &amp;amp; Stoneman 1842 - 1847, public domain (via Wikimedia Commons) (Public domain)
+      <span>Used in: The trial.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Kidnapped_p162_(WBHole">Row 29: Kidnapped p162 &#x27;The lawyer caught him&#x27; (W. B. Hole, 1886 illustration; fiction)</a> &mdash; William Hole, public domain (via Wikimedia Commons) (Public domain)
+      <span>Used in: The hunt.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Kidnapped_p191_(WBHole">Row 31: Kidnapped p191 The Rocks / waterfall (Hole; fiction)</a> &mdash; William Hole, public domain (via Wikimedia Commons) (Public domain)
+      <span>Used in: Who fired the shot.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Kidnapped_(sketch">Row 32: Sketch map: Cruise of the Brig Covenant / David Balfour&#x27;s Wanderings (Kidnapped)</a> &mdash; Ancalagon, public domain (via Wikimedia Commons) (Public domain)
+      <span>Used in: Who fired the shot.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:The_Battle_of_Culloden.jpg">Row 24: David Morier, Culloden / &#x27;Incident in the Rebellion of 1745&#x27;</a> &mdash; David Morier, public domain (via Wikimedia Commons) (Public domain)
+      <span>Used in: Appin, and the man in charge.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Allan_Ramsay_-_Archibald_Campbell_(Mac_Cailein_M%C3%B2r">Row 17: Allan Ramsay, Archibald Campbell 3rd Duke of Argyll (PG 1293, National Galleries of Scotland)</a> &mdash; Allan Ramsay, public domain (via Wikimedia Commons) (Public domain)
+      <span>Used in: The trial.</span></li>
+    <li><a href="https://www.thegazette.co.uk/London/issue/9171/page/1">R2-9: The London Gazette No. 9171, &quot;From Saturday May 30, to Tuesday June 2, 1752&quot;, page 1: the full Privy Council proclamation of 28 May 1752 - Glenure shot &quot;in a Wood on the Farm of Lattermore, in Duror in Argyllshire&quot;, pardon for any accomplice except the man who actually shot him, &quot;the Sum of One Hundred Pounds&quot; per convicted offender, signed W. Sharpe. **The whole proclamation is on this one page**; it first ran in No. 9170 (26-30 May), foot of p.2 into p.3, not saved as redundant. OCR line (the page&#x27;s own text layer): &quot;AT the Council Chamber Whitehall, the 28th of May 1752&quot;</a> &mdash; The London Gazette, No. 9171, 30 May - 2 June 1752, via The Gazette (thegazette.co.uk), Open Government Licence v3.0; printed p.1 (Public domain)
+      <span>Used in: The hunt.</span></li>
+    <li><a href="https://archive.org/details/cihm_81217">R2-5: Mackay 1907, *Trial of James Stewart*, printed p.128: the fifteen jurors. OCR line: &quot;Thereafter the Lords proceeded to make choice of the follow- ing persons ... Colin Campbell of Carwhin&quot;. Modern typeset page, black margin at top/left</a> &mdash; Mackay, Trial of James Stewart (1907), via Internet Archive (CIHM microform); printed p.128 (Public domain)
+      <span>Used in: The trial.</span></li>
+    <li><a href="https://archive.org/details/selectionofscott00millrich">R2-8 p.288: Millar, *A Selection of Scottish Forfeited Estates Papers 1715; 1745* (Scottish History Society, 1909), printed p.288: the key page: &quot;advised by the Lawiers for the Crown that it should be Plated with Iron&quot;; &quot;two Executioners to attend, one from Glasgow and another from Inverness&quot;; sum depursed &quot;108, 17s. 10d. Sterling&quot;. OCR line: &quot;advised by the Lawiers for the Crown that it should be Plated with Iron&quot;</a> &mdash; Millar, Scottish Forfeited Estates Papers (SHS, 1909), via Internet Archive; printed p.288 (Public domain)
+      <span>Used in: The gibbet.</span></li>
+    <li><a href="https://archive.org/details/sim_edinburgh-magazine-and-literary-miscellany_the-scots-magazine_1752-05_14">R2-1: Scots Magazine May 1752, printed p.268: Glenure, factor on Ardsheal&#x27;s forfeited estate, ordered to remove the tenants, shot dead in the Lettermore wood 14 May; Allan Breck suspected; 28 May proclamation (pardon, 100l. reward). OCR line: &quot;Colin Campbell of Glenure, appointed by the exchequer fator or {teward on the farfcited eftate of Charles Stewart of Ard- fheil&quot;. Legible on full-page view; black microfilm margins</a> &mdash; The Scots Magazine, May 1752, via Internet Archive; printed p.268 (Public domain)
+      <span>Used in: Appin, and the man in charge, The hunt.</span></li>
+    <li><a href="https://archive.org/details/sim_edinburgh-magazine-and-literary-miscellany_the-scots-magazine_1752-11_14">R2-3: Scots Magazine Nov 1752, printed p.525: heading &quot;The dying speech of James Stewart&quot;, the scaffold declaration begins. OCR line: &quot;As to the firlt article, of my being art and part, acceffory to Glenure�s murder, i pokttively deny&quot; (page reads &quot;As to the first article, of my being art and part, accessory to Glenure&#x27;s murder, I positively deny&quot;; legible foot of right column). Speech continues pp.526-530 (leaves 5-9), not saved</a> &mdash; The Scots Magazine, November 1752, via Internet Archive; printed p.525 (Public domain)
+      <span>Used in: Who fired the shot.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_the-trial-of-james-stewa_stewart-james_1753">Row 41: leaf 5, &#x27;The Criminal Letters, Libel or Indictment&#x27; (bitonal microfilm, black margins)</a> &mdash; Public domain; Internet Archive (digitised from microfilm/print) (Public domain)
+      <span>Used in: The trial.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_the-trial-of-james-stewa_stewart-james_1753">R2-7b: 1753 printed trial, printed p.[35]: the deposition continues - night-fall Thursday 14 May, Katharine Macinnish calls him out, he meets Allan Breck on the brae above Ballachelish house &quot;dressed in a great coat, and a dark short coat under it with white metal buttons&quot;. OCR line: &quot;and a dark ſhort coat under it with white metal buttons&quot;</a> &mdash; The Trial of James Stewart (Edinburgh, 1753), via Internet Archive; printed p.[35] (Public domain)
+      <span>Used in: Who fired the shot.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_the-trial-of-james-stewa_stewart-james_1753">Row 40: title page, &#x27;The Trial of James Stewart in Aucharn in Duror of Appin...&#x27; (Edinburgh, G. Hamilton and J. Balfour, 1753); bitonal microfilm, black margins (crop in edit)</a> &mdash; Public domain; Internet Archive (digitised from microfilm/print) (Public domain)
+      <span>Used in: The road.</span></li>
+  </ol>
+  <p class="disclose">Geograph and other Commons photographs are used under their stated Creative Commons
+  licences and credited on screen for the whole time they appear. Maps reproduced with the permission of the
+  National Library of Scotland. Period documents are public domain by age. The map behind this page is a
+  placeholder pending a dedicated Appin ink illustration.</p>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> &mdash; written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <small>Episode notes are corrected in place when a source changes; corrections are dated at the foot of
+  the entry they affect.</small>
+  </div>
+</div>
+<script>
+if ('IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  var lrowObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        lrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.art .lrow').forEach(function (row) { lrowObserver.observe(row); });
+}
+</script>
+</body></html>
