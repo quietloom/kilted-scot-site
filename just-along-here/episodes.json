@@ -106,6 +106,17 @@
   },
   {
     "number": 10,
+    "place": "Charlestown",
+    "slug": "15-charlestown",
+    "title": "Lime Kilns by the Forth | Charlestown, Fife",
+    "summary": "Lime kilns and a harbour on the Fife shore of the Forth, about 17 miles by road from Edinburgh Waverley. HES (Historic Environment Scotland) describes the Charlestown limekilns as “the largest group of limekilns in Scotland”.",
+    "status": "announced",
+    "thumbnail": null,
+    "url": null,
+    "publishedDate": null
+  },
+  {
+    "number": 11,
     "place": "Aberdour Harbour",
     "slug": "11-aberdour-harbour",
     "title": "Aberdour Harbour, Fife",
