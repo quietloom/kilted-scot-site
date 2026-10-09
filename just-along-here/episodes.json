@@ -125,5 +125,16 @@
     "thumbnail": null,
     "url": null,
     "publishedDate": null
+  },
+  {
+    "number": 12,
+    "place": "Kirkcaldy War Memorial Gardens",
+    "slug": "17-kirkcaldy-war-memorial-gardens",
+    "title": "Kirkcaldy War Memorial Gardens, Fife",
+    "summary": "Kirkcaldy War Memorial Gardens, Fife. The bronze plaque on the cenotaph is dedicated to the men of Kirkcaldy who gave their lives in the Great War.",
+    "status": "announced",
+    "thumbnail": null,
+    "url": null,
+    "publishedDate": null
   }
 ]
