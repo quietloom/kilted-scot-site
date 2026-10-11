@@ -298,6 +298,28 @@ Each entry records the **upstream alias** so a search on either name lands here.
   margin strip is gone, and the ink density (alpha mean 0.07) matches the Overtoun (0.04) and Aucharan (0.07)
   grounds.
 
+## unsolved-scotland/cameron-perth-bridge-1889-ink.png
+
+- **Made here, 12/10/2026** (no upstream copy) for the Episode 9 (Christie Cleek) notes page ground, which
+  has the placeholder `PENDING_GROUND_INK_PLATE.png`: Unsolved Scotland's own `_decompose_ink.py` (ink colour
+  `2a2418`) run over their `episodes\09-christie-cleek\asset-candidates\commons-dy-cameron-perth-bridge-1889.jpg`
+  (3400x2453), cropped to x 560-2810, y 640-1906 (2250x1266, about 16:9: inside the plate mark, so the card
+  edge and paper margin are gone; the artist's signature line is kept), then alpha scaled by 0.5 so the density
+  matches the other grounds (mean 0.074; Overtoun 0.04, Aucharan 0.07, Duror 0.07; uncorrected it was 0.147 and
+  the paper grain showed). md5 `a16fa158773531d932b633bcdcb9ab12`. Looked at directly composited on paper
+  both before and after the alpha scaling: the bridge, spire and boats read clearly and the final is as light
+  as the other grounds. Not looked at behind the live page (the page is not on the site yet).
+  **Unsolved Scotland has not yet been sent a copy.**
+- **Source:** David Young Cameron, "Perth Bridge", etching, 1889 (in *The Portfolio*, vol. XX, July 1889),
+  Cleveland Museum of Art via Wikimedia Commons.
+- **Licence:** public domain (1889 artwork), as recorded in Unsolved Scotland's `episodes\09-christie-cleek\credits.json`
+  (`"licence": "Public domain"`); not independently re-checked. Credit line to use on the page:
+  "David Young Cameron, public domain, Cleveland Museum of Art via Wikimedia Commons".
+- **Used on:** the Episode 9 notes page ground, once it is copied into `site\unsolved-scotland\09-christie-cleek\`
+  after go-live. The page's placeholder must be set to `/assets/unsolved-scotland/cameron-perth-bridge-1889-ink.png`.
+  The placeholder sentence crediting the chart on that page should read "faint etching behind this page" rather
+  than chart: it is not a map.
+
 ## fonts/ — fraunces-variable, spectral-300/400/600
 
 - **⚠ No licence record found** in either tree as of 06/09/2026. Both are widely distributed under
