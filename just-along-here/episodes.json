@@ -88,10 +88,11 @@
     "slug": "12-limekilns",
     "title": "Limekilns, Fife | A Path Made of Memories",
     "summary": "A medieval port for Dunfermline Abbey, now with boats on moorings, and Beacon Way, a path of engraved stones on the pier that ends on a question.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/iNZkU6eIceA/maxresdefault.jpg",
+    "url": "https://youtu.be/iNZkU6eIceA",
+    "notesUrl": "/just-along-here/12-limekilns/",
+    "publishedDate": "2026-10-05"
   },
   {
     "number": 9,
