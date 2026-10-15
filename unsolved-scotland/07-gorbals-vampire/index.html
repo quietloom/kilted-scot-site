@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#182028">
+<title>The Gorbals Vampire — Unsolved Scotland</title>
+<meta name="description" content="Hundreds of children went to a Glasgow cemetery on the evening of 23 September 1954 to hunt a vampire with iron teeth. The explanations offered at the time, a film and horror comics, arrived without evidence, and what started the hunt is not settled.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Cloned from 02-great-mull-air-mystery/index.html (live, kilted.scot site repo) per that
+   file's own instruction comment: copy, swap head/body/foot content, update the footer chart
+   credit for the new sheet. Architecture/selectors unchanged -- only content, the ground-ink
+   asset path, and the footer credit differ. Full CSS history: that file's own comments,
+   NOTES.md/DECISIONS.md (Unsolved Scotland project). */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#182028}
+
+.art{
+  --paper:#182028; --paper-hi:#232c36;
+  --ink:#f2efe8; --ink-2:rgba(242,239,232,.82); --dim:rgba(242,239,232,.62);
+  --mark:#e2705f; --mark-big:#e5806f; --rule:rgba(242,239,232,.18); --rule-hair:rgba(242,239,232,.1);
+  --thistle-l:#ab8fda;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+.art .cart{display:inline-block;border:3px double var(--rule);padding:.9rem 2.4rem;text-align:center}
+.art .cart .cart-title{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.art .cart .cart-title img{width:max(17px,2.4cqw);height:auto;flex:none}
+.art .cart .cart-title b{color:var(--thistle-l);font-weight:400}
+.art .cart span.credit{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid var(--rule);
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:var(--thistle-l)}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--ink)}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:var(--ink)}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
+.has-motion .art .lrow{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.has-motion .art .lrow.is-visible{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion: reduce){
+  .art *{transition:none!important;animation-duration:.01ms!important}
+  .has-motion .art .lrow{opacity:1;transform:none;filter:none}
+}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;
+  background-position:0 100%;background-repeat:no-repeat;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s cubic-bezier(.22,1,.36,1),background-size .18s cubic-bezier(.22,1,.36,1),letter-spacing .18s cubic-bezier(.22,1,.36,1)}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:var(--mark-big);background-size:100% 2px;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);container-type:inline-size}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/os-gorbals-necropolis-ink.png') center/cover fixed no-repeat;
+  filter:invert(.92) sepia(.14) saturate(.6);opacity:.1}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "The Gorbals Vampire (1954) | What Started the Hunt?",
+  "description": "Hundreds of children went to a Glasgow cemetery on the evening of 23 September 1954 to hunt a vampire with iron teeth. The explanations offered at the time, a film and horror comics, arrived without evidence, and what started the hunt is not settled.",
+  "thumbnailUrl": "https://img.youtube.com/vi/HdbfGgsYTqg/maxresdefault.jpg",
+  "uploadDate": "2026-10-15",
+  "duration": "PT6M11S",
+  "embedUrl": "https://www.youtube.com/embed/HdbfGgsYTqg",
+  "contentUrl": "https://youtu.be/HdbfGgsYTqg",
+  "publisher": {"@type": "Organization", "name": "kilted.scot", "url": "https://kilted.scot/"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Unsolved Scotland", "url": "https://kilted.scot/unsolved-scotland/"}
+}
+</script>
+</head><body>
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart">
+    <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+    <span class="credit">a kilted.scot production</span>
+  </div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode Seven &middot; Gorbals, Glasgow &middot; 1954</p>
+    <h1>The Gorbals Vampire</h1>
+    <p class="stand">Hundreds of children go to a Glasgow cemetery one evening in 1954 to hunt a vampire with
+    iron teeth. <em>No source we found names a victim. The explanations offered at the time arrived without
+    evidence, and what started the hunt is not settled.</em></p>
+    <div class="meta">
+      <div>Status<b>Awaiting publish</b></div>
+      <div>Running time<b>6 min 11 s</b></div>
+      <div>Watch<b><a href="https://youtu.be/HdbfGgsYTqg">YouTube</a></b></div>
+      <div>Sources<b>14 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The real record</h2>
+  <p class="kicker">What is actually documented, and what is not</p>
+  <p class="lead drop">On the evening of Thursday 23 September 1954, hundreds of children went to the Southern
+  Necropolis, a cemetery in Glasgow's Gorbals district. The account below comes from <em>The Bulletin</em>, the
+  Glasgow paper that carried it on its front page the next morning, as quoted by the folklorists Hobbs and
+  Cornwell in 1988. It is the route used here to that text: <strong>no 1954 newspaper page was read in full for this
+  episode</strong>. According to <em>The Bulletin</em>, the hunt began shortly after school hours, and
+  householders phoned the police about the noise. The children came from all over Hutchesontown, some of them
+  scarcely able to walk, with sticks or stones. They said they were hunting a vampire with iron teeth, and that
+  it had killed and eaten &ldquo;two wee boys&rdquo;. The paper reported no injuries, damage or arrests, and
+  said the rain called the hunt off.</p>
+  <p>The story reached print through a telephone call. A crime reporter rang a police office that evening, heard
+  laughter down the line, and someone said he ought to be told about the vampire. Hobbs and Cornwell give this
+  as indirect speech, not a quotation. The front page of Friday 24 September carried the headline
+  &ldquo;Police Had To Clear &lsquo;Vampire&rsquo; Hunters.&rdquo; One constable who attended said he felt like
+  the Pied Piper of Hamelin, with children streaming after him, all talking at once; what struck him was that the
+  adults asked whether there was anything in the vampire story. The BBC reported in 2010 that the children had
+  told a constable the vampire was seven feet tall. The <em>Bulletin</em> text as quoted gives no height, and no
+  1954 source seen gives one.</p>
+  <p>No source read for this episode names a victim, and no police, council or school record was found in the sources searched for this episode.
+  The BBC, without citing anything, says there were no reports of missing children in Glasgow at the time;
+  that is not a proven absence. The hunt happened again on the Friday evening, and the <em>Daily Mirror</em>
+  front page of Saturday 25 September, in a headline read from an image of the page, put hundreds of children at
+  the cemetery for a second day running. The following Monday <em>The Bulletin</em> ran &ldquo;Vampire doesn't
+  scare any more.&rdquo;</p>
+
+  <ul class="sound">
+    <li><span class="fig">4 to 14</span><span class="what">the ages the BBC gave in 2010 for the hundreds of children; the 1954 reports give no exact count</span></li>
+    <li><span class="fig">2 nights</span><span class="what">what Hobbs and Cornwell record; some later retellings say three, which the press read here does not show</span></li>
+    <li><span class="fig">181.6</span><span class="what">persons per hundred rooms in the Hutchesontown ward, 1951 census (Hobbs and Cornwell), against 126.8 for the city</span></li>
+    <li><span class="fig">1 example</span><span class="what">the hunt was all John Rankin offered in the Commons debate of February 1955</span></li>
+  </ul>
+
+  <p>The first report offered a single explanation, in its closing line: an &ldquo;H&rdquo; film
+  had been showing at a local cinema that week. The reporter, Hobbs and Cornwell say, could not later recall
+  which film. On the Saturday <em>The Bulletin</em> said mothers held comics responsible, and the <em>Daily
+  Record</em> front page ran &ldquo;Horror film blamed for the vampire.&rdquo; By the Wednesday a councillor for
+  the district had raised comics, and the <em>Daily Record</em> reported it. The press named one comic,
+  <i>Startling Terror Tales</i>, though it is unclear which paper used the name first. Hobbs and Cornwell read
+  that issue and say it has no vampire, no hunt and no iron teeth. By 1 October the <em>Catholic Observer</em>
+  had said on its front page that comics caused the panic, the earliest unqualified claim they found. In their
+  account the link arrived without any new evidence, though they do not rule out some influence, and they found
+  no sign that anyone tried to identify the children who took part or to ask what they read.</p>
+  <p>Comics reached Parliament that autumn: on 21 October 1954 members put questions on the subject to the Home
+  Secretary, and the text read does not mention the vampire. In February 1955 the Commons debated a bill on
+  harmful publications. John Rankin, a Glasgow Member of Parliament, used the hunt as his one example. He said a
+  school had &ldquo;closed for the day&rdquo; and that word spread &ldquo;by some system of bush
+  telegraph.&rdquo; Roy Jenkins, speaking in the same debate, warned in general against inferring a cause. In the
+  debate text checked, the House does not decide that comics explained the hunt. That is a reading of one
+  debate, not of the whole record. Royal Assent for the Children and Young Persons (Harmful Publications) Act is
+  dated 6 May 1955.</p>
+  <p>The iron teeth may have an older history in the city. In 1902 Hugh Macintosh wrote that children in the
+  east end, near Glasgow Green, had nicknamed one of Alexander Allan's daughters &ldquo;Jenny with the iron
+  teeth.&rdquo; She wore a dentist's metal fixings, and the children, he wrote, exaggerated her into &ldquo;a
+  veritable ogre.&rdquo; In 1879 the poet Alexander Anderson published &ldquo;Jenny wi the Airn Teeth&rdquo;, in
+  which a mother threatens a child with an iron-toothed bogey; Hobbs and Cornwell say it was later anthologised
+  for schools. They connect the poem to the iron teeth of 1954 and call that an inference.</p>
+  <p>Other readings exist. In a 2016 BBC interview quoted by Mental Floss, Martin Barker, who wrote a history of
+  the British horror comics campaign, pointed to social conditions and a wish to escape them. That is
+  speculation, not evidence of motive. The 1951 census figure above is documented context only.</p>
+  </div>
+
+  <div class="wide">
+  <h2>The story says &middot; the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th scope="col">As it circulates</th><th scope="col">Verdict</th><th scope="col">In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>The vampire was seven feet tall.</s></td>
+        <td class="verdict">One later source</td>
+        <td class="shown">The BBC in 2010 says the children told a constable it was seven feet tall. The
+        <em>Bulletin</em> text as quoted has the iron teeth but no height, and no 1954 source seen gives one.
+        <cite>BBC News, 22 March 2010; Hobbs and Cornwell, 1988</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Hundreds of children, armed with knives and stakes.</s></td>
+        <td class="verdict">Later memory</td>
+        <td class="shown">The <em>Bulletin</em> says &ldquo;sticks or stones&rdquo;. Knives and tomahawks come from
+        later recollection and popular summaries, and the BBC's 2010 piece mentions knives and sharpened sticks.
+        Sources give &ldquo;hundreds&rdquo;, never an exact count. <cite>Hobbs and Cornwell, 1988; BBC News, 2010</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The vampire had killed and eaten two boys.</s></td>
+        <td class="verdict">The children's claim</td>
+        <td class="shown">That is what the children are reported to have said. No source read names a victim, and
+        no record either way was found. <cite>Hobbs and Cornwell, 1988</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Horror comics caused it.</s></td>
+        <td class="verdict">Asserted, not shown</td>
+        <td class="shown">The first report mentioned only an &ldquo;H&rdquo; film. The comics link came days
+        later. Hobbs and Cornwell found no comic with the vampire, the hunt or the iron teeth, and say the link
+        arrived without evidence; they do not rule out some influence. <cite>Hobbs and Cornwell, 1988</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Parliament passed the Act because of the hunt.</s></td>
+        <td class="verdict">Not what the text shows</td>
+        <td class="shown">The 21 October 1954 questions are about children's comics and do not mention the
+        vampire. In the February 1955 debate the hunt was one MP's one example, and another member warned against
+        inferring a cause. <cite>Hansard, 21 October 1954 and 22 February 1955</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>It was a one-night panic.</s></td>
+        <td class="verdict">At least two nights</td>
+        <td class="shown">The <em>Bulletin</em> and the <em>Daily Mirror</em> both report a repeat the next
+        evening. Hobbs and Cornwell also list earlier children's hunts in the same area, from informants'
+        recollections only. <cite>Hobbs and Cornwell, 1988</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The iron teeth came from a comic or a film.</s></td>
+        <td class="verdict">Inference only</td>
+        <td class="shown">Hobbs and Cornwell found no 1954 comic or film with an iron-toothed figure. The
+        documented ancestor is the Jenny bogey of 1902 and 1879, and they call the link an inference.
+        <cite>Hobbs and Cornwell, 1988; Macintosh, 1902; Anderson, 1879</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>It was called the Gorbals Vampire in 1954.</s></td>
+        <td class="verdict">Not shown either way</td>
+        <td class="shown">The 1954 <em>Bulletin</em> and <em>Mirror</em> texts seen say &ldquo;vampire with iron
+        teeth&rdquo;. Hobbs and Cornwell use the name as their own label and say a <em>Daily Record</em> letter of
+        4 October 1954 refers to &ldquo;the Gorbals vampire&rdquo;. No newspaper archive was searched for this
+        episode. <cite>Hobbs and Cornwell, 1988</cite></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="disclose">Four points are left open here rather than settled, because the sources read for this
+  episode do not settle them. First, the 1954 newspapers themselves: every 1954 report above is a second-hand
+  quotation (the <em>Daily Mirror</em> headline alone was read from an image of its front page), and a search of the British Newspaper Archive or the Mitchell Library, and of any Glasgow police or
+  school records, would be the way to check it. Second, the date of the Commons debate: Hansard gives 22
+  February 1955 and Hobbs and Cornwell's note gives 28 February; the episode says only &ldquo;February
+  1955&rdquo;. Third, the number of nights, which sources give as two or three. Fourth, which paper first named
+  the comic.</p>
+
+  <p class="disclose"><b>On the images.</b> The maps, documents and photographs in this episode are real and
+  credited below and on screen, and no photograph of the hunt was found in the sources searched for this episode. 5 images are AI-generated
+  illustrations of imagined scenes, labelled &ldquo;Illustration, AI-generated&rdquo; where they appear, and the
+  prompt for each is listed under the image credits. The Southern Necropolis photographs show it as it is
+  today; the street photographs are Thomas Annan's, taken in 1868, and one of them is of High Street, not the
+  Gorbals.</p>
+  </div>
+
+  <div class="col">
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; anything approximate says so</p>
+  <table class="dates">
+    <tr><th scope="row">1879</th><td>Alexander Anderson publishes &ldquo;Jenny wi the Airn Teeth&rdquo; in <i>Ballads and Sonnets</i>.</td></tr>
+    <tr><th scope="row">1902</th><td>Hugh Macintosh prints the story of &ldquo;Jenny with the iron teeth&rdquo; and Alexander Allan's daughter, which he places near Glasgow Green; the period (about 1800) is inferred, as Macintosh gives no date.</td></tr>
+    <tr><th scope="row">1951</th><td>Census: the Hutchesontown ward has the worst overcrowding in Glasgow, 181.6 persons per hundred rooms against 126.8 for the city.</td></tr>
+    <tr><th scope="row">Thu 23 Sep 1954</th><td>Hundreds of children go to the Southern Necropolis after school; householders phone the police about the noise.</td></tr>
+    <tr><th scope="row">Fri 24 Sep 1954</th><td><em>The Bulletin</em> front page: &ldquo;Police Had To Clear &lsquo;Vampire&rsquo; Hunters.&rdquo; The hunt repeats that evening.</td></tr>
+    <tr><th scope="row">Sat 25 Sep 1954</th><td><em>Daily Mirror</em> front page, &ldquo;second day running&rdquo;; <em>Daily Record</em> front page, &ldquo;Horror film blamed for the vampire&rdquo;; <em>The Bulletin</em> reports mothers blaming comics; the <em>Scottish Daily Express</em> carries Mars and spaceship rumours.</td></tr>
+    <tr><th scope="row">Mon 27 Sep 1954</th><td><em>The Bulletin</em>: &ldquo;Vampire doesn't scare any more.&rdquo;</td></tr>
+    <tr><th scope="row">Wed 29 Sep 1954</th><td><em>Daily Record</em>: a Hutchesontown councillor raises comics.</td></tr>
+    <tr><th scope="row">1 Oct 1954</th><td><em>Catholic Observer</em> front page: the earliest unqualified claim Hobbs and Cornwell found that comics caused the panic.</td></tr>
+    <tr><th scope="row">21 Oct 1954</th><td>Commons oral questions on children's comics to the Home Secretary; the text read does not mention the vampire.</td></tr>
+    <tr><th scope="row">22 Feb 1955</th><td>Commons second reading of the Children and Young Persons (Harmful Publications) Bill (Hansard's date; Hobbs and Cornwell give 28 February). John Rankin cites the hunt.</td></tr>
+    <tr><th scope="row">6 May 1955</th><td>Royal Assent, Children and Young Persons (Harmful Publications) Act 1955, chapter 28.</td></tr>
+    <tr><th scope="row">1985 / 1988</th><td>Hobbs and Cornwell interview people who recall the hunt (1985); their study is published (1988).</td></tr>
+    <tr><th scope="row">22 Mar 2010</th><td>BBC Scotland publishes its piece with witnesses who were children in 1954.</td></tr>
+  </table>
+
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the episode asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="https://Www.Gwern.net/doc/sociology/1988-hobbs.pdf">Hobbs and Cornwell, &#x27;Hunting the Monster with Iron Teeth&#x27; (1988), full text (OCR)</a>
+      <span>The route used here to the 1954 Bulletin text; the press sequence of 24 September to 1 October 1954; the check of the comic named in the press; the folklore reading; other children&#x27;s hunts; the 1951 census figures; the recollections of two people who said they had taken part. Only a second copy of the Bulletin, never its page.</span></li>
+    <li><a href="https://api.parliament.uk/historic-hansard/commons/1955/feb/22/children-and-young-persons-harmful">Hansard, Commons, 22/02/1955 - Children and Young Persons (Harmful Publications) Bill</a>
+      <span>John Rankin&#x27;s use of the hunt (columns 1149-50), Roy Jenkins&#x27;s warning, and the debate date.</span></li>
+    <li><a href="https://api.parliament.uk/historic-hansard/commons/1954/oct/21/childrens-comics">Hansard, Commons, 21/10/1954 - Children&#x27;s comics (oral questions)</a>
+      <span>21/10/1954 oral questions on children&#x27;s comics only (Rankin, Stross, Janner, Orbach; no vampire mention). Later dates to 09/12/1954 are not sourced</span></li>
+    <li><a href="https://www.legislation.gov.uk/ukpga/Eliz2/3-4/28">Children and Young Persons (Harmful Publications) Act 1955 - legislation.gov.uk</a>
+      <span>Royal Assent 06/05/1955, 1955 c.28</span></li>
+    <li><a href="https://archive.org/stream/originhistoryofg00maci/originhistoryofg00maci_djvu.txt">Hugh Macintosh, The Origin and History of Glasgow Streets (1902) - Internet Archive</a>
+      <span>&#x27;Jenny with the iron teeth&#x27;, Glasgow Green, c.1800; also a quote-card asset</span></li>
+    <li><a href="https://www.tradeshouselibrary.org/uploads/4/7/7/2/47723681/origin_and_history_of_glagow_streets_001.pdf">Macintosh 1902, Trades House Library PDF extract (p.7)</a>
+      <span>Second copy of the Jenny passage</span></li>
+    <li><a href="https://www.scottishpoetrylibrary.org.uk/poem/jenny-wi-airn-teeth/">Scottish Poetry Library - Jenny wi the Airn Teeth (Alexander Anderson)</a>
+      <span>Poem text and 1879 attribution</span></li>
+    <li><a href="http://news.bbc.co.uk/2/hi/uk_news/scotland/8574484.stm">BBC Scotland, 22/03/2010 - Gorbals Vampire</a>
+      <span>Read in full. Source of: hundreds of children aged four to 14; the seven-foot vampire the children are said to have described to a constable; the statement, unsourced there, that no missing children were recorded in Glasgow; recollections of two people who were children at the time; the 1955 Act.</span></li>
+    <li><a href="https://southernnecropolis.co.uk/page112.html">Friends of Southern Necropolis - Daily Mirror 25/09/1954 page</a>
+      <span>Mirror front-page headline &#x27;second day running&#x27; (headline read from image only)</span></li>
+    <li><a href="https://contemporarylegend.org/publications/pcl/">Contemporary Legend publications list (Bennett and Smith eds, 1988)</a>
+      <span>Confirming the Hobbs and Cornwell citation</span></li>
+    <li><a href="https://www.mentalfloss.com/history/scotland-gorbals-vampire-hunt">Mental Floss - The Gorbals Vampire hunt</a>
+      <span>Retelling used only to flag contradictions (summary/snippet seen); Barker quote; names no witnesses and says only that no one knew which two boys; reports a Dark Mysteries story &#x27;The Vampire with the Iron Teeth&#x27; (unverified here)</span></li>
+    <li><a href="https://cbldf.org/2016/03/horror-comics-blamed-for-1950s-scottish-vampire-panic/">CBLDF, &#x27;Horror Comics Blamed for 1950s Scottish Vampire Panic&#x27; (2016)</a>
+      <span>&#x27;Three nights&#x27; claim, flagged as a contradiction</span></li>
+    <li><a href="https://blackbeastsandboogeymen.com/2023/01/29/the-gorbals-vampire/">Black Beasts and Boogeymen, The Gorbals Vampire (2023)</a>
+      <span>Retelling used only to flag contradictions (Dark Mysteries date, three nights)</span></li>
+    <li><a href="https://folklorescotland.com/the-gorbals-vampire/">Folklore Scotland, The Gorbals Vampire</a>
+      <span>Only &#x27;hundreds of children&#x27;; the &#x27;about 400&#x27; and &#x27;seven foot&#x27; variants were not found on the page; flagged as unsourced</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <div class="shelf">
+    <div class="bk"><div class="spine"></div><div>
+      <b>Hobbs and Cornwell, &#x27;Hunting the Monster with Iron Teeth&#x27; (1988)</b>
+      <i>The core scholarship on the 1954 hunt, free to read.</i> <a class="go" href="https://Www.Gwern.net/doc/sociology/1988-hobbs.pdf">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Martin Barker, A Haunt of Fears: The Strange History of the British Horror Comics Campaign (1984)</b>
+      <i>The campaign history behind the 1955 Act. Out of print; catalogue record only.</i> <a class="go" href="https://ueaeprints.uea.ac.uk/id/eprint/38929">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Hugh Macintosh, The Origin and History of Glasgow Streets (1902)</b>
+      <i>Where the story of &#x27;Jenny with the iron teeth&#x27;, Alexander Allan&#x27;s daughter, is told. Public domain.</i> <a class="go" href="https://archive.org/stream/originhistoryofg00maci/originhistoryofg00maci_djvu.txt">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Hansard, 22/02/1955: the Commons debate on harmful publications</b>
+      <i>The speech in which an MP cites the hunt as evidence.</i> <a class="go" href="https://api.parliament.uk/historic-hansard/commons/1955/feb/22/children-and-young-persons-harmful">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Friends of Southern Necropolis</b>
+      <i>The cemetery&#x27;s own heritage group; tours listed (re-check availability).</i> <a class="go" href="https://southernnecropolis.co.uk/">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Citizens Theatre, The Gorbals Vampire (Johnny McKnight, 2016)</b>
+      <i>A stage version of the story; a past production.</i> <a class="go" href="https://citz.co.uk/the-gorbals-vampire/">Read it</a></div></div>
+  </div>
+
+  <h2>Image credits</h2>
+  <p class="kicker">Every real image in the episode, its creator, and its licence</p>
+  <ol class="src">
+    <li><a href="https://maps.nls.uk/view/130288929">Southern Necropolis, Caledonia Road, Hutchesontown Ward and the Govan Iron Works siding as mapped in 1952-54</a> &mdash; Reproduced with the permission of the <a href="https://maps.nls.uk/">National Library of Scotland</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY</a> (NLS) (CC BY (NLS))
+      <span>Used in: The hunt, Other readings.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Main_Street,_Gorbals,_Looking_North_(37)_LACMA_M.2008.40.98.36.jpg">Thomas Annan, Main Street Gorbals looking north (1868)</a> &mdash; Thomas Annan, 1868 (photogravure printed 1900), public domain, via LACMA / Wikimedia Commons (Public domain)
+      <span>Used in: Other readings.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Main_Street,_Gorbals,_Looking_South_(-36)_LACMA_M.2008.40.98.35.jpg">Thomas Annan, Main Street Gorbals looking south (1868)</a> &mdash; Thomas Annan, 1868 (photogravure printed 1900), public domain, via LACMA / Wikimedia Commons (Public domain)
+      <span>Used in: The explanations.</span></li>
+    <li><a href="https://archive.org/details/balladssonnets00ande">Anderson, Ballads and Sonnets</a> &mdash; Internet Archive scan, public domain (Public domain)
+      <span>Used in: The iron teeth.</span></li>
+    <li><a href="https://archive.org/details/originhistoryofg00maci">Macintosh, Origin and History of Glasgow Streets</a> &mdash; Internet Archive scan, public domain (Public domain)
+      <span>Used in: The iron teeth.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:De_sloppen_van_Glasgow_Groepsportret_in_een_steeg_in_High_Street,_Glasgow_6._Close,_No._118_High_Street_(titel_op_object),_RP-F-F80005.jpg">Thomas Annan, Close No. 118 High Street, Glasgow (1868; NOT Gorbals)</a> &mdash; Thomas Annan, 1868, Rijksmuseum copy, CC0, via Wikimedia Commons (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>)
+      <span>Used in: The iron teeth.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Glasgow_City_-_Gate_Lodge,_Southern_Necropolis,_316_Caledonia_Road,_Glasgow_-_20140929193009.jpg">Southern Necropolis gate lodge at dusk (modern)</a> &mdash; Crowsus, CC BY-SA 4.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>)
+      <span>Used in: The hunt.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Glasgow&#x27;s_Southern_Necropolis_gatehouse.jpg">Southern Necropolis gatehouse (modern)</a> &mdash; AlistairMcMillan, CC BY-SA 4.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>)
+      <span>Used in: The next days, Parliament.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Glasgow_City_-_Southern_Necropolis,_Glasgow_-_20140904074019.jpg">Southern Necropolis grave: angel monument (modern)</a> &mdash; Crowsus, CC BY-SA 4.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>)
+      <span>Used in: The next days.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Glasgow_City_-_Southern_Necropolis,_Glasgow_-_20140904074529.jpg">Southern Necropolis grave: obelisk (modern)</a> &mdash; Crowsus, CC BY-SA 4.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>)
+      <span>Used in: The next days.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Southern_Necropolis_(geograph_7227840).jpg">Southern Necropolis interior with gatehouse in the distance (modern)</a> &mdash; Jim Smillie, CC BY-SA 2.0, via Wikimedia Commons (Geograph) (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: The hunt, The explanations.</span></li>
+  </ol>
+  <p class="disclose">Wikimedia Commons photographs are used under their stated Creative Commons licences and
+  credited on screen for the whole time they appear. The 1954 Ordnance Survey plan is reproduced with the
+  permission of the <a href="https://maps.nls.uk/">National Library of Scotland</a>, and the faint map behind this page is the same plan. Period
+  documents are public domain by age. The quotation cards are typeset text; the source of each is printed on the
+  card and listed under Sources.</p>
+
+  <h2>AI-generated illustrations</h2>
+  <p class="kicker">5 imagined scenes, each labelled on screen, with the prompt that made it</p>
+  <p class="disclose">Generated locally on 06/10/2026 with ComfyUI and Stable Diffusion XL base 1.0 (1344x768, upscaled 2x); each prompt and seed is listed below. They show imagined scenes, not photographs of 1954.</p>
+  <ol class="src">
+    <li>A tall person-shaped shadow on a tenement stair landing &mdash; Illustration, AI-generated (SDXL base 1.0, seed 7)
+      <span>Prompt: black and white archival documentary photograph of a dim tenement stair landing, a single huge tall black human-shaped shadow with long arms stretched across the whole wall, cast by a lamp from below, no person visible, grainy silver gelatin print texture, 1950s Glasgow, natural low light, soft even shadow, no text Used in: The hunt, The iron teeth.</span></li>
+    <li>Small boys seen from behind on a stone wall facing a cemetery at twilight &mdash; Illustration, AI-generated (SDXL base 1.0, seed 1954)
+      <span>Prompt: black and white archival documentary photograph of many small children in 1950s clothes seen from behind, sitting and standing along a low stone wall at the edge of a cemetery at twilight, some holding sticks, small distant figures, backs turned, no faces visible, grainy silver gelatin print texture, 1950s Glasgow, natural low light, soft even shadow, no text Used in: The constable, The explanations.</span></li>
+    <li>An empty cobbled tenement street in fog, one lamp, no people &mdash; Illustration, AI-generated (SDXL base 1.0, seed 1954)
+      <span>Prompt: black and white archival documentary photograph of an empty tenement street at dusk, wet cobbles, a gas lamp, chimney smoke, no people, grainy silver gelatin print texture, 1950s Glasgow, natural low light, soft even shadow, no text Used in: The hunt.</span></li>
+    <li>A black rotary telephone on a wooden desk &mdash; Illustration, AI-generated (SDXL base 1.0, seed 7)
+      <span>Prompt: black and white archival documentary photograph of a wooden desk with a black rotary telephone on the left and, separate, a manual typewriter on the right, under a desk lamp, no people, blank paper, grainy silver gelatin print texture, 1950s Glasgow, natural low light, soft even shadow, no text Used in: Cold open, The explanations.</span></li>
+    <li>Heavy rain over gravestones at dusk &mdash; Illustration, AI-generated (SDXL base 1.0, seed 1954)
+      <span>Prompt: black and white archival documentary photograph of heavy rain falling on gravestones in a cemetery at dusk, grainy silver gelatin print texture, 1950s Glasgow, natural low light, soft even shadow, no text Used in: The constable, Other readings.</span></li>
+  </ol>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> &mdash; written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <p class="credit">Not affiliated with or endorsed by the BBC, the National Library of Scotland, the Friends of
+  Southern Necropolis, or any author or publication named.</p>
+  <small>Episode notes are corrected in place when a source changes; corrections are dated at the foot of
+  the entry they affect.</small>
+  </div>
+</div>
+<script>
+if ('IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  var lrowObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        lrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.art .lrow').forEach(function (row) { lrowObserver.observe(row); });
+}
+</script>
+</body></html>

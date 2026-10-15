@@ -62,10 +62,11 @@
     "number": 7,
     "title": "The Gorbals Vampire (1954)",
     "summary": "In September 1954, hundreds of children went into Glasgow's Southern Necropolis hunting a vampire with iron teeth. What the record shows, and what it does not, about how the panic began.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/HdbfGgsYTqg/maxresdefault.jpg",
+    "url": "https://youtu.be/HdbfGgsYTqg",
+    "notesUrl": "/unsolved-scotland/07-gorbals-vampire/",
+    "publishedDate": "2026-10-15"
   },
   {
     "number": 8,

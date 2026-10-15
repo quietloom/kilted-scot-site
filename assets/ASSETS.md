@@ -320,6 +320,19 @@ Each entry records the **upstream alias** so a search on either name lands here.
   The placeholder sentence crediting the chart on that page should read "faint etching behind this page" rather
   than chart: it is not a map.
 
+## unsolved-scotland/os-gorbals-necropolis-ink.png
+
+- **Upstream alias:** `Unsolved Scotland\brand\assets\os-gorbals-necropolis-ink.png` (byte-identical, md5
+  `bbe708f2ad96cba4fd3227270cb5f097`, 1920x1080, copied 15/10/2026 — same filename both sides; made by
+  Unsolved Scotland, not here).
+- **Source:** Ordnance Survey 1:2500 plan NS5963 (mapped 1952-54), the Southern Necropolis and Caledonia Road,
+  National Library of Scotland, https://maps.nls.uk/view/130288929 (per Unsolved Scotland's
+  `episodes\07-gorbals-vampire\assets.md`).
+- **Licence:** recorded upstream as "CC BY (NLS)". **Not independently re-checked here.** The notes page now
+  carries the NLS Map Images link and a CC BY 4.0 link beside that credit, as on the Episode 6 and 2 pages.
+- **Used on:** the Episode 7 (Gorbals Vampire) notes page ground, `/unsolved-scotland/07-gorbals-vampire/`.
+  Not looked at behind the live page.
+
 ## fonts/ — fraunces-variable, spectral-300/400/600
 
 - **⚠ No licence record found** in either tree as of 06/09/2026. Both are widely distributed under
