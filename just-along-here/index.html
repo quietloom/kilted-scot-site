@@ -137,6 +137,14 @@
           watch.textContent = 'Watch';
           actions.appendChild(watch);
 
+          // `moreVideos` is optional: [{label, url}] for an episode with a second video.
+          (ep.moreVideos || []).forEach(function (v) {
+            var more = document.createElement('a');
+            more.href = v.url;
+            more.textContent = 'Watch ' + v.label.toLowerCase();
+            actions.appendChild(more);
+          });
+
           if (ep.notesUrl) {
             var notes = document.createElement('a');
             notes.href = ep.notesUrl;

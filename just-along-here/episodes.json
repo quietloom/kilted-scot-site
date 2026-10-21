@@ -45,6 +45,9 @@
     "status": "published",
     "thumbnail": "https://img.youtube.com/vi/GEHjiVGWI70/maxresdefault.jpg",
     "url": "https://youtu.be/GEHjiVGWI70",
+    "moreVideos": [
+      { "label": "Video 2", "url": "https://youtu.be/ao_z3-wxbXI" }
+    ],
     "notesUrl": "/just-along-here/02-pittencrieff-park/",
     "publishedDate": "2026-09-24"
   },
