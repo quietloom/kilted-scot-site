@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#182028">
+<title>The Lost Gold of Loch Arkaig — Unsolved Scotland</title>
+<meta name="description" content="Two French ships landed money for the Jacobite cause at Loch nan Uamh in the spring of 1746, after Culloden. Part of it was reported stolen at the landing, and the surviving papers disagree about who received the rest.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Cloned from 02-great-mull-air-mystery/index.html (live, kilted.scot site repo) per that
+   file's own instruction comment: copy, swap head/body/foot content, update the footer chart
+   credit for the new sheet. Architecture/selectors unchanged -- only content, the ground-ink
+   asset path, and the footer credit differ. Full CSS history: that file's own comments,
+   NOTES.md/DECISIONS.md (Unsolved Scotland project). */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#182028}
+
+.art{
+  --paper:#182028; --paper-hi:#232c36;
+  --ink:#f2efe8; --ink-2:rgba(242,239,232,.82); --dim:rgba(242,239,232,.62);
+  --mark:#e2705f; --mark-big:#e5806f; --rule:rgba(242,239,232,.18); --rule-hair:rgba(242,239,232,.1);
+  --thistle-l:#ab8fda;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+.art .cart{display:inline-block;border:3px double var(--rule);padding:.9rem 2.4rem;text-align:center}
+.art .cart .cart-title{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.art .cart .cart-title img{width:max(17px,2.4cqw);height:auto;flex:none}
+.art .cart .cart-title b{color:var(--thistle-l);font-weight:400}
+.art .cart span.credit{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid var(--rule);
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:var(--thistle-l)}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--ink)}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:var(--ink)}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
+.has-motion .art .lrow{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.has-motion .art .lrow.is-visible{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion: reduce){
+  .art *{transition:none!important;animation-duration:.01ms!important}
+  .has-motion .art .lrow{opacity:1;transform:none;filter:none}
+}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;
+  background-position:0 100%;background-repeat:no-repeat;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s cubic-bezier(.22,1,.36,1),background-size .18s cubic-bezier(.22,1,.36,1),letter-spacing .18s cubic-bezier(.22,1,.36,1)}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:var(--mark-big);background-size:100% 2px;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);container-type:inline-size}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/nls-scotland-west-coast-1886-ink.png') center/cover fixed no-repeat;
+  filter:invert(.92) sepia(.14) saturate(.6);opacity:.1}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "The Loch Arkaig Treasure (1746) | What Became of It?",
+  "description": "Two French ships landed money for the Jacobite cause at Loch nan Uamh in the spring of 1746, after Culloden. Part of it was reported stolen at the landing, and the surviving papers disagree about who received the rest.",
+  "thumbnailUrl": "https://img.youtube.com/vi/5zgO89Rp1jw/maxresdefault.jpg",
+  "uploadDate": "2026-10-22",
+  "duration": "PT6M54S",
+  "embedUrl": "https://www.youtube.com/embed/5zgO89Rp1jw",
+  "contentUrl": "https://youtu.be/5zgO89Rp1jw",
+  "publisher": {"@type": "Organization", "name": "kilted.scot", "url": "https://kilted.scot/"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Unsolved Scotland", "url": "https://kilted.scot/unsolved-scotland/"}
+}
+</script>
+<script data-goatcounter="https://kiltedscot.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head><body>
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart">
+    <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+    <span class="credit">a kilted.scot production</span>
+  </div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode Eight &middot; Loch nan Uamh and Loch Arkaig &middot; 1746</p>
+    <h1>The Lost Gold of Loch Arkaig</h1>
+    <p class="stand">Two French ships land money for the Jacobite cause on the west coast, about a fortnight
+    after Culloden. <em>The sums can be followed in the surviving papers. Who received the balance cannot,
+    and the papers disagree about it.</em></p>
+    <div class="meta">
+      <div>Status<b>Published</b></div>
+      <div>Running time<b>7 min</b></div>
+      <div>Watch<b><a href="https://youtu.be/5zgO89Rp1jw">YouTube</a></b></div>
+      <div>Sources<b>22 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The real record</h2>
+  <p class="kicker">What is actually documented, and what is not</p>
+  <p class="lead drop">Culloden was fought on 16 April 1746. About a fortnight later by Murray&rsquo;s reckoning, so at the end of April
+  (Dr Cameron&rsquo;s Memorial says the beginning of May), two French ships anchored in Loch nan Uamh, on the west coast of the Highlands, with money for Prince Charles Edward Stuart.
+  John Murray of Broughton, who took charge of it, put the cargo at 35,000 louis d&rsquo;or, and Dr Archibald
+  Cameron, writing a few years later, gave the same figure. Murray said it came in six casks. The two counts are not
+  independent, since Cameron&rsquo;s account rests on the money Murray held, and other sources give 36,000 or 40,000.
+  Murray&rsquo;s memoir was written years afterwards by the man who held the money, and Cameron&rsquo;s Memorial
+  is read here in a clan archive&rsquo;s transcript.</p>
+  <p>Three Royal Navy sloops engaged the French vessels in the loch around 2 May, by one modern account; another
+  gives the 3rd. Dr Cameron&rsquo;s Memorial, written in Rome around 1750, says the money was being landed during
+  that fight, and that some of it was stolen by a man who then went abroad in one of the French ships. It adds that
+  the priest who heard his confession kept his name secret. The Memorial itself has a page missing, so the start of
+  Cameron&rsquo;s narrative is lost. Murray tells it differently. He writes that one cask went missing, was found
+  that evening, and was returned the next morning short of one bag, which he put at seven or eight hundred louis.
+  He says the thieves were guessed at from a description, and that two men were tried by court martial. Neither
+  writer names the thief. The Memorial&rsquo;s own figure is 800.</p>
+
+  <ul class="sound">
+    <li><span class="fig">35,000</span><span class="what">louis d&rsquo;or, the cargo by Murray&rsquo;s count and Dr Cameron&rsquo;s; Murray says six casks</span></li>
+    <li><span class="fig">800</span><span class="what">the loss at the landing in the Memorial; Murray puts the missing bag at 700 or 800</span></li>
+    <li><span class="fig">12,981</span><span class="what">louis that Cluny&rsquo;s statement of September 1749 lists as paid out, as the Memorial reproduces it</span></li>
+    <li><span class="fig">about 11,000</span><span class="what">the balance on the Memorial&rsquo;s reading; a letter of 1751 reads the 12,981 as the sum still left</span></li>
+  </ul>
+
+  <p>Of the 35,000, the Memorial accounts for about 11,000 in Murray&rsquo;s custody: 800 stolen at the landing, 4,200
+  in back pay to units of the army, 3,000 lodged with an Edinburgh wine merchant, and 3,000 taken abroad with the
+  Prince in September 1746. The other 24,000, it states, passed to Macpherson of Cluny. One account says Murray was
+  arrested in June and held in the Tower of London. On 3 September he offered, from there, to travel under guard to
+  the Highlands to recover &pound;1,200, and an archivist&rsquo;s catalogue entry asks whether this is the Loch
+  Arkaig money; nothing there settles it. The Prince left Scotland that September, after a week or so sheltering with
+  Cluny, who stayed on, hiding in the hills for about nine years, including a place on Ben Alder known as the Cage.</p>
+  <p>In September 1749 Cluny wrote out an itemised statement of the 12,981 louis he had paid out, and the Memorial
+  reproduces it. One line, for taking in the money, included part of it that was, in his words, &ldquo;lost and never
+  recovered.&rdquo; On the Memorial&rsquo;s reading that leaves a balance of about 11,000. In Dr Cameron&rsquo;s
+  telling, Cluny said that month he would lodge 6,000 for the estate of Lochiel, Cameron&rsquo;s elder brother, less
+  300 for his expenses, and keep the rest, saying the Prince had allowed most of it in writing. Cameron says he saw
+  none but the 300. Cluny also wrote that people in the neighbouring districts had turned against him, because they
+  believed he had kept the whole sum.</p>
+  <p>The accusations came three or four years after the landing. In January 1750 young Glengarry accused Dr Cameron
+  of taking 6,000 louis. In March the Prince&rsquo;s agent said the pair were &ldquo;very flush of money.&rdquo; Dr
+  Cameron&rsquo;s own Memorial says he took 300, for expenses. Other sources challenge both accusers: another
+  correspondent accused the agent of losing 800 pounds at Newmarket, and in 1897 the writer Andrew Lang identified
+  Glengarry as &ldquo;Pickle&rdquo;, a paid informer for the Crown. In May 1753 a correspondent named Edgar wrote that
+  he wished with all his heart the government had got it in the beginning.</p>
+  <p>Dr Cameron was a physician and Lochiel&rsquo;s younger brother. He returned to Scotland in 1753. Some accounts say
+  he came to recover the gold; others tie the journey to the Elibank plot, a scheme to seize King George the Second,
+  and Lang treats that as the context. He was arrested near Loch Katrine in March, and the tip-off is attributed to
+  Glengarry. In June 1753 Cameron was hanged at Tyburn under the 1746 Act of Attainder, without a new trial. He is
+  usually described as the last Jacobite executed for treason.</p>
+  <p>Cluny went to France in the mid 1750s to give an account. Lang says he carried &ldquo;the slender remains&rdquo;
+  with him. Some later retellings say Charles accused him of embezzlement; Lang says no one but Glengarry and the
+  agent questioned Cluny&rsquo;s honesty. A different theory comes from an auction house&rsquo;s press release for a
+  silver cup. It says an Englishman, Charles Selby, from Northumberland, smuggled the gold to London through secret
+  bankers, and that about 6,000 pounds reached the Prince. The release is a sales document, and its currency differs
+  from the Memorial&rsquo;s louis.</p>
+  <p>Two web pages say French gold coins were found buried in woods in the area in the 1850s, both citing Clan Cameron
+  papers that could not be checked. In 2005, a museum was given a letter said to be an eyewitness account of the
+  burial; a heritage website says it proved to be fake. That is one web page&rsquo;s statement, and low in confidence.
+  In 2020, people using metal detectors reported 215 musket balls, coins and gilt buttons from near Loch nan Uamh.
+  One of them says the shot matches the calibre landed from the French ships. Published reports differ on what the
+  coins were made of.</p>
+  <p>No modern search is reported to have recovered any of the gold. Whether the coins of the 1850s or those of 2020
+  had anything to do with it is not shown.</p>
+  </div>
+
+  <div class="wide">
+  <h2>The story says &middot; the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th scope="col">As it circulates</th><th scope="col">Verdict</th><th scope="col">In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>The money arrived before Culloden.</s></td>
+        <td class="verdict">After Culloden</td>
+        <td class="shown">Murray&rsquo;s own examination has the money coming from Nantes about a fortnight after
+        the battle, and Dr Cameron&rsquo;s Memorial says the beginning of May 1746. Sources give the day differently,
+        and the sea fight as the 2nd or the 3rd. <cite>Murray, Memorials; Cameron, Memorial</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Seven casks were landed.</s></td>
+        <td class="verdict">Six, according to Murray</td>
+        <td class="shown">Murray, the only primary account that names casks, says six, one of which went missing
+        and came back short of a bag. Some modern retellings say seven; no primary source for seven was found.
+        Cameron&rsquo;s Memorial does not mention casks. <cite>Murray, Memorials</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The money was stolen at the landing, and we know by whom.</s></td>
+        <td class="verdict">Two accounts, no thief named</td>
+        <td class="shown">The Memorial says a man who went abroad on a French ship took part of it, and that the
+        priest who heard his confession kept his name secret. Murray says a cask went missing and was found, short
+        of a bag, and that two men were tried by court martial. Neither names the thief.
+        <cite>Cameron, Memorial; Murray, Memorials</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Nobody ever accounted for the money.</s></td>
+        <td class="verdict">A list exists</td>
+        <td class="shown">Cluny wrote out an itemised statement in September 1749, and the Memorial reproduces it.
+        It lists 12,981 louis paid out; on the Memorial&rsquo;s reading that leaves about 11,000. A letter of 1751
+        reads the same figure the other way, as the sum still left. The balance is what is disputed.
+        <cite>Cameron, Memorial; Lang, 1897</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Dr Cameron was hanged for looking for the gold.</s></td>
+        <td class="verdict">Purpose disputed</td>
+        <td class="shown">Some accounts say he returned in 1753 to recover the gold; others tie the journey to the
+        Elibank plot, and Lang treats the plot as the context. He was hanged at Tyburn in June 1753 under the 1746
+        Act of Attainder, without a new trial. <cite>Lang, 1897; The Scotsman, 2016; Wikipedia, as an index</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Cluny embezzled it.</s></td>
+        <td class="verdict">Later retellings</td>
+        <td class="shown">Some later retellings say Charles accused Cluny of embezzlement. Lang says no one but
+        Glengarry and the agent questioned Cluny&rsquo;s honesty, and Cluny himself wrote that neighbouring districts
+        believed he had kept the whole sum. <cite>Lang, 1897; Cameron, Memorial</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>An Englishman saved the gold.</s></td>
+        <td class="verdict">A sales document</td>
+        <td class="shown">The claim comes from an auction house&rsquo;s press release for a silver cup, which names
+        Charles Selby of Northumberland and about 6,000 pounds reaching the Prince. Its currency differs from the
+        Memorial&rsquo;s louis, and the longer article behind it could not be opened.
+        <cite>Spink press release</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>Some of it has been found.</s></td>
+        <td class="verdict">Not reported</td>
+        <td class="shown">No modern search is reported to have recovered any of the gold. The finds of the 1850s
+        rest on two web pages citing papers that could not be checked, and the 2020 report is of 215 musket balls,
+        coins and gilt buttons, with published accounts differing on the coins. Whether any of it had to do with the
+        gold is not shown. <cite>Coast that Shaped the World; Archaeology, STV, Scotsman and West Word, 2020</cite></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="disclose">Six points are left open here rather than settled, because the sources read for this episode do
+  not settle them. First, the documents themselves: Dr Cameron&rsquo;s Memorial and Cluny&rsquo;s statement were read in
+  a transcript on a clan archive&rsquo;s site, which is missing a page, and Murray&rsquo;s memoir is the account of the
+  man who held the money. Second, the dates of the landing and the sea fight, which the sources give differently; the
+  video says the end of April (Murray&rsquo;s &ldquo;about a fortnight&rdquo; after Culloden) where Dr Cameron&rsquo;s
+  Memorial says the beginning of May, and gives the sea fight as around the 2nd by one account and the 3rd by another. Third, the day of Dr
+  Cameron&rsquo;s hanging, which the sources do not agree on; the episode gives June 1753 only. Fourth, the total in
+  the cargo, which sources give as 35,000, 36,000 or 40,000. Fifth, the 2020 find: no finds record, finders&rsquo;
+  report or heritage-body entry was located, so the number and metal of the coins are not established. Sixth, the
+  Selby theory, which rests on a seller&rsquo;s press release.</p>
+
+  <p class="disclose"><b>On the images.</b> The maps, documents, portraits and photographs in this episode are real and
+  credited below and on screen. 6 images are AI-generated illustrations of imagined scenes, labelled
+  &ldquo;Illustration, AI-generated&rdquo; where they appear, and the prompt for each is listed under the AI-generated
+  illustrations; no image of the landing itself is used. The two louis d&rsquo;or photographs show coins of 1717 and
+  1750, not coins from the cargo. The Tower of London view is an engraving of 1737, the picture of Dr Cameron drawn
+  to Tyburn is a later illustration and not an eyewitness drawing, the Roy map was surveyed in 1747-55, after these
+  events, and the loch photographs show the places as they are today.</p>
+  </div>
+
+  <div class="col">
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; anything approximate says so</p>
+  <table class="dates">
+    <tr><th scope="row">16 Apr 1746</th><td>Culloden.</td></tr>
+    <tr><th scope="row">End Apr / early May 1746</th><td>Two French ships anchor in Loch nan Uamh with money for the Prince: &ldquo;about a Fortnight&rdquo; after Culloden in Murray&rsquo;s examination, &ldquo;the beginning of May&rdquo; in Dr Cameron&rsquo;s Memorial. The exact day is not settled.</td></tr>
+    <tr><th scope="row">About 2 May 1746</th><td>Three Royal Navy sloops engage the French ships in the loch (one modern account; another gives the 3rd). The Memorial places the theft during the landing.</td></tr>
+    <tr><th scope="row">Jun 1746</th><td>Murray is arrested and held in the Tower of London (one account).</td></tr>
+    <tr><th scope="row">3 Sep 1746</th><td>From the Tower, Murray offers to travel under guard to the Highlands to recover &pound;1,200 (catalogue entry; the link to the Loch Arkaig money is the archivist&rsquo;s query).</td></tr>
+    <tr><th scope="row">Sep 1746</th><td>The Prince leaves Scotland after a week or so with Cluny; one source gives the 19th. Cluny stays, in hiding for about nine years.</td></tr>
+    <tr><th scope="row">22 Sep 1749</th><td>Cluny&rsquo;s itemised statement of 12,981 louis paid out, reproduced in Dr Cameron&rsquo;s Memorial.</td></tr>
+    <tr><th scope="row">16 Jan 1750</th><td>Young Glengarry writes that Dr Cameron took 6,000 louis.</td></tr>
+    <tr><th scope="row">Mar 1750</th><td>The Prince&rsquo;s agent writes that the pair were &ldquo;very flush of money.&rdquo;</td></tr>
+    <tr><th scope="row">About 1750</th><td>Dr Cameron writes his Memorial in Rome.</td></tr>
+    <tr><th scope="row">1751</th><td>A letter quoted by Lang reads the 12,981 as the sum still left.</td></tr>
+    <tr><th scope="row">20 Mar 1753</th><td>Dr Cameron is arrested near Loch Katrine (Lang&rsquo;s date); the tip-off is attributed to Glengarry.</td></tr>
+    <tr><th scope="row">2 May 1753</th><td>Edgar writes that he wished the government had got it in the beginning.</td></tr>
+    <tr><th scope="row">Jun 1753</th><td>Dr Cameron is hanged at Tyburn under the 1746 Act of Attainder, without a new trial.</td></tr>
+    <tr><th scope="row">1754-55</th><td>Cluny goes to France to give an account (invited in 1754, arriving in 1755 on one account).</td></tr>
+    <tr><th scope="row">1850s</th><td>French gold coins said, on two web pages, to have been found in woods in the area.</td></tr>
+    <tr><th scope="row">1897</th><td>Andrew Lang identifies Glengarry as &ldquo;Pickle&rdquo;.</td></tr>
+    <tr><th scope="row">2005</th><td>A museum is given a letter said to be an eyewitness account; a heritage website says it proved to be fake.</td></tr>
+    <tr><th scope="row">Sep 2020</th><td>People using metal detectors report 215 musket balls, coins and gilt buttons from near Loch nan Uamh (reported on 13 November 2020).</td></tr>
+  </table>
+
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the episode asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="http://www.lochiel.net/archives/arch189.html">Dr Archibald Cameron&#x27;s Memorial Concerning the Locharkaig Treasure (Stuart Papers vol. 300 no. 80, c.1750), with Cluny&#x27;s account of 22/09/1749 (Stuart Papers vol. 350 no. 50)</a>
+      <span>Dr Cameron&#x27;s Memorial (written in Rome around 1750) and Cluny&#x27;s account of September 1749, read in a Clan Cameron Archive transcript, not in the manuscripts; the archive is a partisan host and the transcript is missing a page. Source of: the 35,000 figure; the theft at the landing, as the Memorial tells it; the accounting of about 11,000 in Murray&#x27;s custody; the passing of the rest to Cluny; Cluny&#x27;s itemised statement and the balance; Cameron&#x27;s own account of the 300.</span></li>
+    <li><a href="https://gutenberg.org/cache/epub/6807/pg6807-images.html">Andrew Lang, Pickle the Spy (1897), Project Gutenberg #6807</a>
+      <span>A Victorian historian printing letters from the Stuart Papers. Source of: the 1751 letter; the accusations of 1750 and Edgar&#x27;s letter of 1753; the Newmarket charge; Cameron&#x27;s arrest and the Elibank plot as context; Cluny&#x27;s journey to France and Lang&#x27;s view of his honesty; Lang&#x27;s identification of Glengarry as the informer Pickle.</span></li>
+    <li><a href="https://beta.nationalarchives.gov.uk/catalogue/id/C15843822">SP 36/87/1/23 - Murray of Broughton to unknown, 03/09/1746, willing to recover 1,200 pounds</a>
+      <span>The catalogue entry only; the document itself was not seen. Murray&#x27;s offer from the Tower of 3 September 1746. The question of whether it concerns the Loch Arkaig money is the archivist&#x27;s own.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Loch_Arkaig_treasure">Loch Arkaig treasure (Wikipedia, index only; cites Kybett 1988, Mackie 1964, Simpson 1996, Clan Cameron)</a>
+      <span>Used as an index to modern retellings and their sources, not as authority. Source of: the French gold coins said to have been found in the 1850s, and the later retellings that Charles accused Cluny of embezzlement.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Skirmish_of_Loch_nan_Uamh">Skirmish of Loch nan Uamh (Wikipedia; cites McKerracher, Jacobite Dictionary 2012; Sadler 2012; Reid 2002)</a>
+      <span>The sea fight at the loch around 2 May 1746. This article and the next both rest on one modern history, so they are one source, not two.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/French_privateer_Mars_(1746)">French privateer Mars (1746) (Wikipedia; same McKerracher source)</a>
+      <span>The same sea fight, from the same modern history as the previous entry.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/John_Murray_of_Broughton">John Murray of Broughton (Wikipedia)</a>
+      <span>Murray&#x27;s arrest in June 1746 and his imprisonment in the Tower of London. Taken from this article alone.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Archibald_Cameron_of_Lochiel">Archibald Cameron of Lochiel (Wikipedia; flagged by Wikipedia itself for citation problems, Jan 2025)</a>
+      <span>Cameron&#x27;s arrest near Loch Katrine, the tip-off attributed to Glengarry, the competing reasons for his return, and the description of him as the last Jacobite executed for treason. The article is itself flagged by Wikipedia for citation problems, so each statement is attributed.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Ewen_MacPherson_of_Cluny">Ewen MacPherson of Cluny (Wikipedia)</a>
+      <span>Cluny&#x27;s years in hiding, including the Cage on Ben Alder, and his journey to France.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Donald_Cameron_of_Lochiel">Donald Cameron of Lochiel (Wikipedia)</a>
+      <span>Dr Cameron as the younger brother of Lochiel.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Alastair_Ruadh_MacDonnell">Alastair Ruadh MacDonnell (Wikipedia)</a>
+      <span>Glengarry as the informer Pickle, on Lang&#x27;s identification of 1897.</span></li>
+    <li><a href="https://www.scotsman.com/whats-on/arts-and-entertainment/the-story-of-the-last-jacobite-to-be-hanged-1470851">The story of the last Jacobite to be hanged (The Scotsman, 02/08/2016)</a>
+      <span>Cameron&#x27;s return in 1753, the account that some say he came to recover the gold, and his arrest and execution.</span></li>
+    <li><a href="https://westhighlandmuseum.org.uk/?p=1944">The Lost Jacobite Gold (West Highland Museum website; an excerpt from an unpublished novel, historically pretty accurate by its own note)</a>
+      <span>Colour only. The alternative date of the 3rd for the sea fight.</span></li>
+    <li><a href="https://coast.scot/stories/the-jacobite-gold-at-loch-arkaig/">The &#x27;Jacobite Gold&#x27; at Loch Arkaig (Am Baile / Highland Libraries, Coast that Shaped the World)</a>
+      <span>A heritage web page with no cited sources. Source of the two single-source statements about the 1850s coins and the museum letter of 2005. Low confidence.</span></li>
+    <li><a href="https://spink.com/media/view?id=572">Spink Solves the Riddle of the Jacobites&#x27; Lost Gold (a Spink press release for a silver cup)</a>
+      <span>A seller&#x27;s press release, so a sales document. Source of the Selby theory and its figures. The longer article by the researcher it names could not be opened.</span></li>
+    <li><a href="https://www.archaeology.org/news/9221-201119-scotland-jacobite-ammunition">Hoard of Jacobite Ammunition Unearthed in Scotland (Archaeology magazine, 18/11/2020, citing the Oban Times)</a>
+      <span>The 2020 find, and one finder&#x27;s statement that the shot matches the calibre landed from the French ships.</span></li>
+    <li><a href="https://the-past.com/news/bonnie-prince-charlies-culloden-battle-hoard-found">Bonnie Prince Charlie&#x27;s Culloden battle hoard found (Military History Matters, 14/01/2021, on The Past)</a>
+      <span>The 2020 find, as reported in January 2021. It and the other reports differ on what the coins were made of.</span></li>
+    <li><a href="https://archive.org/stream/memorialsofjohnm00murr/memorialsofjohnm00murr_djvu.txt">John Murray of Broughton, Memorials (Scottish History Society, 1898, ed. R. F. Bell), Part III p.272-4, p.283, Introduction p.xxv, Appendix examinations pp.~412-482</a>
+      <span>Murray&#x27;s own memoir, written years later by the man who held the money, with his Crown examinations. Source of: the six casks; the cask that went missing, was found that evening and came back short of a bag; the court martial; the landing about a fortnight after Culloden.</span></li>
+    <li><a href="https://www.exclassics.com/newgate/ng256.htm">Newgate Calendar, Dr Archibald Cameron (Ex-Classics transcription)</a>
+      <span>Cameron&#x27;s sentence and execution at Tyburn. A later compilation, not itself contemporary.</span></li>
+    <li><a href="https://news.stv.tv/highlands-islands/bonnie-prince-charlie-musket-balls-unearthed-near-loch">Bonnie Prince Charlie musket balls unearthed near loch (STV News, 13/11/2020)</a>
+      <span>The 2020 find, reported on 13 November 2020. Its page and its text disagree on the number of musket balls; the text says 215.</span></li>
+    <li><a href="https://www.scotsman.com/heritage-and-retro/heritage/bonnie-prince-charlies-musket-balls-found-near-highland-loch-3034365">&#x27;Bonnie Prince Charlie&#x27;s musket balls&#x27; found near Highland loch (The Scotsman, 2020)</a>
+      <span>The 2020 find, with one finder&#x27;s words. No coin metal is stated that can be pinned to the coins.</span></li>
+    <li><a href="https://westword.org.uk/dec2020.html">Jacobite hoard discovered on Rhu peninsula (West Word, December 2020)</a>
+      <span>The 2020 find, in the same wording. No Treasure Trove record, finders&#x27; report or heritage-body page for it was located.</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <div class="shelf">
+    <div class="bk"><div class="spine"></div><div>
+      <b>Pickle the Spy, Andrew Lang (1897)</b>
+      <i>Free full text. Prints the letters of the quarrel over the money and names Glengarry as the informer. A Victorian reading of the same papers, so read it as one account.</i> <a class="go" href="https://gutenberg.org/cache/epub/6807/pg6807-images.html">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Memorials of John Murray of Broughton (Scottish History Society, 1898)</b>
+      <i>Free full text. The custodian&#x27;s own account of the landing, written years afterwards by a man with reason to present himself well.</i> <a class="go" href="https://archive.org/stream/memorialsofjohnm00murr/memorialsofjohnm00murr_djvu.txt">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>Dr Archibald Cameron&#x27;s Memorial, Clan Cameron Archive transcript</b>
+      <i>Free transcript. Cameron&#x27;s accounting and Cluny&#x27;s itemised statement. The host is a clan archive and one page is missing, so read it as one side.</i> <a class="go" href="http://www.lochiel.net/archives/arch189.html">Read it</a></div></div>
+  </div>
+
+  <h2>Image credits</h2>
+  <p class="kicker">Every real image in the episode, its creator, and its licence</p>
+  <ol class="src">
+    <li><a href="https://maps.nls.uk/view/217499602">Roy Military Survey of Scotland, strip 12: Loch nan Uamh (Roy&#x27;s &quot;Loch na Nua&quot;)</a> &mdash; Reproduced with the permission of the <a href="https://maps.nls.uk/">National Library of Scotland</a> (Roy Military Survey of Scotland, 1747-55) (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY</a> (NLS))
+      <span>Used in: The landing, What the papers show.</span></li>
+    <li><a href="https://maps.nls.uk/view/217499635">Roy Military Survey of Scotland, strip 23: the east end of Loch Arkaig (Roy&#x27;s &quot;Loch Arkek&quot;)</a> &mdash; Reproduced with the permission of the <a href="https://maps.nls.uk/">National Library of Scotland</a> (Roy Military Survey of Scotland, 1747-55) (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY</a> (NLS))
+      <span>Used in: Who held the money, Cluny&#x27;s list.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Alastair_Ruadh_MacDonnell.jpg">Alastair Ruadh MacDonnell of Glengarry</a> &mdash; Unknown 18th-century Scottish portrait painter; Art UK (public domain, via Wikimedia Commons) (Public domain)
+      <span>Used in: The accusations.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:DonaldCameronOfLochiel2.jpg">Donald Cameron of Lochiel</a> &mdash; George Chalmers (attribution per Commons/Art UK); West Highland Museum (public domain, via Wikimedia Commons) (Public domain)
+      <span>Used in: Cluny&#x27;s list.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:France_1717_2_Louis_d%E2%80%99or_(Louis_XV).jpg">Louis d&#x27;or</a> &mdash; Kingdom of France (coin), National Numismatic Collection; image by Jaclyn Nash, National Museum of American History (public domain, via Wikimedia Commons) (Public domain)
+      <span>Used in: Who held the money, What else has been claimed.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Lost_Portrait_of_Charles_Edward_Stuart.jpg">Prince Charles Edward Stuart</a> &mdash; Allan Ramsay (painter); National Galleries of Scotland (per Commons credit &#x27;nationalgalleries.org&#x27;) (public domain, via Wikimedia Commons) (Public domain)
+      <span>Used in: The French ships, Who held the money.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Nathaniel_Buck_-_The_West_View_of_the_Tower_of_London_-_B1977.14.18623_-_Yale_Center_for_British_Art.jpg">Samuel and Nathaniel Buck, The West View of the Tower of London (engraving, 1737)</a> &mdash; Nathaniel and Samuel Buck, 1737; Yale Center for British Art, CC0 (via Wikimedia Commons) (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>)
+      <span>Used in: Who held the money.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Double_Louis-d&#x27;or_of_Louis_XV_of_France,_1750_MET_139186.jpg">Louis d&#x27;or</a> &mdash; Joseph-Charles Roettiers (engraver); Metropolitan Museum of Art (CC0, via Wikimedia Commons) (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>)
+      <span>Used in: Cluny&#x27;s list.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Archibald_Cameron._Mezzotint._Wellcome_V0000976.jpg">Dr Archibald Cameron</a> &mdash; Wellcome Collection, CC BY 4.0 (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)
+      <span>Used in: Dr Cameron.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Dr_Cameron_being_drawn_on_a_sledge_to_Tyburn_Wellcome_L0040867.jpg">Cameron drawn to Tyburn</a> &mdash; Wellcome Collection, CC BY 4.0 (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)
+      <span>Used in: Dr Cameron.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Ewen_Macpherson_of_Cluny,_Dunkirk_memorial.jpg">Memorial panel to Colonel Ewen Macpherson of Cluny, Dunkirk, photographed 2024 (original, EXIF orientation 6)</a> &mdash; Anthony.R.Macpherson, CC BY 4.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)
+      <span>Used in: What else has been claimed.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Alexander_Murray_of_Elibank.jpg">Alexander Murray of Elibank</a> &mdash; Coldupnorth, CC BY-SA 4.0, via Wikimedia Commons (photograph of a painting by Allan Ramsay) (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>)
+      <span>Used in: Dr Cameron.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Loch_Arkaig_-_geograph.org.uk_-_2429687.jpg">Loch Arkaig</a> &mdash; wfmillar, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: What else has been claimed.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Loch_Arkaig_and_Eilean_Loch_Airceig_-_geograph.org.uk_-_2673227.jpg">Loch Arkaig</a> &mdash; Peter Bond, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: What the papers show.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Loch_Katrine_-_geograph.org.uk_-_3826232.jpg">Loch Katrine</a> &mdash; Alan O&#x27;Dowd, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: Dr Cameron.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Looking_west_along_in_Loch_nan_Uamh_from_The_Prince&#x27;s_Cairn_-_geograph.org.uk_-_8137307.jpg">View from the Prince&#x27;s Cairn</a> &mdash; Chris Gorringe, CC BY-SA 2.0, via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>)
+      <span>Used in: What else has been claimed.</span></li>
+  </ol>
+  <p class="disclose">Wikimedia Commons photographs are used under their stated Creative Commons licences and
+  credited on screen for the whole time they appear. The Roy Military Survey maps are reproduced with the
+  permission of the <a href="https://maps.nls.uk/">National Library of Scotland</a>, and so is the faint chart behind this page, the Admiralty
+  chart &ldquo;Scotland: West Coast&rdquo; published in 1886. Period portraits and engravings are public domain by
+  age, apart from the two Wellcome Collection scans, which are listed above under CC BY 4.0. The quotation
+  cards are typeset text; the source of each is printed on the card and listed under Sources.</p>
+
+  <h2>AI-generated illustrations</h2>
+  <p class="kicker">6 imagined scenes, each labelled on screen, with the prompt that made it</p>
+  <p class="disclose">Generated locally on 08/10/2026 with ComfyUI and Stable Diffusion XL base 1.0 (sd_xl_base_1.0.safetensors; 1344x768, upscaled 2x); each prompt and seed is listed below. They show imagined scenes, not photographs of 1746.</p>
+  <ol class="src">
+    <li>Iron-hooped wooden casks on a shingle shore beside a sea loch, no people &mdash; Illustration, AI-generated (SDXL base 1.0, seed 101)
+      <span>Prompt: eighteenth-century engraving of a few small iron-bound wooden casks stacked on a rocky shingle shore beside a sea loch, grey dawn, steep dark hills beyond, no people, ink and wash, fine cross-hatching, aged paper, sepia-grey monochrome, antique print, no text Used in: The French ships, The landing.</span></li>
+    <li>A plank-and-turf hut on a crag among mountains, no people &mdash; Illustration, AI-generated (SDXL base 1.0, seed 101)
+      <span>Prompt: eighteenth-century engraving of a hidden timber-and-heather hut built into a rock face high on a steep mountainside corrie, mist, bare crags, a thin line of smoke, no people, ink and wash, fine cross-hatching, aged paper, sepia-grey monochrome, antique print, no text Used in: Who held the money.</span></li>
+    <li>Three square-rigged ships at anchor in a sea loch under steep hills &mdash; Illustration, AI-generated (SDXL base 1.0, seed 101)
+      <span>Prompt: eighteenth-century engraving of two eighteenth-century square-rigged sailing ships at anchor in a narrow sea loch under steep dark Highland hills, a small rowing boat heading to the shore, distant, ink and wash, fine cross-hatching, aged paper, sepia-grey monochrome, antique print, no text Used in: The French ships.</span></li>
+    <li>An empty upland moor with a rutted track, no people &mdash; Illustration, AI-generated (SDXL base 1.0, seed 404)
+      <span>Prompt: Full positive prompt text was not preserved in the episode record; assets.md logs only the extra negative terms (figure, man, person, cloak, cart, wagon, rider, horse) and the subject as shown here. Used in: The French ships.</span></li>
+    <li>Sailing ships in heavy gun smoke on open water &mdash; Illustration, AI-generated (SDXL base 1.0, seed 303)
+      <span>Prompt: eighteenth-century engraving of two small eighteenth-century navy sloops firing broadsides at each other across a sea loch, thick billowing white gun smoke from the gun ports, no boats, hills behind, ships distant, ink and wash, fine cross-hatching, aged paper, sepia-grey monochrome, antique print, no text Used in: The landing.</span></li>
+    <li>Blank crumpled papers and a lit candle on a wooden table &mdash; Illustration, AI-generated (SDXL base 1.0, seed 303)
+      <span>Prompt: single small folded letter, wax seal, one candle, blank paper, no book (as logged in assets.md; full prompt text not preserved) Used in: What else has been claimed.</span></li>
+  </ol>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> &mdash; written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <p class="credit">Not affiliated with or endorsed by the National Library of Scotland, The National Archives, or
+  any author or publication named.</p>
+  <small>Episode notes are corrected in place when a source changes; corrections are dated at the foot of
+  the entry they affect.</small>
+  </div>
+</div>
+<script>
+if ('IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  var lrowObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        lrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.art .lrow').forEach(function (row) { lrowObserver.observe(row); });
+}
+</script>
+</body></html>

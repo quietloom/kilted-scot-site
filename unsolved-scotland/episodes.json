@@ -72,10 +72,11 @@
     "number": 8,
     "title": "The Lost Gold of Loch Arkaig",
     "summary": "Gold sent from France to support the Jacobite cause landed on a Highland shore in 1746, weeks after Culloden. Much of it was never accounted for.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/5zgO89Rp1jw/maxresdefault.jpg",
+    "url": "https://youtu.be/5zgO89Rp1jw",
+    "notesUrl": "/unsolved-scotland/08-lost-gold-loch-arkaig/",
+    "publishedDate": "2026-10-22"
   },
   {
     "number": 9,
