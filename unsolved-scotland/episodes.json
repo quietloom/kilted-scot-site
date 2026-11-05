@@ -92,9 +92,10 @@
     "number": 10,
     "title": "Sawney Bean: Where Did the Legend Come From?",
     "summary": "The story of a cannibal clan in a coastal cave first appears in print in London in the 1720s, with no record shown to exist from the time it claims. Where did it come from, and how did it change as it was reprinted?",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/OHaq1IRtSQA/maxresdefault.jpg",
+    "url": "https://youtu.be/OHaq1IRtSQA",
+    "notesUrl": "/unsolved-scotland/10-sawney-bean/",
+    "publishedDate": "2026-11-05"
   }
 ]

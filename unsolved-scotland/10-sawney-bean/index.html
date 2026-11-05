@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#182028">
+<title>Sawney Bean: Where Did the Legend Come From? — Unsolved Scotland</title>
+<meta name="description" content="The earliest printed Sawney Beane found so far is in a London book catalogued as 1726, and its chapter cites no source of its own. This episode follows the story through its early printings and how each words the reign, the county and the names.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Cloned from 02-great-mull-air-mystery/index.html (live, kilted.scot site repo) per that
+   file's own instruction comment: copy, swap head/body/foot content, update the footer chart
+   credit for the new sheet. Architecture/selectors unchanged -- only content, the ground-ink
+   asset path, and the footer credit differ. Full CSS history: that file's own comments,
+   NOTES.md/DECISIONS.md (Unsolved Scotland project). */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#182028}
+
+.art{
+  --paper:#182028; --paper-hi:#232c36;
+  --ink:#f2efe8; --ink-2:rgba(242,239,232,.82); --dim:rgba(242,239,232,.62);
+  --mark:#e2705f; --mark-big:#e5806f; --rule:rgba(242,239,232,.18); --rule-hair:rgba(242,239,232,.1);
+  --thistle-l:#ab8fda;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+.art .cart{display:inline-block;border:3px double var(--rule);padding:.9rem 2.4rem;text-align:center}
+.art .cart .cart-title{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.art .cart .cart-title img{width:max(17px,2.4cqw);height:auto;flex:none}
+.art .cart .cart-title b{color:var(--thistle-l);font-weight:400}
+.art .cart span.credit{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid var(--rule);
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:var(--thistle-l)}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--ink)}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:var(--ink)}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
+.has-motion .art .lrow{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.has-motion .art .lrow.is-visible{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion: reduce){
+  .art *{transition:none!important;animation-duration:.01ms!important}
+  .has-motion .art .lrow{opacity:1;transform:none;filter:none}
+}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;
+  background-position:0 100%;background-repeat:no-repeat;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s cubic-bezier(.22,1,.36,1),background-size .18s cubic-bezier(.22,1,.36,1),letter-spacing .18s cubic-bezier(.22,1,.36,1)}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:var(--mark-big);background-size:100% 2px;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);container-type:inline-size}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/nls-scotland-west-coast-1886-ink.png') center/cover fixed no-repeat;
+  filter:invert(.92) sepia(.14) saturate(.6);opacity:.1}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Sawney Bean: Where Did the Legend Come From?",
+  "description": "The earliest printed Sawney Beane found so far is in a London book catalogued as 1726, and its chapter cites no source of its own. This episode follows the story through its early printings and how each words the reign, the county and the names.",
+  "thumbnailUrl": "https://img.youtube.com/vi/OHaq1IRtSQA/maxresdefault.jpg",
+  "uploadDate": "2026-11-05",
+  "duration": "PT5M26S",
+  "embedUrl": "https://www.youtube.com/embed/OHaq1IRtSQA",
+  "contentUrl": "https://youtu.be/OHaq1IRtSQA",
+  "publisher": {"@type": "Organization", "name": "kilted.scot", "url": "https://kilted.scot/"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Unsolved Scotland", "url": "https://kilted.scot/unsolved-scotland/"}
+}
+</script>
+<script data-goatcounter="https://kiltedscot.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head><body>
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart">
+    <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+    <span class="credit">a kilted.scot production</span>
+  </div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode Ten &middot; The early printings &middot; from 1726 by catalogue date</p>
+    <h1>Sawney Bean: Where Did the Legend Come From?</h1>
+    <p class="stand">The earliest printed Sawney Beane found so far is in a London book catalogued as 1726.
+    <em>Its chapter cites no source of its own, and the printings that follow word the reign and the county
+    differently. What the book&rsquo;s compiler worked from is not shown.</em></p>
+    <div class="meta">
+      <div>Status<b>Published</b></div>
+      <div>Running time<b>5 min</b></div>
+      <div>Watch<b><a href="https://youtu.be/OHaq1IRtSQA">YouTube</a></b></div>
+      <div>Sources<b>12 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The printed record</h2>
+  <p class="kicker">What the early printings say, what they do not, and how they differ</p>
+  <p class="lead drop">The earliest printed Sawney Beane found so far is in a London book of criminal lives, credited to a Captain
+  Alexander Smith. Its catalogue date is 1726. The contents list him as executed with his wife, eight sons, six daughters, eighteen
+  grandsons and fourteen granddaughters. The book&rsquo;s title page describes its lives as &ldquo;taken out of the Records of Newgate&rdquo;;
+  that is a claim on a title page, and the chapter on Sawney Beane cites no source of its own. Smith&rsquo;s chapter is headed
+  &ldquo;Robber, Murderer, and Cannibal&rdquo;. It places the story in the reign of King James the First, &ldquo;before he came to the Crown
+  of England&rdquo;, with the cave in &ldquo;Shire Galloway&rdquo;. The family lived there upwards of twenty-five years, and the victims come to
+  about a thousand. The places named include Glasgow, Edinburgh and Leith. Every victim stays unnamed.</p>
+  <p>A catalogue date of 1734 goes with a general history of highwaymen and murderers, published under the name of a Captain Charles
+  Johnson. &ldquo;Johnson&rdquo; is a name on a title page; the episode names no author for it. The figures match Smith&rsquo;s and the wording
+  does not. Johnson&rsquo;s account opens with a sentence Smith&rsquo;s chapter lacks, calling the tale &ldquo;as well attested as any
+  historical Fact can be&rdquo; and also &ldquo;almost incredible&rdquo;. No witness follows. On page 132, where the account begins, no
+  victim and no village is named, and no year is given. Both dates, 1726 and 1734, are catalogue dates: the English Short Title Catalogue
+  could not be read for this episode.</p>
+
+  <ul class="sound">
+    <li><span class="fig">1726</span><span class="what">Smith&rsquo;s book, by catalogue date: the earliest printed Sawney Beane found</span></li>
+    <li><span class="fig">1734</span><span class="what">Johnson&rsquo;s general history, by catalogue date: the same figures in different words</span></li>
+    <li><span class="fig">1843</span><span class="what">Nicholson&rsquo;s printing: Johnson&rsquo;s wording kept, the reign now James the First of Scotland</span></li>
+    <li><span class="fig">1896</span><span class="what">Crockett&rsquo;s novel <i>The Grey Man</i>: the earliest attachment to the Ayrshire coast found</span></li>
+  </ul>
+
+  <p>Johnson sets the family&rsquo;s beginnings in the reign of Queen Elizabeth and writes that a King James then governed only in Scotland.
+  Read as James the Sixth, that points to before 1603, and an early nineteenth-century crime collection does print James the Sixth. That
+  reading is an inference. In 1843 John Nicholson, gathering tales of the south of Scotland, keeps Johnson&rsquo;s wording, including
+  &ldquo;as well attested&rdquo;, yet his reign is James the First of Scotland, who ruled from 1406 to 1437. If Johnson&rsquo;s king is
+  James the Sixth, the printed reigns sit more than a century apart, and no source checked gives a reason.</p>
+  <p>The place differs too. Smith&rsquo;s cave is in Galloway. Johnson&rsquo;s page prints &ldquo;the County of Galway&rdquo;. Whether that is a
+  printer&rsquo;s slip or a change, no source seen says. An undated chapbook, catalogued as about 1800, and Nicholson both have Galloway.
+  Today the story is tied to a headland on the Ayrshire coast; no early printing checked names it, and the earliest found on that coast is a
+  novel, <i>The Grey Man</i>, by S. R. Crockett, in 1896. The early printings call him only Sawney. A first name for him, and a name for his
+  wife, are in none of Smith, Johnson, the chapbook or Nicholson; where they first turn up has not been traced.</p>
+  <p>Johnson has the family held in Edinburgh&rsquo;s Tolbooth, the old town jail, then taken to Leith, where they &ldquo;were all executed
+  without any Process&rdquo;. By the story&rsquo;s own telling, there was no trial. That is what the tale says, not a finding, and it does not rule
+  out other papers, such as a warrant or a council entry. A local historian, writing in 2002, reports that a Scottish lawyer and crime writer, in
+  1933, found no mention of Sawney in print or in manuscript, and the same historian reports Pitcairn&rsquo;s printed trials silent on the family,
+  the innkeepers&rsquo; trial unrecorded, and an expedition by James the Sixth unmentioned. A text search of scanned volumes of Pitcairn&rsquo;s
+  trials, which print selected cases up to 1624, found no Sawney in the parts checked. The archive catalogues could not be searched for this
+  episode. So no record has been shown to exist.</p>
+  <p>Two older books sit close to the story, and neither is Sawney Beane. A work under Smith&rsquo;s name, catalogued as 1719, names two rogues called
+  Sawney, Sawney Cunningham and Sawney Douglas; in the volumes checked it has no Sawney Beane. And an English history of Scotland, printed decades
+  before Smith, gives a few lines to an unnamed thief who lived in a den with his wife and children; the family is put to death. The thief gets no
+  name, and the tale has no sea cave and no royal hunt. Whether that tale has any link to Beane, the sources seen do not settle.</p>
+  <p>A story of a cannibal family is in print in London by its 1726 catalogue date, and across its later printings the reign and the county are
+  worded differently. The same local historian suggests chapbooks and broadsheets stood behind Smith&rsquo;s chapter, but names none. No source
+  checked shows what the book&rsquo;s compiler worked from. What did he rest it on? The chapter gives no answer.</p>
+  </div>
+
+  <div class="wide">
+  <h2>The story says &middot; the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th scope="col">As it circulates</th><th scope="col">Verdict</th><th scope="col">In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>Johnson&rsquo;s book of 1734 is where the story begins.</s></td>
+        <td class="verdict">An earlier printing found</td>
+        <td class="shown">Smith&rsquo;s book, catalogued as 1726, carries the same story and figures, reworded. It is the earliest printed
+        Sawney Beane found; an earlier printing is not ruled out, and the English Short Title Catalogue could not be read. Both dates are
+        catalogue dates. <cite>Smith, Memoirs; Johnson, General History; Wellcome Collection, Illinois and Internet Archive records</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The 1726 chapter was drawn from the Records of Newgate.</s></td>
+        <td class="verdict">A title-page claim</td>
+        <td class="shown">The title page of Smith&rsquo;s book describes its lives as &ldquo;taken out of the Records of Newgate&rdquo;. The
+        chapter on Sawney Beane cites no source of its own, and no source checked shows what the compiler worked from.
+        <cite>Smith, Memoirs</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The story is well attested.</s></td>
+        <td class="verdict">Said, not shown</td>
+        <td class="shown">Johnson calls it &ldquo;as well attested as any historical Fact can be&rdquo; and also &ldquo;almost incredible&rdquo;.
+        On page 132 no witness, victim or village is named and no year is given. <cite>Johnson, General History</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>It happened in a known reign.</s></td>
+        <td class="verdict">Three printed readings</td>
+        <td class="shown">Smith: James the First, &ldquo;before he came to the Crown of England&rdquo;. Johnson: Queen Elizabeth, with a King James
+        governing only in Scotland, which reads as James the Sixth (an inference, supported by an early nineteenth-century collection). Nicholson,
+        1843: James the First of Scotland, 1406-37. No source checked gives a reason for the change.
+        <cite>Smith; Johnson; The Newgate Calendar Improved; Nicholson</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The cave is on the Ayrshire coast.</s></td>
+        <td class="verdict">First found in a novel</td>
+        <td class="shown">Smith, the chapbook and Nicholson have Galloway, and Johnson&rsquo;s page prints &ldquo;the County of Galway&rdquo;. No early
+        printing checked names the Ayrshire headland. The earliest found on that coast is Crockett&rsquo;s novel <i>The Grey Man</i>, 1896.
+        <cite>Smith; Johnson; chapbook; Nicholson; Crockett</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>He had a first name, and his wife had a name.</s></td>
+        <td class="verdict">Not in the early printings</td>
+        <td class="shown">The early printings call him only Sawney. A first name and a name for his wife are in none of Smith, Johnson, the chapbook
+        or Nicholson; where they first turn up has not been traced. <cite>Smith; Johnson; chapbook; Nicholson</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The family was tried.</s></td>
+        <td class="verdict">The story says no trial</td>
+        <td class="shown">Johnson has them held in the Tolbooth and taken to Leith, where they &ldquo;were all executed without any Process&rdquo;. That is
+        the story&rsquo;s own account, not a finding, and it does not rule out a warrant, a prison entry or a council record.
+        <cite>Johnson, General History</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>The records prove it never happened.</s></td>
+        <td class="verdict">No record shown to exist</td>
+        <td class="shown">A local historian reports no mention in print or manuscript, and no account in Pitcairn&rsquo;s printed trials; a text search
+        of scanned Pitcairn volumes found no Sawney in the parts checked. The archive catalogues could not be searched for this episode. That is
+        &ldquo;no record has been shown to exist&rdquo;, not proof of absence. <cite>Ayrshire Notes 23 (2002); Pitcairn, as scanned text</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>It was already an old Scottish tale.</s></td>
+        <td class="verdict">Near neighbours, not Bean</td>
+        <td class="shown">Smith&rsquo;s 1719 work names Sawney Cunningham and Sawney Douglas, and in the volumes checked has no Sawney Beane. An
+        English history of Scotland printed decades before Smith has an unnamed thief and his family in a den, with no sea cave and no royal hunt.
+        Whether that tale links to Beane is not settled. <cite>Smith, Compleat History (1719); History of the Kingdom of Scotland</cite></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="disclose">Six points are left open here rather than settled, because the sources read for this episode do not settle them.
+  First, the dates: 1726 and 1734 are catalogue dates, checked in library catalogue records but not in the English Short Title Catalogue,
+  and the chapbook&rsquo;s date is a catalogue guess. Second, absences: every &ldquo;not found&rdquo; rests on the printings and volumes
+  read, mostly as scanned text, which can misread a word, so none is a finding about every copy or every archive. Third, the archives: no
+  Scottish archive catalogue could be searched, so no record series has been shown to be empty. Fourth, the unnamed den tale in the English
+  history of Scotland: the Internet Archive record is dated 1696, but its year was not confirmed from the title page, so the episode speaks no
+  year. Fifth, the authorship of the 1734 book, a name on a title page, which the episode does not settle. Sixth, published scholarship on
+  the origin of the story was not read for this episode, which follows the printed texts themselves; the local historian&rsquo;s suggestion
+  about chapbooks and broadsheets is an assertion with no cited chapbook.</p>
+
+  <p class="disclose"><b>On the images.</b> The title pages, page images, maps and views in this episode are real and credited below and on screen.
+  3 images are AI-generated illustrations of imagined scenes, labelled &ldquo;Illustration, AI-generated&rdquo; where they appear, and the prompt
+  for each is listed under the AI-generated illustrations; no image of Sawney Bean, his family or any victim is used, and none shows a named place.
+  The pictures of Glasgow, Leith, Newgate and the Edinburgh Tolbooth are views of places the story names, not of any event in it. The title pages
+  are shown to show what a book says about itself; the 1734 book&rsquo;s own engraving of the cave is not used.</p>
+  </div>
+
+  <div class="col">
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; anything approximate says so</p>
+  <table class="dates">
+    <tr><th scope="row">17th century</th><td>An English history of Scotland prints a few lines on an unnamed thief living in a den with his family: not Bean. The Internet Archive record is dated 1696; the title-page year was not confirmed.</td></tr>
+    <tr><th scope="row">1719 (catalogue date)</th><td>Smith&rsquo;s <i>Compleat History</i>: Sawney Cunningham and Sawney Douglas are named; no Sawney Beane in the volumes read.</td></tr>
+    <tr><th scope="row">1726 (catalogue date)</th><td>Smith&rsquo;s <i>Memoirs</i>: the earliest printed Sawney Beane found. The chapter cites no source of its own.</td></tr>
+    <tr><th scope="row">1734 (catalogue date)</th><td>&ldquo;Captain Charles Johnson&rdquo;, <i>A General History</i>: the same figures reworded; the account begins on printed page 132.</td></tr>
+    <tr><th scope="row">About 1800 (catalogue guess)</th><td>An undated chapbook carries Johnson&rsquo;s text with Galloway.</td></tr>
+    <tr><th scope="row">Early 1800s</th><td>An early nineteenth-century collection, <i>The Newgate Calendar Improved</i>, prints &ldquo;James VI&rdquo; (the title page read has no year).</td></tr>
+    <tr><th scope="row">1843</th><td>John Nicholson&rsquo;s printing: the reign is now James the First of Scotland.</td></tr>
+    <tr><th scope="row">1896</th><td>S. R. Crockett&rsquo;s novel <i>The Grey Man</i>: the earliest attachment to the Ayrshire coast found.</td></tr>
+    <tr><th scope="row">1933</th><td>A Scottish lawyer and crime writer is reported, in a 2002 article, to have found no mention of Sawney in print or in manuscript (his paper was not read).</td></tr>
+    <tr><th scope="row">2002</th><td>A local historian&rsquo;s article in <i>Ayrshire Notes</i> reports that and other silences, and suggests chapbooks and broadsheets behind Smith&rsquo;s chapter.</td></tr>
+  </table>
+
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the episode asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="https://archive.org/details/bim_eighteenth-century_memoirs-of-the-life-and-_smith-alexander-captai_1726">Alexander Smith, Memoirs of the Life and Times of the famous Jonathan Wild ... with the History and Lives of modern Rogues (London, 1726 by catalogue date)</a>
+      <span>The earliest printed Sawney Beane found: the contents entry, the chapter heading &ldquo;Robber, Murderer, and Cannibal&rdquo;, the reign, &ldquo;Shire Galloway&rdquo;, &ldquo;upwards of 25 Years&rdquo;, about a thousand victims, and no source cited for the chapter. Read as scanned text and page images. The date is a catalogue date, from the Internet Archive and Wellcome Collection records; the English Short Title Catalogue could not be read.</span></li>
+    <li><a href="https://wellcomecollection.org/works/na3nt32r">Wellcome Collection catalogue record for the 1726 Smith volume</a>
+      <span>The 1726 imprint, and the title page's description of the lives as &ldquo;taken out of the Records of Newgate&rdquo;. A title-page claim, attributed here, not evidence.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_a-general-history-of-the_johnson-charles_1734">&ldquo;Captain Charles Johnson&rdquo;, A General History of the Lives and Adventures of the most famous Highwaymen, Murderers, Street-Robbers, &amp;c. (London, 1734 by catalogue date)</a>
+      <span>&ldquo;The Life of Sawney Beane&rdquo;, from printed page 132 (page image read): the same figures as Smith in different words, the opening &ldquo;as well attested as any historical Fact can be&rdquo; and &ldquo;almost incredible&rdquo;, the reign, &ldquo;the County of Galway&rdquo;, and the Tolbooth and Leith passage (page 133). &ldquo;Johnson&rdquo; is a name on the title page; the episode names no author for it.</span></li>
+    <li><a href="https://exhibits.library.illinois.edu/s/rbml/item/4144">Illinois Rare Book and Manuscript Library record, and Wellcome Collection record, for the 1734 Johnson volume</a>
+      <span>The 1734 imprint (Wellcome: https://wellcomecollection.org/works/wsc3pda7). With the Internet Archive record, three catalogue records agree on the date.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_the-history-of-sawney-be_1800">The History of Sawney Beane and his Family (chapbook, undated; catalogued as [1800?])</a>
+      <span>A cheap pamphlet carrying Johnson's text, with &ldquo;county of Galloway&rdquo;. The date is a catalogue guess.</span></li>
+    <li><a href="https://archive.org/details/newgatecalendari01wilk">The Newgate Calendar Improved, volume 1 (an early nineteenth-century collection)</a>
+      <span>The collection read that prints the story with &ldquo;James VI&rdquo;. The title page read carries no year, and the Internet Archive's date of 1800 is wrong for this printing, so the episode says only &ldquo;early nineteenth century&rdquo;.</span></li>
+    <li><a href="https://archive.org/details/historicaltradit00kirk">John Nicholson, Historical and Traditional Tales ... Connected with the South of Scotland (Kirkcudbright, 1843), page 72</a>
+      <span>Johnson's wording kept, including &ldquo;as well attested&rdquo;, but with the reign changed to James the First of Scotland (1406-37).</span></li>
+    <li><a href="https://www.gutenberg.org/ebooks/49301">S. R. Crockett, The Grey Man (1896), Project Gutenberg</a>
+      <span>A novel. The earliest attachment of the story to the Ayrshire coast found, so &ldquo;the earliest we found&rdquo;, not &ldquo;the first&rdquo;.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_a-compleat-history-of-th_smith-alexander_1719_1">Alexander Smith, A Compleat History of the Lives and Robberies of the most notorious Highwaymen (1719 by catalogue date), volumes 1-3</a>
+      <span>Searched as scanned text across volumes 1-3: no Sawney Beane in the parts read, and the names Sawney Cunningham and Sawney Douglas were found, so the search works. Smith's other volumes (1714, 1720) were not read in full.</span></li>
+    <li><a href="https://archive.org/details/bim_early-english-books-1641-1700_the-history-of-the-kingd_crouch-nathaniel_1696">The History of the Kingdom of Scotland, attributed to &ldquo;R. B.&rdquo; (a seventeenth-century English imprint)</a>
+      <span>A few lines on an unnamed thief living in a den with his wife and children, put to death with them, in English print decades before Smith. Not Sawney Beane. The Internet Archive record is dated 1696, but the year was not confirmed from the title page, so the episode speaks no year.</span></li>
+    <li><a href="https://archive.org/details/criminaltrialsin01pitc">Pitcairn, Criminal Trials in Scotland (selected cases to 1624), six Internet Archive volumes searched as scanned text</a>
+      <span>No Sawney found in the parts searched. Pitcairn prints selected cases, not every trial, and scanned text can misread a word, so this is &ldquo;not found in the parts we checked&rdquo;.</span></li>
+    <li><a href="https://web.archive.org/web/2020/http://www.ayrshirehistory.org.uk/sawney/myth.htm">Ayrshire Notes 23 (2002), a local historian's article on the story, read in an archived web copy</a>
+      <span>Secondary. Reports that a Scottish lawyer and crime writer found no mention of Sawney in print or in manuscript in 1933 (his paper was not read), that Pitcairn's printed trials have no account of the family, that no record of the innkeepers' trial or of an expedition by James the Sixth has been reported, and suggests chapbooks and broadsheets behind Smith's chapter without naming one. It lists none of what was searched. The author is not named in the narration or here.</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <div class="shelf">
+    <div class="bk"><div class="spine"></div><div>
+      <b>Alexander Smith, Memoirs of the Life and Times of ... Jonathan Wild (1726)</b>
+      <i>The earliest printed Sawney Beane found. Free to read. The date is a catalogue date.</i> <a class="go" href="https://archive.org/details/bim_eighteenth-century_memoirs-of-the-life-and-_smith-alexander-captai_1726">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>&ldquo;Captain Charles Johnson&rdquo;, A General History of the Lives and Adventures of the most famous Highwaymen (1734)</b>
+      <i>The usual &ldquo;first&rdquo; source, with the account that opens &ldquo;as well attested&rdquo;. Free to read.</i> <a class="go" href="https://archive.org/details/bim_eighteenth-century_a-general-history-of-the_johnson-charles_1734">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>The History of Sawney Beane and his Family (chapbook, undated)</b>
+      <i>The story as sold cheaply to the public. Free to read.</i> <a class="go" href="https://archive.org/details/bim_eighteenth-century_the-history-of-sawney-be_1800">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>John Nicholson, Historical and Traditional Tales ... South of Scotland (1843)</b>
+      <i>Where the reign becomes James the First of Scotland. Free to read.</i> <a class="go" href="https://archive.org/details/historicaltradit00kirk">Read it</a></div></div>
+    <div class="bk"><div class="spine"></div><div>
+      <b>S. R. Crockett, The Grey Man (1896)</b>
+      <i>A novel, not history: the earliest attachment to the Ayrshire coast found. Free to read.</i> <a class="go" href="https://www.gutenberg.org/ebooks/49301">Read it</a></div></div>
+  </div>
+
+  <h2>Image credits</h2>
+  <p class="kicker">Every real image in the episode, its creator, and its licence</p>
+  <ol class="src">
+    <li><a href="https://maps.nls.uk/rec/83">NLS Blaeu 1654, Carricta meridionalis (Carrick), crop of the Ayrshire coast</a> &mdash; Timothy Pont, Blaeu Atlas (1654), reproduced with the permission of the National Library of Scotland (CC BY) (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY (NLS)</a>)
+      <span>Used in: The cave moves.</span></li>
+    <li><a href="https://maps.nls.uk/rec/93">NLS Blaeu 1654 Gallovidia vernacule Galloway, whole map</a> &mdash; Timothy Pont, Blaeu Atlas (1654), reproduced with the permission of the National Library of Scotland (CC BY) (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY (NLS)</a>)
+      <span>Used in: The cave moves.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:The-tolbooth-and-st-giles-cathedral-edinburgh.jpg">The Old Tolbooth beside St Giles, Edinburgh (watercolour)</a> &mdash; Henry Gibson Duguid, National Galleries of Scotland, public domain, via Wikimedia Commons (Public domain)
+      <span>Used in: Trial and records.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Easter_Road_between_Edinburgh_and_Leith_in_the_18th_century.jpg">The road between Edinburgh and Leith, South Leith church and ships in Leith Roads</a> &mdash; After Paul Sandby, public domain, via Wikimedia Commons (scan from The Story of Leith, 1922) (Public domain)
+      <span>Used in: Trial and records.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Engraving_Of_Newgate_Prison.jpg">Newgate gatehouse on the title page of Herba Parietis (1650)</a> &mdash; After the title page of Herba Parietis (1650), British Library, public domain, via Wikimedia Commons (Public domain)
+      <span>Used in: Smith&#x27;s chapter (1726).</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Glasgow_-_&#x27;The_Prospect_of_ye_Town_of_Glasgow_from_ye_South&#x27;_(5372742532).jpg">Glasgow from the south across the Clyde (Slezer, Theatrum Scotiae 1693)</a> &mdash; John Slezer, Theatrum Scotiae (1693), National Library of Scotland, public domain, via Wikimedia Commons (Public domain)
+      <span>Used in: Smith&#x27;s chapter (1726).</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Bookofoldedinbur4191olde_0098_Edinburgh_Old_tollbooth_from_S.jpg">Old Tolbooth of Edinburgh from the south (&quot;the back of the Old Jail&quot;)</a> &mdash; D. Somerville (1817 drawing), Book of the Old Edinburgh Club, 1911, public domain, via Wikimedia Commons (Public domain)
+      <span>Used in: Trial and records.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_the-history-of-sawney-be_1800">Chapbook title page [1800?] (leaf 0 of the scan)</a> &mdash; Public domain (undated chapbook, catalogued about 1800), via the Internet Archive (Public domain)
+      <span>Used in: The cave moves, What stays open.</span></li>
+    <li><a href="https://archive.org/details/bim_early-english-books-1641-1700_the-history-of-the-kingd_crouch-nathaniel_1696">Title page of an English history of Scotland (17th-century imprint) (leaf 0 of the scan)</a> &mdash; Public domain (17th-century imprint), via the Internet Archive (Public domain)
+      <span>Used in: Near neighbours.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_a-general-history-of-the_johnson-charles_1734">Johnson 1734 title page (leaf 1 of the scan)</a> &mdash; Public domain (printed 1734), via the Internet Archive (Public domain)
+      <span>Used in: The earliest printing found, Johnson&#x27;s account (1734).</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_a-general-history-of-the_johnson-charles_1734">Johnson 1734 p.132, The Life of Sawney Beane (leaf 148 of the scan)</a> &mdash; Public domain (printed 1734), via the Internet Archive (Public domain)
+      <span>Used in: Johnson&#x27;s account (1734).</span></li>
+    <li><a href="https://archive.org/details/historicaltradit00kirk">Nicholson 1843 p.72 (leaf 83 of the scan)</a> &mdash; Public domain (printed 1843), via the Internet Archive (Public domain)
+      <span>Used in: The king moves.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_a-compleat-history-of-th_smith-alexander_1719_1">Smith, Compleat History title page (1719 imprint) (leaf 2 of the scan)</a> &mdash; Public domain (printed 1719), via the Internet Archive (Public domain)
+      <span>Used in: Near neighbours.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_memoirs-of-the-life-and-_smith-alexander-captai_1726">Smith 1726 chapter opening, printed p.138 (leaf 153 of the scan)</a> &mdash; Public domain (printed 1726), via the Internet Archive (Public domain)
+      <span>Used in: Smith&#x27;s chapter (1726), The cave moves.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_memoirs-of-the-life-and-_smith-alexander-captai_1726">Smith 1726 title page (leaf 2 of the scan)</a> &mdash; Public domain (printed 1726), via the Internet Archive (Public domain)
+      <span>Used in: The earliest printing found, What stays open.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_memoirs-of-the-life-and-_smith-alexander-captai_1726">Smith 1726 contents leaf (Sawney Beane entry) (leaf 321 of the scan)</a> &mdash; Public domain (printed 1726), via the Internet Archive (Public domain)
+      <span>Used in: The earliest printing found, What stays open.</span></li>
+  </ol>
+  <p class="disclose">The two Blaeu maps (1654, from Timothy Pont&rsquo;s survey of about 1583-96) are CC BY
+  (<a href="https://creativecommons.org/licenses/by/4.0/">creativecommons.org/licenses/by/4.0</a>), reproduced with the permission of the
+  National Library of Scotland (<a href="https://maps.nls.uk/">maps.nls.uk</a>), and so is the faint chart behind this page, the Admiralty chart
+  &ldquo;Scotland: West Coast&rdquo; published in 1886. The National Library of Scotland&rsquo;s own page says &ldquo;CC-BY&rdquo; without a
+  version, and the 4.0 licence is the one linked here. The title pages and page images are scans on the Internet Archive of printings made before
+  1900, public domain by age. The Wikimedia Commons views are public-domain works credited as the Commons page states, and each carries its
+  credit on screen for the whole time it appears. The quotation cards are typeset text; the source of each is printed on the card and listed under
+  Sources.</p>
+
+  <h2>AI-generated illustrations</h2>
+  <p class="kicker">3 imagined scenes, each labelled on screen, with the prompt that made it</p>
+  <p class="disclose">Generated locally on 15/10/2026 with ComfyUI and Stable Diffusion XL base 1.0 (1344x768, upscaled 2x); each prompt and seed is listed below. They show imagined scenes, not photographs or period drawings.</p>
+  <ol class="src">
+    <li>A bare rocky headland and sea cliffs above a stormy grey sea, no building, no people &mdash; Illustration, AI-generated (SDXL base 1.0 via ComfyUI, seed 101)
+      <span>Prompt: eighteenth-century engraving of a bare rocky headland and sea cliffs above a grey stormy sea on the west coast of Scotland, empty, heavy stormy sky, no building, no people, ink and wash, fine cross-hatching, aged paper, sepia-grey monochrome, antique print, no text, no legible text, signage, captions or mastheads; plain undecorated objects; no real person&#x27;s likeness Used in: The cave moves.</span></li>
+    <li>A rutted moorland road at dusk with one horse and rider seen small from behind, nothing else &mdash; Illustration, AI-generated (SDXL base 1.0 via ComfyUI, seed 101)
+      <span>Prompt: eighteenth-century engraving of a lone horse and rider seen from far behind on a moorland road at dusk, one rider only, small in the distance, rider turned away, heather and hills, nothing else, ink and wash, fine cross-hatching, aged paper, sepia-grey monochrome, antique print, no text, no legible text, signage, captions or mastheads; plain undecorated objects; no real person&#x27;s likeness Used in: Johnson&#x27;s account (1734).</span></li>
+    <li>Pale sea cliffs with dark cave-like hollows at their foot, a shingle beach and a calm sea, no people &mdash; Illustration, AI-generated (SDXL base 1.0 via ComfyUI, seed 303)
+      <span>Prompt: eighteenth-century engraving of a view from the shingle beach of a sheer sea cliff face with a small dark cave entrance at its foot, a black cave mouth in the rock wall, low tide, wet rocks in front, empty, no people, ink and wash, fine cross-hatching, aged paper, sepia-grey monochrome, antique print, no text, no legible text, signage, captions or mastheads; plain undecorated objects; no real person&#x27;s likeness Used in: Smith&#x27;s chapter (1726).</span></li>
+  </ol>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> &mdash; written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <p class="credit">Not affiliated with or endorsed by the National Library of Scotland, the Internet Archive, or
+  any author or publication named.</p>
+  <small>Episode notes are corrected in place when a source changes; corrections are dated at the foot of
+  the entry they affect.</small>
+  </div>
+</div>
+<script>
+if ('IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  var lrowObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        lrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.art .lrow').forEach(function (row) { lrowObserver.observe(row); });
+}
+</script>
+</body></html>
