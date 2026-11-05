@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#182028">
+<title>Christie Cleek &mdash; Unsolved Scotland</title>
+<meta name="description" content="The earliest text found for Christie Cleek is a short passage of verse in a Scottish chronicle written about eighty years after the siege of Perth in 1339, and it cites its source as “they said”. The earliest text found for the butcher, the Grampian cave and the hook on a pole is a tale credited to Alexander Leighton, in print by the 1850s at the latest; any earlier printing is unknown.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+/* Cloned from 02-great-mull-air-mystery/index.html (live, kilted.scot site repo) per that
+   file's own instruction comment: copy, swap head/body/foot content, update the footer chart
+   credit for the new sheet. Architecture/selectors unchanged -- only content, the ground-ink
+   asset path, and the footer credit differ. Full CSS history: that file's own comments,
+   NOTES.md/DECISIONS.md (Unsolved Scotland project). */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#182028}
+
+.art{
+  --paper:#182028; --paper-hi:#232c36;
+  --ink:#f2efe8; --ink-2:rgba(242,239,232,.82); --dim:rgba(242,239,232,.62);
+  --mark:#e2705f; --mark-big:#e5806f; --rule:rgba(242,239,232,.18); --rule-hair:rgba(242,239,232,.1);
+  --thistle-l:#ab8fda;
+  color:var(--ink);
+  font:400 17.5px/1.68 Cambria,'Palatino Linotype','Book Antiqua',Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  background:var(--paper);
+}
+.art .col{max-width:68ch;margin:0 auto;padding:0 1.6rem}
+.art .wide{max-width:92ch;margin:0 auto;padding:0 1.6rem}
+
+.art .backlink{display:block;margin:0 0 .35rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  border-bottom:1px solid transparent}
+.art .backlink:hover,.art .backlink:focus-visible{border-bottom-color:currentColor}
+
+.art .cart{display:inline-block;border:3px double var(--rule);padding:.9rem 2.4rem;text-align:center}
+.art .cart .cart-title{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  font:400 max(17px,2.6cqw)/1.15 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.art .cart .cart-title img{width:max(17px,2.4cqw);height:auto;flex:none}
+.art .cart .cart-title b{color:var(--thistle-l);font-weight:400}
+.art .cart span.credit{display:block;margin-top:.4rem;padding-top:.35rem;border-top:1px solid var(--rule);
+  font:italic 400 max(11px,1.4cqw)/1 Cambria,serif;letter-spacing:.13em;color:var(--thistle-l)}
+
+.art .epline{margin:1.5rem 0 .5rem;font:600 .68rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.art h1{margin:0 0 .9rem;font:400 clamp(2rem,4.4vw,3rem)/1.08 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
+.art .stand{margin:0 0 1.5rem;font:italic 400 1.22rem/1.52 Cambria,serif;color:var(--ink-2);max-width:56ch}
+.art .stand em{font-style:normal;color:var(--mark)}
+.art .meta{display:flex;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.art .meta div{font:600 .66rem/1.9 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--dim)}
+.art .meta div b{display:block;font:400 .95rem/1.35 Cambria,serif;letter-spacing:0;text-transform:none;
+  color:var(--ink)}
+.art .meta a{color:var(--mark);text-decoration:none;border-bottom:1px solid currentColor}
+
+.art h2{margin:3.1rem 0 .2rem;font:400 1.62rem/1.22 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--ink)}
+.art h2+.kicker{margin:.1rem 0 1.1rem;font:600 .66rem/1.5 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--dim)}
+.art h3{margin:2.1rem 0 .35rem;font:400 1.12rem/1.3 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art p{margin:0 0 1.05rem}
+.art .lead{font-size:1.06rem}
+.art strong{font-weight:700;color:var(--ink)}
+.art .redline{color:var(--mark)}
+.art a{color:var(--mark)}
+.art .lead.drop:first-letter{float:left;font:400 3.45rem/.78 'Palatino Linotype','Book Antiqua',Georgia,serif;
+  color:var(--mark-big);margin:.28rem .38rem 0 0}
+
+.art .sound{list-style:none;margin:1.1rem 0 1.4rem;padding:0;
+  border-top:1px solid var(--rule-hair);border-bottom:1px solid var(--rule-hair)}
+.art .sound li{display:grid;grid-template-columns:6.4rem 1fr;gap:0 1.1rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--rule-hair)}
+.art .sound li:last-child{border-bottom:0}
+.art .sound .fig{font:600 .95rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.06em;
+  color:var(--mark);text-align:right;font-variant-numeric:tabular-nums}
+.art .sound .what{font-size:1rem;color:var(--ink)}
+
+.art .ledger{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.5rem 0 2.2rem;border-top:2px solid var(--ink)}
+.art .lrow{
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1)}
+.has-motion .art .lrow{opacity:0;transform:translateY(14px);filter:blur(3px)}
+.has-motion .art .lrow.is-visible{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion: reduce){
+  .art *{transition:none!important;animation-duration:.01ms!important}
+  .has-motion .art .lrow{opacity:1;transform:none;filter:none}
+}
+.art .lrow td{padding:1.15rem 1.5rem 1.15rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.art .lrow td:last-child{padding-right:0}
+.art .lrow .said{font:italic 400 1rem/1.5 Cambria,serif;color:var(--dim);position:relative}
+.art .lrow .said s{text-decoration:none;background-image:linear-gradient(transparent 52%,var(--mark) 52%,var(--mark) 57%,transparent 57%)}
+.art .lrow .shown{font-size:1rem;line-height:1.52}
+.art .lrow .shown cite{display:block;margin-top:.4rem;font:italic 400 .82rem/1.4 Cambria,serif;color:var(--dim)}
+.art .lrow td.verdict{text-align:center;font:600 .6rem/1.35 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--mark);
+  border-top:1px solid var(--mark);border-bottom:1px solid var(--mark);padding:.3rem .2rem;vertical-align:middle}
+.art .lrow td.verdict.true{color:var(--ink-2);border-color:var(--ink-2)}
+.art .lhead th{font:600 .63rem/1.4 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--dim);text-align:left;font-weight:600;padding:.5rem 1.5rem .55rem 0}
+.art .lhead th:nth-child(2){text-align:center}
+.art .lhead th:last-child{padding-right:0}
+
+.art .dates{width:100%;border-collapse:collapse;margin:1.2rem 0 1.8rem}
+.art .dates td,.art .dates th{padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule-hair);vertical-align:top;
+  font-size:.98rem;line-height:1.5;color:var(--ink);text-align:left;font-weight:400}
+.art .dates th{width:9.5rem;white-space:nowrap;
+  font:600 .68rem/1.85 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--mark)}
+.art .dates tr:last-child td,.art .dates tr:last-child th{border-bottom:0}
+
+.art ol.src{list-style:none;counter-reset:s;margin:1.1rem 0 1.6rem;padding:0}
+.art ol.src li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;
+  border-bottom:1px solid var(--rule-hair);font-size:.95rem;line-height:1.55}
+.art ol.src li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font:600 .68rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;letter-spacing:.1em;color:var(--dim)}
+.art ol.src li span{display:block;color:var(--dim);font-style:italic;font-size:.86rem;margin-top:.15rem}
+.art ol.src a{word-break:break-word}
+
+.art .shelf{margin:1.2rem 0 1rem;border-top:1px solid var(--rule)}
+.art .shelf .bk{display:grid;grid-template-columns:2.2rem 1fr;gap:0 1.2rem;padding:.95rem 0;
+  border-bottom:1px solid var(--rule)}
+.art .shelf .spine{border-left:3px solid var(--mark);height:100%;min-height:2.6rem}
+.art .shelf .bk b{display:block;font:400 1.06rem/1.35 'Palatino Linotype','Book Antiqua',Georgia,serif}
+.art .shelf .bk i{display:block;font:italic 400 .88rem/1.5 Cambria,serif;color:var(--dim);margin-top:.12rem}
+.art .shelf .bk .go{margin-top:.45rem;font:600 .64rem/1 Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mark);text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;
+  background-position:0 100%;background-repeat:no-repeat;padding-bottom:.18rem;display:inline-block;
+  transition:color .18s cubic-bezier(.22,1,.36,1),background-size .18s cubic-bezier(.22,1,.36,1),letter-spacing .18s cubic-bezier(.22,1,.36,1)}
+.art .shelf .bk .go:hover,.art .shelf .bk .go:focus-visible{color:var(--mark-big);background-size:100% 2px;letter-spacing:.23em}
+.art .disclose{font:italic 400 .86rem/1.55 Cambria,serif;color:var(--dim);margin:.4rem 0 0;
+  padding-left:1rem;border-left:1px solid var(--rule)}
+
+.art .foot{margin-top:2.6rem;padding:1.5rem 0 2.6rem;border-top:1px solid var(--rule)}
+.art .foot .credit{font:italic 400 1rem/1.6 Cambria,serif;color:var(--ink-2);max-width:52ch;margin:0 0 .9rem}
+.art .foot .credit b{font-style:normal;font-weight:400;letter-spacing:.02em}
+.art .foot small{display:block;font:400 .8rem/1.6 Cambria,serif;color:var(--dim);max-width:64ch}
+.art a:focus-visible,.art .go:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+
+.art .band{position:relative;height:clamp(250px,10.4cqw,400px);container-type:inline-size}
+.art .band .cart{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:2}
+.art .head{padding-top:2.4rem}
+.art .body{padding-bottom:.5rem}
+
+.art{position:relative;isolation:isolate}
+.art:after{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-color:var(--paper)}
+.art .ground-ink{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url('/assets/unsolved-scotland/cameron-perth-bridge-1889-ink.png') center/cover fixed no-repeat;
+  filter:invert(.92) sepia(.14) saturate(.6);opacity:.1}
+.art .lrow .said{color:var(--dim)}
+
+@media (max-width:820px){
+  .art .ledger,.art .ledger tbody{display:block}
+  .art .lhead{display:none}
+  .art .lrow{display:block;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+  .art .lrow:last-child{border-bottom:0}
+  .art .lrow td{display:block;padding:.35rem 0;border-bottom:0}
+  .art .lrow td.verdict{display:inline-block;text-align:left;padding:.3rem .9rem;margin:.4rem 0}
+  .art .sound li{grid-template-columns:4.6rem 1fr}
+  .art .band{height:190px}
+}
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Christie Cleek: How a Line of Hearsay Became a Legend",
+  "description": "The earliest text found for Christie Cleek is a short passage of verse in a Scottish chronicle written about eighty years after the siege of Perth in 1339, and it cites its source as “they said”. The earliest text found for the butcher, the Grampian cave and the hook on a pole is a tale credited to Alexander Leighton, in print by the 1850s at the latest; any earlier printing is unknown.",
+  "thumbnailUrl": "https://img.youtube.com/vi/X9z-0JY3cNw/maxresdefault.jpg",
+  "uploadDate": "2026-10-29",
+  "duration": "PT5M5S",
+  "embedUrl": "https://www.youtube.com/embed/X9z-0JY3cNw",
+  "contentUrl": "https://youtu.be/X9z-0JY3cNw",
+  "publisher": {"@type": "Organization", "name": "kilted.scot", "url": "https://kilted.scot/"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Unsolved Scotland", "url": "https://kilted.scot/unsolved-scotland/"}
+}
+</script>
+<script data-goatcounter="https://kiltedscot.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head><body>
+<div class="art">
+  <div class="ground-ink"></div>
+  <div class="band"><div class="cart">
+    <div class="cart-title"><img src="/assets/unsolved-scotland/mark.png" alt="">Unsolved <b>Scotland</b></div>
+    <span class="credit">a kilted.scot production</span>
+  </div></div>
+  <div class="head col">
+    <a class="backlink" href="/unsolved-scotland/">&larr; All cases</a>
+    <p class="epline">Episode Nine &middot; Perth and the Tay &middot; around 1340</p>
+    <h1>Christie Cleek</h1>
+    <p class="stand">A man near Perth who, in the lines, killed children and women (one printing adds young men) and ate them: that, with his name, is the substance of the earliest text found,
+    a short passage of verse that cites its source as &ldquo;they said.&rdquo; <em>The earliest text found for the butcher, the
+    Grampian cave and the hook on a pole is a tale credited to Alexander Leighton, in print by the 1850s at the latest; any earlier printing is unknown.</em></p>
+    <div class="meta">
+      <div>Status<b>Published</b></div>
+      <div>Running time<b>5 min</b></div>
+      <div>Watch<b><a href="https://youtu.be/X9z-0JY3cNw">YouTube</a></b></div>
+      <div>Sources<b>15 cited</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+  <div class="col">
+  <h2>The real record</h2>
+  <p class="kicker">What is actually documented, and what is not</p>
+  <p class="lead drop">In the summer of 1339 the Scots besieged Perth, a town held for Edward Balliol. The Guardian of Scotland led
+  the besiegers, and the man holding Perth for Balliol surrendered the town. Walter Bower gives the date as 17 August. Andrew of
+  Wyntoun and Bower both describe the district afterwards as ruined and emptied of people, and each reports many deaths from hunger.
+  Wyntoun has deer coming close to the town, and Bower has beasts hunted around it; Bower adds that common people were found dead in
+  pits.</p>
+  <p>About eighty years later, shortly after 1420, Wyntoun finished his history. His lines on the carl, an old word for a
+  countryman, come in the passage on the siege and its aftermath, and run to some eight lines. They tell of a man who lived near
+  there, as people told it, who killed children and women wherever he could catch them and ate the victims. His name was Christie
+  Cleek, and he kept up that life while the country lay empty of people. The passage gives him no trade or wife, never mentions a
+  capture, and places him only in the neighbourhood of the town. It cites its source in two words, &ldquo;they said,&rdquo; and
+  names no one.</p>
+
+  <ul class="sound">
+    <li><span class="fig">about 8 lines</span><span class="what">the whole of the earliest text, in Wyntoun, written shortly after 1420</span></li>
+    <li><span class="fig">about 80 years</span><span class="what">between the siege and that text</span></li>
+    <li><span class="fig">1461</span><span class="what">the Pluscarden chronicle, the only text here that gives an end; described as largely a reworking of Bower</span></li>
+    <li><span class="fig">1850s at the latest</span><span class="what">when the tale with the butcher, the cave and the hook on a pole was in print; any earlier printing is unknown</span></li>
+  </ul>
+
+  <p>The next text found is Bower&rsquo;s, begun in 1440. His sentence is short: near Perth a sturdy countryman named Christie
+  Cleek lay in hiding with a woman, and they waited for women, children and young people and strangled them like wolves. In the
+  text read for the episode, Bower gives no ending. The Pluscarden chronicle dates from 1461 and largely reworks Bower, so it may
+  not be a third witness. Its entry reports a rumour that some people took up quarters in caves and ate children and women, names
+  Cleek, with an old woman, as one example, and places this in the year after Perth was retaken, which would be around 1340. It
+  ends the story, in translation: &ldquo;in the end they died, being publicly handed over to justice and put to an ignominious
+  death.&rdquo; The word &ldquo;they&rdquo; is unclear: it may mean Cleek and the old woman, or the people in the caves in general.
+  So Wyntoun gives a lone man, Bower adds a woman, and only the Pluscarden entry gives an end.</p>
+  <p>The earliest text found for the butcher, the Grampian cave and the hook is a tale credited to Alexander Leighton, in print by
+  the 1850s at the latest. In the tale the man is Andrew Christie, a butcher originally from Perth, who lives with other destitute
+  people in a cave near the Grampian Hills. A hook fixed on a pole gives him his name. An armed force is sent and several are
+  caught, but &ldquo;Christie and some others escaped, and were never captured,&rdquo; which differs from Pluscarden. The tale
+  counts the bones of no fewer than thirty travellers and claims the name has frightened children for five hundred years, without a
+  source. Cleek is an old word for a hook; whether the name came first and the hook was fitted to it, the sources seen do not
+  settle. Wyntoun and Bower both call him a countryman and Pluscarden names no trade, and a Grampian cave and a hook on a pole are
+  missing from all three. What they share is a man, victims and a name; the butcher, the pole and the escape belong to the tale.</p>
+  <p>The historian Richard Oram calls Bower&rsquo;s Cleek &ldquo;probably mythical.&rdquo; He also writes that tales of cannibalism in
+  famines recur, with no trial papers behind them. The famine itself rests on Wyntoun and Bower: no independent evidence of one has
+  been found, though the search was limited. What remains is a story set down long afterwards, by writers who describe a famine
+  near Perth. What happened in those years, if anything, is unknown. Was there a man at all? The record does not say.</p>
+  </div>
+
+  <div class="wide">
+  <h2>The story says &middot; the record shows</h2>
+  <p class="kicker">Each claim, and where it actually came from</p>
+  <table class="ledger">
+    <colgroup><col><col style="width:8.6rem"><col></colgroup>
+    <thead>
+      <tr class="lhead"><th scope="col">As it circulates</th><th scope="col">Verdict</th><th scope="col">In the record</th></tr>
+    </thead>
+    <tbody>
+      <tr class="lrow">
+        <td class="said"><s>He was a butcher from Perth.</s></td>
+        <td class="verdict">First found in the tale</td>
+        <td class="shown">Wyntoun and Bower call him a countryman and Pluscarden names no trade. The butcher called Andrew Christie
+        is in the tale credited to Leighton, in print by the 1850s at the latest. <cite>Wyntoun; Bower; Pluscarden; Leighton</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>He lived in a Grampian cave.</s></td>
+        <td class="verdict">First found in the tale</td>
+        <td class="shown">Wyntoun and Bower place him only near the town. Pluscarden has cave-dwellers in general, without a
+        place; the Grampian cave is in the tale. <cite>Wyntoun; Bower; Pluscarden; Leighton</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>He caught travellers with a hook on a pole.</s></td>
+        <td class="verdict">The tale&rsquo;s version</td>
+        <td class="shown">The hook on a pole is in the tale, and gives him his name there. Cleek is an old word for a hook, and an
+        editor of 1872 suspected the name was fitted to the way of life; which came first the sources seen do not settle.
+        <cite>Leighton; Wyntoun, editor&rsquo;s note</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>He was never caught.</s></td>
+        <td class="verdict">Different endings</td>
+        <td class="shown">Wyntoun gives no end and neither does Bower in the text read. Pluscarden says &ldquo;they&rdquo; were
+        handed to justice and put to death, with an unclear subject. &ldquo;Never captured&rdquo; is the tale&rsquo;s own line.
+        <cite>Wyntoun; Bower; Pluscarden; Leighton</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>He was a blacksmith.</s></td>
+        <td class="verdict">No source seen</td>
+        <td class="shown">The chronicles say countryman; the tale says butcher. No source read for the episode calls him a
+        blacksmith. A search negative, not proof. <cite>Wyntoun; Bower; Pluscarden; Leighton</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>It happened in a famine at Perth in 1339.</s></td>
+        <td class="verdict">Two writers, no independent record</td>
+        <td class="shown">Wyntoun and Bower describe a ruined district and many deaths from hunger. No independent evidence of a
+        famine has been found, though the search was limited. No source gives a firm year for the Cleek passage; Pluscarden
+        points to the year after Perth was retaken, around 1340. <cite>Wyntoun; Bower; Pluscarden; Oram; Stirling table</cite></td>
+      </tr>
+
+      <tr class="lrow">
+        <td class="said"><s>It is a documented medieval crime.</s></td>
+        <td class="verdict">Hearsay, written down later</td>
+        <td class="shown">The earliest text is about eighty years after the siege and cites &ldquo;they said.&rdquo; Oram calls
+        Bower&rsquo;s Cleek &ldquo;probably mythical.&rdquo; <cite>Wyntoun; Oram</cite></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="disclose">The pictures do not show the events. The two Slezer engravings of 1693 show Dundee and Dunkeld, not Perth.
+  The Pont maps date from about 1583 to 1596 and the Blaeu atlas from 1654, and Perth itself is not drawn on the Pont sheets used. The
+  1889 etching of Perth Bridge shows a bridge built in 1771. The scribe, the Scottish men-at-arms, the stags and hounds, and the
+  threshing countrymen are period pictures from Burgundy, France and England, shown as generic scenes and captioned as such. The page
+  images of Wyntoun, Pluscarden and the tale are small insets to show where each quotation sits; the words themselves are typeset on
+  the cards. The Wyntoun page is from the 1872 edition and the Pluscarden page from an 1880 translation. 4 images are AI-generated
+  illustrations of imagined scenes and are labelled on screen.</p>
+  </div>
+
+  <div class="col">
+  <h2>Dated</h2>
+  <p class="kicker">Every entry below is fixed by a source; anything approximate says so</p>
+  <table class="dates">
+    <tr><th scope="row">Summer &ndash; 17 Aug 1339</th><td>The Scots besiege Perth, held for Edward Balliol; the town is surrendered. Bower gives 17 August.</td></tr>
+    <tr><th scope="row">Around 1340</th><td>The year Pluscarden places the entry (&ldquo;the year after&rdquo; Perth was retaken; the year is an inference).</td></tr>
+    <tr><th scope="row">Shortly after 1420</th><td>Wyntoun finishes his history, with the earliest text on Christie Cleek: about eight lines, as people told it.</td></tr>
+    <tr><th scope="row">From 1440</th><td>Bower begins the Scotichronicon; his short sentence adds a woman.</td></tr>
+    <tr><th scope="row">1461</th><td>The Pluscarden chronicle, largely a reworking of Bower, adds an ending whose subject is unclear.</td></tr>
+    <tr><th scope="row">1850s at the latest</th><td>The tale credited to Leighton is in print (a copy catalogued with a guessed date of 1857); any earlier printing is unknown.</td></tr>
+  </table>
+  </div>
+
+  <div class="col">
+  <h2>Sources</h2>
+  <p class="kicker">Everything the video asserts, and where it came from</p>
+  <ol class="src">
+    <li><a href="https://archive.org/details/orygynalecronyki02andruoft">Andrew of Wyntoun, Orygynale Cronykil, ed. David Laing, vol. 2 (1872), Bk VIII, p.455</a>
+      <span>The earliest text: the carl, the name and the words “thai sayde”, as printed on screen. Source of: the passage of about eight lines; the man who lived near there, as people told it; that it gives no trade, wife or capture and places him only near the town; the deer coming close to the town and the country left empty. In this printing the victims also include young men, a variant the video does not mention.</span></li>
+    <li><a href="https://archive.org/details/originalchronic00andrgoog">Wyntoun, Original Chronicle, ed. F. J. Amours (Scottish Text Society), vol. 6, Cottonian text, ll.5561-5578</a>
+      <span>The other edition of the same passage, read for comparison; the video does not name either edition. The line about the carl is not secure across the manuscripts.</span></li>
+    <li><a href="https://archive.org/details/originalchronic04neilgoog">Wyntoun, ed. Amours (Scottish Text Society), vol. 1, introduction</a>
+      <span>Source of the date: the chronicle was completed shortly after 1420. Read in an archive scan; cited here at second hand through the research notes.</span></li>
+    <li><a href="https://archive.org/details/orygynalecronyki03andruoft">Wyntoun, ed. Laing, vol. 3 (1872), p.300 note and glossary</a>
+      <span>Source of “Klek” as an old word for a hook, and of the suspicion that the name was fitted to the way of life. Whether the name or the hook came first is not settled.</span></li>
+    <li><a href="https://archive.org/details/bim_eighteenth-century_joannis-de-fordun-scotic_fordun-john_1759_2">Walter Bower, Scotichronicon, in Goodall’s edition (1759), vol. 2, Bk XIII</a>
+      <span>The Latin text read for the episode (“the text read here”). Source of: the sturdy countryman, the woman, women, children and young people strangled like wolves; no ending in this text; the 17 August surrender; the district ruined and empty; the dead in pits. The modern edition by Watt was not read, so “no ending” is as far as the claim goes.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Scotichronicon">Scotichronicon (Wikipedia, index only)</a>
+      <span>Source of the dating of Bower, begun in 1440. Single source.</span></li>
+    <li><a href="https://archive.org/details/liberpluscardens02plusuoft">The Book of Pluscarden (Liber Pluscardensis), English translation (Historians of Scotland, 1880), Bk IX ch. XXXVII, p.219</a>
+      <span>Source of: the entry that reports a rumour of people in caves; Cleek with an old woman as an example; the year after Perth was retaken; and the ending quoted on screen. The Latin (Skene, 1877) was read alongside; a text and its own translation count as one source.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Pluscarden_Abbey">Pluscarden Abbey (Wikipedia, index only)</a>
+      <span>Used for one point only: that the chronicle of 1461 borrows heavily from Bower. Single source, so the video says it largely reworks Bower and may not be a third witness.</span></li>
+    <li><a href="https://www.gutenberg.org/files/32956/32956-h/32956-h.htm">“Christie of the Cleek”, in Wilson’s Tales of the Borders vol. IX (Project Gutenberg #32956, 1885 reissue)</a>
+      <span>A historical tale credited to Alexander Leighton. Source of: Andrew Christie the butcher from Perth; the Grampian cave; the hook on a pole; the escape (“never captured”); the bones of thirty travellers; the “five hundred years”. It is fiction and not a source for the fourteenth century.</span></li>
+    <li><a href="https://archive.org/details/wilsonstalesofbo05wils">Wilson’s Tales of the Borders and of Scotland (Nimmo), Internet Archive copy catalogued [1857]</a>
+      <span>The page images on screen (pp.278-279). Source of: the tale being in print by the 1850s at the latest. The date is a bracketed, conjectural catalogue date, and the first weekly issues (1834-40) were not found, so any earlier printing is unknown.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Alexander_Leighton_(writer)">Alexander Leighton (writer) (Wikipedia, summary)</a>
+      <span>Used as an index to the tale’s authorship; Wikipedia credits Wilson and Gutenberg credits Leighton, which is why the video says “credited to”.</span></li>
+    <li><a href="http://www.kingjames1ofscotland.co.uk/publications/food-security-dearth-and-famine-in-medieval-scotland/">Richard Oram, “Food Security: Dearth and Famine in Medieval Scotland” (Perth Charterhouse Project essay)</a>
+      <span>Read in full. Source of: “probably mythical”, and the separate remark that such cannibalism tales recur with no trial records.</span></li>
+    <li><a href="https://storre.stir.ac.uk/bitstream/1893/21981/2/Table%201.pdf">University of Stirling, table of weather and subsistence events (summary only)</a>
+      <span>Lists no Scottish event for spring 1339 to summer 1348. A weather and subsistence table, not a famine register, so it supports only “no independent evidence found, in a limited search”.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Siege_of_Perth_(1339)">Siege of Perth (1339) (Wikipedia; prose read, secondary)</a>
+      <span>Used to confirm the 17 August surrender date that Bower gives, and the Guardian of Scotland leading the besiegers. Secondary only.</span></li>
+    <li><a href="https://en.wikipedia.org/wiki/Christie_Cleek">Christie Cleek (Wikipedia, index only)</a>
+      <span>Used as an index to the citations and spellings, never as a basis.</span></li>
+  </ol>
+
+  <h2>Further reading</h2>
+  <p class="kicker">Where to go next, and what it costs you</p>
+  <!-- Affiliate log (internal, not shown): Bower vol 7 and the Crofton and Watson books = print, affiliate yes (UNCHECKED on Amazon UK); Jordan = print, affiliate yes (UNCHECKED). All other items below are free online, affiliate no. No link below is an affiliate link. -->
+  <div class="shelf">
+    <div class="bk" data-affiliate="no"><div class="spine"></div><div>
+      <b>Wyntoun, Orygynale Cronykil, ed. Laing (1872)</b>
+      <i>Free full text. The earliest text, about eight lines; the Amours edition (Scottish Text Society) has the Cottonian wording. Two editions of one work, so read both.</i> <a class="go" href="https://archive.org/details/orygynalecronyki02andruoft">Read it</a></div></div>
+    <div class="bk" data-affiliate="no"><div class="spine"></div><div>
+      <b>The Book of Pluscarden (Liber Pluscardensis), Skene and Buchanan</b>
+      <i>Free full text. The 1461 entry that adds an ending; read the Latin beside the translation.</i> <a class="go" href="https://archive.org/details/liberpluscardens02plusuoft">Read it</a></div></div>
+    <div class="bk" data-affiliate="yes-unchecked"><div class="spine"></div><div>
+      <b>Walter Bower, Scotichronicon, vol. 7, Books XIII-XIV, ed. Scott and Watt (1996)</b>
+      <i>The standard modern edition, in print, with the Latin and an English translation. It was not read for the episode, so it may differ from the 1759 text on the wording and on whether an ending is given.</i> <a class="go" href="https://www.brownsbfs.co.uk/Product/Bower-Walter/Scotichronicon-Volume-7-Books-XIII-XIV/9781788855501">Find it</a></div></div>
+    <div class="bk" data-affiliate="no"><div class="spine"></div><div>
+      <b>Richard Oram, &ldquo;Food Security: Dearth and Famine in Medieval Scotland&rdquo;</b>
+      <i>Free essay, including Oram&rsquo;s view of Cleek as probably mythical and his translation of Bower.</i> <a class="go" href="http://www.kingjames1ofscotland.co.uk/publications/food-security-dearth-and-famine-in-medieval-scotland/">Read it</a></div></div>
+    <div class="bk" data-affiliate="no"><div class="spine"></div><div>
+      <b>&ldquo;Christie of the Cleek&rdquo;, in Wilson&rsquo;s Tales of the Borders vol. IX</b>
+      <i>Free full text. The nineteenth-century tale behind most modern detail. It is fiction.</i> <a class="go" href="https://www.gutenberg.org/files/32956/32956-h/32956-h.htm">Read it</a></div></div>
+  </div>
+
+  <h2>Sources and further reading not covered in the video</h2>
+  <p class="kicker">Read for the research, then cut from the narration; listed here so nothing is implied that the video does not say</p>
+  <p class="disclose">The video does not name any edition or editor, and does not cover the writers below. Each was consulted while the episode was
+  researched; none of the statements here is made in the video.</p>
+  <ol class="src">
+    <li><a href="https://archive.org/details/firstevolumeofch01wolf">Holinshed, Chronicles, vol. 1 (1577), archive.org scan</a>
+      <span>Gives the same story, hedged &ldquo;as is said&rdquo;, with a wolf comparison and a loose date. Read from OCR of black-letter, so some words are uncertain. Cut from the video.</span></li>
+    <li><a href="https://archive.org/details/historyofscotti02thom">Thomson, History of the Scottish People (1893)</a>
+      <span>Describes a strong savage among the mountains named from the iron hook. Cut from the video.</span></li>
+    <li><a href="https://archive.org/details/proverbsproverbi00chevuoft">Andrew Cheviot, Proverbs, Proverbial Expressions and Popular Rhymes of Scotland (1896), p.76</a>
+      <span>A shortened near-copy of the tale, adding a prosperous merchant in Dumfries, &ldquo;it is said&rdquo;; not an independent source. Cut from the video.</span></li>
+    <li><a href="https://www.dsl.ac.uk/entry/snd/snd00088353">Scottish National Dictionary, &ldquo;Christie Cleek&rdquo;</a>
+      <span>Lists the name as a bugbear used to frighten children, with a single dated quotation from Cheviot, 1896. Cut from the video.</span></li>
+    <li><a href="https://theconversation.com/the-enduring-mystery-of-scotlands-medieval-cannibals-289249">Gordon McKelvie, &ldquo;The enduring mystery of Scotland&rsquo;s medieval cannibals&rdquo; (The Conversation, 17/08/2026)</a>
+      <span>Free, short. Says no reference survives from the years he was supposedly active and suggests a lost chronicle may once have told the tale. It places the execution wording in Bower; in the 1759 text it is in Pluscarden. Cut from the video.</span></li>
+    <li><a href="https://archive.org/details/exchequerrollsof0001john">The Exchequer Rolls of Scotland, vol. 1, preface by Stuart (1878)</a>
+      <span>Royal receipts of about &pound;3,774 in 1331 against about &pound;1,198 by 1342, read in the research notes as pointing to war exhaustion more than a dated famine. Cited at second hand, not re-read. Cut from the video.</span></li>
+    <li><a href="https://undiscoveredscotland.co.uk/usbiography/b/alexanderbean.html">Undiscovered Scotland, Alexander (&ldquo;Sawney&rdquo;) Bean (summary only)</a>
+      <span>A passing remark that another tale of the kind may share an origin. Not a view this episode adopts; cut from the video.</span></li>
+  </ol>
+  <div class="shelf">
+    <div class="bk" data-affiliate="yes-unchecked"><div class="spine"></div><div>
+      <b>Ian Crofton, Scottish History Without the Boring Bits (Birlinn, 2015)</b>
+      <i>Cited by Wikipedia for Cleek; not read. In print.</i></div></div>
+    <div class="bk" data-affiliate="yes-unchecked"><div class="spine"></div><div>
+      <b>Craig Watson, The Bogeyman Chronicles (2016)</b>
+      <i>A novel, not history. Publisher not confirmed.</i></div></div>
+    <div class="bk" data-affiliate="yes-unchecked"><div class="spine"></div><div>
+      <b>William Chester Jordan, The Great Famine (Princeton, 1996)</b>
+      <i>The standard book on the famine of 1315-17; not read, and thin on Scotland.</i></div></div>
+  </div>
+
+  <h2>Image credits</h2>
+  <p class="kicker">Every real image in the episode, its creator, and its licence (14 files)</p>
+  <ol class="src">
+    <li><a href="https://commons.wikimedia.org/wiki/File:David_Young_Cameron_(British,_1865-1945),_Messrs._Seeley_^_Co._in_"The_Portfolio,"_vol._XX,_July_1889_-_Perth_Bridge_-_1998.333_-_Cleveland_Museum_of_Art.jpg">Perth Bridge, 1889 etching (period artwork)</a> &mdash; David Young Cameron, public domain, Cleveland Museum of Art via Wikimedia Commons (Public domain)
+      <span>Used in: What stays open.</span></li>
+    <li><a href="https://archive.org/details/liberpluscardens02plusuoft">Page 219 of The Book of Pluscarden, English transl. (Skene 1880), Bk IX ch. XXXVII end</a> &mdash; The Book of Pluscarden, transl. Skene (1880), via Internet Archive (Public domain)
+      <span>Used in: Bower, and Pluscarden.</span></li>
+    <li><a href="https://archive.org/details/wilsonstalesofbo05wils">Page 278 of Wilson&#x27;s Tales of the Borders (IA copy catalogued [1857]): &#x27;Andrew Christie, a butcher, originally from Perth&#x27;</a> &mdash; Wilson&#x27;s Tales of the Borders (IA copy catalogued 1857), via Internet Archive (Public domain)
+      <span>Used in: A tale credited to Leighton, What stays open.</span></li>
+    <li><a href="https://archive.org/details/wilsonstalesofbo05wils">Page 279 of Wilson&#x27;s Tales of the Borders, headed &#x27;Christie of the Cleek&#x27;: hook, &#x27;never captured&#x27;, &#x27;thirty travellers&#x27;</a> &mdash; Wilson&#x27;s Tales of the Borders (IA copy catalogued 1857), via Internet Archive (Public domain)
+      <span>Used in: A tale credited to Leighton.</span></li>
+    <li><a href="https://archive.org/details/orygynalecronyki02andruoft">Page 455 of Laing&#x27;s Wyntoun vol 2 (1872): the Christie Klek lines, ll.5571-5578</a> &mdash; Andrew of Wyntoun, Orygynale Cronykil, ed. Laing (1872), via Internet Archive (Public domain)
+      <span>Used in: Wyntoun’s eight lines, A tale credited to Leighton.</span></li>
+    <li><a href="https://maps.nls.uk/atlas/blaeu/browse/118">Blaeu Atlas Novus 1654 (Gordon of Straloch): &#x27;Scotiae provinciae mediterraneae inter Taum flumen et Vararis aestuarium: Braid-Allaban, Athol</a> &mdash; Blaeu, Atlas Novus (1654). CC-BY (NLS), reproduced with the permission of the National Library of Scotland (CC BY (NLS)) &mdash; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://maps.nls.uk/">NLS Map Images</a>
+      <span>Used in: The rumour, What stays open.</span></li>
+    <li><a href="https://maps.nls.uk/rec/281">Pont 21 (Lower Glen Almond; Strathearn), manuscript c.1583-96, NLS Adv.MS.70.2.9</a> &mdash; Timothy Pont, c.1583-96 (NLS Adv.MS.70.2.9). CC-BY (NLS), reproduced with the permission of the National Library of Scotland (CC BY (NLS)) &mdash; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://maps.nls.uk/">NLS Map Images</a>
+      <span>Used in: Wyntoun’s eight lines, Bower, and Pluscarden.</span></li>
+    <li><a href="https://maps.nls.uk/rec/282">Pont 22 front (South Strathearn; Glen Almond), manuscript c.1583-96</a> &mdash; Timothy Pont, c.1583-96 (NLS Adv.MS.70.2.9). CC-BY (NLS), reproduced with the permission of the National Library of Scotland (CC BY (NLS)) &mdash; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://maps.nls.uk/">NLS Map Images</a>
+      <span>Used in: Perth, 1339.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Scottish_soldiers_in_the_14thC.jpg">Scottish soldiers under a lion banner, English herald approaching</a> &mdash; Loyset Liedet, Chroniques de Froissart (BnF, via Gallica), public domain, via Wikimedia Commons. (Public domain)
+      <span>Used in: Perth, 1339.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Two_men_threshing_sheaf_-_Luttrell_Psalter_%28c.1325-1335%29%2C_f.74v_-_BL_Add_MS_42130.jpg">Two men threshing a sheaf with flails</a> &mdash; Luttrell Psalter, British Library Add MS 42130 f.74v (c.1325-1335), CC0, via Wikimedia Commons. (CC0)
+      <span>Used in: What no source gives.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Jean_Mi%C3%A9lot%2C_Brussels.jpg">Jean Miélot, scribe, at his desk</a> &mdash; Brussels, Royal Library MS 9278 f.10r, 15th century, public domain, via Wikimedia Commons. (Public domain)
+      <span>Used in: The rumour, Wyntoun’s eight lines.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Livres_du_Roy_Modus_et_de_la_royne_Ratio_-_KBR_10218-19_-_051b.png">Stag and hound with a town in the distance</a> &mdash; Livres du Roy Modus et de la royne Ratio, KBR 10218-19, public domain, via Wikimedia Commons. (Public domain)
+      <span>Used in: Perth, 1339.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Dundee1693_JohnSlezer2.jpg">Dundee from the east, 1693 engraving</a> &mdash; John Slezer, Theatrum Scotiae (1693), public domain, via Wikimedia Commons. (Public domain)
+      <span>Used in: The rumour, What stays open.</span></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:The_Prospect_of_the_Town_of_Dunkeld_%28cropped%29.jpg">Dunkeld and the River Tay, 1693 engraving</a> &mdash; John Slezer, Theatrum Scotiae (1693), public domain, via Wikimedia Commons. (Public domain)
+      <span>Used in: Perth, 1339, A tale credited to Leighton.</span></li>
+  </ol>
+  <p class="disclose">Pictures from Wikimedia Commons are used under their stated licences and credited on screen for the whole time
+  they appear. The Pont and Blaeu maps are reproduced with the permission of the National Library of Scotland (CC BY (NLS)). Period
+  pictures and book pages are public domain by age; the Luttrell Psalter threshing scene is CC0. The quotation cards are typeset
+  text; the source of each is printed on the card and listed under Sources.</p>
+
+  <h2>AI-generated illustrations</h2>
+  <p class="kicker">4 imagined scenes, each labelled on screen, with the prompt that made it</p>
+  <p class="disclose">Generated locally in October 2026 (ComfyUI, Stable Diffusion XL base 1.0 as logged in asset-manifest-c.json; 1344x768, upscaled 2x by ffmpeg lanczos); each prompt and seed is listed below. They show imagined scenes, not records of any event, and no figure in them is a portrait of a person. The on-screen label reads &ldquo;AI-generated illustration, not a period drawing&rdquo;.</p>
+  <ol class="src">
+    <li>Open book, several loose sheets under it and beside it, a feather quill, a small green inkwell, on a wood-and-parchment ground &mdash; AI-generated illustration, not a period drawing (SDXL base 1.0, seed 403)
+      <span>Prompt: medieval manuscript marginal drawing, pen and brown ink outline with flat muted wash in ochre umber and faded green, aged cream parchment, simple flat perspective, two big open books lying side by side on a wooden table, pages full of faint wavy lines, a goose feather quill standing in a small pot, a loose pile of paper sheets on the right, no text, no lettering, no border, no frame Used in: A tale credited to Leighton, What stays open.</span></li>
+    <li>Wide moor of green and ochre fields under a big pale sky &mdash; AI-generated illustration, not a period drawing (SDXL base 1.0, seed 301)
+      <span>Prompt: medieval manuscript marginal drawing, pen and brown ink outline with flat muted wash in ochre umber and faded green, aged cream parchment, simple flat perspective, a lone small figure in a plain cloak seen from behind far away walking across an open moor towards a birch wood, wide empty landscape, no text, no lettering, no border, no frame Used in: The rumour, Bower, and Pluscarden.</span></li>
+    <li>Large rock overhang with two dark openings (a larger one at far right, x~0.8) above a grass shelf, valleys behind &mdash; AI-generated illustration, not a period drawing (SDXL base 1.0, seed 403)
+      <span>Prompt: medieval manuscript marginal drawing, pen and brown ink outline with flat muted wash in ochre umber and faded green, aged cream parchment, simple flat perspective, a black cave entrance, an arched dark hole in the base of a steep grassy hillside, bracken and rocks around it, empty ground, the cave opening clearly visible in the centre, no text, no lettering, no border, no frame Used in: Bower, and Pluscarden.</span></li>
+    <li>A river winding between grassy banks with birch trees, pale hills behind &mdash; AI-generated illustration, not a period drawing (SDXL base 1.0, seed 402)
+      <span>Prompt: medieval manuscript marginal drawing, pen and brown ink outline with flat muted wash in ochre umber and faded green, aged cream parchment, simple flat perspective, a row of flat stepping stones crossing a shallow stream in the foreground, reeds, birch trees on the far bank, misty pale hills in the distance, nothing else, no text, no lettering, no border, no frame Used in: Bower, and Pluscarden, A tale credited to Leighton.</span></li>
+  </ol>
+  </div>
+  </div>
+
+  <div class="foot col">
+  <p class="credit"><b>Unsolved Scotland is a kilted.scot production</b> &mdash; written by a human,
+  narrated by an AI clone of their own voice.</p>
+  <p class="credit">Not affiliated with or endorsed by the National Library of Scotland, or any author or publication named.</p>
+  <small>Episode notes are corrected in place when a source changes; corrections are dated at the foot of
+  the entry they affect.</small>
+  </div>
+</div>
+<script>
+if ('IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-motion');
+  var lrowObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        lrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.art .lrow').forEach(function (row) { lrowObserver.observe(row); });
+}
+</script>
+</body></html>
