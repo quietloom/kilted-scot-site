@@ -79,12 +79,13 @@
     "number": 8,
     "place": "Pittenweem",
     "slug": "10-pittenweem",
-    "title": "Pittenweem, Fife",
-    "summary": "A Just Along Here episode on Pittenweem, Fife. Coming soon.",
-    "status": "announced",
-    "thumbnail": null,
-    "url": null,
-    "publishedDate": null
+    "title": "Pittenweem, Fife | Mediaeval Roots, Part 1",
+    "summary": "A fishing village on the East Neuk coast of Fife. HES gives the harbour a mediaeval origin and says the name means “place of the cave”.",
+    "status": "published",
+    "thumbnail": "https://img.youtube.com/vi/sgFpOIJqz2M/maxresdefault.jpg",
+    "url": "https://youtu.be/sgFpOIJqz2M",
+    "notesUrl": "/just-along-here/10-pittenweem/",
+    "publishedDate": "2026-11-09"
   },
   {
     "number": 6,
