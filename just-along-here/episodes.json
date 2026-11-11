@@ -84,6 +84,7 @@
     "status": "published",
     "thumbnail": "https://img.youtube.com/vi/sgFpOIJqz2M/maxresdefault.jpg",
     "url": "https://youtu.be/sgFpOIJqz2M",
+    "moreVideos": [{"label": "Part 2", "url": "https://youtu.be/YM0KDzvAZPs"}],
     "notesUrl": "/just-along-here/10-pittenweem/",
     "publishedDate": "2026-11-09"
   },
