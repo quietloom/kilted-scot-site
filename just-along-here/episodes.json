@@ -178,5 +178,16 @@
     "thumbnail": null,
     "url": null,
     "publishedDate": null
+  },
+  {
+    "number": 16,
+    "place": "Aberdour Castle",
+    "slug": "23-aberdour-castle",
+    "title": "Aberdour Castle, Fife | A Doorway Dated 1632",
+    "summary": "Aberdour Castle, Fife, 18.9 miles by road from Edinburgh. Historic Environment Scotland records a doorway in the walled garden dated 1632, with the monogram WAM under a carved coronet.",
+    "status": "announced",
+    "thumbnail": null,
+    "url": null,
+    "publishedDate": null
   }
 ]
